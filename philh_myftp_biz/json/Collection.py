@@ -3,6 +3,8 @@ from contextlib import contextmanager
 from ..file import _Template as File
 from json import dumps
 
+_NO_VALUE = object()
+
 class Collection[T, STRUCT]:
 
     _default: STRUCT
@@ -48,7 +50,10 @@ class Collection[T, STRUCT]:
         finally:
             self.save(data)
     
-    def save(self, data: STRUCT | 'Collection[T, STRUCT]') -> None:
+    def save(self, data: STRUCT | 'Collection[T, STRUCT]'=_NO_VALUE) -> None:
+
+        if data is _NO_VALUE:
+            data = self.read()
 
         if isinstance(data, Collection):
             data = data.read()
