@@ -162,8 +162,8 @@ class Path:
 
     @property
     def is_empty(self) -> bool:
-        """Check if the current directory has any children"""
-        return (next(self.children, None) is None)
+        """Recursively check if the current directory contains any files"""
+        return not any((i.is_file for i in self.descendants))
 
     @cached_property
     def parent(self) -> 'Path':
