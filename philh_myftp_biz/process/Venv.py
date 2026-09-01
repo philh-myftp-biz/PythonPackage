@@ -1,7 +1,8 @@
 from .SubProcess import TerminalMap, _TerminalMap
+from functools import cached_property
 from ..pc.Path import Path
 
-pypaths = [
+_exepaths = [
     "/Scripts/python.exe",
     "/python.exe"
 ]
@@ -9,15 +10,16 @@ pypaths = [
 class SubVenv(Path):
     """Set Venv for SubProcess"""
 
-    def enable(self):
-
-        pyexe = next(filter(
+    @cached_property
+    def exe(self) -> Path:
+        return next(filter(
             lambda p: p.exists,
-            [self.child(p) for p in pypaths]
+            (self.child(p) for p in _exepaths)
         ))
 
-        TerminalMap['py']['args'] = [pyexe.path]
-        TerminalMap['pym']['args'] = [pyexe.path, '-m']
+    def enable(self):
+        TerminalMap['py']['args'] = [self.exe.path]
+        TerminalMap['pym']['args'] = [self.exe.path, '-m']
 
     def disable(self): 
         TerminalMap['py']  = _TerminalMap['py']

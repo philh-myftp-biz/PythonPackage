@@ -145,30 +145,28 @@ class Module(Path):
         show: bool = True
     ) -> None:
         """Automatically install all dependencies"""
+        from subprocess import run, PIPE as std
+        from sys import executable as exe
         from shlex import split
 
-        if show:
-            from ..process import Run
-        else:
-            from ..process import RunHidden as Run
-
-        self.venv and self.venv.enable()
+        if show: std = None
+        if self.venv: exe = self.venv.exe.path
 
         self.repo and self.repo.update_submodules(force=True)
 
         # Upgrade all python packages
         for pkg in self.packages:
-            
-            Run(
-                'pip', 'install',
-                *split(pkg),
-                '--user',
-                '--no-warn-script-location', 
-                '--upgrade',
-                terminal = 'pym'
+            run(
+                args = [
+                    exe, '-m', 'pip',
+                    'install', *split(pkg),
+                    '--user',
+                    '--no-warn-script-location', 
+                    '--upgrade'
+                ],
+                stdout = std,
+                stderr = std
             )
-
-        self.venv and self.venv.disable()
 
     @cached_property
     def repo(self):
