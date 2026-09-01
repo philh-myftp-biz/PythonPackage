@@ -154,6 +154,8 @@ class Module(Path):
 
         self.venv and self.venv.enable()
 
+        self.repo and self.repo.update_submodules(force=True)
+
         # Upgrade all python packages
         for pkg in self.packages:
             

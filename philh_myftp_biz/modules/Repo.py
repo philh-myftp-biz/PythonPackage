@@ -58,5 +58,15 @@ class Repo:
     def changes(self) -> int:
         return len(self.diff(self.head.commit))
     
-    def update_submodules(self) -> None:
-        self._repo.git.submodule('update', '--remote', '--recursive', '--init')
+    def update_submodules(self, *,
+        remote: bool = True,
+        force: bool = False,
+    ) -> None:
+
+        args = ['update', '--recursive', '--init']
+
+        if remote: args += ['--remote']
+        if force: args += ['--force']
+        
+        self._repo.git.submodule(*args)
+
