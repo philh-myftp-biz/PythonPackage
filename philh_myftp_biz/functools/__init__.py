@@ -1,4 +1,4 @@
-from typing import Any, Callable, Type
+from typing import Any, Callable, Type, TYPE_CHECKING, cast
 
 from .Absorber import Absorber, NullSafe # pyright: ignore[reportUnusedImport]
 from .SharedBuffer import SharedBuffer # pyright: ignore[reportUnusedImport]
@@ -8,6 +8,9 @@ from .paths import cpath, spath # pyright: ignore[reportUnusedImport]
 from .cache import TransitoryCache, cached_property, clear_cache, diskcache # pyright: ignore[reportUnusedImport]
 from .force_types import force_in_types, force_out_type # pyright: ignore[reportUnusedImport]
 from .supports import *
+
+if TYPE_CHECKING:
+    from ..pc import Path
 
 def is_iterable(obj) -> bool:
     """*Ignores strings"""
@@ -107,7 +110,17 @@ def singleton[T](
 ) -> T:
     return cls()
 
-#========================================================
+@force_in_types
+def remport[T](
+    file: 'Path',
+    type: type[T] = Any
+) -> T:
+    """Remotely Import Python File"""
+    import importlib.util
+    spec = importlib.util.spec_from_file_location(file.name, file.path)
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return cast(type, mod)
 
 def return_type[T](func: Callable[..., T]) -> None | Type[T]:
     from inspect import getsource
