@@ -25,7 +25,13 @@ def force_in_types(func):
         # Coerce input parameter types
         for name, value in bargs.arguments.items():
             etype = func.__annotations__.get(name)
-            if etype and not isinstance(value, etype):
+
+            try:
+                dowrap = etype and not isinstance(value, etype)
+            except TypeError:
+                dowrap = False
+
+            if dowrap:
                 bargs.arguments[name] = etype(value)
 
         # Execute the function with coerced arguments
