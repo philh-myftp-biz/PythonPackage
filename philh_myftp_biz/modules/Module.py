@@ -1,3 +1,4 @@
+from functools import cached_property
 from typing import TYPE_CHECKING
 from ..pc import Path
 
@@ -166,3 +167,13 @@ class Module(Path):
             )
 
         self.venv and self.venv.disable()
+
+    @cached_property
+    def repo(self):
+        from .Repo import Repo, InvalidRepoError
+
+        try:
+            return Repo(self)
+        except InvalidRepoError:
+            pass
+

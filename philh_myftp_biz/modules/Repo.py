@@ -1,3 +1,4 @@
+from git.exc import InvalidGitRepositoryError as InvalidRepoError
 from ..pc import Path
 
 class Repo:
