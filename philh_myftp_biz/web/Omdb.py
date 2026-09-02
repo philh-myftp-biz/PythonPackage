@@ -96,10 +96,13 @@ def show(
 
         r2: dict = _get_tmdb(f'/tv/{show.tmdb_id}/season/{s}')
 
+        if r2.get('episodes') is None:
+            continue
+
         show.Seasons [f'{s:02d}'] = {}
 
         # Iterate through the episodes in the season
-        for e in r2.get('episodes', []):
+        for e in r2['episodes']:
 
             episode = EpisodeData(
                 Title = e['name'],
