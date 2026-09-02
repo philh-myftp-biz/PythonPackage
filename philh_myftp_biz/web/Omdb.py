@@ -59,6 +59,7 @@ def movie(title:str, year:int) -> None | MovieData:
         
         m = MovieData(
             Title = r['Title'],
+            imdb_id = r['imdbID'],
         )
 
         try:
@@ -82,22 +83,18 @@ def show(
     show = ShowData(
         Seasons = {},
         Title = title,
+        imdb_id = r1['imdbID'],
     )
     
     try:
         show.Released = from_ymdhms(year=year)
     except TypeError:
         pass
-
-    tmdb_id: list[dict] = _get_tmdb(
-        path = f'/find/{r1['imdbID']}', 
-        external_source = 'imdb_id'
-    ) ['tv_results'] [0] ['id']
     
     # Iter through all seasons by #
     for s in range(0, int(r1['totalSeasons'])+1):
 
-        r2: dict = _get_tmdb(f'/tv/{tmdb_id}/season/{s}')
+        r2: dict = _get_tmdb(f'/tv/{show.tmdb_id}/season/{s}')
 
         show.Seasons [f'{s:02d}'] = {}
 
