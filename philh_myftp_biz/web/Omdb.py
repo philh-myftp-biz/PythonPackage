@@ -90,9 +90,14 @@ def show(
         show.Released = from_ymdhms(year=year)
     except TypeError:
         pass
+
+    try:
+        total_seasons = int( r1['totalSeasons'] )
+    except ValueError:
+        total_seasons = 0
     
     # Iter through all seasons by #
-    for s in range(0, int(r1['totalSeasons'])+1):
+    for s in range(0, total_seasons+1):
 
         r2: dict = _get_tmdb(f'/tv/{show.tmdb_id}/season/{s}')
 
