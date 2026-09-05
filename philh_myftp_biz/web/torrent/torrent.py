@@ -131,7 +131,8 @@ class Torrent:
 
     @Log.on_call
     def stop(self, rm_files:bool=True) -> None:
-        return self.raw.delete(delete_files=rm_files)
+        if self.exists:
+            self.raw.delete(delete_files=rm_files)
 
     @Log.on_call
     def start(self) -> None:
