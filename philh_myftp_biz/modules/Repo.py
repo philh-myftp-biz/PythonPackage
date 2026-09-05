@@ -18,8 +18,6 @@ class Repo:
 
         self.commit = self._repo.index.commit
 
-        self.rm   = self._repo.git.rm
-
         self.head = self._repo.head
 
         self.init = self._repo.init
@@ -34,10 +32,22 @@ class Repo:
         """Unstage all files"""
 
     def refresh(self):
+        self.rm('.', recurse=True, force=True, cached=True)
+        self.add('.')
 
-        self.rm('-r', '--cached', '.')
+    def rm(self, 
+        path: str,
+        *,
+        cached: bool = False,
+        recurse: bool = True,
+        force: bool = False
+    ):
+        flags = []
+        if cached:  flags += ['--cached']
+        if recurse: flags += ['-r']
+        if force:   flags += ['-f']
 
-        self.add(['.'])
+        self._repo.git.rm(*flags, path)
 
     def focus(self, path:str):
 
@@ -49,10 +59,7 @@ class Repo:
 
     def add(self, path:str):
         """Stage specific subfolder"""
-
-        abs = self.path.child(path)
-
-        self._repo.git.add(str(abs))
+        self._repo.git.add(path)
 
     @property
     def changes(self) -> int:
