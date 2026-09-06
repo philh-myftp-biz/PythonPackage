@@ -183,6 +183,7 @@ class Path:
 
     def delete(self) -> None:
         from ..terminal import Log
+        from .. import VERBOSE
 
         if self.is_dir:
             from shutil import rmtree as delete
@@ -191,7 +192,9 @@ class Path:
 
         if self.exists:
 
+            VERBOSE.pause()
             self.set_access.full()
+            VERBOSE.resume()
 
             Log.VERB(f'Deleting: {self}')
 
