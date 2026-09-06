@@ -1,3 +1,4 @@
+from ...functools.cache import TransitoryCache
 from typing import TYPE_CHECKING, Generator
 from .torrent import Torrent
 from ...terminal import Log
@@ -10,6 +11,9 @@ url = URL("https://thepiratebay11.com/search/{}/1/99/200")
 
 driver: Driver = None
 
+
+cache: TransitoryCache[list[Torrent]] = TransitoryCache('__tpb__')
+
 @Log.on_call
 def search(*queries:str) -> Generator[Torrent]:
     """Search thePirateBay for magnets"""
@@ -19,14 +23,17 @@ def search(*queries:str) -> Generator[Torrent]:
         yield from _search(q.replace('.', '').replace("'", ''))
         yield from _search(q.replace('.', ' ').replace("'", ' '))
 
-def _search(query:str) -> Generator[Torrent]:
+def _search(query:str) -> list[Torrent]:
     """Search thePirateBay for magnets"""
     from ...time import from_string
     from .name import NameParser
     from .torrent import Torrent
     from ...db import Size
 
-    global driver, url
+    global driver, url, cache
+
+    if query in cache:
+        return cache[query] # pyright: ignore[reportReturnType]
 
     if driver is None:
         driver = Driver()
@@ -38,6 +45,8 @@ def _search(query:str) -> Generator[Torrent]:
         driver.run("window.lines = document.getElementById('searchResult').children[1].children", False)
     except RuntimeError:
         return []
+
+    results = []
 
     # Iter from 0 to # of lines
     for x in range(0, driver.run('return lines.length')):
@@ -67,8 +76,11 @@ def _search(query:str) -> Generator[Torrent]:
             elif 'show' in _type:
                 t.type = 'Show'
 
-            yield t
+            results += [t]
 
         except (KeyError, RuntimeError):
             Log.VERB(exc_info=True)
+
+    cache[query] = results
+    return results
 
