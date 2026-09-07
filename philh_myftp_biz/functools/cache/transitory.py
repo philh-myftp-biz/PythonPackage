@@ -1,15 +1,15 @@
 from ..supports import SupportsStr, SupportsJSON
 from typing import TYPE_CHECKING, TypedDict
-from ...json.Dict import Dict
+from time import perf_counter
 
 if TYPE_CHECKING:
-    from ...time import Timeout
+    from ...json import Dict
 
 class CachedItem[T](TypedDict):
-    time: 'Timeout'
+    created: float
     value: T
 
-class TransitoryCache[T](Dict[CachedItem[T]]):
+class TransitoryCache[T]:
 
     def __init__(self, 
         id: SupportsStr = 0, 
@@ -19,55 +19,34 @@ class TransitoryCache[T](Dict[CachedItem[T]]):
 
         self.expire = expire
 
-        file = loc.temp.child(f'TransitoryCache-{id}.pkl')
+        file = loc.cache.child(f'TransitoryCache-{id}.pkl')
         self.clear = file.delete
+        self._pkl = file.PKL
 
-        super().__init__(file.PKL)
+    @property
+    def _dict(self) -> 'Dict[CachedItem]':
 
-    def _repair(self) -> None:
-        from _pickle import UnpicklingError
-        
-        try:
-            self.read()
-        except (EOFError, UnpicklingError):
-            self.save({})
+        data: dict[str, CachedItem] = self._pkl.read() or {}
 
-    def __getitem__(self, key:SupportsJSON) -> T | None:
-        from ...json import dumps
+        now = perf_counter()
 
-        _key = dumps(key)
+        for key, item in data.items():
+            if (now - item['created']) >= self.expire:
+                del data[key]
 
-        self._repair()
+        self._pkl.save(data)
 
-        item = super().__getitem__(_key)
-         
-        if item is None:
-            pass
+        return self._pkl.Dict
 
-        elif item['time'].timed_out:
-            super().__delitem__(_key)
-
-        else:
-            return item['value'] # pyright: ignore[reportReturnType]
-            
+    def __getitem__(self, key:SupportsJSON) -> T:
+        return self._dict.read() [key] ['value']
+    
     def __setitem__(self, key:SupportsJSON, value:T) -> None:
-        from ...time import Timeout
-        from ...json import dumps
-
-        self._repair()
-
-        super().__setitem__(
-            key = dumps(key), 
-            value = {
-                'time': Timeout(self.expire),
-                'value': value
-            }
-        )
+        self._dict[key] = {
+            'created': perf_counter(),
+            'value': value
+        }
 
     def __contains__(self, key:SupportsJSON) -> bool:
-        from ...json import dumps
-
-        self._repair()
-
-        return super().__contains__(dumps(key))
+        return (key in self._dict.read())
 
