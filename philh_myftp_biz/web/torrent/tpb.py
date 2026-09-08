@@ -11,7 +11,6 @@ url = URL("https://thepiratebay11.com/search/{}/1/99/200")
 
 driver: Driver = None
 
-
 cache: TransitoryCache[list[Torrent]] = TransitoryCache('__tpb__')
 
 @Log.on_call
@@ -33,7 +32,7 @@ def _search(query:str) -> list[Torrent]:
     global driver, url, cache
 
     if query in cache:
-        return cache[query] # pyright: ignore[reportReturnType]
+        return cache[query]
 
     if driver is None:
         driver = Driver()

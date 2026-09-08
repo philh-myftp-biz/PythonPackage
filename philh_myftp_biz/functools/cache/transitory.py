@@ -30,7 +30,7 @@ class TransitoryCache[T]:
 
         now = perf_counter()
 
-        for key, item in data.items():
+        for key, item in data.copy().items():
             if (now - item['created']) >= self.expire:
                 del data[key]
 
