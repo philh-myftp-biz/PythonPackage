@@ -1,6 +1,7 @@
 from typing import Literal, Generator, TYPE_CHECKING, Any
 from functools import cached_property
 from dataclasses import dataclass
+from ._Path import _Path
 from .. import file
 
 if TYPE_CHECKING:
@@ -8,9 +9,7 @@ if TYPE_CHECKING:
 
 #========================================================
 
-class Path:
-
-    path: str
+class Path(_Path):
     
     def __enter__(self) -> None:
         self._with_cd = self.cd
@@ -20,63 +19,12 @@ class Path:
         if hasattr(self, '_with_cd'):
             self._with_cd.back()
     
-    @staticmethod
-    def _parse(path:Any) -> str:
-        from os import path as _path
-
-        if isinstance(path, Path):
-            fpath = path.path
-        elif hasattr(path, 'as_posix'):
-            fpath = path.as_posix()
-        else:
-            fpath = str(path)
-
-        fpath = _path.abspath(fpath)
-        fpath: str = fpath.replace('\\', '/')
-        
-        while '//' in fpath:
-            fpath = fpath.replace('//', '/')
-
-        if _path.isdir(fpath) and (fpath[-1] != '/'):
-            fpath += '/'
-
-        return fpath
-
     def __init__(self, path:Any) -> None:
-        from pathlib import Path as PurePath
-
-        self.path = self._parse(path)
-        self.wpath: str = self.path.replace('/', '\\')
-
-        self._pure = PurePath(self.path)
+        super().__init__(path)
 
         self.set_access = _set_access(self)
         self.mtime = _mtime(self)
         self.visibility = _visibility(self)
-
-        if self._pure.stem.startswith('.'):
-            self.name = ""
-            self.ext = self._pure.stem
-        else:
-            self.name = self._pure.stem
-            self.ext = self._pure.suffix
-
-        self.ext = self.ext.strip('.').lower()
-
-    @property
-    def exists(self) -> bool:
-        return self._pure.exists()
-    
-    @cached_property
-    def is_file(self) -> bool:
-        return self._pure.is_file()
-    
-    @cached_property
-    def is_dir(self) -> bool:
-        return self.path[-1]=='/' or self._pure.is_dir()
-
-    __str__ = lambda s: s.path
-    __repr__ = __str__
 
     @property
     def ctime(self):
