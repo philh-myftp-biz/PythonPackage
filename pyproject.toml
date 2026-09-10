@@ -1,12 +1,15 @@
 [build-system]
-requires = [ "hatchling", "hatch-requirements-txt",]
-build-backend = "hatchling.build"
+requires = ["setuptools>=74.1"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "philh_myftp_biz"
 version = "v2026.09.09"
-dynamic = [ "dependencies",]
 requires-python = ">=3.12"
+dynamic = ["dependencies"]
+
+[tool.setuptools.dynamic]
+dependencies = {file = ["requirements.txt"]}
 
 [tool.ruff]
 target-version = "py312"
@@ -14,11 +17,9 @@ target-version = "py312"
 [tool.ruff.lint]
 ignore = [ "F401", "E731", "E402", "E701", "E722", "F403",]
 
-[tool.hatch.build]
-artifacts = [ "**/*.pyd", "**/*.pyi",]
+[tool.setuptools.packages]
+find = { namespaces = true }
 
-[tool.hatch.build.targets.wheel]
-packages = [ "philh_myftp_biz",]
+[tool.setuptools.package-data]
+"*" = ["*.pyd"]
 
-[tool.hatch.metadata.hooks.requirements_txt]
-files = [ "requirements.txt",]

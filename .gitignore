@@ -1,3 +1,7 @@
 tempCodeRunnerFile.bat
 .ruff_cache
 **/__pycache__
+build
+philh_myftp_biz.egg-info
+**.pyd
+

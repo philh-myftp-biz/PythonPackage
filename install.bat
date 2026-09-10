@@ -1,9 +1,9 @@
 @echo off
-
+cls
 cd /d "%~dp0"
 
 :: Install/Update Package
-pip install --upgrade .
+pip install --upgrade . || exit /b 1
 
 :: Locate package directory using pip
 for /f "delims=" %%i in ('pip show philh_myftp_biz ^| findstr "Location:"') do set "DIR=%%i"
