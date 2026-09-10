@@ -159,8 +159,7 @@ class _Formatter(__Formatter):
     def format(self,
         record: '__LogRecord'
     ) -> str:
-        from .text import recode
-        from .time import now
+        from datetime import datetime
         from .db import Color
         
         # Ignore records from other modules
@@ -169,9 +168,8 @@ class _Formatter(__Formatter):
 
         #===============================================
 
-        n = now()
-
-        TIME = n.stamp(format='%y/%m/%d %H:%M:%S') + f'.{n.centisecond:02d}'
+        n = datetime.now()
+        TIME = n.strftime('%y/%m/%d %H:%M:%S') + f'.{int(n.microsecond / 10000):02d}'
 
         FILE = self._file()
 
@@ -186,13 +184,12 @@ class _Formatter(__Formatter):
         # output
 
         try:
-            
             # Write to the logfile
             with self._wfile.open('a') as f:
 
                 line = f"\n{TIME} {FILE} {LEVEL}\n{MESS}\n{TRACE}"
                 
-                f.write(recode(line))
+                f.write(line.encode().decode())
         
         except OSError:
             pass
@@ -204,7 +201,7 @@ class _Formatter(__Formatter):
             # Return a string to be printed to the terminal
             line = f"\n{COLOR}\033[1m{TIME} {FILE} {LEVEL}\033[22m\n{MESS}\033[0m\n{TRACE}"
 
-            return recode(line)
+            return line.encode().decode()
         
         else:
             return ''
