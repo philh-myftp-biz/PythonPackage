@@ -56,7 +56,13 @@ class _Template:
     def save(self, data:Any):
         """Write data to the file"""
 
-        self._save(data)
+        _data = self.read()
+
+        try:
+            self._save(data)
+        except Exception as e:
+            self._save(_data)
+            raise e from None
 
     @property
     def raw(self) -> bytes:
