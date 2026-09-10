@@ -42,20 +42,21 @@ class _Template:
 
     parsed: Any
 
-    save = Callable[[Any], None]
-    """Write data to the file"""
+    _read = Callable[[], Any]
+    _save = Callable[[Any], None]
 
     def read(self):
         """Read data from the file"""
 
         if self.path.exists:
-
-            value = self.parsed
-
-            if value is not None:
-                return value
+            return self._read()
         
         return self.default
+
+    def save(self, data:Any):
+        """Write data to the file"""
+
+        self._save(data)
 
     @property
     def raw(self) -> bytes:
@@ -81,15 +82,14 @@ class _Template:
 class XML(_Template):
     """.XML File"""
 
-    @property
-    def parsed(self) -> dict:
+    def _read(self) -> dict:
         from xmltodict import parse
 
         with self.path.open() as f:
 
             return parse(f.read())
 
-    def save(self,
+    def _save(self,
         data: dict
     ) -> None:
         from xmltodict import unparse
@@ -103,14 +103,13 @@ class XML(_Template):
 class PKL(_Template):
     """.PKL File"""
 
-    @property
-    def parsed(self):
+    def _read(self):
         from dill import load
         
         with self.path.open('rb') as f:
             return load(f)
 
-    def save(self,
+    def _save(self,
         value: Any
     ) -> None:
         from dill import dump
@@ -166,13 +165,12 @@ class VHDX:
 class JSON(_Template):
     """.JSON File"""
 
-    @property
-    def parsed(self):
+    def _read(self):
         from json import load
 
         return load(fp=self.path.open())
 
-    def save(self, data: dict) -> None:
+    def _save(self, data: dict) -> None:
         from json import dump
 
         dump(
@@ -184,13 +182,12 @@ class JSON(_Template):
 class INI(_Template):
     """.INI/.PROPERTIES File"""
     
-    @property
-    def parsed(self):
+    def _read(self):
         from configobj import ConfigObj
         
         return ConfigObj(str(self.path)).dict()
          
-    def save(self, data:dict) -> None:
+    def _save(self, data:dict) -> None:
         from configobj import ConfigObj
 
         obj = ConfigObj(str(self.path))
@@ -203,13 +200,12 @@ class INI(_Template):
 class YAML(_Template):
     """.YML/.YAML File"""
     
-    @property
-    def parsed(self):
+    def _read(self):
         from yaml import safe_load
 
         return safe_load(self.raw)
     
-    def save(self, data:dict) -> None:
+    def _save(self, data:dict) -> None:
         from yaml import dump
 
         dump(
@@ -222,12 +218,11 @@ class YAML(_Template):
 class TXT(_Template):
     """.TXT File"""
     
-    @property
-    def parsed(self):
+    def _read(self):
         """Read data from the txt file"""
         return self.path.open(mode='r').read()
     
-    def save(self, data:str) -> None:
+    def _save(self, data:str) -> None:
         """Save data to the txt file"""
         self.path.open(mode='w').write(str(data))
 
@@ -288,14 +283,13 @@ class ZIP:
 class CSV(_Template):
     """.CSV File"""
 
-    @property
-    def parsed(self):
+    def _read(self):
         from csv import reader
 
         with self.path.open() as csvfile:
             return reader(csvfile)
 
-    def save(self, data:list[list]) -> None:
+    def _save(self, data:list[list]) -> None:
         from csv import writer
 
         with self.path.open('w') as csvfile:
@@ -304,14 +298,13 @@ class CSV(_Template):
 class TOML(_Template):
     """.TOML File"""
 
-    @property
-    def parsed(self):
+    def _read(self):
         from toml import load
 
         with self.path.open() as f:
             return load(f)
         
-    def save(self, data:dict) -> None:
+    def _save(self, data:dict) -> None:
         from tomli_w import dump
 
         with self.path.open('wb') as f:
