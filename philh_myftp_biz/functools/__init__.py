@@ -7,6 +7,7 @@ from .Partial import Partial # pyright: ignore[reportUnusedImport]
 from .paths import cpath, spath # pyright: ignore[reportUnusedImport]
 from .cache import TransitoryCache, cached_property, clear_cache, diskcache # pyright: ignore[reportUnusedImport]
 from .force_types import force_in_types, force_out_type # pyright: ignore[reportUnusedImport]
+from .pickle import Pickleable # pyright: ignore[reportUnusedImport]
 from .supports import *
 
 if TYPE_CHECKING:
