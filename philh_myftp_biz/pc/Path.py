@@ -318,6 +318,7 @@ class Path:
 
         if 'w' in mode:
             self.parent.mkdir()
+            self.visibility.show()
         
         return open(
             file = self.path, 
@@ -618,10 +619,10 @@ class _visibility:
             raise PermissionError(*e.args)
 
     @property
-    def hidden(self) -> bool:
+    def hidden(self) -> None | bool:
         from win32con import FILE_ATTRIBUTE_HIDDEN
         from win32file import GetFileAttributes
 
-        attrs = GetFileAttributes(str(self.path))
-
-        return bool(attrs & FILE_ATTRIBUTE_HIDDEN)
+        if self.path.exists:
+            attrs = GetFileAttributes(str(self.path))
+            return bool(attrs & FILE_ATTRIBUTE_HIDDEN)
