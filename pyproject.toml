@@ -22,3 +22,6 @@ file = [ "requirements.txt",]
 
 [tool.setuptools.packages.find]
 namespaces = true
+where = ["."]
+exclude = ["build*", "dist*", "tests*", "docs*"]
+
