@@ -142,7 +142,7 @@ class Service(Path):
 
     @cached_property
     def logfile(self) -> None | Path:
-        from ..pc import loc
+        from ..pc._loc import loc
 
         path = loc.temp.child('philh_myftp_biz.log')
 

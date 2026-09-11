@@ -1,8 +1,7 @@
-from functools import cached_property
 from typing import Literal, Generator
-from ..functools import singleton
 from .Path import Path, PathPair
-from sys import modules
+
+from ._loc import loc # pyright: ignore[reportUnusedImport]
 
 #========================================================
 
@@ -59,8 +58,6 @@ NAME: str
 
 OS: Literal['windows', 'unix']
 
-_self = modules[__name__]
-
 def __getattr__(attr:str):
     from socket import gethostname
     import os
@@ -76,40 +73,4 @@ def __getattr__(attr:str):
     raise AttributeError(f"module '{__name__}' has no attribute '{attr}'")
 
 #=================================
-# DIRs
 
-@singleton
-class loc:
-
-    @property
-    def temp(self) -> Path:
-        from tempfile import gettempdir
-
-        SERVER = Path('E:/__temp__/')
-
-        if SERVER.exists and (_self.NAME == 'PC-1'):
-            return SERVER
-        else:
-            return Path(gettempdir())
-
-    @cached_property
-    def script(self) -> Path:
-        from ..terminal import main_module
-
-        mod = main_module()
-
-        if hasattr(mod, '__file__'):
-            return Path(mod.__file__).parent
-        else:
-            return cwd()
-
-    @cached_property
-    def cache(self) -> Path:
-
-        path = self.script.child('/__pycache__/')
-
-        path.mkdir()
-
-        return path
-
-#========================================================

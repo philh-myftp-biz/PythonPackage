@@ -15,7 +15,7 @@ def temp(
 ) -> 'Path':
     """Get a random path in the temporary directory"""
     from .text import random
-    from .pc import loc
+    from .pc._loc import loc
 
     if id is None:
         _id = random(50)

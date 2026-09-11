@@ -69,7 +69,7 @@ def install_requirements(
     txtfile: Path = None
 ) -> None:
     from .process import RunHidden
-    from .pc import loc
+    from .pc._loc import loc
 
     if txtfile is None:
         txtfile = loc.script.child('requirements.txt')

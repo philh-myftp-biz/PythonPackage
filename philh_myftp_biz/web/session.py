@@ -33,7 +33,7 @@ class Session(_CachedSession):
         max_age: int = -1,
         adapter: Adapter = None
     ):
-        from ..pc import loc
+        from ..pc._loc import loc
 
         super().__init__(
             cache_name = loc.cache.child(f'{name}.sqlite').path,
