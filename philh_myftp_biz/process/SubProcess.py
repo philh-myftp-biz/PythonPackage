@@ -1,10 +1,9 @@
 from typing import Literal, TYPE_CHECKING, Any, TypedDict
-from ..functools import is_iterable
+from ..text.uio import UnconsumingIO
 from .Thread import ThreadedFunc
 from sys import executable
 
 if TYPE_CHECKING:
-    from ..text import UnconsumingIO
     from ..pc import Path
 
 class Terminal(TypedDict):
@@ -58,7 +57,6 @@ class SubProcess:
         dir: 'Path|None' = None
     ) -> None:
         from subprocess import Popen, PIPE
-        from ..text import UnconsumingIO
         from ..array import stringify
         from .SysTask import SysTask
         from ..terminal import Log
@@ -99,8 +97,8 @@ class SubProcess:
 
         # =====================================
 
-        self.stdout = UnconsumingIO(self._process.stdout, False)
-        self.stderr = UnconsumingIO(self._process.stderr, False)
+        self.stdout = UnconsumingIO(self._process.stdout)
+        self.stderr = UnconsumingIO(self._process.stderr)
 
         # =====================================
 
