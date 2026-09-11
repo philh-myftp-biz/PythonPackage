@@ -1,52 +1,30 @@
-from tempfile import gettempdir
-from setuptools import setup
-from subprocess import run
-from sys import executable
+from pybind11 import get_include
 from pathlib import Path
+from sys import platform
+import setuptools as st
 
-root = Path(__file__).parent.resolve()
+kw = {
+    'name': "philh_myftp_biz",
+    'packages': st.find_namespace_packages(exclude=["build*", "dist*", "tests*", "docs*"]),
+    'ext_modules': []
+}
 
-pybind = Path(gettempdir()) / "philh_myftp_biz-pybind"
+if platform == "win32":
+    extra_compile_args = ["/std:c++20", "/EHsc"]
+else:
+    extra_compile_args = ["-std=c++20"]
 
-mtime = lambda p: p.stat().st_mtime
+for cpp in Path(kw['name']).rglob("*.cpp"):
 
-pydfiles: list[tuple[Path, Path]] = []
-
-for src in (root / "philh_myftp_biz").rglob("*.cpp"):
-
-    dst = src.with_suffix(".pyd")
-
-    if dst.exists():
-        
-        _cfiles: list[Path] = [src, *src.parent.rglob("*.h"), *src.parent.rglob("*.hpp")]
-        
-        if any(mtime(h) > mtime(dst) for h in _cfiles):
-            continue
-
-    pydfiles += [(src, dst)]
-
-if len(pydfiles) > 0:
-    run([
-        "git", "clone",
-        "--depth", "1",
-        "https://github.com/MineFartS/pybind",
-        str(pybind)
-    ])
-
-compile_command = [
-    'Powershell.exe', 
-    '-File', f'{pybind}/build.ps1'
-]
-
-for src, dst in pydfiles:
-    run(
-        args = [
-            *compile_command,
-            '-Src', str(src),
-            '-Dst', str(dst),
-            '-Python', str(Path(executable).parent),
+    kw["ext_modules"] += [st.Extension(
+        name = cpp.as_posix().rsplit('.', 1)[0].replace('/', '.'),
+        sources = [cpp.as_posix()],
+        include_dirs = [
+            cpp.parent.as_posix(),
+            get_include()
         ],
-        check = True
-    )
+        extra_compile_args = extra_compile_args,
+        language = 'c++'
+    )]
 
-setup()
+st.setup(**kw)

@@ -3,15 +3,16 @@
 
 ---
 
-### Installation:
+### Nightly:
 
-<table>
-  <tr>
-    <td>Nightly</td>
-    <td><code>pip install philh_myftp_biz</code></td>
-  </tr>
-  <tr>
-    <td>Latest</td>
-    <td><code>pip install git+https://github.com/MineFartS/Server-PythonPackage</code></td>
-  </tr>
-</table>
+- Install the Prebuilt Package \
+    `pip install philh_myftp_biz`
+
+### Latest:
+
+- Download and install [Visual Studio](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Stable&version=VS18)
+    - Run the installer and select the **Desktop development with C++** workload.
+
+- Install & Build the Package \
+    `pip install git+https://github.com/MineFartS/Server-PythonPackage`
+

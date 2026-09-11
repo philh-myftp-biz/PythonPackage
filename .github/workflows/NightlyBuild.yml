@@ -8,14 +8,10 @@ on:
 jobs:
 
   scan-changes:
-    
     runs-on: ubuntu-latest
-
     outputs:
       has_changes: ${{ steps.verify.outputs.has_changes }}
-    
     steps:
-    
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
@@ -31,40 +27,104 @@ jobs:
             echo "has_changes=true" >> $GITHUB_OUTPUT
           fi
 
-  main:
-    runs-on: ubuntu-latest
+  # =======================================================
+  # 🛠️ JOB 1: NATIVE WINDOWS BUILD
+  # =======================================================
+  build-windows:
     needs: scan-changes
     if: needs.scan-changes.outputs.has_changes == 'true'
-  
-    permissions:
-      contents: write
-
+    runs-on: windows-latest
     steps:
-    
       - name: Checkout repository
         uses: actions/checkout@v4
-        with:
-          ref: ${{ github.ref || github.repository_default_branch }}
-
-      - name: Get Current Date
-        id: date
-        run: |
-          export TZ='America/New_York'
-          echo "ISO=$(date +'%Y.%m.%d')" >> $GITHUB_ENV 
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with: 
           python-version: '3.12'
 
-      - name: Initialize Python Packages
+      - name: Compile C++ Extensions In-Place
         run: |
-          pip install poetry toml
-          poetry lock
-          poetry install --no-root --no-interaction
+          python -m pip install --upgrade pip setuptools pybind11 build
+          python setup.py build_ext --inplace
+
+      - name: Build Windows wheel
+        run: python -m build
+
+      - name: Upload Windows Wheel Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-dist
+          path: dist/*.whl
+
+
+  # =======================================================
+  # 🛠️ JOB 2: CONTAINERIZED LINUX BUILD
+  # =======================================================
+  build-linux:
+    needs: scan-changes
+    if: needs.scan-changes.outputs.has_changes == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build and Repair Wheel inside Manylinux Container
+        run: |
+          docker run --rm -v ${{ github.workspace }}:/io quay.io/pypa/manylinux2014_x86_64 /bin/bash -c "
+            cd /io
+            /opt/python/cp312-cp312/bin/python -m pip install --upgrade pip setuptools pybind11 build
+            /opt/python/cp312-cp312/bin/python setup.py build_ext --inplace
+            /opt/python/cp312-cp312/bin/python -m build
+            auditwheel repair dist/*-linux_x86_64.whl -w dist/
+            rm dist/*-linux_x86_64.whl
+          "
+
+      - name: Upload Linux Wheels Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: linux-dist
+          path: dist/*manylinux*.whl
+
+
+  # =======================================================
+  # 🛠️ JOB 3: COMBINE, COMMIT VERSION, TAG COMMIT & PUBLISH
+  # =======================================================
+  publish:
+    needs: [build-windows, build-linux]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create combined deployment directory
+        run: mkdir -p dist
+
+      - name: Download Windows Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: windows-dist
+          path: dist/
+
+      - name: Download Linux Artifacts
+        uses: actions/download-artifact@v4
+        with:
+          name: linux-dist
+          path: dist/
+
+      - name: Get Current Date
+        id: date
+        shell: bash
+        run: |
+          export TZ='America/New_York'
+          echo "ISO=$(date +'%Y.%m.%d')" >> $GITHUB_ENV 
 
       - name: Update version in pyproject.toml
+        shell: bash
         run: |
+          python -m pip install toml
           python -c "
           from toml import load, dump
           with open('pyproject.toml', 'r') as f:
@@ -73,23 +133,44 @@ jobs:
           with open('pyproject.toml', 'w') as f:
               dump(data, f)
           "
-    
-      - name: Save Changes
+
+      # Step A: Commit the updated config file to the branch
+      - name: Save Changes & Commit Version Bump
+        id: commit_step
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Apply automatic changes
+          file_pattern: 'pyproject.toml'
+          skip_dirty_check: false 
 
-      - name: Create Release
-        uses: softprops/action-gh-release@v1
+      # Step B: Securely tag that specific commit locally and push it to GitHub
+      - name: Create and Push Git Tag Natively
+        run: |
+          git tag v${{ env.ISO }}
+          git push origin v${{ env.ISO }}
+
+      # Step C: Turn that pushed tag into a formal GitHub Release UI page
+      - name: Create GitHub Release
+        uses: actions/github-script@v7
         with:
-          tag_name: v${{ env.ISO }}
-          name: ${{ env.ISO }}
-          body: Automatic Nightly Build
-          prerelease: false
-          draft: false
+          script: |
+            try {
+              await github.rest.repos.createRelease({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                tag_name: 'v${{ env.ISO }}',
+                name: 'v${{ env.ISO }}',
+                body: 'Automatic Nightly Build',
+                draft: false,
+                prerelease: false
+              });
+            } catch (error) {
+              core.warning("Release configuration warning: " + error.message);
+            }
 
-      - name: Build package
-        run: poetry build
-
-      - name: Publish package to PyPI
-        run: poetry publish --username __token__ --password ${{ secrets.PYPI_API_TOKEN }}
+      - name: Publish all package distributions to PyPI
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
+          skip-existing: true
