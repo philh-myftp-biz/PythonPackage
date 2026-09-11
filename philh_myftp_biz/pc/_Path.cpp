@@ -24,8 +24,12 @@ class _Path { public:
         std::replace(wpath.begin(), wpath.end(), '/', '\\');
         
         _pure = fs::path(path);
-        
-        name = _pure.stem().string();
+
+        if (is_file()) {
+            name = _pure.stem().string();
+        } else if (is_dir()) {
+            name = _pure.parent_path().filename().string();
+        }
 
         ext = _pure.extension().string();
         if (!ext.empty() && ext.front() == '.')
