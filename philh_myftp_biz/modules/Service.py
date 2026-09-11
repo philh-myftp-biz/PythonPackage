@@ -142,10 +142,10 @@ class Service(Path):
 
     @cached_property
     def logfile(self) -> None | Path:
-        try:
-            return max(
-                self.child('__pylogs__').children,
-                key = lambda f: int(f.mtime)
-            )
-        except (ValueError, FileNotFoundError):
-            pass
+        from ..pc import loc
+
+        path = loc.temp.child('philh_myftp_biz.log')
+
+        if path.exists:
+            return path
+

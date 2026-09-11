@@ -111,14 +111,5 @@ class loc:
         path.mkdir()
 
         return path
-    
-    @cached_property
-    def logs(self) -> Path:
-
-        path = self.script.child('/__pylogs__/')
-
-        path.mkdir()
-
-        return path
 
 #========================================================
