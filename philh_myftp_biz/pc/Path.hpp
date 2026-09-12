@@ -12,8 +12,6 @@ class _Path { public:
 
     std::string path;
     std::string wpath;
-    std::string name;
-    std::string ext;
     fs::path _pure;
 
     _Path(py::object raw_path) {
@@ -24,17 +22,6 @@ class _Path { public:
         std::replace(wpath.begin(), wpath.end(), '/', '\\');
         
         _pure = fs::path(path);
-
-        if (is_file()) {
-            name = _pure.stem().string();
-        } else if (is_dir()) {
-            name = _pure.parent_path().filename().string();
-        }
-
-        ext = _pure.extension().string();
-        if (!ext.empty() && ext.front() == '.')
-            ext.erase(0, 1);
-        std::transform(ext.begin(), ext.end(), ext.begin(), ::tolower);
 
     }
 
@@ -72,16 +59,37 @@ class _Path { public:
         return fpath;
     }
 
+    std::string name() {
+        if (is_file()) {
+            return _pure.stem().string();
+        } else if (is_dir()) {
+            return _pure.parent_path().filename().string();
+        }
+    }
+
+    std::string ext() {
+        std::string _ext = _pure.extension().string();
+        if (!_ext.empty() && _ext.front() == '.')
+            _ext.erase(0, 1);
+        std::transform(_ext.begin(), _ext.end(), _ext.begin(), ::tolower);
+        return _ext;
+    }
+
     bool exists() const {
-        return fs::exists(path);
+        std::error_code ec;
+        return fs::exists(path, ec);
     }
 
     bool is_file() const {
-        return fs::is_regular_file(path);
+        std::error_code ec;
+        return fs::is_regular_file(path, ec);
     }
 
     bool is_dir() const {
-        return (!path.empty() && path.back() == '/') || fs::is_directory(path);
+        if (!path.empty() && path.back() == '/')
+            return true;
+        std::error_code ec;
+        return fs::is_directory(path, ec);
     }
 
     std::string __str__() const {
