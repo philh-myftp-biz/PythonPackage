@@ -4,4 +4,6 @@ tempCodeRunnerFile.bat
 build
 philh_myftp_biz.egg-info
 **.pyd
+**.pyi
+.mypy_cache
 
