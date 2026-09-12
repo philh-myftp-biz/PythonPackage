@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "philh_myftp_biz"
-version = "v2026.09.11"
+version = "v2026.09.12"
 requires-python = ">=3.12"
 dynamic = [ "dependencies",]
 
