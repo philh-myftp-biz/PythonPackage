@@ -24,7 +24,7 @@ class IArchive:
 
     @cached_property
     def _tmpdir(self) -> 'Path':
-        from ..pc import loc
+        from ..pc._pc import loc
         return loc.temp.child(self.id)
 
     @cached_property

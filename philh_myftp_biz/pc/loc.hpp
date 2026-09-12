@@ -16,8 +16,8 @@ private:
     }
 
     py::object _Path(const auto path) {
-        py::object _pkg = get_modules()["philh_myftp_biz"].attr("pc").attr("Path");
-        py::object cls = py::module_::import("philh_myftp_biz.pc.Path");
+        py::object mod = py::module_::import("philh_myftp_biz.pc.Path");
+        py::object cls = mod.attr("Path");
         return cls(py::str(path));
     }
 
@@ -59,13 +59,3 @@ public:
     }
 
 };
-
-PYBIND11_MODULE(_loc, m) {
-    
-    py::class_<_loc>(m, "_loc")
-        .def(py::init<>())
-        .def_property_readonly("temp", &_loc::get_temp)
-        .def_property_readonly("script", &_loc::get_script)
-        .def_property_readonly("cache", &_loc::get_cache);
-
-}

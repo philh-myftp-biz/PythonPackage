@@ -15,7 +15,7 @@ class TransitoryCache[T]:
         id: SupportsStr = 0, 
         expire: int = 18_000
     ) -> None:
-        from ...pc import loc
+        from ...pc._pc import loc
 
         self.expire = expire
 

@@ -1,7 +1,7 @@
 from typing import Literal, Generator, TYPE_CHECKING, Any
 from functools import cached_property
 from dataclasses import dataclass
-from ._Path import _Path
+from ._pc import _Path
 from .. import file
 
 if TYPE_CHECKING:

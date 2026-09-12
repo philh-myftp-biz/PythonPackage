@@ -1,7 +1,7 @@
 from typing import Literal, Generator
 from .Path import Path, PathPair
 
-from ._loc import _loc; loc = _loc()
+from ._pc import loc # pyright: ignore[reportUnusedImport]
 
 #========================================================
 

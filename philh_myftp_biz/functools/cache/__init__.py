@@ -20,7 +20,7 @@ class _diskcache:
         expire: int|None = None
     ):
         from diskcache import Cache
-        from ...pc import loc
+        from ...pc._pc import loc
 
         if not hasattr(self, 'cache'):
             self.cache = Cache(loc.cache.path)

@@ -89,22 +89,3 @@ class _Path { public:
     }
 
 };
-
-PYBIND11_MODULE(_Path, m) {
-
-    py::class_<_Path>(m, "_Path", py::dynamic_attr())
-        .def(py::init<py::object>())
-        .def_static("_parse", &_Path::_parse)
-        .def("__str__", &_Path::__str__)
-        .def("__repr__", &_Path::__str__)
-        .def_readonly("path", &_Path::path)
-        .def_readonly("wpath", &_Path::wpath)
-        .def_readonly("name", &_Path::name)
-        .def_readonly("ext", &_Path::ext)
-        .def_readonly("_pure", &_Path::_pure)
-        .def_property_readonly("exists", &_Path::exists)
-        .def_property_readonly("is_file", &_Path::is_file)
-        .def_property_readonly("is_dir", &_Path::is_dir);
-
-}
-
