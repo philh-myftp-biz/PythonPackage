@@ -68,7 +68,4 @@ PYBIND11_MODULE(_loc, m) {
         .def_property_readonly("script", &_loc::get_script)
         .def_property_readonly("cache", &_loc::get_cache);
 
-    // Bind instance as a singleton
-    m.attr("loc") = _loc();
-
 }
