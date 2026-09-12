@@ -11,8 +11,15 @@ class UnconsumingIO { public:
     str _buffer;
 
     UnconsumingIO(py::object stream) {
+        
+        if (py::isinstance<py::str>(stream)) {
+            py::object cls = py::module_::import("io").attr("StringIO");
+            stream = cls(stream);
+        }
+        
         this->_stream = stream;
         this->_buffer = "";
+    
     }
 
     void write(const str& data) {

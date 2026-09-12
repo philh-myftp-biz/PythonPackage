@@ -155,10 +155,9 @@ class SubProcess:
     @ThreadedFunc
     def __print(self) -> None:
         from ..terminal import write
-
         while self.running:
-            write(self.stdout._read(), 'out', True)
-            write(self.stderr._read(), 'err', True)
+            write(self.stdout.read(), 'out', True)
+            write(self.stderr.read(), 'err', True)
 
 class Run(SubProcess):
     _hide = False
