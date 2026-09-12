@@ -1,10 +1,13 @@
 from psutil import process_iter, NoSuchProcess, AccessDenied
 from psutil import Process as _Process
 from functools import cached_property
-from cpulimiter import CpuLimiter
-from typing import Iterator
+from typing import TYPE_CHECKING
 
-AccessErrors = (AccessDenied, NoSuchProcess)
+if TYPE_CHECKING:
+    from cpulimiter import CpuLimiter
+    from ..pc.Path import Path
+
+AccessErrors: tuple[Exception, ...] = (AccessDenied, NoSuchProcess)
 
 def rscan(
     mutable: bool = False
@@ -17,7 +20,7 @@ def rscan(
         except AccessErrors:
             pass
 
-cpu_limiter = CpuLimiter()
+cpu_limiter: 'CpuLimiter' = None
 
 class Process(_Process):
 
@@ -37,7 +40,7 @@ class Process(_Process):
         return (None not in [self.cwd, self.cmdline])
 
     @cached_property
-    def cwd(self):
+    def cwd(self) -> 'Path|None':
         from ..pc import Path
         try:
             return Path(super().cwd())
@@ -45,27 +48,33 @@ class Process(_Process):
             pass
 
     @cached_property
-    def cmdline(self):
+    def cmdline(self) -> list[str] | None:
         try:
             return super().cmdline()
         except AccessErrors:
             pass
 
     @property
-    def children(self):
+    def children(self) -> list[Process]:
         try:
-            return super().children()
+            return [Process(p.pid) for p in super().children()]
         except AccessErrors:
             return []
 
     @property
-    def descendants(self):
+    def descendants(self) -> list[Process]:
         try:
-            return super().children(recursive=True)
+            return [Process(p.pid) for p in super().children(recursive=True)]
         except AccessErrors:
             return []
 
-    def cpu_limit(self, percent:int=None):
+    def cpu_limit(self, percent:int=None) -> None:
+        from cpulimiter import CpuLimiter
+
+        global cpu_limiter
+
+        if cpu_limiter is None:
+            cpu_limiter = CpuLimiter()
         
         if percent is None:
             return # TODO return current percent
@@ -133,27 +142,33 @@ class SysTask:
                 elif self.pat and fnmatch(pname, self.pat):
                     return Process(proc.pid)
 
-    def __iter__(self) -> Iterator[Process]:
-        
-        main = self._main
+    @property
+    def procs(self) -> list[Process]:
 
-        if main:
-            return iter(filter(
-                lambda p: p.is_running(),    
-                reversed([main, *main.descendants])
-            ))
-        
-        else:
-            return iter([])
+        _procs: list[Process] = []
+
+        if (main := self._main):
+            _procs = [main, *main.descendants]
+
+        return list(filter(
+            lambda p: p.is_running(),
+            _procs
+        ))
 
     def stop(self) -> None:
-        for p in self:
+        for p in reversed(self.procs):
             p.terminate()
+
+    def wait(self) -> None:
+        while self.exists:
+            self.procs[0].wait()
 
     @property
     def exists(self) -> bool:
-        return len(list(self)) > 0
+        return len(self.procs) > 0
     
     @property
-    def PIDs(self):
-        yield from (p.pid for p in self)
+    def PIDs(self) -> list[int]:
+        return [p.pid for p in self.procs]
+
+
