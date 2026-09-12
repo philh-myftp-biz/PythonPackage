@@ -17,10 +17,10 @@ class SubVenv(Path):
             (self.child(p) for p in _exepaths)
         ))
 
-    def enable(self):
-        TerminalMap['py']['args'] = [self.exe.path]
-        TerminalMap['pym']['args'] = [self.exe.path, '-m']
+    def enable(self) -> None:
+        TerminalMap['py']['args'] = (self.exe.path,)
+        TerminalMap['pym']['args'] = (self.exe.path, '-m')
 
-    def disable(self): 
+    def disable(self) -> None: 
         TerminalMap['py']  = _TerminalMap['py']
         TerminalMap['pym'] = _TerminalMap['pym']

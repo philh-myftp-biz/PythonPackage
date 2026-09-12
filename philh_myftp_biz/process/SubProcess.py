@@ -2,49 +2,50 @@ from typing import Literal, TYPE_CHECKING, Any, TypedDict
 from ..text.uio import UnconsumingIO
 from .Thread import ThreadedFunc
 from sys import executable
+from copy import deepcopy
 
 if TYPE_CHECKING:
     from ..pc import Path
 
 class Terminal(TypedDict):
-    args: list[str]
-    exts: list[str]
+    args: tuple[str, ...]
+    exts: tuple[str, ...]
 
-TerminalMap: dict[str, Terminal] = {
+_TerminalMap: dict[str, Terminal] = {
 
     'cmd': {
-        'args': ['cmd', '/c'],
-        'exts': ['exe', 'bat']
+        'args': ('cmd', '/c'),
+        'exts': ('exe', 'bat')
     },
 
     'ps': {
-        'args': ['Powershell', '-Command'],
-        'exts': []
+        'args': ('Powershell', '-Command'),
+        'exts': ()
     },
 
     'psfile': {
-        'args': ['Powershell', '-File'],
-        'exts': ['ps1']
+        'args': ('Powershell', '-File'),
+        'exts': ('ps1',)
     },
 
     'py': {
-        'args': [executable],
-        'exts': ['py']
+        'args': (executable,),
+        'exts': ('py',)
     },
 
     'pym': {
-        'args': [executable, '-m'],
-        'exts': []
+        'args': (executable, '-m'),
+        'exts': ()
     },
 
     'vbs': {
-        'args': ['wscript'],
-        'exts': ['vbs']
+        'args': ('wscript',),
+        'exts': ('vbs',)
     }
 
 }
 
-_TerminalMap = TerminalMap.copy()
+TerminalMap = deepcopy(_TerminalMap)
 
 class SubProcess:
 
@@ -74,7 +75,7 @@ class SubProcess:
                 TerminalMap['cmd']
             )
 
-        args = _terminal['args'] + stringify(args)
+        args = [*_terminal['args'], *stringify(args)]
         
         # =====================================
 
@@ -105,7 +106,6 @@ class SubProcess:
         if not self._hide:
             self.__print()
 
-        # Wait for process to complete if required
         if self._wait:
             self.wait()
 
@@ -146,8 +146,9 @@ class SubProcess:
 
         state = self.__dict__.copy()
 
-        state['_process'] = None
-        state['send'] = None
+        state.pop('_process', 0)
+        state.pop('__print', 0)
+        state.pop('send', 0)
 
         return state
 
