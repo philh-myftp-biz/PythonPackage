@@ -1,3 +1,4 @@
+#pragma once
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include <filesystem>
@@ -6,6 +7,21 @@ namespace fs = std::filesystem;
 namespace py = pybind11;
 
 using str = std::string;
+
+struct PathTypeHint {
+    py::object i;
+};
+
+namespace pybind11 { namespace detail {
+    template <> struct type_caster<PathTypeHint> {
+    public:
+        PYBIND11_TYPE_CASTER(PathTypeHint, const_name("Path"));
+
+        static handle cast(PathTypeHint src, return_value_policy /* policy */, handle /* parent */) {
+            return src.i.release();
+        }
+    };
+}}
 
 class _loc {
 
@@ -23,39 +39,41 @@ private:
 
 public:
     
-    py::object get_temp() {
+    PathTypeHint get_temp() {
 
         py::object gettempdir = py::module_::import("tempfile").attr("gettempdir");
         
         py::object SERVER = _Path("E:/__temp__/");
 
         if (SERVER.attr("exists").cast<bool>()) {
-            return SERVER;
+            return PathTypeHint{ SERVER };
         } else {
-            return _Path(gettempdir());
+            return PathTypeHint{ _Path(gettempdir()) };
         }
 
     }
 
-    py::object get_script() {
+    PathTypeHint get_script() {
 
         py::object mod = get_modules()["__main__"];
 
         if (py::hasattr(mod, "__file__")) {
-            return _Path(mod.attr("__file__")).attr("parent");
+            py::object parent_path = _Path(mod.attr("__file__")).attr("parent");
+            return PathTypeHint{ parent_path };
         } else {
-            return _Path(fs::current_path().string());
+            py::object current_path = _Path(fs::current_path().string());
+            return PathTypeHint{ current_path };
         }
 
     }
 
-    py::object get_cache() {
+    PathTypeHint get_cache() {
 
-        py::object path = get_script().attr("child")(py::str("/__pycache__/"));
+        py::object path = get_script().i.attr("child")(py::str("/__pycache__/"));
         
         path.attr("mkdir")();
 
-        return path;
+        return PathTypeHint{ path };
     }
 
 };

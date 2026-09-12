@@ -2,9 +2,14 @@
 #include "Path.hpp"
 #include "loc.hpp"
 
+namespace py = pybind11;
+
 PYBIND11_MODULE(_pc, m) {
 
-    py::class_<_Path>(m, "_Path", py::dynamic_attr())
+    py::class_<PathTypeHint> _path_hint(m, "Path", py::module_local());
+    _path_hint.attr("__module__") = py::cast(".Path");
+
+    py::class_<_Path>(m, "_Path")
         .def(py::init<py::object>())
         .def_static("_parse", &_Path::_parse)
         .def("__str__", &_Path::__str__)
