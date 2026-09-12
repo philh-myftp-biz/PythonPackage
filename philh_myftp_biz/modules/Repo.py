@@ -1,10 +1,14 @@
-from git.exc import InvalidGitRepositoryError as InvalidRepoError
-from ..pc import Path
+from git.exc import InvalidGitRepositoryError as InvalidRepoError # pyright: ignore[reportUnusedImport]
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from ..pc import Path
 
 class Repo:
 
-    def __init__(self, path:Path) -> None:
+    def __init__(self, path:'Path') -> None:
         from git.exc import NoSuchPathError
+        from ..pc import Path
         from git import Repo
 
         self.path = Path(path)
@@ -31,7 +35,7 @@ class Repo:
         self.reset = self._repo.git.reset
         """Unstage all files"""
 
-    def refresh(self):
+    def refresh(self) -> None:
         self.rm('.', recurse=True, force=True, cached=True)
         self.add('.')
 
@@ -41,7 +45,7 @@ class Repo:
         cached: bool = False,
         recurse: bool = True,
         force: bool = False
-    ):
+    ) -> None:
         flags = []
         if cached:  flags += ['--cached']
         if recurse: flags += ['-r']
@@ -49,7 +53,7 @@ class Repo:
 
         self._repo.git.rm(*flags, path)
 
-    def focus(self, path:str):
+    def focus(self, path:str) -> None:
 
         # Reset the index to clear any manually staged files
         self.reset()
@@ -57,7 +61,7 @@ class Repo:
         # Stage only the specific subfolder
         self.add(path)
 
-    def add(self, path:str):
+    def add(self, path:str) -> None:
         """Stage specific subfolder"""
         self._repo.git.add(path)
 
@@ -65,7 +69,9 @@ class Repo:
     def changes(self) -> int:
         return len(self.diff(self.head.commit))
     
-    def update_submodules(self, *,
+    def update_submodules(self,
+        name: str = None,
+        *,
         remote: bool = True,
         force: bool = False,
     ) -> None:
@@ -74,6 +80,7 @@ class Repo:
 
         if remote: args += ['--remote']
         if force: args += ['--force']
+        if name: args += [name]
         
         self._repo.git.submodule(*args)
 
