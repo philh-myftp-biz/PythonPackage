@@ -8,7 +8,7 @@ def is_pickleable(obj):
     try:
         dumps(obj)
         return True
-    except (PicklingError, AttributeError):
+    except (PicklingError, AttributeError, TypeError):
         return False
 
 class Pickleable:
