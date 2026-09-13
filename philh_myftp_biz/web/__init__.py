@@ -1,5 +1,3 @@
-from functools import cached_property
-from ..functools import singleton
 from sys import modules
 
 if "mypy" in modules:
@@ -8,27 +6,7 @@ else:
     from .url import URL # pyright: ignore[reportUnusedImport]
     from .session import Session, Adapter, RetryStrat # pyright: ignore[reportUnusedImport]
 
-from ._web import FirewallException # pyright: ignore[reportUnusedImport]
-
-@singleton
-# @dead-code-ignore
-class IP:
-
-    @cached_property
-    def LAN(self) -> str:
-        from socket import gethostname, gethostbyname
-
-        return gethostbyname(gethostname())
-    
-    @cached_property
-    def WAN(self) -> str:
-        return URL('https://api.ipify.org').text
-    
-    @cached_property
-    def ROUTER(self) -> str:
-        from netifaces import gateways, AF_INET
-
-        return gateways().get('default', {}).get(AF_INET)[0]
+from ._web import FirewallException, IP # pyright: ignore[reportUnusedImport]
 
 # @dead-code-ignore
 class Port:

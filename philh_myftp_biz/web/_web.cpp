@@ -1,5 +1,6 @@
 #include <pybind11/pybind11.h>
 #include "FirewallException.hpp"
+#include "IP.hpp"
 
 namespace py = pybind11;
 
@@ -14,5 +15,11 @@ PYBIND11_MODULE(_web, m) {
             py::arg("port"), 
             py::arg("dir") = "in"
         );
+
+    py::class_<_IP>(m, "_IP")
+        .def_property_readonly("LAN", &_IP::LAN)
+        .def_property_readonly("WAN", &_IP::WAN);
+    
+    m.attr("IP") = py::cast(_IP());
 
 }
