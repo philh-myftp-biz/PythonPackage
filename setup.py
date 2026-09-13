@@ -8,6 +8,15 @@ import setuptools as st
 import sys
 
 class BuildExtWithStubs(build_ext):
+
+    @staticmethod
+    def _gen_stubs(m:str, o:str):
+        stubgen.generate_stubs(stubgen.parse_options([
+            '-m', m,
+            '-o', abspath(o), 
+            '--inspect-mode'
+        ]))
+
     def run(self) -> None:
         
         super().run()
@@ -15,11 +24,10 @@ class BuildExtWithStubs(build_ext):
         sys.path.insert(0, abspath(self.build_lib))
 
         for ext in self.extensions:
-            stubgen.generate_stubs(stubgen.parse_options([
-                '-m', ext.name,
-                '-o', abspath(self.build_lib),
-                '--inspect-mode'
-            ]))
+
+            self._gen_stubs(m=ext.name, o=self.build_lib)
+
+            self._gen_stubs(m=ext.name, o='.')
 
 ext_modules = []
 
