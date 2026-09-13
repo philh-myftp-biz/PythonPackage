@@ -1,13 +1,14 @@
-from typing import Literal, TYPE_CHECKING
 from functools import cached_property
 from ..functools import singleton
-from dataclasses import dataclass
+from sys import modules
 
-from .url import URL # pyright: ignore[reportUnusedImport]
-from .session import Session, Adapter, RetryStrat # pyright: ignore[reportUnusedImport]
+if "mypy" in modules:
+    URL, Session, Adapter, RetryStrat = [object]*4
+else:
+    from .url import URL # pyright: ignore[reportUnusedImport]
+    from .session import Session, Adapter, RetryStrat # pyright: ignore[reportUnusedImport]
 
-if TYPE_CHECKING:
-    from ..pc import Path
+from ._web import FirewallException # pyright: ignore[reportUnusedImport]
 
 @singleton
 # @dead-code-ignore
@@ -70,65 +71,3 @@ class Port:
     
     def __repr__(self) -> str:
         return f"Port({self.port})"
-
-@dataclass
-# @dead-code-ignore
-class FirewallException:
-
-    name: str
-
-    def __repr__(self) -> str:
-        return f'FirewallException({self.name})'
-
-    @property
-    def exists(self) -> bool:
-        """Check if this exception exists in Windows Defender"""
-        from ..process import RunHidden
-
-        p = RunHidden(
-            'netsh', 'advfirewall', 'firewall', 
-            'show', 'rule', f'name={self.name}'
-        )
-
-        return ("No rules match the specified criteria." not in p.output())
-    
-    def delete(self) -> None:
-        """Remove this exception from Windows Defender"""
-        from ..process import RunHidden
-
-        RunHidden(
-            'netsh', 'advfirewall', 'firewall',
-            'delete',
-            'rule', f'name={self.name}'
-        )
-
-    def set(self,
-        i: 'int | Path',
-        dir: Literal['in', 'out'] = 'in'
-    ) -> None:
-        """
-        Add this exception to Windows Defender
-
-        (Deletes & Readds if it already exists)
-        """
-        from philh_myftp_biz.pc import Path
-        from ..process import RunHidden
-
-        if self.exists:
-            self.delete()
-        
-        args = [
-            'netsh', 'advfirewall', 'firewall',
-            'add', 'rule', f'name={self.name}',
-            f'dir={dir}',
-            'action=allow',
-            'protocol=TCP'
-        ]
-
-        if isinstance(i, int):
-            args += [f'localport={i}']
-        elif isinstance(i, Path):
-            args += [f'program={i.wpath}']
-
-        RunHidden(*args)
-
