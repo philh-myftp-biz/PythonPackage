@@ -1,5 +1,6 @@
 from typing import Literal, TYPE_CHECKING
 from functools import cache
+from sys import platform
 
 if TYPE_CHECKING:
     from ..pc.Path import Path
@@ -12,7 +13,10 @@ from .Args import Args # pyright: ignore[reportUnusedImport]
 from .KIC import KIC # pyright: ignore[reportUnusedImport]
 from . import Log # pyright: ignore[reportUnusedImport]
 
-_cls_cmd = '8005951a000000000000008c162a2a2a20436c656172205465726d696e616c202a2a2a942e'
+#========================================================
+
+_cls_hex = '8005951a000000000000008c162a2a2a20436c656172205465726d696e616c202a2a2a942e'
+_cls_cmd: str = ("cls" if platform=='win32' else "clear")
 
 #========================================================
 
@@ -155,12 +159,8 @@ def cls() -> None:
     from os import system
     from ..pc import OS
 
-    print(_cls_cmd)
-    
-    if OS == 'windows':
-        system('cls')
-    else:
-        system('clear')
+    print(_cls_hex)
+    system(_cls_cmd)
 
 # @dead-code-ignore
 def warn(exc: Exception) -> None:
