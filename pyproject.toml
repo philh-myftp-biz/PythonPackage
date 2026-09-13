@@ -1,10 +1,10 @@
 [build-system]
-requires = [ "setuptools>=74.1", "pybind11", "mypy" ]
+requires = [ "setuptools>=74.1", "pybind11", "mypy",]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "philh_myftp_biz"
-version = "v2026.09.12"
+version = "v2026.09.13"
 requires-python = ">=3.12"
 dynamic = [ "dependencies",]
 
