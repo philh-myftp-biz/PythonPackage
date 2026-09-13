@@ -1,21 +1,26 @@
 [build-system]
-requires = [ "setuptools>=74.1", "pybind11", "mypy",]
+requires = [ "setuptools>=74.1", "pybind11", "mypy", ]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "philh_myftp_biz"
 version = "v2026.09.13"
 requires-python = ">=3.12"
-dynamic = [ "dependencies",]
+dynamic = [ "dependencies", ]
 
 [tool.ruff]
 target-version = "py312"
 
 [tool.ruff.lint]
-ignore = [ "F401", "E731", "E402", "E701", "E722", "F403",]
+ignore = [ "F401", "E731", "E402", "E701", "E722", "F403", ]
+
+[tool.setuptools.packages.find]
+where = ["."]
+namespaces = true
 
 [tool.setuptools.package-data]
-"*" = [ "*.pyd", "*.so", "*.pyi",]
+"*" = [ "*.pyd", "*.so", "*.pyi", ]
 
 [tool.setuptools.dynamic.dependencies]
-file = [ "requirements.txt",]
+file = [ "requirements.txt", ]
+

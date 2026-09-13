@@ -10,7 +10,6 @@ import sys
 class BuildExtWithStubs(build_ext):
     def run(self) -> None:
         
-        self.run_command("build_py")        
         super().run()
 
         sys.path.insert(0, abspath(self.build_lib))
@@ -22,26 +21,27 @@ class BuildExtWithStubs(build_ext):
                 '--inspect-mode'
             ]))
 
-kw = {
-    'name': "philh_myftp_biz",
-    'packages': st.find_namespace_packages(exclude=["build*", "dist*", "tests*", "docs*"]),
-    'ext_modules': [],
-    'cmdclass': {
-        'build_ext': BuildExtWithStubs
-    },
+ext_modules = []
+
+ext_kw = {
+    'extra_compile_args': (["/std:c++20", "/EHsc"] if platform=="win32" else ["-std=c++20"]),
+    'language': 'c++',
 }
 
-for cpp in Path(kw['name']).rglob("*.cpp"):
+for cpp in Path("philh_myftp_biz").rglob("*.cpp"):
 
-    kw["ext_modules"] += [st.Extension(
+    ext_modules += [st.Extension(
         name = cpp.as_posix().rsplit('.', 1)[0].replace('/', '.'),
         sources = [cpp.as_posix()],
         include_dirs = [
             cpp.parent.as_posix(),
             get_include()
         ],
-        extra_compile_args = (["/std:c++20", "/EHsc"] if platform=="win32" else ["-std=c++20"]),
-        language = 'c++'
+        **ext_kw
     )]
 
-st.setup(**kw)
+st.setup(
+    ext_modules = ext_modules,
+    cmdclass = {'build_ext': BuildExtWithStubs}
+)
+
