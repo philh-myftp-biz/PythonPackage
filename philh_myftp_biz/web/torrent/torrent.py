@@ -135,21 +135,30 @@ class Torrent:
             self.raw.delete(delete_files=rm_files)
 
     @Log.on_call
-    def start(self) -> None:
+    def start(self,
+        stop_files: bool = False,
+    ) -> bool:
+        from ... import VERBOSE
+        from time import sleep
 
-        try:
+        if self.exists:
             self.raw.recheck()
-        except TorrentNotFoundError:
+            return True
+        else:
             qbit.torrents_add(self.url)
         
         to = qbit._timeout()
 
-        while True:
-            try: 
-                self.raw
-                return
-            except TorrentNotFoundError: 
-                to.check()
+        while not self.exists:
+            if to.timed_out: return False
+            sleep(.1)
+
+        if stop_files:
+            VERBOSE.pause()
+            [f.stop() for f in self.files]
+            VERBOSE.resume()
+
+        return True
 
     #===================================================
 
