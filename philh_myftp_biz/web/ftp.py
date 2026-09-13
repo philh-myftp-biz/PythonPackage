@@ -6,6 +6,7 @@ if TYPE_CHECKING:
     from ..pc import Path
 
 @dataclass
+# @dead-code-ignore
 class FTPPath:
 
     ftp: 'FTP'
@@ -153,6 +154,7 @@ class FTPPath:
             raise TypeError("Cannot get size of a folder")
 
 @dataclass
+# @dead-code-ignore
 class FTP:
 
     host: str

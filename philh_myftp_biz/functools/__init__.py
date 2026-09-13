@@ -1,13 +1,10 @@
-from typing import Any, Callable, Type, TYPE_CHECKING, cast
+from typing import Any, Callable, Type, TYPE_CHECKING
 
-from .Absorber import Absorber, NullSafe # pyright: ignore[reportUnusedImport]
 from .SharedBuffer import SharedBuffer # pyright: ignore[reportUnusedImport]
-from .attr import attr, dunders, LinkedProperty, attrs # pyright: ignore[reportUnusedImport]
-from .Partial import Partial # pyright: ignore[reportUnusedImport]
+from .attr import attr, attrs, dunders # pyright: ignore[reportUnusedImport]
 from .paths import cpath, spath # pyright: ignore[reportUnusedImport]
 from .cache import TransitoryCache, cached_property, clear_cache, diskcache # pyright: ignore[reportUnusedImport]
 from .force_types import force_in_types, force_out_type # pyright: ignore[reportUnusedImport]
-from .pickle import Pickleable # pyright: ignore[reportUnusedImport]
 from .supports import *
 
 if TYPE_CHECKING:
@@ -42,42 +39,11 @@ def single_use(f): # pyright: ignore[reportMissingParameterType]
 
     return wrapper
 
-def waitfor(
-    func: Callable[..., bool]
-) -> None:
-
-    while not func():
-        pass
-
-def copy_attrs(
-    src: Any, 
-    dst: Any, 
-    force: bool = False
-) -> None:
-    for name, value in vars(src).items():
-        if force or not hasattr(dst, name):
-            setattr(dst, name, value)
-
 def loc(obj:Any) -> str:
     """Get the hexadecimal location of an instance in memory"""
     return hex(id(obj))
 
-class LockingClass:
-
-    _locked = False
-
-    def lock(self):
-        self.__dict__['_locked'] = True
-
-    def unlock(self):
-        self.__dict__['_locked'] = False
-
-    def __setattr__(self, key, value):
-        if self._locked:
-            raise AttributeError("This object is read-only")
-        else:
-            super().__setattr__(key, value)
-
+# @dead-code-ignore
 def retryfunc(
     tries: int = 3,
     interval: int = 0,
@@ -91,21 +57,6 @@ def retryfunc(
         retry = retry_if_exception_type(exc)
     )
 
-def stringify(obj:Any) -> str:
-    """Creates a string table of all attributes of an instance"""
-
-    string = f'--- {cpath(obj)} @{loc(obj)} ---\n'
-
-    for c in attrs(obj):
-
-        if not (c.private or c.callable or c.null):
-
-            string += f'{c.name} = {c}\n'
-
-    return string
-
-#========================================================
-
 def singleton[T](
     cls: Type[T] | Callable[..., T]
 ) -> T:
@@ -117,11 +68,11 @@ def remport[T](
     type: type[T] = Any
 ) -> T:
     """Remotely Import Python File"""
-    import importlib.util
-    spec = importlib.util.spec_from_file_location(file.name, file.path)
-    mod = importlib.util.module_from_spec(spec)
+    import importlib.util as iutil
+    spec = iutil.spec_from_file_location(file.name, file.path)
+    mod = iutil.module_from_spec(spec)
     spec.loader.exec_module(mod)
-    return cast(type, mod)
+    return mod # pyright: ignore[reportReturnType]
 
 def return_type[T](func: Callable[..., T]) -> None | Type[T]:
     from inspect import getsource

@@ -8,6 +8,7 @@ from . import _log
 def _arg(*name:str):
     return len(set(name) & set(__argv))
 
+# @dead-code-ignore
 HELP: bool = _arg('-h', '--help')
 
 VERBOSE = _log.VERBOSE( _arg('-v', '--verbose') )

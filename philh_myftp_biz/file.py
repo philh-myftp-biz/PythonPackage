@@ -85,6 +85,7 @@ class _Template:
 
 #========================================================
 
+# @dead-code-ignore
 class XML(_Template):
     """.XML File"""
 
@@ -106,6 +107,7 @@ class XML(_Template):
 
             f.write(data)
 
+# @dead-code-ignore
 class PKL(_Template):
     """.PKL File"""
 
@@ -123,6 +125,7 @@ class PKL(_Template):
         with self.path.open(mode='wb') as f:
             dump(obj=value, file=f)
 
+# @dead-code-ignore
 class VHDX:
     """.VHDX File"""
 
@@ -168,6 +171,7 @@ class VHDX:
         # Delete the mounting directory
         self.MNT.delete()
 
+# @dead-code-ignore
 class JSON(_Template):
     """.JSON File"""
 
@@ -185,6 +189,7 @@ class JSON(_Template):
             indent = 3
         )
 
+# @dead-code-ignore
 class INI(_Template):
     """.INI/.PROPERTIES File"""
     
@@ -221,6 +226,7 @@ class YAML(_Template):
             sort_keys = False
         )
 
+# @dead-code-ignore
 class TXT(_Template):
     """.TXT File"""
     
@@ -286,6 +292,7 @@ class ZIP:
 
         self._zip.extractall(str(path))
 
+# @dead-code-ignore
 class CSV(_Template):
     """.CSV File"""
 
@@ -301,6 +308,7 @@ class CSV(_Template):
         with self.path.open('w') as csvfile:
             writer(csvfile).writerows(data)
 
+# @dead-code-ignore
 class TOML(_Template):
     """.TOML File"""
 

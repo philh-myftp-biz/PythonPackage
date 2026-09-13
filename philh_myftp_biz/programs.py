@@ -40,6 +40,7 @@ FFPROBE: partial[Path] = partial(__FFMPEG, 'ffprobe')
 
 #=================================
 
+# @dead-code-ignore
 def COOKIES() -> 'Path':
     from http.cookiejar import MozillaCookieJar
     from browser_cookie3 import firefox
@@ -65,18 +66,3 @@ def COOKIES() -> 'Path':
 
 #=================================
 
-def install_requirements(
-    txtfile: Path = None
-) -> None:
-    from .process import RunHidden
-    from .pc._pc import loc
-
-    if txtfile is None:
-        txtfile = loc.script.child('requirements.txt')
-
-    RunHidden(
-        'pip', 'install', '-r', txtfile,
-        terminal = 'pym'
-    )
-
-#=================================

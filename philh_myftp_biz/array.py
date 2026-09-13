@@ -39,21 +39,3 @@ def stringify(array:list) -> list[str]:
 
     return array
 
-def intify(array:list) -> list[int]:
-
-    array = copy(array)
-
-    for x, item in enumerate(array):
-        array[x] = int(item)
-
-    return array
-
-#========================================================
-
-def overlap(
-    list1: list,
-    list2: list
-) -> bool:
-    return not set(list1).isdisjoint(list2)
-
-#========================================================

@@ -1,4 +1,4 @@
-from traceback import FrameSummary, extract_stack
+from traceback import extract_stack
 from types import FunctionType
 from os.path import basename
 

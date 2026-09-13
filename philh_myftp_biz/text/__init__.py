@@ -27,6 +27,7 @@ def split(
         # Automatically split the value using based on shell syntax
         return shlex.split(value)
 
+# @dead-code-ignore
 def int_stripper(string:str) -> None | int:
     """Remove all non-numerical characters from an alphanumeric string"""
     from ..num import is_int
@@ -96,30 +97,6 @@ def random(length:int) -> str:
         k = length
     ))
 
-def rm_emojis(
-    text: str,
-    sub: str = ''
-) -> str:
-    """
-    Remove all emojis from a string
-    """
-    from re import compile, UNICODE
-
-    regex = compile(
-        "["
-            u"\U0001F600-\U0001F64F"  # emoticons
-            u"\U0001F300-\U0001F5FF"  # symbols & pictographs
-            u"\U0001F680-\U0001F6FF"  # transport & map symbols
-            u"\U0001F1E0-\U0001F1FF"  # flags (iOS)
-        "]+",
-        flags = UNICODE
-    )
-
-    return regex.sub(
-        repl = sub.encode('unicode_escape').decode(),
-        string = text.encode('utf-8').decode()
-    )
-
 def similarity(
     a: str,
     b: str
@@ -155,12 +132,6 @@ def abbr(
 
     else:
         return string[:num] + end
-
-def from_function(func: Callable) -> None | str:
-    from inspect import getsourcelines
-
-    parts = ''.join(getsourcelines(func)[0]).strip().split('lambda', 1)
-    return 'lambda' + parts[len(parts)-1]
 
 @cache
 def to_slice(string:str) -> None | list[slice|int]:
@@ -225,5 +196,4 @@ def to_slice(string:str) -> None | list[slice|int]:
             int(parts[1])+1
         )]
 
-def recode(string:str):
-    return string.encode(errors='ignore').decode()
+

@@ -10,6 +10,7 @@ if TYPE_CHECKING:
     from ..pc import Path
 
 @singleton
+# @dead-code-ignore
 class IP:
 
     @cached_property
@@ -28,6 +29,7 @@ class IP:
 
         return gateways().get('default', {}).get(AF_INET)[0]
 
+# @dead-code-ignore
 class Port:
     """Details of a port on a network device"""
 
@@ -70,6 +72,7 @@ class Port:
         return f"Port({self.port})"
 
 @dataclass
+# @dead-code-ignore
 class FirewallException:
 
     name: str

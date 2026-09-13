@@ -1,6 +1,5 @@
 from typing import Literal, Iterable
 from ..functools import singleton
-from ..functools import NullSafe
 from ..num import nlen
 import sys
 
@@ -15,7 +14,7 @@ class Pipe:
         self.pbar: ProgressBar = None
 
         Looper(
-            lambda: NullSafe(self.pbar).refresh(),
+            lambda: self.pbar and self.pbar.refresh(),
             interval = .5
         )
 

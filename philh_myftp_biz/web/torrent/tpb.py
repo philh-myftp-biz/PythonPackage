@@ -7,13 +7,16 @@ from ..url import URL
 if TYPE_CHECKING:
     from ..driver import Driver
 
+# @dead-code-ignore
 url = URL("https://thepiratebay11.com/search/{}/1/99/200")
 
+# @dead-code-ignore
 driver: Driver = None
 
 cache: TransitoryCache[list[Torrent]] = TransitoryCache('__tpb__')
 
 @Log.on_call
+# @dead-code-ignore
 def search(*queries:str) -> Generator[Torrent]:
     """Search thePirateBay for magnets"""
 

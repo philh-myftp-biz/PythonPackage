@@ -41,14 +41,6 @@ def sleep(
     
     return True
 
-def toHMS(stamp:int) -> str:
-    """Convert a unix time stamp to 'hh:mm:ss'"""
-
-    m, s = divmod(stamp, 60)
-    h, m = divmod(m, 60)
-    
-    return f'{h:02d}:{m:02d}:{s:02d}'
-
 #==============================================================================
 
 class Stopwatch:

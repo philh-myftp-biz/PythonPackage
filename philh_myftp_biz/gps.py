@@ -1,4 +1,5 @@
 
+# @dead-code-ignore
 class Coordinate(list[int]):
     
     def __init__(self,
@@ -16,6 +17,7 @@ class Coordinate(list[int]):
             tuple(other)
         )
 
+# @dead-code-ignore
 def fetch(
     max_age: int = 0,
     timeout: int = 15

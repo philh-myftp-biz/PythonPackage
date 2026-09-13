@@ -132,6 +132,7 @@ def pause() -> None:
 
 #========================================================
 
+# @dead-code-ignore
 def dash(p:int=100) -> None:
     """
     Print dashes to the terminal
@@ -144,6 +145,7 @@ def dash(p:int=100) -> None:
     
     print(width() * (p//100) * '-')
 
+# @dead-code-ignore
 def cls() -> None:
     """
     Clear the terminal window
@@ -160,6 +162,7 @@ def cls() -> None:
     else:
         system('clear')
 
+# @dead-code-ignore
 def warn(exc: Exception) -> None:
     """Print an exception to the terminal without stopping the execution"""
     from traceback import print_exception
@@ -198,6 +201,7 @@ def main_module():
 
     return mod
 
+# @dead-code-ignore
 def set_package(path:'str|Path'):
     from ..pc.Path import Path
     import sys
@@ -206,7 +210,9 @@ def set_package(path:'str|Path'):
     sys.path.insert(0, str(path.parent))
     main_module().__package__ = path.name
 
+
 @cache
+# @dead-code-ignore
 def script_file():
     from sys import executable
     from ..pc import Path

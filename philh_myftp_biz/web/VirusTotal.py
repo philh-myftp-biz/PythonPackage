@@ -6,6 +6,7 @@ if TYPE_CHECKING:
     from vt.object import Object as VTobj
     from ..pc import Path
 
+# @dead-code-ignore
 class VirusReport:
 
     def __init__(self,
@@ -55,6 +56,7 @@ class VirusReport:
         return (undetected / total)
 
 @singleton
+# @dead-code-ignore
 class VirusTotal:
 
     key = 'c063375af8061ad11694b15fb48327b3fd3c2a4f79cff8669f3de82143cc6562'

@@ -23,6 +23,7 @@ class Widget(dict[str, Any]):
         self._inst = inst
         self.bind()
 
+# @dead-code-ignore
 class Text(Widget): 
     
     from tkinter import Label as raw
@@ -33,6 +34,7 @@ class Text(Widget):
         self['text'] = text
         self['pady'] = 10
 
+# @dead-code-ignore
 class Link(Widget):
 
     from tkinter import Label as raw
@@ -59,6 +61,7 @@ class Link(Widget):
             lambda e: open(self.url)
         )
 
+# @dead-code-ignore
 class Input(Widget):
 
     from customtkinter import CTkEntry as raw
@@ -89,6 +92,7 @@ class Input(Widget):
         if self.key:
             self.key.save(self.input)
 
+# @dead-code-ignore
 class Header(Widget):
 
     from tkinter import Label as raw

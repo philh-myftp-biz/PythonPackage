@@ -1,4 +1,4 @@
-from typing import Literal, SupportsInt, SupportsFloat, Iterable
+from typing import SupportsInt, SupportsFloat, Iterable
 
 #========================================================
 
@@ -31,6 +31,7 @@ def digit(num:int, i:int) -> int:
 
     return int( str(num) [i] )
 
+# @dead-code-ignore
 def clamp(
     x:   int|float,
     MIN: int|float,
@@ -41,50 +42,7 @@ def clamp(
     """
     return max(min(x, MAX), MIN)
 
-def flop(
-    x1: float,
-    op: Literal['+', '-', '*', '/'],
-    x2: float
-):
-    """
-    Perform floating point operations without rounding
-
-    Example:
-    ```
-    >>> .1 + .2
-    0.30000000000000004
-
-    >>> flop(.1, '+', .2)
-    .3
-    ```
-    """
-    
-    SCALE = 10 ** max(
-        len(str(x1).split('.')[1]),
-        len(str(x2).split('.')[1])
-    )
-
-    # Scale the floats to integers
-    _x1 = int(x1 * SCALE)
-    _x2 = int(x2 * SCALE)
-
-    match op:
-
-        case '+':
-            return (_x1 + _x2) / SCALE
-
-        case '-':
-            return (_x1 - _x2) / SCALE
-    
-        case '*':
-            return (_x1 * _x2) / SCALE
-    
-        case '/':
-            return (_x1 / _x2)
-    
-        case _:
-            raise NotImplementedError(f'{op=}')
-
+# @dead-code-ignore
 def nearest_multiple(
     x: int|float,
     multiple_of: int
@@ -107,16 +65,12 @@ def nearest_multiple(
 #========================================================
 
 def is_num(num:SupportsFloat|SupportsInt) -> bool:
-    """
-    Check if number is a valid integer or float
-    """
+    """Check if number is a valid integer or float"""
 
     return (is_int(num) or is_float(num))
 
 def is_int(num:SupportsInt) -> bool:
-    """
-    Check if number is a valid integer
-    """
+    """Check if number is a valid integer"""
     try:
         int(num)
         return True
@@ -124,21 +78,18 @@ def is_int(num:SupportsInt) -> bool:
         return False
 
 def is_float(num:SupportsFloat) -> bool:
-    """
-    Check if a number is a valid float
-    """
+    """Check if a number is a valid float"""
     try:
         float(num)
         return True
     except ValueError:
         return False
 
+# @dead-code-ignore
 def is_prime(
     num: SupportsInt|SupportsFloat
 ) -> bool:
-    """
-    Check if a number is a prime number
-    """
+    """Check if a number is a prime number"""
 
     pre: dict[int, bool] = {
         0: False,

@@ -1,4 +1,5 @@
 
+# @dead-code-ignore
 def any(
     string: str,
     values: list[str],
@@ -22,6 +23,7 @@ def any(
     # If no values are matched, then return False
     return False
 
+# @dead-code-ignore
 def all(
     string: str,
     values: list[str],

@@ -49,6 +49,7 @@ def _get_omdb(**params) -> NoReturn | dict:
 
 #=================================================================
 
+# @dead-code-ignore
 def movie(title:str, year:int) -> None | MovieData:
     """Get details of a movie"""
     from ..time import from_string
@@ -69,6 +70,7 @@ def movie(title:str, year:int) -> None | MovieData:
 
         return m
 
+# @dead-code-ignore
 def show(
     title: str,
     year: int

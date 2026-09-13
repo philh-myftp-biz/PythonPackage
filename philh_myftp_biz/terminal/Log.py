@@ -22,18 +22,25 @@ def _log(
         exc_info = exc_info
     )
 
+# @dead-code-ignore
 VERB = partial(_log, level=10)
 
+# @dead-code-ignore
 INFO = partial(_log, level=20)
 
+# @dead-code-ignore
 MAIN = partial(_log, level=25)
 
+# @dead-code-ignore
 WARN = partial(_log, level=30)
 
+# @dead-code-ignore
 FAIL = partial(_log, level=40)
 
+# @dead-code-ignore
 CRIT = partial(_log, level=50)
 
+# @dead-code-ignore
 def on_call(func=None, *, logger=VERB):
     
     def decorator(f):

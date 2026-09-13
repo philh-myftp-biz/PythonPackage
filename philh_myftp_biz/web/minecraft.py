@@ -5,6 +5,7 @@ from typing import Literal, Any
 from .url import URL
 
 @singleton
+# @dead-code-ignore
 class Mojang:
 
     @staticmethod
@@ -20,6 +21,7 @@ class Mojang:
         return URL(self._data()['latest']['release'])
 
 @dataclass
+# @dead-code-ignore
 class ModrinthMod:
 
     name: str
@@ -46,6 +48,7 @@ class ModrinthMod:
             return URL(items[0]['files'][0]['url'])
 
 @dataclass
+# @dead-code-ignore
 class FabricMC:
 
     version: str
@@ -68,3 +71,4 @@ class FabricMC:
             )[0].get_attribute('href')
 
             return URL(url)
+

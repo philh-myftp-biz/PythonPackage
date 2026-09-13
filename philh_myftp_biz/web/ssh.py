@@ -2,14 +2,15 @@ from functools import cached_property
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
 
-from builtins import TimeoutError as _TimeoutError
-from builtins import ConnectionResetError as _ConnectionResetError
 from builtins import ConnectionAbortedError as _ConnectionAbortedError
+from builtins import ConnectionResetError as _ConnectionResetError
+from builtins import TimeoutError as _TimeoutError
 
 if TYPE_CHECKING:
     from paramiko.channel import ChannelFile, ChannelStderrFile
 
 @dataclass
+# @dead-code-ignore
 class SSHResponse:
 
     stdout: 'ChannelFile'
@@ -24,6 +25,7 @@ class SSHResponse:
         return self.stderr.read().decode()
 
 @dataclass
+# @dead-code-ignore
 class SSH:
 
     host: str
@@ -70,3 +72,4 @@ class SSH:
         stdout, stderr = self._client.exec_command(command)[1:]
 
         return SSHResponse(stdout, stderr)
+

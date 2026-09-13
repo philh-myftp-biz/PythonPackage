@@ -143,6 +143,7 @@ class Color:
 
 #========================================================
 
+# @dead-code-ignore
 class Ring:
     """Wrapper for keyring"""
     
