@@ -41,6 +41,14 @@ class Service(Path):
 
         #==============================
 
+    @cached_property
+    def Name(self) -> str:
+        return self.path
+    
+    @property
+    def Connected(self) -> bool:
+        return self.running
+
     def file(self, name:str) -> Path:
 
         # Iter through all children of the service path

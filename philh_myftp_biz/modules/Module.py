@@ -60,6 +60,14 @@ class Module(Path):
         else:
             self.venv = None
 
+    @cached_property
+    def Name(self) -> str:
+        return self.path
+    
+    @property
+    def Connected(self) -> bool:
+        return self.exists
+
     def _run(self,
         func: 'SubProcess',
         args: tuple[str]
