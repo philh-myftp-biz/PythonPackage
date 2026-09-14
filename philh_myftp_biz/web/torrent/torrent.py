@@ -1,12 +1,12 @@
 from ...functools.cache.prop import cached_property
 from typing import TYPE_CHECKING, Literal
 from .qbit import qBitTorrent as qbit
+from ...time._time import TimeStamp
 from .file import TorrentFile
 from ...terminal import Log
 
 if TYPE_CHECKING:
     from qbittorrentapi import TorrentDictionary
-    from ...time import from_stamp
     from ...pc.Path import Path
 
 class TorrentNotFoundError(Exception): ...
@@ -18,7 +18,7 @@ class Torrent:
 
     size: str = ""
     url : str = ""
-    uploaded: 'None|from_stamp' = None
+    uploaded: None|TimeStamp = None
     type: None|Literal['Show', 'Movie', 'Episode'] = None
 
     #===================================================
@@ -37,7 +37,7 @@ class Torrent:
     #===================================================
 
     @cached_property
-    def hash(self) -> str:
+    def hash(self) -> None|str:
         from urllib.parse import urlparse, parse_qs
 
         XT: str = parse_qs(urlparse(self.url).query)['xt'][0]
@@ -170,9 +170,14 @@ class Torrent:
             'name': self.name,
             'seeders': self.seeders,
             'leechers': self.leechers,
-            'uploaded': self.uploaded,
+            'uploaded': self.uploaded and self.uploaded.unix,
             'type': self.type
         }
+
+    def __setstate__(self, state:dict):
+        if state['uploaded']:
+            state['uploaded'] = TimeStamp(state['uploaded'])
+        self.__dict__ |= state
 
     #===================================================
 
