@@ -7,7 +7,7 @@ from typing import Literal
 MIMETYPES: dict[str, str]
 
 def __getattr__(attr:str):
-    from .web.url import URL
+    from .web._web import URL
     from . import VERBOSE
 
     if attr == 'MIMETYPES':

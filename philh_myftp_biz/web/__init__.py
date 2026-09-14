@@ -1,12 +1,11 @@
 from sys import modules
 
 if "mypy" in modules:
-    URL, Session, Adapter, RetryStrat = [object]*4
+    Session, Adapter, RetryStrat = [object]*3
 else:
-    from .url import URL # pyright: ignore[reportUnusedImport]
     from .session import Session, Adapter, RetryStrat # pyright: ignore[reportUnusedImport]
 
-from ._web import FirewallException, IP # pyright: ignore[reportUnusedImport]
+from ._web import FirewallException, URL, IP # pyright: ignore[reportUnusedImport]
 
 # @dead-code-ignore
 class Port:

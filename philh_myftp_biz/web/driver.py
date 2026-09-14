@@ -5,7 +5,7 @@ from typing import Literal, TYPE_CHECKING, Self
 from dataclasses import dataclass
 
 if TYPE_CHECKING:
-    from .url import URL
+    from .url._web import URL
     from ..pc import Path
 
 @dataclass
@@ -212,7 +212,7 @@ class Driver:
     def URL(self) -> URL | None:
         """URL of the Current Page"""
         from selenium.common.exceptions import WebDriverException
-        from .url import URL
+        from ._web import URL
 
         try:
             return URL(self._drvr.current_url)

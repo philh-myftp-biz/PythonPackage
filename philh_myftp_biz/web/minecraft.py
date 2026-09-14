@@ -2,7 +2,7 @@ from functools import cached_property, cache
 from ..functools import singleton
 from dataclasses import dataclass
 from typing import Literal, Any
-from .url import URL
+from ._web import URL
 
 @singleton
 # @dead-code-ignore

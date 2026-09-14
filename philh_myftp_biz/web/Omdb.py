@@ -1,6 +1,6 @@
 from .torrent.models import MovieData, ShowData, EpisodeData
 from typing import NoReturn, Literal
-from .url import URL
+from ._web import URL
 
 #=================================================================
 # TMDB (The Movie Database)
