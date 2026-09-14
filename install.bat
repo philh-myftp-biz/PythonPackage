@@ -14,7 +14,7 @@ if "%~1"=="-f" (
 
 )
 
-pip install . || exit /b 1
+pip install -vvv . || exit /b 1
 
 :: Locate package directory using pip
 for /f "delims=" %%i in ('pip show philh_myftp_biz ^| findstr "Location:"') do set "DIR=%%i"
