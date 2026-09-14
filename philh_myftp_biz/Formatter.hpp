@@ -10,7 +10,6 @@
 #include <chrono>
 #include <iomanip>
 #include <sstream>
-
 #include "remap.h"
 
 class Formatter {
@@ -158,7 +157,7 @@ public:
         auto millis = std::chrono::duration_cast<std::chrono::milliseconds>(duration).count() % 1000;
         
         std::tm tm_now;
-        #if defined(_WIN32) || defined(_WIN64)
+        #ifdef WINDOWS
             localtime_s(&tm_now, &time_t_now);
         #else
             localtime_r(&time_t_now, &tm_now);

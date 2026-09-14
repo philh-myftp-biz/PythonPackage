@@ -1,5 +1,11 @@
 #pragma once
 
+#if defined(_WIN32) || defined(_WIN64)
+    #define WINDOWS
+#else
+    #define LINUX
+#endif
+
 #if __has_include(<pybind11/pybind11.h>)
     #include <pybind11/pybind11.h>
     namespace py = pybind11;

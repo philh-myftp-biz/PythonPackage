@@ -4,7 +4,6 @@
 #include <stdexcept>
 #include <string>
 #include <array>
-
 #include "remap.h"
 
 class FirewallException { public:
@@ -16,20 +15,23 @@ class FirewallException { public:
     }
 
     static std::string _run(const std::string& args) {
-        std::array<char, 256> buffer;
-        std::string output;
+        #ifdef WINDOWS
+            std::array<char, 256> buffer;
+            std::string output;
 
-        // Use _popen and _pclose on Windows to capture process output
-        std::unique_ptr<FILE, decltype(&_pclose)> pipe(_popen(args.c_str(), "r"), _pclose);
-        if (!pipe) {
-            throw std::runtime_error("_popen() failed!");
-        }
-        
-        while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
-            output += buffer.data();
-        }
+            // Use _popen and _pclose on Windows to capture process output
+            std::unique_ptr<FILE, decltype(&_pclose)> pipe(_popen(args.c_str(), "r"), _pclose);
+            if (!pipe) {
+                throw std::runtime_error("_popen() failed!");
+            }
+            
+            while (fgets(buffer.data(), buffer.size(), pipe.get()) != nullptr) {
+                output += buffer.data();
+            }
 
-        return output;
+            return output;
+        #endif    
+        return "";
     }
 
     std::string repr() const {
