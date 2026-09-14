@@ -36,15 +36,17 @@ ext_kw = {
     'language': 'c++',
 }
 
+include_dirs = [
+    get_include(),
+    "headers"
+]
+
 for cpp in Path("philh_myftp_biz").rglob("*.cpp"):
 
     ext_modules += [st.Extension(
         name = cpp.as_posix().rsplit('.', 1)[0].replace('/', '.'),
         sources = [cpp.as_posix()],
-        include_dirs = [
-            cpp.parent.as_posix(),
-            get_include()
-        ],
+        include_dirs = [*include_dirs, cpp.parent.as_posix()],
         **ext_kw
     )]
 

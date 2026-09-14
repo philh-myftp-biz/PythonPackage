@@ -2,8 +2,8 @@
 #include <string>
 #include <mutex>
 #include <iostream>
-#include <_h/httplib.h>
-#include <_h/NetIF.hpp>
+#include <httplib.h>
+#include <NetIF.hpp>
 
 namespace py = pybind11;
 
