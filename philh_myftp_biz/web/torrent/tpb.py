@@ -2,7 +2,7 @@ from ...functools.cache import TransitoryCache
 from typing import TYPE_CHECKING, Generator
 from .torrent import Torrent
 from ...terminal import Log
-from .._web import URL
+from ..url import URL
 
 if TYPE_CHECKING:
     from ..driver import Driver
