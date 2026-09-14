@@ -74,7 +74,7 @@ class Torrent:
 
             return tuple(TorrentFile(self, f.id) for f in self.raw.files)
         
-        except TimeoutError, TorrentNotFoundError:
+        except (TimeoutError, TorrentNotFoundError):
             return ()
 
         finally: 

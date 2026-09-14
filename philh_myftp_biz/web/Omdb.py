@@ -18,8 +18,8 @@ _tmdb_url = URL(
 
 def _get_tmdb(path:str, **params) -> dict:
     try:
-        return _tmdb_url.child(path, params=params).json
-    except TimeoutError, ConnectionError:
+        return _tmdb_url.child(path, params=params).json # pyright: ignore[reportReturnType]
+    except (TimeoutError, ConnectionError):
         return {}
 
 #=================================================================
@@ -41,7 +41,7 @@ def _get_omdb(**params) -> NoReturn | dict:
     error = data.get('Error')
 
     if error is None:
-        return data
+        return data # pyright: ignore[reportReturnType]
     elif 'not found!' in error:
         raise IndexError(error)
     else:
