@@ -82,4 +82,14 @@ PYBIND11_MODULE(hex, m) {
         py::arg("string")
     );
 
+    m.attr("PickleErrors") = py::make_tuple(
+        py::handle(PyExc_ValueError),
+        py::handle(PyExc_TypeError),
+        py::handle(PyExc_AttributeError),
+        py::handle(PyExc_EOFError),
+        py::handle(PyExc_IndexError),
+        py::handle(PyExc_KeyError),
+        import("pickle").attr("UnpicklingError")
+    );
+
 }
