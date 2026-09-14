@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <cctype>
 
-namespace py = pybind11;
+#include "remap.h"
 
 // Helper function to lowercase a string
 std::string to_lower(std::string s) {

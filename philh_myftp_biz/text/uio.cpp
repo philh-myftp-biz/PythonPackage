@@ -1,9 +1,7 @@
 #include <pybind11/pybind11.h>
 #include <string>
 
-namespace py = pybind11;
-
-using str = std::string;
+#include "remap.h"
 
 class UnconsumingIO { public:
 
@@ -13,7 +11,7 @@ class UnconsumingIO { public:
     UnconsumingIO(py::object stream) {
         
         if (py::isinstance<py::str>(stream)) {
-            py::object cls = py::module_::import("io").attr("StringIO");
+            py::object cls = import("io").attr("StringIO");
             stream = cls(stream);
         }
         

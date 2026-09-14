@@ -1,8 +1,9 @@
 #include <pybind11/pybind11.h>
+
+#include "remap.h"
+
 #include "FirewallException.hpp"
 #include "IP.hpp"
-
-namespace py = pybind11;
 
 PYBIND11_MODULE(_web, m) {
 

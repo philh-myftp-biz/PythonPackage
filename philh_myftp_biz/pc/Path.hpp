@@ -5,8 +5,7 @@
 #include <algorithm>
 #include <filesystem>
 
-namespace py = pybind11;
-namespace fs = std::filesystem;
+#include "remap.h"
 
 class _Path { public:
 
@@ -47,7 +46,7 @@ class _Path { public:
         }
         
         // Match absolute pathing lookup
-        py::object os_path = py::module_::import("os.path");
+        py::object os_path = import("os.path");
         fpath = os_path.attr("abspath")(fpath).cast<std::string>();
         std::replace(fpath.begin(), fpath.end(), '\\', '/'); // Clean path output again
 

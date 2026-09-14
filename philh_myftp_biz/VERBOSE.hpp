@@ -2,7 +2,7 @@
 #include <pybind11/operators.h>
 #include <string>
 
-namespace py = pybind11;
+#include "remap.h"
 
 class MutInt { public:
 

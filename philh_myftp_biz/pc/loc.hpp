@@ -1,12 +1,8 @@
 #pragma once
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
-#include <filesystem>
 
-namespace fs = std::filesystem;
-namespace py = pybind11;
-
-using str = std::string;
+#include "remap.h"
 
 struct PathTypeHint {
     py::object i;
@@ -28,11 +24,11 @@ class _loc {
 private:
 
     py::dict get_modules() {
-        return py::module_::import("sys").attr("modules");
+        return import("sys").attr("modules");
     }
 
     py::object _Path(const auto path) {
-        py::object mod = py::module_::import("philh_myftp_biz.pc.Path");
+        py::object mod = import("philh_myftp_biz.pc.Path");
         py::object cls = mod.attr("Path");
         return cls(py::str(path));
     }
@@ -41,7 +37,7 @@ public:
     
     PathTypeHint get_temp() {
 
-        py::object gettempdir = py::module_::import("tempfile").attr("gettempdir");
+        py::object gettempdir = import("tempfile").attr("gettempdir");
         
         py::object SERVER = _Path("E:/__temp__/");
 

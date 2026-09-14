@@ -5,10 +5,7 @@
 #include <stdexcept>
 #include <cctype>
 
-namespace py = pybind11;
-
-// Use lazy initialization for the dill import inside functions
-auto& import = py::module_::import;
+#include "remap.h"
 
 // Convert any pickleable Python object into a hex string
 std::string encode(const py::object& value) {

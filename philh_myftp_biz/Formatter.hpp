@@ -11,12 +11,7 @@
 #include <iomanip>
 #include <sstream>
 
-namespace py = pybind11;
-namespace fs = std::filesystem;
-
-using str = std::string;
-using pyobj = pybind11::object;
-using pymod = pybind11::module_;
+#include "remap.h"
 
 class Formatter {
 private:

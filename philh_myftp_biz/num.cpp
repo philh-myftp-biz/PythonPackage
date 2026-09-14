@@ -1,3 +1,4 @@
+#pragma once
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 #include <string>
@@ -5,7 +6,7 @@
 #include <stdexcept>
 #include <cmath>
 
-namespace py = pybind11;
+#include "remap.h"
 
 // ========================================================
 // Helper Function: nlen
