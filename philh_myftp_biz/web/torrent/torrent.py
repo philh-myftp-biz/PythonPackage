@@ -1,3 +1,4 @@
+from qbittorrentapi.exceptions import NotFound404Error as TorrentNotFoundError
 from ...functools.cache.prop import cached_property
 from typing import TYPE_CHECKING, Literal
 from .qbit import qBitTorrent as qbit
@@ -8,8 +9,6 @@ from ...terminal import Log
 if TYPE_CHECKING:
     from qbittorrentapi import TorrentDictionary
     from ...pc.Path import Path
-
-class TorrentNotFoundError(Exception): ...
 
 class Torrent:
 
