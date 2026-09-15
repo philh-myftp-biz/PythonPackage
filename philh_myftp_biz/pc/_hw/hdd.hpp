@@ -16,7 +16,7 @@
 #include <devguid.h>
 #include <devpkey.h>
 #include <setupapi.h>
-#include <std.h>
+#include <stru.h>
 
 #include <json.hpp>
 #include <_hw/device.h>
@@ -201,7 +201,7 @@ struct HardDrive: public Device {
         WCHAR wideName[512] = { 0 };
         ULONG outLen = (ULONG)sizeof(wideName);
         if (CM_Get_DevNode_Registry_PropertyW(DevInst, CM_DRP_FRIENDLYNAME, 0, (PVOID)wideName, &outLen, 0) == CR_SUCCESS)
-            return std::to_string(wideName);
+            return stru::to_str(wideName);
 
         return "";
     }
@@ -212,7 +212,7 @@ struct HardDrive: public Device {
 
         if (disk_path.empty()) return;
 
-        std::wstring wideName = std::to_wstring(name);
+        wstr wideName = stru::to_wstr(name);
 
         CM_Set_DevNode_Registry_PropertyW(
             DevInst,
