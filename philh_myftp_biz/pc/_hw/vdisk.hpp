@@ -3,13 +3,16 @@
 #include <filesystem>
 
 #include <json.hpp>
+#include <_hw/device.h>
 
 namespace fs = std::filesystem;
 
-struct VirtualDisk {
+struct VirtualDisk: public Device {
 
     std::string Name;
     std::string Mount;
+
+    std::string GetName() const override { return this->Name; }
 
     VirtualDisk(
         std::string Name,
@@ -25,7 +28,7 @@ struct VirtualDisk {
         );
     }
 
-    bool Connected() {
+    bool GetConnected() const override {
         return fs::exists(Mount);
     }
 

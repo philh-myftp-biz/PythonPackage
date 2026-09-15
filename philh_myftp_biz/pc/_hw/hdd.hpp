@@ -19,6 +19,7 @@
 #include <std.h>
 
 #include <json.hpp>
+#include <_hw/device.h>
 
 #pragma comment(lib, "wbemuuid.lib")
 #pragma comment(lib, "ole32.lib")
@@ -27,7 +28,7 @@
 
 using json = nlohmann::json;
 
-struct HardDrive {
+struct HardDrive: public Device {
 
     //===============================================================================
     // Init
@@ -42,6 +43,9 @@ struct HardDrive {
     std::string Conn;
     std::string Name;
     int ID;
+
+    std::string GetName() const override { return this->Name; }
+    bool GetConnected() const override { return this->Connected; }
 
     HardDrive(
         std::string Tower,

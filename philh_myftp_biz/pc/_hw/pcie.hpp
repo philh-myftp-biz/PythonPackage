@@ -7,12 +7,16 @@
 
 #pragma comment (lib, "setupapi.lib")
 
-struct PCIeCard {
+#include <_hw/device.h>
+
+struct PCIeCard: public Device {
 
     std::string Slot; // '1', '2', '3', '4', 'M.2'
     int Lanes; // 1, 4, 16
     std::string DeviceId;
     std::string Name;
+
+    std::string GetName() const override { return this->Name; }
 
     PCIeCard(
         std::string Slot, 
@@ -26,7 +30,7 @@ struct PCIeCard {
         this->Name = Slot+" [x"+std::to_string(Lanes)+"]";
     }
 
-    bool Connected() {
+    bool GetConnected() const override {
         // Keep NULL filters to search all branches, but use the 'A' (ANSI) variant
         HDEVINFO hDevInfo = SetupDiGetClassDevsA(NULL, NULL, NULL, DIGCF_ALLCLASSES | DIGCF_PRESENT);
         
