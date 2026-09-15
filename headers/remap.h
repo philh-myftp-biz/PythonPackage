@@ -24,6 +24,12 @@
     using json = nlohmann::json;
 #endif
 
+#if __has_include(<optional>)
+    #include <optional>
+    using optional = std::optional;
+    inline auto& nullopt = std::nullopt;
+#endif
+
 #if __has_include(<string>)
     #include <string>
     using str = std::string;
