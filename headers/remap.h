@@ -2,6 +2,7 @@
 
 #if defined(_WIN32) || defined(_WIN64)
     #define WINDOWS
+    #define WIN32_LEAN_AND_MEAN
 #else
     #define LINUX
 #endif
@@ -33,6 +34,11 @@
 #if __has_include(<string>)
     #include <string>
     using str = std::string;
+#endif
+
+#if __has_include(<hwinfo/hwinfo.h>)
+    #include <hwinfo/hwinfo.h>
+    namespace hwWMI = hwinfo::utils::WMI;
 #endif
 
 #if __has_include(<chrono>)
