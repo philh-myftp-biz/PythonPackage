@@ -1,3 +1,11 @@
 {
     "C_Cpp.errorSquiggles": "disabled",
+    "search.exclude": {
+        "headers/hwinfo": true,
+        "headers/WinReg": true,
+        "headers/httplib.h": true,
+        "headers/json.hpp": true,
+        "headers/NetIF.hpp": true,
+        "headers/subprocess.hpp": true,
+    },
 }
