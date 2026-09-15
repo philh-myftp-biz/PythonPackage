@@ -2,8 +2,8 @@
 
 #include "remap.h"
 
-#include "Path.hpp"
-#include "loc.hpp"
+#include "_pc/Path.hpp"
+#include "_pc/loc.hpp"
 
 PYBIND11_MODULE(_pc, m) {
 

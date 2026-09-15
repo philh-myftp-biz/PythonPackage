@@ -2,9 +2,9 @@
 #include <iostream>
 #include <string>
 
-#include <hdd.hpp>
-#include <pcie.hpp>
-#include <vdisk.hpp>
+#include <_hw/hdd.hpp>
+#include <_hw/pcie.hpp>
+#include <_hw/vdisk.hpp>
 
 namespace py = pybind11;
 
