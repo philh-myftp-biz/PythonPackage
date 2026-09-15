@@ -19,6 +19,11 @@
     namespace fs = std::filesystem;
 #endif
 
+#if __has_include(<json.hpp>)
+    #include <json.hpp>
+    using json = nlohmann::json;
+#endif
+
 #if __has_include(<string>)
     #include <string>
     using str = std::string;
