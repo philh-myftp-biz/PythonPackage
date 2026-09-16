@@ -19,5 +19,6 @@ if [ "$1" == "-f" ]; then
 fi
 
 python3 -m pip install -vvv . \
-    --break-system-packages
+    --break-system-packages \
+    --ignore-installed urllib3
 
