@@ -29,6 +29,7 @@ PYBIND11_MODULE(hardware, m) {
                 py::arg("ID"), 
                 py::arg("SN")
             )
+            .def_static("search", &HardDrive::search)
             .def_readonly("Tower", &HardDrive::Tower)
             .def_readonly("Conn", &HardDrive::Conn)
             .def_readonly("ID", &HardDrive::ID)

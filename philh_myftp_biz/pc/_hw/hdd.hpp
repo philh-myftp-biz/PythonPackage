@@ -11,7 +11,7 @@
 #include <iterator>
 #include <iomanip>
 #include <memory>
-
+#include <pybind11/stl.h>
 
 #include <subprocess.hpp>
 #include <json.hpp>
@@ -27,6 +27,26 @@
 #endif
 
 struct HardDrive : public Device {
+
+    static std::vector<HardDrive> search() {
+        std::vector<HardDrive> _hdds;
+
+        for (const auto& _hwDisk : hwinfo::getAllDisks()) {
+            
+            str _sn = stru::strip( _hwDisk.serial_number() );
+            if (_sn.starts_with('{')) continue;
+            
+            HardDrive _hdd = HardDrive(
+                "?", // Tower
+                "?", // COnn
+                -1, // ID
+                _sn // SN
+            );
+            _hdds.push_back(_hdd);
+        }
+
+        return _hdds;
+    }
 
     //===============================================================================
     // Init
