@@ -1,15 +1,20 @@
+#pragma once
+
 #include <string>
 #include <variant>
 #include <optional>
 #include <iostream>
 #include <windows.h>
 #include <setupapi.h>
+#include <cfgmgr32.h>  
+#include <initguid.h>  
 
 #pragma comment (lib, "setupapi.lib")
+#pragma comment (lib, "cfgmgr32.lib")
 
 #include <_hw/device.h>
 
-struct PCIeCard: public Device {
+struct PCIeCard : public Device {
 
     std::string Slot; // '1', '2', '3', '4', 'M.2'
     int Lanes; // 1, 4, 16
@@ -27,39 +32,23 @@ struct PCIeCard: public Device {
         this->Lanes = Lanes;
         this->DeviceId = DeviceId;
 
-        this->Name = Slot+" [x"+std::to_string(Lanes)+"]";
+        this->Name = Slot + " [x" + std::to_string(Lanes) + "]";
     }
 
     bool GetConnected() const override {
-        // Keep NULL filters to search all branches, but use the 'A' (ANSI) variant
-        HDEVINFO hDevInfo = SetupDiGetClassDevsA(NULL, NULL, NULL, DIGCF_ALLCLASSES | DIGCF_PRESENT);
+        DEVINST devInst;
         
-        if (hDevInfo == INVALID_HANDLE_VALUE) {
-            return false;
-        }
+        // FIX: Removed the problematic DEVNUM_FROM_TYPE macro cast entirely.
+        // We cast the string directly to a modifiable Windows character pointer (DEVINSTID_A)
+        // which matches the native signature perfectly.
+        CONFIGRET status = CM_Locate_DevNodeA(
+            &devInst, 
+            const_cast<char*>(DeviceId.c_str()), 
+            CM_LOCATE_DEVNODE_NORMAL
+        );
 
-        SP_DEVINFO_DATA devInfoData;
-        devInfoData.cbSize = sizeof(SP_DEVINFO_DATA);
-        DWORD i = 0;
-        bool isConnected = false;
-
-        // Enumerate every physical hardware device using narrow characters
-        while (SetupDiEnumDeviceInfo(hDevInfo, i, &devInfoData)) {
-            char instanceId[MAX_DEVICE_ID_LEN];
-            
-            // Retrieve the narrow string Device Instance ID
-            if (SetupDiGetDeviceInstanceIdA(hDevInfo, &devInfoData, instanceId, MAX_DEVICE_ID_LEN, NULL)) {
-                // Case-insensitive narrow string comparison
-                if (_stricmp(DeviceId.c_str(), instanceId) == 0) {
-                    isConnected = true;
-                    break;
-                }
-            }
-            i++;
-        }
-
-        SetupDiDestroyDeviceInfoList(hDevInfo);
-        return isConnected;
+        // CR_SUCCESS means the device tree successfully found your hardware identifier.
+        return (status == CR_SUCCESS);
     }
 
 };
