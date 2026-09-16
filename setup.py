@@ -1,6 +1,7 @@
 from setuptools.command.build_ext import build_ext
+from os.path import abspath, exists
+from subprocess import check_call
 from pybind11 import get_include
-from os.path import abspath
 from sys import platform
 from pathlib import Path
 from mypy import stubgen
@@ -28,6 +29,9 @@ class BuildExtWithStubs(build_ext):
             self._gen_stubs(m=ext.name, o=self.build_lib)
 
             self._gen_stubs(m=ext.name, o='.')
+
+if not exists("headers/README.md"):
+    check_call(['git', 'submodule', 'update', '--init'])
 
 ext_modules = []
 
