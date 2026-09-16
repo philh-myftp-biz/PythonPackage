@@ -33,7 +33,7 @@ PYBIND11_MODULE(hardware, m) {
             .def_readonly("Conn", &HardDrive::Conn)
             .def_readonly("ID", &HardDrive::ID)
             .def_readonly("SN", &HardDrive::SN)
-            .def_readonly("Index", &HardDrive::Index)
+            .def_property_readonly("Index", &HardDrive::Index)
             .def_property("FriendlyName", &HardDrive::FriendlyName, &HardDrive::setFriendlyName)
             .def_property("Usage", &HardDrive::Usage, &HardDrive::setUsage);
 
