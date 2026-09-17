@@ -4,8 +4,6 @@ from .branch import Branch
 class Tree(Branch):
     """Base Command Tree"""
 
-    from builtins import exit
-
     @classmethod
     def cls(cls) -> None:
         from .. import _cls_cmd
@@ -29,7 +27,7 @@ class Tree(Branch):
     class help:
         _NoArgs = "Help Message not finished"
 
-def run_tree(tree:type[Tree]):
+def run_tree(tree:type[Tree]) -> None:
     from shlex import split
     from .. import warn
 
@@ -39,7 +37,11 @@ def run_tree(tree:type[Tree]):
 
             args: list[str] = split(input('\n\\> '))
 
-            if len(args) > 0:
+            if len(args) == 0:
+                continue
+            elif args[0] == 'exit':
+                break
+            else:
                 tree(*args)
 
         except KeyboardInterrupt:
