@@ -1,31 +1,35 @@
 #include <string>
 #include <iostream>
 #include <filesystem>
+#include <vector>
 
 #include <json.hpp>
 #include <_hw/device.h>
+#include <subprocess.hpp>
+#include <remap.h>
 
-namespace fs = std::filesystem;
+struct VirtualDisk : public Device {
 
-struct VirtualDisk: public Device {
+    str Name;
+    str Mount;
 
-    std::string Name;
-    std::string Mount;
-
-    std::string GetName() const override { return this->Name; }
+    str GetName() const override { return this->Name; }
 
     VirtualDisk(
-        std::string Name,
-        std::string Mount
+        str Name,
+        str Mount
     ) {
         this->Name = Name;
         this->Mount = Mount;
     }
 
-    void powershell(std::string cmd) {
-        std::system(
-            ("powershell.exe -Command \"" + cmd + "-VirtualDisk -FriendlyName '" + Name + "'\"").c_str()
-        );
+    void powershell(str cmd) {
+        #ifdef WINDOWS
+            subprocess::run(
+                narg::$powershell, 
+                (cmd + "-VirtualDisk -FriendlyName '" + Name + "'")
+            );
+        #endif
     }
 
     bool GetConnected() const override {

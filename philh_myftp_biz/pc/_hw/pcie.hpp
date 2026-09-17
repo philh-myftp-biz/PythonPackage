@@ -1,32 +1,28 @@
 #pragma once
 
 #include <string>
-#include <variant>
-#include <optional>
+#include <vector>
 #include <iostream>
-#include <windows.h>
-#include <setupapi.h>
-#include <cfgmgr32.h>  
-#include <initguid.h>  
+#include <algorithm>
 
-#pragma comment (lib, "setupapi.lib")
-#pragma comment (lib, "cfgmgr32.lib")
+#include <hwinfo/hwinfo.h>
+#include <remap.h>
 
 #include <_hw/device.h>
 
 struct PCIeCard : public Device {
 
-    std::string Slot; // '1', '2', '3', '4', 'M.2'
+    str Slot; // '1', '2', '3', '4', 'M.2'
     int Lanes; // 1, 4, 16
-    std::string DeviceId;
-    std::string Name;
+    str DeviceId;
+    str Name;
 
-    std::string GetName() const override { return this->Name; }
+    str GetName() const override { return this->Name; }
 
     PCIeCard(
-        std::string Slot, 
+        str Slot, 
         int Lanes, 
-        std::string DeviceId
+        str DeviceId
     ) {
         this->Slot = Slot;
         this->Lanes = Lanes;
@@ -36,19 +32,11 @@ struct PCIeCard : public Device {
     }
 
     bool GetConnected() const override {
-        DEVINST devInst;
-        
-        // FIX: Removed the problematic DEVNUM_FROM_TYPE macro cast entirely.
-        // We cast the string directly to a modifiable Windows character pointer (DEVINSTID_A)
-        // which matches the native signature perfectly.
-        CONFIGRET status = CM_Locate_DevNodeA(
-            &devInst, 
-            const_cast<char*>(DeviceId.c_str()), 
-            CM_LOCATE_DEVNODE_NORMAL
-        );
-
-        // CR_SUCCESS means the device tree successfully found your hardware identifier.
-        return (status == CR_SUCCESS);
+        for (const auto& gpu : hwinfo::getAllGPUs()) {
+            if (gpu.name().find(DeviceId) != str::npos)
+                return true;
+        }        
+        return false;
     }
-
+    
 };

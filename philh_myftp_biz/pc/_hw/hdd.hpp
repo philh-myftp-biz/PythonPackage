@@ -75,10 +75,7 @@ struct HardDrive : public Device {
         str _powershell(str cmd) {
             str script = "Get-PhysicalDisk | Where-Object SerialNumber -eq '" + SN + "' | " + cmd;
             
-            auto [exit_code, out_buf, err_buf] = subprocess::capture_run(
-                subprocess::named_arguments::$powershell,
-                script
-            );
+            auto [exit_code, out_buf, err_buf] = subprocess::capture_run(narg::$powershell, script);
             
             if (exit_code == 0) {
                 return out_buf.to_string();
