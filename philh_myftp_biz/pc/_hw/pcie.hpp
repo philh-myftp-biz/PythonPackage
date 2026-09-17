@@ -10,33 +10,32 @@
 
 #include <_hw/device.h>
 
+#include "pciutils/pciutils.hpp"
+
 struct PCIeCard : public Device {
 
-    str Slot; // '1', '2', '3', '4', 'M.2'
+    int Slot; // 0, 1, 2, 3, 4, ...
     int Lanes; // 1, 4, 16
-    str DeviceId;
     str Name;
+
+    pcieutils::CardDetails card;
 
     str GetName() const override { return this->Name; }
 
     PCIeCard(
-        str Slot, 
-        int Lanes, 
-        str DeviceId
+        int Slot,
+        int Lanes
     ) {
         this->Slot = Slot;
         this->Lanes = Lanes;
-        this->DeviceId = DeviceId;
 
-        this->Name = Slot + " [x" + std::to_string(Lanes) + "]";
+        this->Name = "Slot " + std::to_string(Slot) + " [x" + stru::zfill(2, Lanes) + "]";
+
+        this->card = pcieutils::get_card(Slot);
     }
 
     bool GetConnected() const override {
-        for (const auto& gpu : hwinfo::getAllGPUs()) {
-            if (gpu.name().find(DeviceId) != str::npos)
-                return true;
-        }        
-        return false;
+        return !card.topology_address.empty();
     }
     
 };

@@ -36,11 +36,12 @@ PYBIND11_MODULE(hardware, m) {
 
     // Bind PCIeCard as a child of Device
     py::class_<PCIeCard, Device>(m, "PCIeCard")
-        .def(py::init<str, int, str>(),
-            py::arg("Slot"), py::arg("Lanes"), py::arg("DeviceId"))
+        .def(py::init<int, int>(),
+            py::arg("Slot"), 
+            py::arg("Lanes") = 0
+        )
         .def_readonly("Slot", &PCIeCard::Slot)
-        .def_readonly("Lanes", &PCIeCard::Lanes)
-        .def_readonly("DeviceId", &PCIeCard::DeviceId);
+        .def_readonly("Lanes", &PCIeCard::Lanes);
 
     // Bind VirtualDisk as a child of Device
     py::class_<VirtualDisk, Device>(m, "VirtualDisk")
