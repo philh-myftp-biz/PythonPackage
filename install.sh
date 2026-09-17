@@ -18,7 +18,11 @@ if [ "$1" == "-f" ]; then
 
 fi
 
+export PYTHONWARNINGS="ignore:setup.py install is deprecated"
+export PIP_ROOT_USER_ACTION="ignore"
+
 python3 -m pip install -vvv . \
     --break-system-packages \
+    --root-user-action=ignore \
     --ignore-installed urllib3
 

@@ -64,6 +64,7 @@ class _Path { public:
         } else if (is_dir()) {
             return _pure.parent_path().filename().string();
         }
+        return "";
     }
 
     std::string ext() {

@@ -1,5 +1,3 @@
-#define HWINFO_STATIC 
-
 #pragma once
 
 #include <string>

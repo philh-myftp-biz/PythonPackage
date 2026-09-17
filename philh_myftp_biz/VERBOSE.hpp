@@ -55,8 +55,7 @@ class VERBOSE : public MutInt { public:
 
     int lvalue;
 
-    VERBOSE(int val) : MutInt(value) {
-        this->value = val;
+    VERBOSE(int val) : MutInt(val) {
         this->lvalue = val;
     }
 

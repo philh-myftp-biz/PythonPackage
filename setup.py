@@ -36,9 +36,14 @@ if not exists("headers/README.md"):
 ext_modules = []
 
 ext_kw = {
-    'extra_compile_args': (["/std:c++20", "/EHsc"] if platform=="win32" else ["-std=c++20"]),
+    'extra_compile_args': ["-fvisibility=hidden"],
     'language': 'c++',
 }
+
+if platform == "win32":
+    ext_kw['extra_compile_args'] += ["/std:c++20", "/EHsc"]
+else:
+    ext_kw['extra_compile_args'] += ["-std=c++20"]
 
 include_dirs = [
     get_include(),
