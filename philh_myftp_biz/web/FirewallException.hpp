@@ -1,3 +1,7 @@
+#ifdef _MSC_VER
+    #pragma warning(disable : 4267)
+#endif
+
 #include <pybind11/pybind11.h>
 #include <iostream>
 #include <memory>

@@ -14,6 +14,8 @@ if "%~1"=="-f" (
 
 )
 
+set "PYTHONWARNINGS=ignore::UserWarning"
+
 pip install -vvv . || exit /b 1
 
 :: Locate package directory using pip
