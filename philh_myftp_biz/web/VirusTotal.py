@@ -10,7 +10,7 @@ if TYPE_CHECKING:
 class VirusReport:
 
     def __init__(self,
-        file: Path,
+        file: 'Path',
         VTobj: 'VTobj'
     ) -> None:
 
@@ -38,7 +38,7 @@ class VirusReport:
         return _warnings
 
     @cached_property
-    def score(self):
+    def score(self) -> float:
         """
         Safety Score
         
@@ -70,7 +70,7 @@ class VirusTotal:
     def _upload(self,
         file: 'Path',
         wait: bool = True
-    ) -> VTobj:
+    ) -> 'VTobj':
         
         with file.open("rb") as f:
 
@@ -82,7 +82,7 @@ class VirusTotal:
         
     def _check(self,
         file: 'Path'
-    ) -> VTobj | None:
+    ) -> 'VTobj | None':
         from vt.error import APIError
     
         try: # Check for existing report first
@@ -93,7 +93,7 @@ class VirusTotal:
 
             if e.args[0] != 'NotFoundError':
                 
-                raise e
+                raise
 
     def scan(self,
         file: 'Path'

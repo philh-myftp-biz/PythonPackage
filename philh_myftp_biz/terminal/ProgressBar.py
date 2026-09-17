@@ -37,7 +37,7 @@ _modes = Literal[
 class ProgressBar:
 
     def __init__(self,
-        total: int|float|Iterable = 0,
+        total: float|Iterable = 0,
         *,
         mode: _modes = 'SCOUNTER',
         label: None|str = None,
@@ -67,7 +67,7 @@ class ProgressBar:
         Pipe.pbar = self
 
     def step(self,
-        n: int|float|Iterable = 1
+        n: float|Iterable = 1
     ) -> None:
         
         Pipe.pbar = self

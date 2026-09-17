@@ -55,14 +55,14 @@ class Process(_Process):
             pass
 
     @property
-    def children(self) -> list[Process]:
+    def children(self) -> list['Process']:
         try:
             return [Process(p.pid) for p in super().children()]
         except AccessErrors:
             return []
 
     @property
-    def descendants(self) -> list[Process]:
+    def descendants(self) -> list['Process']:
         try:
             return [Process(p.pid) for p in super().children(recursive=True)]
         except AccessErrors:

@@ -51,6 +51,7 @@ class Size:
     size.conv_factors['KB'] -> 1024
     """
 
+    @staticmethod
     @cache
     def to_bytes(string:str) -> float:
         """
@@ -75,7 +76,7 @@ class Size:
         return (value * Size.conv_factors[unit])
 
     def from_bytes(
-        value: int | float,
+        value: float,
         unit: units | None = None,
         ndigits: int = maxsize
     ) -> str:

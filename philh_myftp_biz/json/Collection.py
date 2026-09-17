@@ -14,7 +14,7 @@ class Collection[T, STRUCT]:
     var: File
 
     def __init__(self,
-        t: STRUCT | File | 'Collection[T, STRUCT]' | Any = None
+        t: 'STRUCT | File | Collection[T, STRUCT] | Any' = None
     ) -> None:
         from types import GeneratorType
 
@@ -50,7 +50,7 @@ class Collection[T, STRUCT]:
         finally:
             self.save(data)
     
-    def save(self, data: STRUCT | 'Collection[T, STRUCT]'=_NO_VALUE) -> None:
+    def save(self, data: 'STRUCT | Collection[T, STRUCT]'=_NO_VALUE) -> None:
 
         if data is _NO_VALUE:
             data = self.read()

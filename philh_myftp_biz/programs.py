@@ -34,9 +34,9 @@ def __FFMPEG(name:str) -> 'Path':
 
     return exefile
 
-FFMPEG : partial[Path] = partial(__FFMPEG, 'ffmpeg')
+FFMPEG : partial['Path'] = partial(__FFMPEG, 'ffmpeg')
 
-FFPROBE: partial[Path] = partial(__FFMPEG, 'ffprobe')
+FFPROBE: partial['Path'] = partial(__FFMPEG, 'ffprobe')
 
 #=================================
 

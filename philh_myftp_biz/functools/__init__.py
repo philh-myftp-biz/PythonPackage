@@ -1,4 +1,4 @@
-from typing import Any, Callable, Type, TYPE_CHECKING
+from typing import Any, Callable, TYPE_CHECKING
 
 from .SharedBuffer import SharedBuffer # pyright: ignore[reportUnusedImport]
 from .attr import attr, attrs, dunders # pyright: ignore[reportUnusedImport]
@@ -58,7 +58,7 @@ def retryfunc(
     )
 
 def singleton[T](
-    cls: Type[T] | Callable[..., T]
+    cls: type[T] | Callable[..., T]
 ) -> T:
     return cls()
 
@@ -74,7 +74,7 @@ def remport[T](
     spec.loader.exec_module(mod)
     return mod # pyright: ignore[reportReturnType]
 
-def return_type[T](func: Callable[..., T]) -> None | Type[T]:
+def return_type[T](func: Callable[..., T]) -> None | type[T]:
     from inspect import getsource
     import ast
 

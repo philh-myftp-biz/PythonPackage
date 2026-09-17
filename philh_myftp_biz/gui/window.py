@@ -42,13 +42,13 @@ class Window:
     # PAGE
 
     @property
-    def page(self) -> None | Page:
+    def page(self) -> 'None | Page':
         if hasattr(self, '_page'):
             return self._page
 
     @page.setter
     def page(self,
-        value: Page | None
+        value: 'Page | None'
     ) -> None:
         
         self._page = value
@@ -98,7 +98,7 @@ class Window:
         if hasattr(self, '_saved_exc'):
             raise self._saved_exc
 
-    def Page(self) -> Page:
+    def Page(self) -> 'Page':
         from .page import Page
         return Page(self)
     

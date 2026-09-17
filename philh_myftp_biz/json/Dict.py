@@ -23,7 +23,7 @@ class Dict[T](Collection[T, dict[str, T]]):
     def get(self, key: str, default: Any = None) -> Any:
         return self.read().get(key, default)
 
-    def update(self, other: dict[str, T] | 'Dict[T]') -> None:
+    def update(self, other: 'dict[str, T] | Dict[T]') -> None:
         with self.handle() as data:
             if isinstance(other, Collection):
                 other = other.read()

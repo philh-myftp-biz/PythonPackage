@@ -138,15 +138,13 @@ class Service(Path):
 
         Log.VERB(f"Disabling Service: {self.path=}")
 
-        #
         self._lockfile.parent.mkdir()
 
         # Create the lock file
         self._lockfile.open('w')
         
         if stop:
-            try: self.stop()
-            except: pass
+            self.stop()
 
     @cached_property
     def logfile(self) -> None | Path:

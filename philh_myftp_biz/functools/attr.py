@@ -10,7 +10,7 @@ dunders: list[str] = []
 for obj in vars(builtins).values():
     dunders += dir(obj)
 
-dunders = list(set(n for n in dunders if n.startswith('__')))
+dunders = list({n for n in dunders if n.startswith('__')})
 
 #========================================================
 
@@ -47,11 +47,7 @@ class attr:
     def value(self):
         
         if not self.private:
-
-            try:
-                return getattr(self.parent, self.name)
-            except:
-                pass
+            return getattr(self.parent, self.name)
 
     @cached_property
     def callable(self):

@@ -24,9 +24,8 @@ class Port:
     @property
     def listening(self) -> bool:
         """Check if Port is listening/in use"""
-
-        from socket import error, SHUT_RDWR
         from quicksocketpy import socket
+        from socket import SHUT_RDWR
 
         sock = socket()
 
@@ -39,7 +38,7 @@ class Port:
 
             return True
 
-        except error:
+        except OSError:
 
             sock.close()
             return False

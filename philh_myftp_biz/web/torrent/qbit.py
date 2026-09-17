@@ -70,7 +70,7 @@ class qBitTorrent(
     @Log.on_call
     def clear(self,
         rm_files: bool = True,
-        func: FilterFunc[Torrent] = lambda t: True
+        func: FilterFunc['Torrent'] = lambda t: True
     ) -> None:
         
         torrents = self.queue
@@ -81,7 +81,7 @@ class qBitTorrent(
 
     @Log.on_call
     def sort(self,
-        func: SortFunc[Torrent]
+        func: SortFunc['Torrent']
     ) -> None:
         torrents = self.queue
         torrents.sort(func)
@@ -91,7 +91,7 @@ class qBitTorrent(
 
     @property
     @Log.on_call
-    def queue(self) -> List[Torrent]:
+    def queue(self) -> List['Torrent']:
         from .torrent import Torrent
 
         items = []

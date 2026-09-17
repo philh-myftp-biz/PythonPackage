@@ -1,18 +1,11 @@
-from typing import Callable, Union, TypeAlias, TypeVar
+from typing import Callable
 
-_T = TypeVar('_T')
-
-SortFunc: TypeAlias = Callable[
-    [_T],
-    Union[
-        int, 
-        float, 
-        list[int | float], 
-        tuple[int | float]
-    ]
+type SortFunc[T] = Callable[
+    [T],
+    int | float | list[int | float] | tuple[int | float]
 ]
 
-FilterFunc: TypeAlias = Callable[[_T], bool]
+type FilterFunc[T] = Callable[[T], bool]
 
 #========================================================
 

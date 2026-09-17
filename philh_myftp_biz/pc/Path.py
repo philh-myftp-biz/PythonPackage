@@ -72,7 +72,7 @@ class Path(_Path):
     def __format__(self, spec:str) -> str:
         return f'{self.path:{spec}}'
 
-    def __eq__(self, other:Any) -> bool:
+    def __eq__(self, other:object) -> bool:
         return (self.path == self._parse(other))
 
     @property
@@ -111,7 +111,7 @@ class Path(_Path):
     @property
     def is_empty(self) -> bool:
         """Recursively check if the current directory contains any files"""
-        return not any((i.is_file for i in self.descendants))
+        return not any(i.is_file for i in self.descendants)
 
     @cached_property
     def parent(self) -> 'Path':
@@ -239,9 +239,9 @@ class Path(_Path):
 
             pbar.stop()
 
-        except Exception as e:
+        except:
             (f.dst.delete() for f in files)
-            raise e
+            raise
 
     def move(self, dst:Any) -> None:
         self.copy(dst)
@@ -291,14 +291,11 @@ class Path(_Path):
 
         _mtime(path=self).set(mtime=og_mtime)
 
-    def __getitem__(self,
-        key: Any
-    ) -> None:
+    def __getitem__(self, key:Any) -> None:
         from ..text import hex
-
         try:
-            with open(f'{self}:{hex.encode(key)}') as store:                
-                return hex.decode(store.read())        
+            with open(f'{self}:{hex.encode(key)}') as store:
+                return hex.decode(store.read()) # pyright: ignore[reportReturnType]
         except OSError:
             pass
 
@@ -370,7 +367,6 @@ class Path(_Path):
 
             case 'video':
                 Log.FAIL(exc_info=NotImplementedError())
-                pass
 
             case _:
                 raise TypeError(f"'{self.type}' is not a valid type")

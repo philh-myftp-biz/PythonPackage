@@ -1,8 +1,22 @@
 from ._time import Stopwatch, Timeout, TimeStamp
+from typing import TYPE_CHECKING
 
 from_stamp = TimeStamp # TODO deprecated
 
+if TYPE_CHECKING:
+    from pytz.tzinfo import DstTzInfo, StaticTzInfo
+    from pytz import _UTCclass
+
 #==============================================================================
+
+type TimeZone = '_UTCclass | StaticTzInfo | DstTzInfo'
+
+tz: TimeZone
+
+def __getattr__(name:str):
+    if name == 'tz':
+        from pytz import timezone
+        return timezone("America/New_York")
 
 def now() -> TimeStamp:
     """Get details of the current time"""
@@ -32,13 +46,16 @@ def from_ymdhms(
     """Get details of time from year, month, day, hour, minute, & second"""
     from datetime import datetime
 
+    global tz
+
     t = datetime(
         year=year,
         month=month,
         day=day,
         hour=hour,
         minute=minute,
-        second=second
+        second=second,
+        tzinfo = tz
     )
 
     try:

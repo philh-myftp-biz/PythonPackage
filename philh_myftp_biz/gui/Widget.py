@@ -1,4 +1,4 @@
-from typing import Callable, Any, TYPE_CHECKING, Type
+from typing import Callable, Any, TYPE_CHECKING
 
 if TYPE_CHECKING:
     from tkinter import Widget as _Widget
@@ -7,7 +7,7 @@ if TYPE_CHECKING:
 
 class Widget(dict[str, Any]):
 
-    raw: 'Type[_Widget]'
+    raw: 'type[_Widget]'
 
     _inst: '_Widget' = None
 
@@ -69,7 +69,7 @@ class Input(Widget):
     def __init__(self,
         text: str = '<Input>', *,
         secure: bool = False,
-        key: Key = None
+        key: 'Key' = None
     ) -> None:
         
         self['placeholder_text'] = text

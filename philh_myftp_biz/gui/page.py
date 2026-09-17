@@ -10,5 +10,5 @@ class Page(list['Widget']):
 
     gui: 'Window'
 
-    def __iadd__(self, value: Widget) -> Self:
+    def __iadd__(self, value: 'Widget') -> Self:
         return super().__iadd__([value])

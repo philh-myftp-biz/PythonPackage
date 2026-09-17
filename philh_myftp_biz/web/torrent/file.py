@@ -14,7 +14,7 @@ class TorrentFileNotFoundError(Exception): ...
 @dataclass
 class TorrentFile:
     
-    torrent: Torrent
+    torrent: 'Torrent'
     id: str
 
     def __repr__(self) -> str:
@@ -34,7 +34,7 @@ class TorrentFile:
     #===================================================
 
     @cached_property
-    def path(self) -> Path:
+    def path(self) -> 'Path':
         return self.torrent.path.child(self.raw.name)
     
     @cached_property

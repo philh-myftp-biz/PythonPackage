@@ -12,7 +12,7 @@ if TYPE_CHECKING:
 
 class Torrent:
 
-    def __init__(self, **kwargs):
+    def __init__(self, **kwargs) -> None:
         self.__dict__ |= kwargs
 
     size: str = ""
@@ -47,7 +47,7 @@ class Torrent:
             return XT[len('urn:btmh:'):].lower()
 
     @property
-    def raw(self) -> TorrentDictionary:
+    def raw(self) -> 'TorrentDictionary':
         from ...text import similarity
 
         for torr in qbit.torrents_info():

@@ -11,7 +11,7 @@ if TYPE_CHECKING:
 url = URL("https://thepiratebay11.com/search/{}/1/99/200")
 
 # @dead-code-ignore
-driver: Driver = None
+driver: 'Driver' = None
 
 cache: TransitoryCache[list[Torrent]] = TransitoryCache('__tpb__')
 
@@ -30,6 +30,7 @@ def _search(query:str) -> list[Torrent]:
     from ...time import from_string
     from .name import NameParser
     from .torrent import Torrent
+    from ..driver import Driver
     from ...db import Size
 
     global driver, url, cache
@@ -51,7 +52,7 @@ def _search(query:str) -> list[Torrent]:
     results = []
 
     # Iter from 0 to # of lines
-    for x in range(0, driver.run('return lines.length')):
+    for x in range(driver.run('return lines.length')):
 
         _run = lambda c: driver.run(f'return lines[{x}].children{c}', False)
 

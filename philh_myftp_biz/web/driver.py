@@ -36,7 +36,7 @@ class Driver:
         eager: bool = False,
         timeout: int = 300,
         daemon: bool = True,
-        user_data_dir: None|Path = None,
+        user_data_dir: 'None|Path' = None,
         profile_dir: None|str = None
     ) -> None:
         from selenium.webdriver import FirefoxOptions, Firefox
@@ -71,7 +71,7 @@ class Driver:
 
             user_data_dir.mkdir(parents=True, exist_ok=True)
 
-            options.add_argument(f"--user-data-dir={str(user_data_dir)}")
+            options.add_argument(f"--user-data-dir={user_data_dir!s}")
 
             if profile_dir:
 
@@ -209,7 +209,7 @@ class Driver:
             pass
         
     @property
-    def URL(self) -> URL | None:
+    def URL(self) -> 'URL | None':
         """URL of the Current Page"""
         from selenium.common.exceptions import WebDriverException
         from .url import URL

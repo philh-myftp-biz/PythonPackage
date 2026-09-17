@@ -15,7 +15,12 @@ dynamic = [ "dependencies",]
 target-version = "py312"
 
 [tool.ruff.lint]
-ignore = [ "F401", "E731", "E402", "E701", "E722", "F403",]
+ignore = [ 
+    "F401", "E731", "E402", "E701", "E722", "F403", "I001", "B006", 
+    "B023", "B018", "UP035", "PLW0602", "UP029", "LOG015", "N999",
+    "BLE001", "RUF013", "RUF012", "SIM114", "PLW1510", "PLR1704",
+    "PYI034"
+]
 
 [tool.setuptools.package-data]
 "*" = [ "*.pyd", "*.so", "*.pyi",]

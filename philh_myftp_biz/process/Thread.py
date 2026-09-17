@@ -90,7 +90,7 @@ class Watcher[T](Thread):
     def __init__(self,
         checker: Callable[[], T],
         handler: Callable[[T], None],
-        interval: int|float = .3
+        interval: float = .3
     ) -> None:
         
         self.checker = checker
@@ -127,7 +127,7 @@ class Looper(Watcher):
 
     def __init__(self,
         func: Callable[[], None],
-        interval: int|float = .3
+        interval: float = .3
     ) -> None:
         from ..time import now
 

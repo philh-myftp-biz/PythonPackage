@@ -1,5 +1,5 @@
 from .torrent.models import MovieData, ShowData, EpisodeData
-from typing import NoReturn, Literal
+from typing import Literal
 from .url import URL
 
 #=================================================================
@@ -32,7 +32,7 @@ _omdb_url = URL(
     max_age = 10800 # 3 hours
 )
 
-def _get_omdb(**params) -> NoReturn | dict:
+def _get_omdb(**params) -> dict:
 
     data = _omdb_url.copy(
         params = {**params, 'apikey':_omdb_key}
@@ -99,7 +99,7 @@ def show(
         total_seasons = 0
     
     # Iter through all seasons by #
-    for s in range(0, total_seasons+1):
+    for s in range(total_seasons+1):
 
         r2: dict = _get_tmdb(f'/tv/{show.tmdb_id}/season/{s}')
 

@@ -203,8 +203,8 @@ class INI(_Template):
 
         obj = ConfigObj(str(self.path))
 
-        for name in data:
-            obj[name] = data[name]
+        for name, value in data.items():
+            obj[name] = value
 
         obj.write()
 
