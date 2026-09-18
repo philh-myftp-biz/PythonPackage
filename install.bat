@@ -1,11 +1,13 @@
 @echo off
 cls
-cd /d "%~dp0"
+pushd %~dp0
 
 if "%~1"=="-f" (
     
     rmdir /s /q "philh_myftp_biz.egg-info"
     rmdir /s /q "build"
+    rmdir /s /q "_build" 
+    rmdir /s /q "_api"
     rmdir /s /q "dist"
     
     pip uninstall philh_myftp_biz -y
@@ -24,3 +26,11 @@ set "DIR=%DIR:~10%\philh_myftp_biz"
 
 :: Precompile package
 python -m compileall -f "%DIR%"
+
+:: Update API Reference Docs
+pip install sphinx ghp-import
+pip install git+https://github.com/minefarts/sphinx-autodoc2
+python.exe -m sphinx -M html . _build -E -a
+ghp-import -n -p -f _build\html
+
+popd
