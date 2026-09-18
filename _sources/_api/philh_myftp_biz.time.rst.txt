@@ -6,5 +6,6 @@ Module contents
 
 .. automodule:: philh_myftp_biz.time
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:

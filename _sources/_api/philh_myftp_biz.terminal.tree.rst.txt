@@ -9,6 +9,7 @@ philh\_myftp\_biz.terminal.tree.branch module
 
 .. automodule:: philh_myftp_biz.terminal.tree.branch
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -17,6 +18,7 @@ philh\_myftp\_biz.terminal.tree.printer module
 
 .. automodule:: philh_myftp_biz.terminal.tree.printer
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -25,5 +27,6 @@ Module contents
 
 .. automodule:: philh_myftp_biz.terminal.tree
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:

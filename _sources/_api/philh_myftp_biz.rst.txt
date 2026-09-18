@@ -21,11 +21,21 @@ Subpackages
 Submodules
 ----------
 
+philh\_myftp\_biz.\_log module
+------------------------------
+
+.. automodule:: philh_myftp_biz._log
+   :members:
+   :private-members:
+   :show-inheritance:
+   :undoc-members:
+
 philh\_myftp\_biz.array module
 ------------------------------
 
 .. automodule:: philh_myftp_biz.array
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -34,6 +44,7 @@ philh\_myftp\_biz.db module
 
 .. automodule:: philh_myftp_biz.db
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -42,6 +53,7 @@ philh\_myftp\_biz.file module
 
 .. automodule:: philh_myftp_biz.file
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -50,6 +62,7 @@ philh\_myftp\_biz.gps module
 
 .. automodule:: philh_myftp_biz.gps
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -58,6 +71,7 @@ philh\_myftp\_biz.programs module
 
 .. automodule:: philh_myftp_biz.programs
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -66,5 +80,6 @@ Module contents
 
 .. automodule:: philh_myftp_biz
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:

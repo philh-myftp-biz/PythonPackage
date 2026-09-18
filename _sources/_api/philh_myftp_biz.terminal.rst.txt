@@ -17,6 +17,7 @@ philh\_myftp\_biz.terminal.Args module
 
 .. automodule:: philh_myftp_biz.terminal.Args
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -25,6 +26,7 @@ philh\_myftp\_biz.terminal.KIC module
 
 .. automodule:: philh_myftp_biz.terminal.KIC
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -33,6 +35,7 @@ philh\_myftp\_biz.terminal.Log module
 
 .. automodule:: philh_myftp_biz.terminal.Log
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -41,6 +44,7 @@ philh\_myftp\_biz.terminal.ProgressBar module
 
 .. automodule:: philh_myftp_biz.terminal.ProgressBar
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -49,5 +53,6 @@ Module contents
 
 .. automodule:: philh_myftp_biz.terminal
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:

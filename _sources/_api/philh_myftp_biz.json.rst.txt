@@ -9,6 +9,7 @@ philh\_myftp\_biz.json.Collection module
 
 .. automodule:: philh_myftp_biz.json.Collection
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -17,6 +18,7 @@ philh\_myftp\_biz.json.Dict module
 
 .. automodule:: philh_myftp_biz.json.Dict
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -25,6 +27,7 @@ philh\_myftp\_biz.json.List module
 
 .. automodule:: philh_myftp_biz.json.List
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -33,6 +36,7 @@ philh\_myftp\_biz.json.weights module
 
 .. automodule:: philh_myftp_biz.json.weights
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -41,5 +45,6 @@ Module contents
 
 .. automodule:: philh_myftp_biz.json
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:

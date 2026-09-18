@@ -9,6 +9,7 @@ philh\_myftp\_biz.web.torrent.file module
 
 .. automodule:: philh_myftp_biz.web.torrent.file
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -17,6 +18,7 @@ philh\_myftp\_biz.web.torrent.models module
 
 .. automodule:: philh_myftp_biz.web.torrent.models
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -25,6 +27,7 @@ philh\_myftp\_biz.web.torrent.name module
 
 .. automodule:: philh_myftp_biz.web.torrent.name
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -33,6 +36,7 @@ philh\_myftp\_biz.web.torrent.qbit module
 
 .. automodule:: philh_myftp_biz.web.torrent.qbit
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -41,6 +45,7 @@ philh\_myftp\_biz.web.torrent.torrent module
 
 .. automodule:: philh_myftp_biz.web.torrent.torrent
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -49,6 +54,7 @@ philh\_myftp\_biz.web.torrent.tpb module
 
 .. automodule:: philh_myftp_biz.web.torrent.tpb
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -57,5 +63,6 @@ Module contents
 
 .. automodule:: philh_myftp_biz.web.torrent
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:

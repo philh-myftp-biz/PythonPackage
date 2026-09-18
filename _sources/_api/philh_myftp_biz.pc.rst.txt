@@ -9,6 +9,16 @@ philh\_myftp\_biz.pc.Path module
 
 .. automodule:: philh_myftp_biz.pc.Path
    :members:
+   :private-members:
+   :show-inheritance:
+   :undoc-members:
+
+philh\_myftp\_biz.pc.\_pc module
+--------------------------------
+
+.. automodule:: philh_myftp_biz.pc._pc
+   :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
 
@@ -17,5 +27,6 @@ Module contents
 
 .. automodule:: philh_myftp_biz.pc
    :members:
+   :private-members:
    :show-inheritance:
    :undoc-members:
