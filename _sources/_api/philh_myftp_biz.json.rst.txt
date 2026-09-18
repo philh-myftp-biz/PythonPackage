@@ -1,0 +1,45 @@
+philh\_myftp\_biz.json package
+==============================
+
+Submodules
+----------
+
+philh\_myftp\_biz.json.Collection module
+----------------------------------------
+
+.. automodule:: philh_myftp_biz.json.Collection
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+philh\_myftp\_biz.json.Dict module
+----------------------------------
+
+.. automodule:: philh_myftp_biz.json.Dict
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+philh\_myftp\_biz.json.List module
+----------------------------------
+
+.. automodule:: philh_myftp_biz.json.List
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+philh\_myftp\_biz.json.weights module
+-------------------------------------
+
+.. automodule:: philh_myftp_biz.json.weights
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: philh_myftp_biz.json
+   :members:
+   :show-inheritance:
+   :undoc-members:

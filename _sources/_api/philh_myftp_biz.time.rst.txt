@@ -1,0 +1,10 @@
+philh\_myftp\_biz.time package
+==============================
+
+Module contents
+---------------
+
+.. automodule:: philh_myftp_biz.time
+   :members:
+   :show-inheritance:
+   :undoc-members:

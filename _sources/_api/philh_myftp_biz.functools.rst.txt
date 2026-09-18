@@ -1,0 +1,61 @@
+philh\_myftp\_biz.functools package
+===================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   philh_myftp_biz.functools.cache
+
+Submodules
+----------
+
+philh\_myftp\_biz.functools.SharedBuffer module
+-----------------------------------------------
+
+.. automodule:: philh_myftp_biz.functools.SharedBuffer
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+philh\_myftp\_biz.functools.attr module
+---------------------------------------
+
+.. automodule:: philh_myftp_biz.functools.attr
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+philh\_myftp\_biz.functools.force\_types module
+-----------------------------------------------
+
+.. automodule:: philh_myftp_biz.functools.force_types
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+philh\_myftp\_biz.functools.paths module
+----------------------------------------
+
+.. automodule:: philh_myftp_biz.functools.paths
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+philh\_myftp\_biz.functools.supports module
+-------------------------------------------
+
+.. automodule:: philh_myftp_biz.functools.supports
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: philh_myftp_biz.functools
+   :members:
+   :show-inheritance:
+   :undoc-members:
