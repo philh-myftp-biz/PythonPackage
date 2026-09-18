@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>philh_myftp_biz.modules package &#8212; philh_myftp_biz  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=27fed22d" />
+    <script src="_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="philh-myftp-biz-modules-package">
+<h1>philh_myftp_biz.modules package<a class="headerlink" href="#philh-myftp-biz-modules-package" title="Link to this heading">¶</a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
+</section>
+<section id="module-philh_myftp_biz.modules.Module">
+<span id="philh-myftp-biz-modules-module-module"></span><h2>philh_myftp_biz.modules.Module module<a class="headerlink" href="#module-philh_myftp_biz.modules.Module" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Module.Module">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.modules.Module.</span></span><span class="sig-name descname"><span class="pre">Module</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="philh_myftp_biz.pc.html#philh_myftp_biz.pc.Path.Path" title="philh_myftp_biz.pc.Path.Path"><span class="pre">Path</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Module.html#Module"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Module.Module" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="philh_myftp_biz.pc.html#philh_myftp_biz.pc.Path.Path" title="philh_myftp_biz.pc.Path.Path"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></a></p>
+<p>Allows for easy interaction with other languages in a directory</p>
+<p>Make sure to add a file labed ‘Module.yaml’ in the directory
+‘Module.yaml’ needs to be configured with the following syntax:
+“””</p>
+<blockquote>
+<div><p>packages: []</p>
+</div></blockquote>
+<p>“””</p>
+<p>EXAMPLE:
+<a href="#id1"><span class="problematic" id="id2">``</span></a>`
+m = Module(‘E:/testmodule’)</p>
+<p># Runs any script with a path starting with “E:/testmodule/main.###”
+# Handlers for the extensions are automatically interpreted
+m.run(‘main’)</p>
+<p># ‘E:/testmodule/sub/script.###’
+m.run(‘sub/script’)</p>
+<p><a href="#id3"><span class="problematic" id="id4">``</span></a><a href="#id5"><span class="problematic" id="id6">`</span></a></p>
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Module.Module.Connected">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Connected</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#philh_myftp_biz.modules.Module.Module.Connected" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Module.Module.Name">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Module.html#Module.Name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Module.Module.Name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Module.Module.cap">
+<span class="sig-name descname"><span class="pre">cap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Module.html#Module.cap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Module.Module.cap" title="Link to this definition">¶</a></dt>
+<dd><p>Execute a new hidden Process and capture the output as JSON</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Module.Module.file">
+<span class="sig-name descname"><span class="pre">file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="philh_myftp_biz.pc.html#philh_myftp_biz.pc.Path.Path" title="philh_myftp_biz.pc.Path.Path"><span class="pre">Path</span></a></span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Module.html#Module.file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Module.Module.file" title="Link to this definition">¶</a></dt>
+<dd><p>Find a file by it’s name</p>
+<p>Returns FileNotFoundError if file does not exist</p>
+<p>EXAMPLE:</p>
+<p># “run.py”
+m.file(‘run’)</p>
+<p># “web/script.js”
+m.file(‘web’, ‘script’)
+m/file(‘web/script’)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Module.Module.install">
+<span class="sig-name descname"><span class="pre">install</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">show</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Module.html#Module.install"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Module.Module.install" title="Link to this definition">¶</a></dt>
+<dd><p>Automatically install all dependencies</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Module.Module.repo">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">repo</span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Module.html#Module.repo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Module.Module.repo" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Module.Module.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">SubProcess</span></span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Module.html#Module.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Module.Module.run" title="Link to this definition">¶</a></dt>
+<dd><p>Execute a new Process and wait for it to finish</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Module.Module.runH">
+<span class="sig-name descname"><span class="pre">runH</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">SubProcess</span></span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Module.html#Module.runH"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Module.Module.runH" title="Link to this definition">¶</a></dt>
+<dd><p>Execute a new hidden Process and wait for it to finish</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Module.Module.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">SubProcess</span></span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Module.html#Module.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Module.Module.start" title="Link to this definition">¶</a></dt>
+<dd><p>Execute a new Process simultaneously with the current execution</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Module.Module.startH">
+<span class="sig-name descname"><span class="pre">startH</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">SubProcess</span></span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Module.html#Module.startH"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Module.Module.startH" title="Link to this definition">¶</a></dt>
+<dd><p>Execute a new hidden Process simultaneously with the current execution</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-philh_myftp_biz.modules.Repo">
+<span id="philh-myftp-biz-modules-repo-module"></span><h2>philh_myftp_biz.modules.Repo module<a class="headerlink" href="#module-philh_myftp_biz.modules.Repo" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Repo.Repo">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.modules.Repo.</span></span><span class="sig-name descname"><span class="pre">Repo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="philh_myftp_biz.pc.html#philh_myftp_biz.pc.Path.Path" title="philh_myftp_biz.pc.Path.Path"><span class="pre">Path</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Repo.html#Repo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Repo.Repo" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Repo.Repo.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Repo.html#Repo.add"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Repo.Repo.add" title="Link to this definition">¶</a></dt>
+<dd><p>Stage specific subfolder</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Repo.Repo.changes">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">changes</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#philh_myftp_biz.modules.Repo.Repo.changes" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Repo.Repo.focus">
+<span class="sig-name descname"><span class="pre">focus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Repo.html#Repo.focus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Repo.Repo.focus" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Repo.Repo.refresh">
+<span class="sig-name descname"><span class="pre">refresh</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Repo.html#Repo.refresh"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Repo.Repo.refresh" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Repo.Repo.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><a class="headerlink" href="#philh_myftp_biz.modules.Repo.Repo.reset" title="Link to this definition">¶</a></dt>
+<dd><p>Unstage all files</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Repo.Repo.rm">
+<span class="sig-name descname"><span class="pre">rm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">cached</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">recurse</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Repo.html#Repo.rm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Repo.Repo.rm" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Repo.Repo.update_submodules">
+<span class="sig-name descname"><span class="pre">update_submodules</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">remote</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Repo.html#Repo.update_submodules"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Repo.Repo.update_submodules" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-philh_myftp_biz.modules.Service">
+<span id="philh-myftp-biz-modules-service-module"></span><h2>philh_myftp_biz.modules.Service module<a class="headerlink" href="#module-philh_myftp_biz.modules.Service" title="Link to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Service.Service">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.modules.Service.</span></span><span class="sig-name descname"><span class="pre">Service</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="philh_myftp_biz.pc.html#philh_myftp_biz.pc.Path.Path" title="philh_myftp_biz.pc.Path.Path"><span class="pre">Path</span></a></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Service.html#Service"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Service.Service" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="philh_myftp_biz.pc.html#philh_myftp_biz.pc.Path.Path" title="philh_myftp_biz.pc.Path.Path"><code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code></a></p>
+<p>EXAMPLE:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">serv</span> <span class="pre">=</span> <span class="pre">Service('/service/')</span>
+<span class="pre">`</span></code></p>
+<dl class="simple">
+<dt>‘./service/<a href="#id7"><span class="problematic" id="id8">*</span></a>’</dt><dd><ul class="simple">
+<li><p>Running.* (Outputs ‘true’ or ‘false’ whether the service is running)</p></li>
+<li><p>Start.* (Starts the service)</p></li>
+<li><p>Stop.* (Stops the service)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Service.Service.Connected">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Connected</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#philh_myftp_biz.modules.Service.Service.Connected" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Service.Service.Name">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Service.html#Service.Name"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Service.Service.Name" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Service.Service.disable">
+<span class="sig-name descname"><span class="pre">disable</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stop</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Service.html#Service.disable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Service.Service.disable" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Service.Service.enable">
+<span class="sig-name descname"><span class="pre">enable</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Service.html#Service.enable"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Service.Service.enable" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Service.Service.enabled">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">enabled</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#philh_myftp_biz.modules.Service.Service.enabled" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Service.Service.file">
+<span class="sig-name descname"><span class="pre">file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="philh_myftp_biz.pc.html#philh_myftp_biz.pc.Path.Path" title="philh_myftp_biz.pc.Path.Path"><span class="pre">Path</span></a></span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Service.html#Service.file"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Service.Service.file" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Service.Service.logfile">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">logfile</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="philh_myftp_biz.pc.html#philh_myftp_biz.pc.Path.Path" title="philh_myftp_biz.pc.Path.Path"><span class="pre">Path</span></a></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Service.html#Service.logfile"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Service.Service.logfile" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Service.Service.pymod">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">pymod</span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Service.html#Service.pymod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Service.Service.pymod" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Service.Service.running">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">running</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#philh_myftp_biz.modules.Service.Service.running" title="Link to this definition">¶</a></dt>
+<dd><p>Service is running</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Service.Service.start">
+<span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Service.html#Service.start"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Service.Service.start" title="Link to this definition">¶</a></dt>
+<dd><p>Start the Service</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Service.Service.stop">
+<span class="sig-name descname"><span class="pre">stop</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Service.html#Service.stop"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Service.Service.stop" title="Link to this definition">¶</a></dt>
+<dd><p>Stop the Service</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="philh_myftp_biz.modules.Service.ServiceDisabledError">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.modules.Service.</span></span><span class="sig-name descname"><span class="pre">ServiceDisabledError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">serv</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#philh_myftp_biz.modules.Service.Service" title="philh_myftp_biz.modules.Service.Service"><span class="pre">Service</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/philh_myftp_biz/modules/Service.html#ServiceDisabledError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.modules.Service.ServiceDisabledError" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-philh_myftp_biz.modules">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-philh_myftp_biz.modules" title="Link to this heading">¶</a></h2>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">philh_myftp_biz</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Phil Hunt.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="_sources/philh_myftp_biz.modules.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

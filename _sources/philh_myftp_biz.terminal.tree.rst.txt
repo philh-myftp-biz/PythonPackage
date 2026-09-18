@@ -1,0 +1,29 @@
+philh\_myftp\_biz.terminal.tree package
+=======================================
+
+Submodules
+----------
+
+philh\_myftp\_biz.terminal.tree.branch module
+---------------------------------------------
+
+.. automodule:: philh_myftp_biz.terminal.tree.branch
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+philh\_myftp\_biz.terminal.tree.printer module
+----------------------------------------------
+
+.. automodule:: philh_myftp_biz.terminal.tree.printer
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: philh_myftp_biz.terminal.tree
+   :members:
+   :show-inheritance:
+   :undoc-members:

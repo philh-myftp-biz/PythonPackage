@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>philh_myftp_biz.web.session &#8212; philh_myftp_biz  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=27fed22d" />
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for philh_myftp_biz.web.session</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">requests.adapters</span><span class="w"> </span><span class="kn">import</span> <span class="n">HTTPAdapter</span> <span class="k">as</span> <span class="n">_HTTPAdapter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">requests_cache</span><span class="w"> </span><span class="kn">import</span> <span class="n">CachedSession</span> <span class="k">as</span> <span class="n">_CachedSession</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">urllib3.util</span><span class="w"> </span><span class="kn">import</span> <span class="n">Retry</span> <span class="k">as</span> <span class="n">_Retry</span>
+
+<div class="viewcode-block" id="RetryStrat">
+<a class="viewcode-back" href="../../../philh_myftp_biz.web.html#philh_myftp_biz.web.session.RetryStrat">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">RetryStrat</span><span class="p">(</span><span class="n">_Retry</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+        <span class="n">total</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">backoff_factor</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">status_forcelist</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">600</span><span class="p">),</span>
+        <span class="n">allowed_methods</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;GET&quot;</span><span class="p">,</span> <span class="s2">&quot;POST&quot;</span><span class="p">],</span>
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">):</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="n">total</span><span class="p">,</span>
+        <span class="n">backoff_factor</span> <span class="o">=</span> <span class="n">backoff_factor</span><span class="p">,</span> 
+        <span class="n">status_forcelist</span> <span class="o">=</span> <span class="n">status_forcelist</span><span class="p">,</span> 
+        <span class="n">allowed_methods</span> <span class="o">=</span> <span class="n">allowed_methods</span><span class="p">,</span> 
+        <span class="o">**</span><span class="n">kwargs</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Adapter">
+<a class="viewcode-back" href="../../../philh_myftp_biz.web.html#philh_myftp_biz.web.session.Adapter">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Adapter</span><span class="p">(</span><span class="n">_HTTPAdapter</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+        <span class="n">retry_strategy</span><span class="p">:</span> <span class="n">RetryStrat</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">):</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="n">max_retries</span> <span class="o">=</span> <span class="n">retry_strategy</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Session">
+<a class="viewcode-back" href="../../../philh_myftp_biz.web.html#philh_myftp_biz.web.session.Session">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Session</span><span class="p">(</span><span class="n">_CachedSession</span><span class="p">):</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">max_age</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">adapter</span><span class="p">:</span> <span class="n">Adapter</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">..pc._pc</span><span class="w"> </span><span class="kn">import</span> <span class="n">loc</span>
+
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">cache_name</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">child</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">.sqlite&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">path</span><span class="p">,</span>
+            <span class="n">backend</span> <span class="o">=</span> <span class="s1">&#39;sqlite&#39;</span><span class="p">,</span>
+            <span class="n">expire_after</span> <span class="o">=</span> <span class="n">max_age</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">adapter</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;http://&quot;</span><span class="p">,</span> <span class="n">adapter</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;https://&quot;</span><span class="p">,</span> <span class="n">adapter</span><span class="p">)</span></div>
+
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">philh_myftp_biz</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Phil Hunt.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

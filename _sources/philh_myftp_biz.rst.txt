@@ -1,0 +1,70 @@
+philh\_myftp\_biz package
+=========================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   philh_myftp_biz.functools
+   philh_myftp_biz.gui
+   philh_myftp_biz.json
+   philh_myftp_biz.modules
+   philh_myftp_biz.pc
+   philh_myftp_biz.process
+   philh_myftp_biz.terminal
+   philh_myftp_biz.text
+   philh_myftp_biz.time
+   philh_myftp_biz.web
+
+Submodules
+----------
+
+philh\_myftp\_biz.array module
+------------------------------
+
+.. automodule:: philh_myftp_biz.array
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+philh\_myftp\_biz.db module
+---------------------------
+
+.. automodule:: philh_myftp_biz.db
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+philh\_myftp\_biz.file module
+-----------------------------
+
+.. automodule:: philh_myftp_biz.file
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+philh\_myftp\_biz.gps module
+----------------------------
+
+.. automodule:: philh_myftp_biz.gps
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+philh\_myftp\_biz.programs module
+---------------------------------
+
+.. automodule:: philh_myftp_biz.programs
+   :members:
+   :show-inheritance:
+   :undoc-members:
+
+Module contents
+---------------
+
+.. automodule:: philh_myftp_biz
+   :members:
+   :show-inheritance:
+   :undoc-members:
