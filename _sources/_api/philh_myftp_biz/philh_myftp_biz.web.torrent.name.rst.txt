@@ -1,0 +1,71 @@
+:py:mod:`philh_myftp_biz.web.torrent.name`
+==========================================
+
+.. py:module:: philh_myftp_biz.web.torrent.name
+
+.. autodoc2-docstring:: philh_myftp_biz.web.torrent.name
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`NameParser <philh_myftp_biz.web.torrent.name.NameParser>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.torrent.name.NameParser
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`qualities <philh_myftp_biz.web.torrent.name.qualities>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.torrent.name.qualities
+          :summary:
+
+API
+~~~
+
+.. py:data:: qualities
+   :canonical: philh_myftp_biz.web.torrent.name.qualities
+   :type: tuple[str]
+   :value: ('hdtv', 'tvrip', '2160p', '1440p', '1080p', '720p', '480p', '360p', '4K')
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.torrent.name.qualities
+
+.. py:class:: NameParser(name: str | None)
+   :canonical: philh_myftp_biz.web.torrent.name.NameParser
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.torrent.name.NameParser
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.torrent.name.NameParser.__init__
+
+   .. py:method:: season() -> list[int]
+      :canonical: philh_myftp_biz.web.torrent.name.NameParser.season
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.name.NameParser.season
+
+   .. py:method:: episode() -> list[int]
+      :canonical: philh_myftp_biz.web.torrent.name.NameParser.episode
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.name.NameParser.episode
+
+   .. py:method:: year() -> list[int]
+      :canonical: philh_myftp_biz.web.torrent.name.NameParser.year
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.name.NameParser.year
+
+   .. py:method:: quality() -> None | str
+      :canonical: philh_myftp_biz.web.torrent.name.NameParser.quality
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.name.NameParser.quality

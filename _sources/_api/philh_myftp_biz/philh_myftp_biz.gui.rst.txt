@@ -1,0 +1,18 @@
+:py:mod:`philh_myftp_biz.gui`
+=============================
+
+.. py:module:: philh_myftp_biz.gui
+
+.. autodoc2-docstring:: philh_myftp_biz.gui
+   :allowtitles:
+
+Submodules
+----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   philh_myftp_biz.gui.page
+   philh_myftp_biz.gui.Widget
+   philh_myftp_biz.gui.window

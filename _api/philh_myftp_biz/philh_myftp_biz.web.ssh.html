@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>philh_myftp_biz.web.ssh &#8212; philh_myftp_biz  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=27fed22d" />
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="philh_myftp_biz.web.url" href="philh_myftp_biz.web.url.html" />
+    <link rel="prev" title="philh_myftp_biz.web.session" href="philh_myftp_biz.web.session.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-philh_myftp_biz.web.ssh">
+<span id="philh-myftp-biz-web-ssh"></span><h1><a class="reference internal" href="#module-philh_myftp_biz.web.ssh" title="philh_myftp_biz.web.ssh"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.web.ssh</span></code></a><a class="headerlink" href="#module-philh_myftp_biz.web.ssh" title="Link to this heading">¶</a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#philh_myftp_biz.web.ssh.SSHResponse" title="philh_myftp_biz.web.ssh.SSHResponse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SSHResponse</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#philh_myftp_biz.web.ssh.SSH" title="philh_myftp_biz.web.ssh.SSH"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SSH</span></code></a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="api">
+<h3>API<a class="headerlink" href="#api" title="Link to this heading">¶</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.ssh.SSHResponse">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.web.ssh.</span></span><span class="sig-name descname"><span class="pre">SSHResponse</span></span><a class="headerlink" href="#philh_myftp_biz.web.ssh.SSHResponse" title="Link to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.ssh.SSHResponse.stdout">
+<span class="sig-name descname"><span class="pre">stdout</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">paramiko.channel.ChannelFile</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#philh_myftp_biz.web.ssh.SSHResponse.stdout" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.ssh.SSHResponse.stderr">
+<span class="sig-name descname"><span class="pre">stderr</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">paramiko.channel.ChannelStderrFile</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#philh_myftp_biz.web.ssh.SSHResponse.stderr" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.ssh.SSHResponse.output">
+<span class="sig-name descname"><span class="pre">output</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#philh_myftp_biz.web.ssh.SSHResponse.output" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.ssh.SSHResponse.error">
+<span class="sig-name descname"><span class="pre">error</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#philh_myftp_biz.web.ssh.SSHResponse.error" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.ssh.SSH">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.web.ssh.</span></span><span class="sig-name descname"><span class="pre">SSH</span></span><a class="headerlink" href="#philh_myftp_biz.web.ssh.SSH" title="Link to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.ssh.SSH.host">
+<span class="sig-name descname"><span class="pre">host</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#philh_myftp_biz.web.ssh.SSH.host" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.ssh.SSH.username">
+<span class="sig-name descname"><span class="pre">username</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#philh_myftp_biz.web.ssh.SSH.username" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.ssh.SSH.password">
+<span class="sig-name descname"><span class="pre">password</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#philh_myftp_biz.web.ssh.SSH.password" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.ssh.SSH.timeout">
+<span class="sig-name descname"><span class="pre">timeout</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#philh_myftp_biz.web.ssh.SSH.timeout" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.ssh.SSH.port">
+<span class="sig-name descname"><span class="pre">port</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">22</span></span><a class="headerlink" href="#philh_myftp_biz.web.ssh.SSH.port" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.ssh.SSH._client">
+<span class="sig-name descname"><span class="pre">_client</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#philh_myftp_biz.web.ssh.SSH._client" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.ssh.SSH.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#philh_myftp_biz.web.ssh.SSH.close" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.ssh.SSH.run">
+<span class="sig-name descname"><span class="pre">run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#philh_myftp_biz.web.ssh.SSHResponse" title="philh_myftp_biz.web.ssh.SSHResponse"><span class="pre">philh_myftp_biz.web.ssh.SSHResponse</span></a></span></span><a class="headerlink" href="#philh_myftp_biz.web.ssh.SSH.run" title="Link to this definition">¶</a></dt>
+<dd><p>Send a command to the remote computer</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">philh_myftp_biz</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="philh_myftp_biz.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">API Reference</a><ul>
+  <li><a href="philh_myftp_biz.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz</span></code></a><ul>
+  <li><a href="philh_myftp_biz.web.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.web</span></code></a><ul>
+      <li>Previous: <a href="philh_myftp_biz.web.session.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.web.session</span></code></a></li>
+      <li>Next: <a href="philh_myftp_biz.web.url.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.web.url</span></code></a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Phil Hunt.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../../_sources/_api/philh_myftp_biz/philh_myftp_biz.web.ssh.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

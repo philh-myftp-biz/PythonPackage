@@ -1,0 +1,75 @@
+:py:mod:`philh_myftp_biz.functools.cache.transitory`
+====================================================
+
+.. py:module:: philh_myftp_biz.functools.cache.transitory
+
+.. autodoc2-docstring:: philh_myftp_biz.functools.cache.transitory
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`CachedItem <philh_myftp_biz.functools.cache.transitory.CachedItem>`
+     -
+   * - :py:obj:`TransitoryCache <philh_myftp_biz.functools.cache.transitory.TransitoryCache>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.cache.transitory.TransitoryCache
+          :summary:
+
+API
+~~~
+
+.. py:class:: CachedItem()
+   :canonical: philh_myftp_biz.functools.cache.transitory.CachedItem
+
+   Bases: :py:obj:`typing.TypedDict`
+
+   .. py:attribute:: created
+      :canonical: philh_myftp_biz.functools.cache.transitory.CachedItem.created
+      :type: float
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.cache.transitory.CachedItem.created
+
+   .. py:attribute:: value
+      :canonical: philh_myftp_biz.functools.cache.transitory.CachedItem.value
+      :type: philh_myftp_biz.functools.cache.transitory.CachedItem.T
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.cache.transitory.CachedItem.value
+
+.. py:class:: TransitoryCache(id: philh_myftp_biz.functools.supports.SupportsStr = 0, expire: int = 18000)
+   :canonical: philh_myftp_biz.functools.cache.transitory.TransitoryCache
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.cache.transitory.TransitoryCache
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.cache.transitory.TransitoryCache.__init__
+
+   .. py:property:: _dict
+      :canonical: philh_myftp_biz.functools.cache.transitory.TransitoryCache._dict
+      :type: Dict[CachedItem]
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.cache.transitory.TransitoryCache._dict
+
+   .. py:method:: __getitem__(key: philh_myftp_biz.functools.supports.SupportsJSON) -> T
+      :canonical: philh_myftp_biz.functools.cache.transitory.TransitoryCache.__getitem__
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.cache.transitory.TransitoryCache.__getitem__
+
+   .. py:method:: __setitem__(key: philh_myftp_biz.functools.supports.SupportsJSON, value: T) -> None
+      :canonical: philh_myftp_biz.functools.cache.transitory.TransitoryCache.__setitem__
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.cache.transitory.TransitoryCache.__setitem__
+
+   .. py:method:: __contains__(key: philh_myftp_biz.functools.supports.SupportsJSON) -> bool
+      :canonical: philh_myftp_biz.functools.cache.transitory.TransitoryCache.__contains__
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.cache.transitory.TransitoryCache.__contains__

@@ -1,0 +1,103 @@
+:py:mod:`philh_myftp_biz.modules.Service`
+=========================================
+
+.. py:module:: philh_myftp_biz.modules.Service
+
+.. autodoc2-docstring:: philh_myftp_biz.modules.Service
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Service <philh_myftp_biz.modules.Service.Service>`
+     - .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service
+          :summary:
+
+API
+~~~
+
+.. py:exception:: ServiceDisabledError(serv: philh_myftp_biz.modules.Service.Service)
+   :canonical: philh_myftp_biz.modules.Service.ServiceDisabledError
+
+   Bases: :py:obj:`Exception`
+
+.. py:class:: Service(path: str | Path, *args: str)
+   :canonical: philh_myftp_biz.modules.Service.Service
+
+   Bases: :py:obj:`philh_myftp_biz.pc.Path`
+
+   .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service.__init__
+
+   .. py:method:: Name() -> str
+      :canonical: philh_myftp_biz.modules.Service.Service.Name
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service.Name
+
+   .. py:property:: Connected
+      :canonical: philh_myftp_biz.modules.Service.Service.Connected
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service.Connected
+
+   .. py:method:: file(name: str) -> philh_myftp_biz.pc.Path
+      :canonical: philh_myftp_biz.modules.Service.Service.file
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service.file
+
+   .. py:method:: _run(name: str) -> philh_myftp_biz.process.RunHidden
+      :canonical: philh_myftp_biz.modules.Service.Service._run
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service._run
+
+   .. py:method:: start(force: bool = False) -> None
+      :canonical: philh_myftp_biz.modules.Service.Service.start
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service.start
+
+   .. py:property:: running
+      :canonical: philh_myftp_biz.modules.Service.Service.running
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service.running
+
+   .. py:method:: pymod()
+      :canonical: philh_myftp_biz.modules.Service.Service.pymod
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service.pymod
+
+   .. py:method:: stop() -> None
+      :canonical: philh_myftp_biz.modules.Service.Service.stop
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service.stop
+
+   .. py:property:: enabled
+      :canonical: philh_myftp_biz.modules.Service.Service.enabled
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service.enabled
+
+   .. py:method:: enable() -> None
+      :canonical: philh_myftp_biz.modules.Service.Service.enable
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service.enable
+
+   .. py:method:: disable(stop: bool = True) -> None
+      :canonical: philh_myftp_biz.modules.Service.Service.disable
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service.disable
+
+   .. py:method:: logfile() -> None | philh_myftp_biz.pc.Path
+      :canonical: philh_myftp_biz.modules.Service.Service.logfile
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service.logfile

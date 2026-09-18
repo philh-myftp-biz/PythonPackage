@@ -1,0 +1,102 @@
+:py:mod:`philh_myftp_biz.web.driver`
+====================================
+
+.. py:module:: philh_myftp_biz.web.driver
+
+.. autodoc2-docstring:: philh_myftp_biz.web.driver
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Element <philh_myftp_biz.web.driver.Element>`
+     -
+   * - :py:obj:`Driver <philh_myftp_biz.web.driver.Driver>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.driver.Driver
+          :summary:
+
+API
+~~~
+
+.. py:class:: Element(webelement: selenium.webdriver.remote.webelement.WebElement)
+   :canonical: philh_myftp_biz.web.driver.Element
+
+   Bases: :py:obj:`selenium.webdriver.remote.webelement.WebElement`
+
+   .. py:property:: children
+      :canonical: philh_myftp_biz.web.driver.Element.children
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.driver.Element.children
+
+   .. py:method:: __getattr__(name: str)
+      :canonical: philh_myftp_biz.web.driver.Element.__getattr__
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.driver.Element.__getattr__
+
+.. py:class:: Driver(headless: bool = True, eager: bool = False, timeout: int = 300, daemon: bool = True, user_data_dir: None|Path = None, profile_dir: None | str = None)
+   :canonical: philh_myftp_biz.web.driver.Driver
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.driver.Driver
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.driver.Driver.__init__
+
+   .. py:method:: reload() -> None
+      :canonical: philh_myftp_biz.web.driver.Driver.reload
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.driver.Driver.reload
+
+   .. py:method:: run(code: str, log: bool = True)
+      :canonical: philh_myftp_biz.web.driver.Driver.run
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.driver.Driver.run
+
+   .. py:method:: element(by: typing.Literal[class, id, xpath, philh_myftp_biz.web.driver.Driver.element.name, attr], name: str) -> list[philh_myftp_biz.web.driver.Element]
+      :canonical: philh_myftp_biz.web.driver.Driver.element
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.driver.Driver.element
+
+   .. py:method:: open(url: str) -> None
+      :canonical: philh_myftp_biz.web.driver.Driver.open
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.driver.Driver.open
+
+   .. py:method:: close(*_) -> None
+      :canonical: philh_myftp_biz.web.driver.Driver.close
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.driver.Driver.close
+
+   .. py:method:: __enter__() -> typing.Self
+      :canonical: philh_myftp_biz.web.driver.Driver.__enter__
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.driver.Driver.__enter__
+
+   .. py:method:: __exit__(*_) -> None
+      :canonical: philh_myftp_biz.web.driver.Driver.__exit__
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.driver.Driver.__exit__
+
+   .. py:property:: HTML
+      :canonical: philh_myftp_biz.web.driver.Driver.HTML
+      :type: str | None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.driver.Driver.HTML
+
+   .. py:property:: URL
+      :canonical: philh_myftp_biz.web.driver.Driver.URL
+      :type: URL | None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.driver.Driver.URL
+
+   .. py:property:: Soup
+      :canonical: philh_myftp_biz.web.driver.Driver.Soup
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.driver.Driver.Soup

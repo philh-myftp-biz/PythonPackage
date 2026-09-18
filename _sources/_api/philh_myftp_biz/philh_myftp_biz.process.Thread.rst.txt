@@ -1,0 +1,169 @@
+:py:mod:`philh_myftp_biz.process.Thread`
+========================================
+
+.. py:module:: philh_myftp_biz.process.Thread
+
+.. autodoc2-docstring:: philh_myftp_biz.process.Thread
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Thread <philh_myftp_biz.process.Thread.Thread>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Thread
+          :summary:
+   * - :py:obj:`MProcess <philh_myftp_biz.process.Thread.MProcess>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.Thread.MProcess
+          :summary:
+   * - :py:obj:`Sleeper <philh_myftp_biz.process.Thread.Sleeper>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Sleeper
+          :summary:
+   * - :py:obj:`Watcher <philh_myftp_biz.process.Thread.Watcher>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Watcher
+          :summary:
+   * - :py:obj:`Looper <philh_myftp_biz.process.Thread.Looper>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Looper
+          :summary:
+   * - :py:obj:`ThreadedFunc <philh_myftp_biz.process.Thread.ThreadedFunc>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.Thread.ThreadedFunc
+          :summary:
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Alive <philh_myftp_biz.process.Thread.Alive>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Alive
+          :summary:
+
+API
+~~~
+
+.. py:class:: Thread(func: typing.Callable[..., T], *args: str, **kwargs: str)
+   :canonical: philh_myftp_biz.process.Thread.Thread
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Thread
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Thread.__init__
+
+   .. py:attribute:: result
+      :canonical: philh_myftp_biz.process.Thread.Thread.result
+      :type: philh_myftp_biz.process.Thread.Thread.T
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Thread.result
+
+   .. py:property:: _Builder
+      :canonical: philh_myftp_biz.process.Thread.Thread._Builder
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Thread._Builder
+
+   .. py:method:: read(timeout: int, default: T = None) -> T
+      :canonical: philh_myftp_biz.process.Thread.Thread.read
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Thread.read
+
+.. py:class:: MProcess(func: typing.Callable[..., T], *args: str, **kwargs: str)
+   :canonical: philh_myftp_biz.process.Thread.MProcess
+
+   Bases: :py:obj:`philh_myftp_biz.process.Thread.Thread`\ [\ :py:obj:`philh_myftp_biz.process.Thread.MProcess.T`\ ]
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.Thread.MProcess
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.Thread.MProcess.__init__
+
+   .. py:property:: _Builder
+      :canonical: philh_myftp_biz.process.Thread.MProcess._Builder
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.Thread.MProcess._Builder
+
+.. py:class:: Sleeper(func: typing.Callable, *args: str, **kwargs: str)
+   :canonical: philh_myftp_biz.process.Thread.Sleeper
+
+   Bases: :py:obj:`philh_myftp_biz.process.Thread.Thread`\ [\ :py:obj:`None`\ ]
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Sleeper
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Sleeper.__init__
+
+   .. py:method:: _main() -> None
+      :canonical: philh_myftp_biz.process.Thread.Sleeper._main
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Sleeper._main
+
+.. py:class:: Watcher(checker: typing.Callable[[], T], handler: typing.Callable[[T], None], interval: float = 0.3)
+   :canonical: philh_myftp_biz.process.Thread.Watcher
+
+   Bases: :py:obj:`philh_myftp_biz.process.Thread.Thread`
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Watcher
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Watcher.__init__
+
+   .. py:method:: _main() -> None
+      :canonical: philh_myftp_biz.process.Thread.Watcher._main
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Watcher._main
+
+.. py:class:: Looper(func: typing.Callable[[], None], interval: float = 0.3)
+   :canonical: philh_myftp_biz.process.Thread.Looper
+
+   Bases: :py:obj:`philh_myftp_biz.process.Thread.Watcher`
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Looper
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Looper.__init__
+
+.. py:function:: Alive() -> bool
+   :canonical: philh_myftp_biz.process.Thread.Alive
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.Thread.Alive
+
+.. py:class:: ThreadedFunc
+   :canonical: philh_myftp_biz.process.Thread.ThreadedFunc
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.Thread.ThreadedFunc
+
+   .. py:attribute:: func
+      :canonical: philh_myftp_biz.process.Thread.ThreadedFunc.func
+      :type: typing.Callable[..., philh_myftp_biz.process.Thread.ThreadedFunc.R]
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.Thread.ThreadedFunc.func
+
+   .. py:attribute:: instance
+      :canonical: philh_myftp_biz.process.Thread.ThreadedFunc.instance
+      :type: typing.Any
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.Thread.ThreadedFunc.instance
+
+   .. py:method:: __get__(instance, _) -> ThreadedFunc[R]
+      :canonical: philh_myftp_biz.process.Thread.ThreadedFunc.__get__
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.Thread.ThreadedFunc.__get__
+
+   .. py:method:: __call__(*args, **kwargs) -> philh_myftp_biz.process.Thread.Thread[R]
+      :canonical: philh_myftp_biz.process.Thread.ThreadedFunc.__call__
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.Thread.ThreadedFunc.__call__

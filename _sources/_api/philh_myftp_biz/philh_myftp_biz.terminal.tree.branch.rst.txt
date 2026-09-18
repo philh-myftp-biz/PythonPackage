@@ -1,0 +1,39 @@
+:py:mod:`philh_myftp_biz.terminal.tree.branch`
+==============================================
+
+.. py:module:: philh_myftp_biz.terminal.tree.branch
+
+.. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Branch <philh_myftp_biz.terminal.tree.branch.Branch>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch
+          :summary:
+
+API
+~~~
+
+.. py:class:: Branch(*args: str)
+   :canonical: philh_myftp_biz.terminal.tree.branch.Branch
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch.__init__
+
+   .. py:method:: _NoArgs() -> None
+      :canonical: philh_myftp_biz.terminal.tree.branch.Branch._NoArgs
+      :staticmethod:
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch._NoArgs

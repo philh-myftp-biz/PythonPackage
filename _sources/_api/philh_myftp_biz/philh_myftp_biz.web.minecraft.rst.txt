@@ -1,0 +1,95 @@
+:py:mod:`philh_myftp_biz.web.minecraft`
+=======================================
+
+.. py:module:: philh_myftp_biz.web.minecraft
+
+.. autodoc2-docstring:: philh_myftp_biz.web.minecraft
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Mojang <philh_myftp_biz.web.minecraft.Mojang>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.minecraft.Mojang
+          :summary:
+   * - :py:obj:`ModrinthMod <philh_myftp_biz.web.minecraft.ModrinthMod>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.minecraft.ModrinthMod
+          :summary:
+   * - :py:obj:`FabricMC <philh_myftp_biz.web.minecraft.FabricMC>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.minecraft.FabricMC
+          :summary:
+
+API
+~~~
+
+.. py:class:: Mojang
+   :canonical: philh_myftp_biz.web.minecraft.Mojang
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.minecraft.Mojang
+
+   .. py:method:: _data() -> dict[str, typing.Any]
+      :canonical: philh_myftp_biz.web.minecraft.Mojang._data
+      :staticmethod:
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.minecraft.Mojang._data
+
+   .. py:property:: latest_version
+      :canonical: philh_myftp_biz.web.minecraft.Mojang.latest_version
+      :type: philh_myftp_biz.web.url.URL
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.minecraft.Mojang.latest_version
+
+.. py:class:: ModrinthMod
+   :canonical: philh_myftp_biz.web.minecraft.ModrinthMod
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.minecraft.ModrinthMod
+
+   .. py:attribute:: name
+      :canonical: philh_myftp_biz.web.minecraft.ModrinthMod.name
+      :type: str
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.minecraft.ModrinthMod.name
+
+   .. py:attribute:: version
+      :canonical: philh_myftp_biz.web.minecraft.ModrinthMod.version
+      :type: str
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.minecraft.ModrinthMod.version
+
+   .. py:attribute:: loader
+      :canonical: philh_myftp_biz.web.minecraft.ModrinthMod.loader
+      :type: typing.Literal[fabric, forge]
+      :value: 'fabric'
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.minecraft.ModrinthMod.loader
+
+   .. py:method:: url() -> philh_myftp_biz.web.url.URL | None
+      :canonical: philh_myftp_biz.web.minecraft.ModrinthMod.url
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.minecraft.ModrinthMod.url
+
+.. py:class:: FabricMC
+   :canonical: philh_myftp_biz.web.minecraft.FabricMC
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.minecraft.FabricMC
+
+   .. py:attribute:: version
+      :canonical: philh_myftp_biz.web.minecraft.FabricMC.version
+      :type: str
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.minecraft.FabricMC.version
+
+   .. py:method:: server_jar() -> philh_myftp_biz.web.url.URL
+      :canonical: philh_myftp_biz.web.minecraft.FabricMC.server_jar
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.minecraft.FabricMC.server_jar

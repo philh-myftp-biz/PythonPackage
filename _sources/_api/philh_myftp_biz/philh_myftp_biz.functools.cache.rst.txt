@@ -1,0 +1,77 @@
+:py:mod:`philh_myftp_biz.functools.cache`
+=========================================
+
+.. py:module:: philh_myftp_biz.functools.cache
+
+.. autodoc2-docstring:: philh_myftp_biz.functools.cache
+   :allowtitles:
+
+Submodules
+----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   philh_myftp_biz.functools.cache.prop
+   philh_myftp_biz.functools.cache.transitory
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`_diskcache <philh_myftp_biz.functools.cache._diskcache>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.cache._diskcache
+          :summary:
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`clear_cache <philh_myftp_biz.functools.cache.clear_cache>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.cache.clear_cache
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`diskcache <philh_myftp_biz.functools.cache.diskcache>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.cache.diskcache
+          :summary:
+
+API
+~~~
+
+.. py:function:: clear_cache(instance: typing.Any) -> None
+   :canonical: philh_myftp_biz.functools.cache.clear_cache
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.cache.clear_cache
+
+.. py:class:: _diskcache
+   :canonical: philh_myftp_biz.functools.cache._diskcache
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.cache._diskcache
+
+   .. py:method:: __call__(expire: int | None = None)
+      :canonical: philh_myftp_biz.functools.cache._diskcache.__call__
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.cache._diskcache.__call__
+
+.. py:data:: diskcache
+   :canonical: philh_myftp_biz.functools.cache.diskcache
+   :value: '_diskcache(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.cache.diskcache

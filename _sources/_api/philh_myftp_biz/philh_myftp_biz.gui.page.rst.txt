@@ -1,0 +1,38 @@
+:py:mod:`philh_myftp_biz.gui.page`
+==================================
+
+.. py:module:: philh_myftp_biz.gui.page
+
+.. autodoc2-docstring:: philh_myftp_biz.gui.page
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Page <philh_myftp_biz.gui.page.Page>`
+     -
+
+API
+~~~
+
+.. py:class:: Page()
+   :canonical: philh_myftp_biz.gui.page.Page
+
+   Bases: :py:obj:`list`\ [\ :py:obj:`philh_myftp_biz.gui.Widget.Widget`\ ]
+
+   .. py:attribute:: gui
+      :canonical: philh_myftp_biz.gui.page.Page.gui
+      :type: philh_myftp_biz.gui.window.Window
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.gui.page.Page.gui
+
+   .. py:method:: __iadd__(value: philh_myftp_biz.gui.Widget.Widget) -> typing.Self
+      :canonical: philh_myftp_biz.gui.page.Page.__iadd__

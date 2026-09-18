@@ -1,0 +1,38 @@
+:py:mod:`philh_myftp_biz.json.weights`
+======================================
+
+.. py:module:: philh_myftp_biz.json.weights
+
+.. autodoc2-docstring:: philh_myftp_biz.json.weights
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Weights <philh_myftp_biz.json.weights.Weights>`
+     - .. autodoc2-docstring:: philh_myftp_biz.json.weights.Weights
+          :summary:
+
+API
+~~~
+
+.. py:class:: Weights(**controls)
+   :canonical: philh_myftp_biz.json.weights.Weights
+
+   .. autodoc2-docstring:: philh_myftp_biz.json.weights.Weights
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.json.weights.Weights.__init__
+
+   .. py:method:: __call__(**samples) -> bool
+      :canonical: philh_myftp_biz.json.weights.Weights.__call__
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.weights.Weights.__call__

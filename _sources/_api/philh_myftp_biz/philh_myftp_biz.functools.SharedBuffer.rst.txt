@@ -1,0 +1,50 @@
+:py:mod:`philh_myftp_biz.functools.SharedBuffer`
+================================================
+
+.. py:module:: philh_myftp_biz.functools.SharedBuffer
+
+.. autodoc2-docstring:: philh_myftp_biz.functools.SharedBuffer
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`SharedBuffer <philh_myftp_biz.functools.SharedBuffer.SharedBuffer>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.SharedBuffer.SharedBuffer
+          :summary:
+
+API
+~~~
+
+.. py:class:: SharedBuffer()
+   :canonical: philh_myftp_biz.functools.SharedBuffer.SharedBuffer
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.SharedBuffer.SharedBuffer
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.SharedBuffer.SharedBuffer.__init__
+
+   .. py:attribute:: stop_when
+      :canonical: philh_myftp_biz.functools.SharedBuffer.SharedBuffer.stop_when
+      :type: typing.Callable[[], bool]
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.SharedBuffer.SharedBuffer.stop_when
+
+   .. py:method:: __iter__()
+      :canonical: philh_myftp_biz.functools.SharedBuffer.SharedBuffer.__iter__
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.SharedBuffer.SharedBuffer.__iter__
+
+   .. py:method:: __next__()
+      :canonical: philh_myftp_biz.functools.SharedBuffer.SharedBuffer.__next__
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.SharedBuffer.SharedBuffer.__next__

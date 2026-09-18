@@ -1,0 +1,82 @@
+:py:mod:`philh_myftp_biz.web.VirusTotal`
+========================================
+
+.. py:module:: philh_myftp_biz.web.VirusTotal
+
+.. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`VirusReport <philh_myftp_biz.web.VirusTotal.VirusReport>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusReport
+          :summary:
+   * - :py:obj:`VirusTotal <philh_myftp_biz.web.VirusTotal.VirusTotal>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusTotal
+          :summary:
+
+API
+~~~
+
+.. py:class:: VirusReport(file: philh_myftp_biz.pc.Path, VTobj: philh_myftp_biz.web.VirusTotal.VirusReport.__init__.VTobj)
+   :canonical: philh_myftp_biz.web.VirusTotal.VirusReport
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusReport
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusReport.__init__
+
+   .. py:method:: url() -> str
+      :canonical: philh_myftp_biz.web.VirusTotal.VirusReport.url
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusReport.url
+
+   .. py:method:: warnings() -> list[dict]
+      :canonical: philh_myftp_biz.web.VirusTotal.VirusReport.warnings
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusReport.warnings
+
+   .. py:method:: score() -> float
+      :canonical: philh_myftp_biz.web.VirusTotal.VirusReport.score
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusReport.score
+
+.. py:class:: VirusTotal
+   :canonical: philh_myftp_biz.web.VirusTotal.VirusTotal
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusTotal
+
+   .. py:attribute:: key
+      :canonical: philh_myftp_biz.web.VirusTotal.VirusTotal.key
+      :value: 'c063375af8061ad11694b15fb48327b3fd3c2a4f79cff8669f3de82143cc6562'
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusTotal.key
+
+   .. py:property:: client
+      :canonical: philh_myftp_biz.web.VirusTotal.VirusTotal.client
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusTotal.client
+
+   .. py:method:: _upload(file: philh_myftp_biz.pc.Path, wait: bool = True) -> vt.object.Object
+      :canonical: philh_myftp_biz.web.VirusTotal.VirusTotal._upload
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusTotal._upload
+
+   .. py:method:: _check(file: philh_myftp_biz.pc.Path) -> VTobj | None
+      :canonical: philh_myftp_biz.web.VirusTotal.VirusTotal._check
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusTotal._check
+
+   .. py:method:: scan(file: philh_myftp_biz.pc.Path) -> philh_myftp_biz.web.VirusTotal.VirusReport
+      :canonical: philh_myftp_biz.web.VirusTotal.VirusTotal.scan
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusTotal.scan

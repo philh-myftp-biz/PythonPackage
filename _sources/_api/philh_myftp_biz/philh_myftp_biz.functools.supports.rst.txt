@@ -1,0 +1,50 @@
+:py:mod:`philh_myftp_biz.functools.supports`
+============================================
+
+.. py:module:: philh_myftp_biz.functools.supports
+
+.. autodoc2-docstring:: philh_myftp_biz.functools.supports
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`SupportsStr <philh_myftp_biz.functools.supports.SupportsStr>`
+     -
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`SupportsJSON <philh_myftp_biz.functools.supports.SupportsJSON>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.supports.SupportsJSON
+          :summary:
+
+API
+~~~
+
+.. py:class:: SupportsStr
+   :canonical: philh_myftp_biz.functools.supports.SupportsStr
+
+   Bases: :py:obj:`typing.Protocol`
+
+   .. py:method:: __str__() -> str
+      :canonical: philh_myftp_biz.functools.supports.SupportsStr.__str__
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.supports.SupportsStr.__str__
+
+.. py:data:: SupportsJSON
+   :canonical: philh_myftp_biz.functools.supports.SupportsJSON
+   :value: None
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.supports.SupportsJSON

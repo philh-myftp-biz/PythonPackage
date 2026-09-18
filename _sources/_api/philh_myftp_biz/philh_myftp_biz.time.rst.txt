@@ -1,0 +1,88 @@
+:py:mod:`philh_myftp_biz.time`
+==============================
+
+.. py:module:: philh_myftp_biz.time
+
+.. autodoc2-docstring:: philh_myftp_biz.time
+   :allowtitles:
+
+Submodules
+----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   philh_myftp_biz.time._time
+
+Package Contents
+----------------
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`now <philh_myftp_biz.time.now>`
+     - .. autodoc2-docstring:: philh_myftp_biz.time.now
+          :summary:
+   * - :py:obj:`from_string <philh_myftp_biz.time.from_string>`
+     - .. autodoc2-docstring:: philh_myftp_biz.time.from_string
+          :summary:
+   * - :py:obj:`from_ymdhms <philh_myftp_biz.time.from_ymdhms>`
+     - .. autodoc2-docstring:: philh_myftp_biz.time.from_ymdhms
+          :summary:
+   * - :py:obj:`sleep <philh_myftp_biz.time.sleep>`
+     - .. autodoc2-docstring:: philh_myftp_biz.time.sleep
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`from_stamp <philh_myftp_biz.time.from_stamp>`
+     - .. autodoc2-docstring:: philh_myftp_biz.time.from_stamp
+          :summary:
+   * - :py:obj:`tzinfo <philh_myftp_biz.time.tzinfo>`
+     - .. autodoc2-docstring:: philh_myftp_biz.time.tzinfo
+          :summary:
+
+API
+~~~
+
+.. py:data:: from_stamp
+   :canonical: philh_myftp_biz.time.from_stamp
+   :value: None
+
+   .. autodoc2-docstring:: philh_myftp_biz.time.from_stamp
+
+.. py:data:: tzinfo
+   :canonical: philh_myftp_biz.time.tzinfo
+   :value: '__partial(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.time.tzinfo
+
+.. py:function:: now() -> philh_myftp_biz.time._time.TimeStamp
+   :canonical: philh_myftp_biz.time.now
+
+   .. autodoc2-docstring:: philh_myftp_biz.time.now
+
+.. py:function:: from_string(string: str) -> philh_myftp_biz.time._time.TimeStamp
+   :canonical: philh_myftp_biz.time.from_string
+
+   .. autodoc2-docstring:: philh_myftp_biz.time.from_string
+
+.. py:function:: from_ymdhms(year: int = 0, month: int = 1, day: int = 1, hour: int = 0, minute: int = 0, second: int = 0) -> philh_myftp_biz.time._time.TimeStamp
+   :canonical: philh_myftp_biz.time.from_ymdhms
+
+   .. autodoc2-docstring:: philh_myftp_biz.time.from_ymdhms
+
+.. py:function:: sleep(s: int, show: bool = False)
+   :canonical: philh_myftp_biz.time.sleep
+
+   .. autodoc2-docstring:: philh_myftp_biz.time.sleep

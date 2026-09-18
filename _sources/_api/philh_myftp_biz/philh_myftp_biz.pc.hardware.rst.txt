@@ -1,0 +1,167 @@
+:py:mod:`philh_myftp_biz.pc.hardware`
+=====================================
+
+.. py:module:: philh_myftp_biz.pc.hardware
+
+.. autodoc2-docstring:: philh_myftp_biz.pc.hardware
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Device <philh_myftp_biz.pc.hardware.Device>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device
+          :summary:
+   * - :py:obj:`HardDrive <philh_myftp_biz.pc.hardware.HardDrive>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive
+          :summary:
+   * - :py:obj:`PCIeCard <philh_myftp_biz.pc.hardware.PCIeCard>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard
+          :summary:
+   * - :py:obj:`VirtualDisk <philh_myftp_biz.pc.hardware.VirtualDisk>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.VirtualDisk
+          :summary:
+
+API
+~~~
+
+.. py:class:: Device()
+   :canonical: philh_myftp_biz.pc.hardware.Device
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.__init__
+
+   .. py:property:: Connected
+      :canonical: philh_myftp_biz.pc.hardware.Device.Connected
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.Connected
+
+   .. py:property:: Name
+      :canonical: philh_myftp_biz.pc.hardware.Device.Name
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.Name
+
+.. py:class:: HardDrive(Tower: str, Conn: str, ID: typing.SupportsInt | typing.SupportsIndex, SN: str)
+   :canonical: philh_myftp_biz.pc.hardware.HardDrive
+
+   Bases: :py:obj:`philh_myftp_biz.pc.hardware.Device`
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.__init__
+
+   .. py:attribute:: FriendlyName
+      :canonical: philh_myftp_biz.pc.hardware.HardDrive.FriendlyName
+      :type: str
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.FriendlyName
+
+   .. py:attribute:: Usage
+      :canonical: philh_myftp_biz.pc.hardware.HardDrive.Usage
+      :type: str
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.Usage
+
+   .. py:method:: search() -> list[philh_myftp_biz.pc.hardware.HardDrive]
+      :canonical: philh_myftp_biz.pc.hardware.HardDrive.search
+      :staticmethod:
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.search
+
+   .. py:property:: Conn
+      :canonical: philh_myftp_biz.pc.hardware.HardDrive.Conn
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.Conn
+
+   .. py:property:: ID
+      :canonical: philh_myftp_biz.pc.hardware.HardDrive.ID
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.ID
+
+   .. py:property:: Index
+      :canonical: philh_myftp_biz.pc.hardware.HardDrive.Index
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.Index
+
+   .. py:property:: SN
+      :canonical: philh_myftp_biz.pc.hardware.HardDrive.SN
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.SN
+
+   .. py:property:: Tower
+      :canonical: philh_myftp_biz.pc.hardware.HardDrive.Tower
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.Tower
+
+.. py:class:: PCIeCard(Slot: typing.SupportsInt | typing.SupportsIndex, Lanes: typing.SupportsInt | typing.SupportsIndex = ...)
+   :canonical: philh_myftp_biz.pc.hardware.PCIeCard
+
+   Bases: :py:obj:`philh_myftp_biz.pc.hardware.Device`
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard.__init__
+
+   .. py:property:: Lanes
+      :canonical: philh_myftp_biz.pc.hardware.PCIeCard.Lanes
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard.Lanes
+
+   .. py:property:: Slot
+      :canonical: philh_myftp_biz.pc.hardware.PCIeCard.Slot
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard.Slot
+
+.. py:class:: VirtualDisk(Name: str, Mount: str)
+   :canonical: philh_myftp_biz.pc.hardware.VirtualDisk
+
+   Bases: :py:obj:`philh_myftp_biz.pc.hardware.Device`
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.VirtualDisk
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.VirtualDisk.__init__
+
+   .. py:attribute:: Connected
+      :canonical: philh_myftp_biz.pc.hardware.VirtualDisk.Connected
+      :type: bool
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.VirtualDisk.Connected
+
+   .. py:method:: Repair() -> None
+      :canonical: philh_myftp_biz.pc.hardware.VirtualDisk.Repair
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.VirtualDisk.Repair
+
+   .. py:property:: Mount
+      :canonical: philh_myftp_biz.pc.hardware.VirtualDisk.Mount
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.VirtualDisk.Mount

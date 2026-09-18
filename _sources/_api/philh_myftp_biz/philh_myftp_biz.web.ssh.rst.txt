@@ -1,0 +1,111 @@
+:py:mod:`philh_myftp_biz.web.ssh`
+=================================
+
+.. py:module:: philh_myftp_biz.web.ssh
+
+.. autodoc2-docstring:: philh_myftp_biz.web.ssh
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`SSHResponse <philh_myftp_biz.web.ssh.SSHResponse>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.ssh.SSHResponse
+          :summary:
+   * - :py:obj:`SSH <philh_myftp_biz.web.ssh.SSH>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.ssh.SSH
+          :summary:
+
+API
+~~~
+
+.. py:class:: SSHResponse
+   :canonical: philh_myftp_biz.web.ssh.SSHResponse
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.ssh.SSHResponse
+
+   .. py:attribute:: stdout
+      :canonical: philh_myftp_biz.web.ssh.SSHResponse.stdout
+      :type: paramiko.channel.ChannelFile
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.ssh.SSHResponse.stdout
+
+   .. py:attribute:: stderr
+      :canonical: philh_myftp_biz.web.ssh.SSHResponse.stderr
+      :type: paramiko.channel.ChannelStderrFile
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.ssh.SSHResponse.stderr
+
+   .. py:method:: output() -> str
+      :canonical: philh_myftp_biz.web.ssh.SSHResponse.output
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.ssh.SSHResponse.output
+
+   .. py:method:: error() -> str
+      :canonical: philh_myftp_biz.web.ssh.SSHResponse.error
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.ssh.SSHResponse.error
+
+.. py:class:: SSH
+   :canonical: philh_myftp_biz.web.ssh.SSH
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.ssh.SSH
+
+   .. py:attribute:: host
+      :canonical: philh_myftp_biz.web.ssh.SSH.host
+      :type: str
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.ssh.SSH.host
+
+   .. py:attribute:: username
+      :canonical: philh_myftp_biz.web.ssh.SSH.username
+      :type: str
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.ssh.SSH.username
+
+   .. py:attribute:: password
+      :canonical: philh_myftp_biz.web.ssh.SSH.password
+      :type: str
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.ssh.SSH.password
+
+   .. py:attribute:: timeout
+      :canonical: philh_myftp_biz.web.ssh.SSH.timeout
+      :type: int
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.ssh.SSH.timeout
+
+   .. py:attribute:: port
+      :canonical: philh_myftp_biz.web.ssh.SSH.port
+      :type: int
+      :value: 22
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.ssh.SSH.port
+
+   .. py:method:: _client()
+      :canonical: philh_myftp_biz.web.ssh.SSH._client
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.ssh.SSH._client
+
+   .. py:method:: close() -> None
+      :canonical: philh_myftp_biz.web.ssh.SSH.close
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.ssh.SSH.close
+
+   .. py:method:: run(command: str) -> philh_myftp_biz.web.ssh.SSHResponse
+      :canonical: philh_myftp_biz.web.ssh.SSH.run
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.ssh.SSH.run

@@ -15,5 +15,5 @@ documentation for details.
    :maxdepth: 2
    :caption: Contents:
 
-   apidoc/index
+   _api/index
 

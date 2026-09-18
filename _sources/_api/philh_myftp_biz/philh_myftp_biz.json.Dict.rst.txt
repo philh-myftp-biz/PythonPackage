@@ -1,0 +1,72 @@
+:py:mod:`philh_myftp_biz.json.Dict`
+===================================
+
+.. py:module:: philh_myftp_biz.json.Dict
+
+.. autodoc2-docstring:: philh_myftp_biz.json.Dict
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Dict <philh_myftp_biz.json.Dict.Dict>`
+     - .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict
+          :summary:
+
+API
+~~~
+
+.. py:class:: Dict(t: STRUCT | File | Collection[T, STRUCT] | Any = None)
+   :canonical: philh_myftp_biz.json.Dict.Dict
+
+   Bases: :py:obj:`philh_myftp_biz.json.Collection.Collection`\ [\ :py:obj:`philh_myftp_biz.json.Dict.Dict.T`\ , :py:obj:`dict`\ [\ :py:obj:`str`\ , :py:obj:`philh_myftp_biz.json.Dict.Dict.T`\ ]\ ]
+
+   .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.__init__
+
+   .. py:attribute:: _default
+      :canonical: philh_myftp_biz.json.Dict.Dict._default
+      :type: dict[str, philh_myftp_biz.json.Dict.Dict.T]
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict._default
+
+   .. py:method:: __getitem__(key: str) -> T | None
+      :canonical: philh_myftp_biz.json.Dict.Dict.__getitem__
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.__getitem__
+
+   .. py:method:: items() -> typing.ItemsView[str, T]
+      :canonical: philh_myftp_biz.json.Dict.Dict.items
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.items
+
+   .. py:method:: keys() -> typing.KeysView[str]
+      :canonical: philh_myftp_biz.json.Dict.Dict.keys
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.keys
+
+   .. py:method:: values() -> typing.ValuesView[T]
+      :canonical: philh_myftp_biz.json.Dict.Dict.values
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.values
+
+   .. py:method:: get(key: str, default: typing.Any = None) -> typing.Any
+      :canonical: philh_myftp_biz.json.Dict.Dict.get
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.get
+
+   .. py:method:: update(other: dict[str, T] | Dict[T]) -> None
+      :canonical: philh_myftp_biz.json.Dict.Dict.update
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.update

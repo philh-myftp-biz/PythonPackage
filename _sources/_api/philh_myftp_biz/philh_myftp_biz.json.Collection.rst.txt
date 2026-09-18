@@ -1,0 +1,130 @@
+:py:mod:`philh_myftp_biz.json.Collection`
+=========================================
+
+.. py:module:: philh_myftp_biz.json.Collection
+
+.. autodoc2-docstring:: philh_myftp_biz.json.Collection
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Collection <philh_myftp_biz.json.Collection.Collection>`
+     - .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`_NO_VALUE <philh_myftp_biz.json.Collection._NO_VALUE>`
+     - .. autodoc2-docstring:: philh_myftp_biz.json.Collection._NO_VALUE
+          :summary:
+
+API
+~~~
+
+.. py:data:: _NO_VALUE
+   :canonical: philh_myftp_biz.json.Collection._NO_VALUE
+   :value: 'object(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.json.Collection._NO_VALUE
+
+.. py:class:: Collection(t: STRUCT | File | Collection[T, STRUCT] | Any = None)
+   :canonical: philh_myftp_biz.json.Collection.Collection
+
+   .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.__init__
+
+   .. py:attribute:: _default
+      :canonical: philh_myftp_biz.json.Collection.Collection._default
+      :type: philh_myftp_biz.json.Collection.Collection.STRUCT
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection._default
+
+   .. py:attribute:: _cache
+      :canonical: philh_myftp_biz.json.Collection.Collection._cache
+      :type: philh_myftp_biz.json.Collection.Collection.STRUCT
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection._cache
+
+   .. py:attribute:: var
+      :canonical: philh_myftp_biz.json.Collection.Collection.var
+      :type: philh_myftp_biz.file._Template
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.var
+
+   .. py:method:: read() -> STRUCT
+      :canonical: philh_myftp_biz.json.Collection.Collection.read
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.read
+
+   .. py:method:: handle() -> typing.Generator[STRUCT, None, None]
+      :canonical: philh_myftp_biz.json.Collection.Collection.handle
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.handle
+
+   .. py:method:: save(data: STRUCT | Collection[T, STRUCT] = _NO_VALUE) -> None
+      :canonical: philh_myftp_biz.json.Collection.Collection.save
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.save
+
+   .. py:method:: copy() -> typing.Self
+      :canonical: philh_myftp_biz.json.Collection.Collection.copy
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.copy
+
+   .. py:method:: __len__() -> int
+      :canonical: philh_myftp_biz.json.Collection.Collection.__len__
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.__len__
+
+   .. py:method:: __setitem__(key: typing.Any, value: T) -> None
+      :canonical: philh_myftp_biz.json.Collection.Collection.__setitem__
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.__setitem__
+
+   .. py:method:: __delitem__(key: typing.Any) -> None
+      :canonical: philh_myftp_biz.json.Collection.Collection.__delitem__
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.__delitem__
+
+   .. py:method:: __contains__(key: typing.Any) -> bool
+      :canonical: philh_myftp_biz.json.Collection.Collection.__contains__
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.__contains__
+
+   .. py:method:: __str__() -> str
+      :canonical: philh_myftp_biz.json.Collection.Collection.__str__
+
+   .. py:attribute:: __repr__
+      :canonical: philh_myftp_biz.json.Collection.Collection.__repr__
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.__repr__
+
+   .. py:method:: __iter__() -> typing.Iterator[T]
+      :canonical: philh_myftp_biz.json.Collection.Collection.__iter__
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.__iter__
+
+   .. py:method:: reset() -> None
+      :canonical: philh_myftp_biz.json.Collection.Collection.reset
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.reset

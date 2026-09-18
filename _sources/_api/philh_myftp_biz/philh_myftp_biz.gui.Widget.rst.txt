@@ -1,0 +1,111 @@
+:py:mod:`philh_myftp_biz.gui.Widget`
+====================================
+
+.. py:module:: philh_myftp_biz.gui.Widget
+
+.. autodoc2-docstring:: philh_myftp_biz.gui.Widget
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Widget <philh_myftp_biz.gui.Widget.Widget>`
+     -
+   * - :py:obj:`Text <philh_myftp_biz.gui.Widget.Text>`
+     -
+   * - :py:obj:`Link <philh_myftp_biz.gui.Widget.Link>`
+     -
+   * - :py:obj:`Input <philh_myftp_biz.gui.Widget.Input>`
+     -
+   * - :py:obj:`Header <philh_myftp_biz.gui.Widget.Header>`
+     -
+   * - :py:obj:`Button <philh_myftp_biz.gui.Widget.Button>`
+     -
+
+API
+~~~
+
+.. py:class:: Widget()
+   :canonical: philh_myftp_biz.gui.Widget.Widget
+
+   Bases: :py:obj:`dict`\ [\ :py:obj:`str`\ , :py:obj:`typing.Any`\ ]
+
+   .. py:attribute:: raw
+      :canonical: philh_myftp_biz.gui.Widget.Widget.raw
+      :type: type[_Widget]
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.gui.Widget.Widget.raw
+
+   .. py:attribute:: _inst
+      :canonical: philh_myftp_biz.gui.Widget.Widget._inst
+      :type: tkinter.Widget
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.gui.Widget.Widget._inst
+
+   .. py:attribute:: bind
+      :canonical: philh_myftp_biz.gui.Widget.Widget.bind
+      :type: typing.Callable[[], None]
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.gui.Widget.Widget.bind
+
+   .. py:property:: inst
+      :canonical: philh_myftp_biz.gui.Widget.Widget.inst
+      :type: _Widget | None
+
+      .. autodoc2-docstring:: philh_myftp_biz.gui.Widget.Widget.inst
+
+.. py:class:: Text(text: str = '<Text>')
+   :canonical: philh_myftp_biz.gui.Widget.Text
+
+   Bases: :py:obj:`philh_myftp_biz.gui.Widget.Widget`
+
+.. py:class:: Link(text: str = '<Link>', url: str = 'https://example.com')
+   :canonical: philh_myftp_biz.gui.Widget.Link
+
+   Bases: :py:obj:`philh_myftp_biz.gui.Widget.Widget`
+
+   .. py:attribute:: driver
+      :canonical: philh_myftp_biz.gui.Widget.Link.driver
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.gui.Widget.Link.driver
+
+   .. py:method:: bind() -> None
+      :canonical: philh_myftp_biz.gui.Widget.Link.bind
+
+      .. autodoc2-docstring:: philh_myftp_biz.gui.Widget.Link.bind
+
+.. py:class:: Input(text: str = '<Input>', *, secure: bool = False, key: philh_myftp_biz.db.Key = None)
+   :canonical: philh_myftp_biz.gui.Widget.Input
+
+   Bases: :py:obj:`philh_myftp_biz.gui.Widget.Widget`
+
+   .. py:method:: bind() -> None
+      :canonical: philh_myftp_biz.gui.Widget.Input.bind
+
+      .. autodoc2-docstring:: philh_myftp_biz.gui.Widget.Input.bind
+
+   .. py:method:: _set(_) -> None
+      :canonical: philh_myftp_biz.gui.Widget.Input._set
+
+      .. autodoc2-docstring:: philh_myftp_biz.gui.Widget.Input._set
+
+.. py:class:: Header(text: str = '<Header>')
+   :canonical: philh_myftp_biz.gui.Widget.Header
+
+   Bases: :py:obj:`philh_myftp_biz.gui.Widget.Widget`
+
+.. py:class:: Button(text: str = '<Button>', onclick: None|Page|Callable[[], Any] = None)
+   :canonical: philh_myftp_biz.gui.Widget.Button
+
+   Bases: :py:obj:`philh_myftp_biz.gui.Widget.Widget`

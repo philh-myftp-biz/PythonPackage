@@ -1,0 +1,21 @@
+:py:mod:`philh_myftp_biz.web.torrent`
+=====================================
+
+.. py:module:: philh_myftp_biz.web.torrent
+
+.. autodoc2-docstring:: philh_myftp_biz.web.torrent
+   :allowtitles:
+
+Submodules
+----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   philh_myftp_biz.web.torrent.file
+   philh_myftp_biz.web.torrent.models
+   philh_myftp_biz.web.torrent.name
+   philh_myftp_biz.web.torrent.qbit
+   philh_myftp_biz.web.torrent.torrent
+   philh_myftp_biz.web.torrent.tpb

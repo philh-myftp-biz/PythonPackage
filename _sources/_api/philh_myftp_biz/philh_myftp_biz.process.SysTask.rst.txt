@@ -1,0 +1,175 @@
+:py:mod:`philh_myftp_biz.process.SysTask`
+=========================================
+
+.. py:module:: philh_myftp_biz.process.SysTask
+
+.. autodoc2-docstring:: philh_myftp_biz.process.SysTask
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Process <philh_myftp_biz.process.SysTask.Process>`
+     -
+   * - :py:obj:`SysTask <philh_myftp_biz.process.SysTask.SysTask>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.SysTask
+          :summary:
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`rscan <philh_myftp_biz.process.SysTask.rscan>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.rscan
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`AccessErrors <philh_myftp_biz.process.SysTask.AccessErrors>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.AccessErrors
+          :summary:
+   * - :py:obj:`cpu_limiter <philh_myftp_biz.process.SysTask.cpu_limiter>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.cpu_limiter
+          :summary:
+
+API
+~~~
+
+.. py:data:: AccessErrors
+   :canonical: philh_myftp_biz.process.SysTask.AccessErrors
+   :type: tuple[Exception, ...]
+   :value: ()
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.AccessErrors
+
+.. py:function:: rscan(mutable: bool = False)
+   :canonical: philh_myftp_biz.process.SysTask.rscan
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.rscan
+
+.. py:data:: cpu_limiter
+   :canonical: philh_myftp_biz.process.SysTask.cpu_limiter
+   :type: cpulimiter.CpuLimiter
+   :value: None
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.cpu_limiter
+
+.. py:class:: Process(pid=None)
+   :canonical: philh_myftp_biz.process.SysTask.Process
+
+   Bases: :py:obj:`psutil.Process`
+
+   .. py:attribute:: _cpu_limit
+      :canonical: philh_myftp_biz.process.SysTask.Process._cpu_limit
+      :value: 100
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.Process._cpu_limit
+
+   .. py:property:: is_mutable
+      :canonical: philh_myftp_biz.process.SysTask.Process.is_mutable
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.Process.is_mutable
+
+   .. py:property:: is_readable
+      :canonical: philh_myftp_biz.process.SysTask.Process.is_readable
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.Process.is_readable
+
+   .. py:method:: cwd() -> Path|None
+      :canonical: philh_myftp_biz.process.SysTask.Process.cwd
+
+   .. py:method:: cmdline() -> list[str] | None
+      :canonical: philh_myftp_biz.process.SysTask.Process.cmdline
+
+   .. py:property:: children
+      :canonical: philh_myftp_biz.process.SysTask.Process.children
+      :type: list[philh_myftp_biz.process.SysTask.Process]
+
+   .. py:property:: descendants
+      :canonical: philh_myftp_biz.process.SysTask.Process.descendants
+      :type: list[philh_myftp_biz.process.SysTask.Process]
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.Process.descendants
+
+   .. py:method:: cpu_limit(percent: int = None) -> None
+      :canonical: philh_myftp_biz.process.SysTask.Process.cpu_limit
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.Process.cpu_limit
+
+.. py:class:: SysTask(id: str | int)
+   :canonical: philh_myftp_biz.process.SysTask.SysTask
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.SysTask
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.SysTask.__init__
+
+   .. py:attribute:: pid
+      :canonical: philh_myftp_biz.process.SysTask.SysTask.pid
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.SysTask.pid
+
+   .. py:attribute:: name
+      :canonical: philh_myftp_biz.process.SysTask.SysTask.name
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.SysTask.name
+
+   .. py:attribute:: pat
+      :canonical: philh_myftp_biz.process.SysTask.SysTask.pat
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.SysTask.pat
+
+   .. py:property:: _main
+      :canonical: philh_myftp_biz.process.SysTask.SysTask._main
+      :type: philh_myftp_biz.process.SysTask.Process | None
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.SysTask._main
+
+   .. py:property:: procs
+      :canonical: philh_myftp_biz.process.SysTask.SysTask.procs
+      :type: list[philh_myftp_biz.process.SysTask.Process]
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.SysTask.procs
+
+   .. py:method:: stop() -> None
+      :canonical: philh_myftp_biz.process.SysTask.SysTask.stop
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.SysTask.stop
+
+   .. py:method:: wait() -> None
+      :canonical: philh_myftp_biz.process.SysTask.SysTask.wait
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.SysTask.wait
+
+   .. py:property:: exists
+      :canonical: philh_myftp_biz.process.SysTask.SysTask.exists
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.SysTask.exists
+
+   .. py:property:: PIDs
+      :canonical: philh_myftp_biz.process.SysTask.SysTask.PIDs
+      :type: list[int]
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.SysTask.PIDs

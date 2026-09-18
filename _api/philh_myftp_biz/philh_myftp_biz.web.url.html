@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>philh_myftp_biz.web.url &#8212; philh_myftp_biz  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=27fed22d" />
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="philh_myftp_biz.web.VirusTotal" href="philh_myftp_biz.web.VirusTotal.html" />
+    <link rel="prev" title="philh_myftp_biz.web.ssh" href="philh_myftp_biz.web.ssh.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-philh_myftp_biz.web.url">
+<span id="philh-myftp-biz-web-url"></span><h1><a class="reference internal" href="#module-philh_myftp_biz.web.url" title="philh_myftp_biz.web.url"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.web.url</span></code></a><a class="headerlink" href="#module-philh_myftp_biz.web.url" title="Link to this heading">¶</a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#philh_myftp_biz.web.url.URL" title="philh_myftp_biz.web.url.URL"><code class="xref py py-obj docutils literal notranslate"><span class="pre">URL</span></code></a></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="api">
+<h3>API<a class="headerlink" href="#api" title="Link to this heading">¶</a></h3>
+<dl class="py class">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.web.url.</span></span><span class="sig-name descname"><span class="pre">URL</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">params</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">headers</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_tries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/philh_myftp_biz/web/url.html#URL"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.web.url.URL" title="Link to this definition">¶</a></dt>
+<dd><p class="rubric">Initialization</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.__str__">
+<span class="sig-name descname"><span class="pre">__str__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/philh_myftp_biz/web/url.html#URL.__str__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.web.url.URL.__str__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.__repr__">
+<span class="sig-name descname"><span class="pre">__repr__</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#philh_myftp_biz.web.url.URL.__repr__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.furl">
+<span class="sig-name descname"><span class="pre">furl</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'property(...)'</span></span><a class="headerlink" href="#philh_myftp_biz.web.url.URL.furl" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.__getattr__">
+<span class="sig-name descname"><span class="pre">__getattr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/philh_myftp_biz/web/url.html#URL.__getattr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.web.url.URL.__getattr__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.copy">
+<span class="sig-name descname"><span class="pre">copy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/philh_myftp_biz/web/url.html#URL.copy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.web.url.URL.copy" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.child">
+<span class="sig-name descname"><span class="pre">child</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/philh_myftp_biz/web/url.html#URL.child"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.web.url.URL.child" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.format">
+<span class="sig-name descname"><span class="pre">format</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/philh_myftp_biz/web/url.html#URL.format"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.web.url.URL.format" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.stream">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">stream</span></span><a class="headerlink" href="#philh_myftp_biz.web.url.URL.stream" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.content">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">content</span></span><a class="headerlink" href="#philh_myftp_biz.web.url.URL.content" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.text">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">text</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#philh_myftp_biz.web.url.URL.text" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.json">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">json</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">philh_myftp_biz.json.SupportsJSON</span></span><a class="headerlink" href="#philh_myftp_biz.web.url.URL.json" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.head">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">head</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">requests.Response</span></span><a class="headerlink" href="#philh_myftp_biz.web.url.URL.head" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.exists">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">exists</span></span><a class="headerlink" href="#philh_myftp_biz.web.url.URL.exists" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.download">
+<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">philh_myftp_biz.pc.Path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="reference internal" href="../../_modules/philh_myftp_biz/web/url.html#URL.download"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.web.url.URL.download" title="Link to this definition">¶</a></dt>
+<dd><p>Download file to disk</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.size">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">size</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></span><a class="headerlink" href="#philh_myftp_biz.web.url.URL.size" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.get">
+<span class="sig-name descname"><span class="pre">get</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">requests.Response</span></span></span><a class="reference internal" href="../../_modules/philh_myftp_biz/web/url.html#URL.get"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.web.url.URL.get" title="Link to this definition">¶</a></dt>
+<dd><p>requests.get Wrapper</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.online">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">online</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#philh_myftp_biz.web.url.URL.online" title="Link to this definition">¶</a></dt>
+<dd><p>ping3.ping wrapper</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.web.url.URL.hash">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">hash</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#philh_myftp_biz.web.url.URL.hash" title="Link to this definition">¶</a></dt>
+<dd><p>Calculate the SHA256 hash</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">philh_myftp_biz</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="philh_myftp_biz.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">API Reference</a><ul>
+  <li><a href="philh_myftp_biz.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz</span></code></a><ul>
+  <li><a href="philh_myftp_biz.web.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.web</span></code></a><ul>
+      <li>Previous: <a href="philh_myftp_biz.web.ssh.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.web.ssh</span></code></a></li>
+      <li>Next: <a href="philh_myftp_biz.web.VirusTotal.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.web.VirusTotal</span></code></a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Phil Hunt.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../../_sources/_api/philh_myftp_biz/philh_myftp_biz.web.url.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

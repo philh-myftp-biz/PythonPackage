@@ -1,0 +1,74 @@
+:py:mod:`philh_myftp_biz.web.torrent.tpb`
+=========================================
+
+.. py:module:: philh_myftp_biz.web.torrent.tpb
+
+.. autodoc2-docstring:: philh_myftp_biz.web.torrent.tpb
+   :allowtitles:
+
+Module Contents
+---------------
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`search <philh_myftp_biz.web.torrent.tpb.search>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.torrent.tpb.search
+          :summary:
+   * - :py:obj:`_search <philh_myftp_biz.web.torrent.tpb._search>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.torrent.tpb._search
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`url <philh_myftp_biz.web.torrent.tpb.url>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.torrent.tpb.url
+          :summary:
+   * - :py:obj:`driver <philh_myftp_biz.web.torrent.tpb.driver>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.torrent.tpb.driver
+          :summary:
+   * - :py:obj:`cache <philh_myftp_biz.web.torrent.tpb.cache>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.torrent.tpb.cache
+          :summary:
+
+API
+~~~
+
+.. py:data:: url
+   :canonical: philh_myftp_biz.web.torrent.tpb.url
+   :value: 'URL(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.torrent.tpb.url
+
+.. py:data:: driver
+   :canonical: philh_myftp_biz.web.torrent.tpb.driver
+   :type: philh_myftp_biz.web.driver.Driver
+   :value: None
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.torrent.tpb.driver
+
+.. py:data:: cache
+   :canonical: philh_myftp_biz.web.torrent.tpb.cache
+   :type: philh_myftp_biz.functools.cache.TransitoryCache[list[philh_myftp_biz.web.torrent.torrent.Torrent]]
+   :value: 'TransitoryCache(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.torrent.tpb.cache
+
+.. py:function:: search(*queries: str) -> typing.Generator[philh_myftp_biz.web.torrent.torrent.Torrent]
+   :canonical: philh_myftp_biz.web.torrent.tpb.search
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.torrent.tpb.search
+
+.. py:function:: _search(query: str) -> list[philh_myftp_biz.web.torrent.torrent.Torrent]
+   :canonical: philh_myftp_biz.web.torrent.tpb._search
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.torrent.tpb._search

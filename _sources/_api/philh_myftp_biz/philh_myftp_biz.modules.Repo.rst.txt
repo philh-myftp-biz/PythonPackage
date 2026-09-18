@@ -1,0 +1,70 @@
+:py:mod:`philh_myftp_biz.modules.Repo`
+======================================
+
+.. py:module:: philh_myftp_biz.modules.Repo
+
+.. autodoc2-docstring:: philh_myftp_biz.modules.Repo
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Repo <philh_myftp_biz.modules.Repo.Repo>`
+     - .. autodoc2-docstring:: philh_myftp_biz.modules.Repo.Repo
+          :summary:
+
+API
+~~~
+
+.. py:class:: Repo(path: philh_myftp_biz.pc.Path)
+   :canonical: philh_myftp_biz.modules.Repo.Repo
+
+   .. autodoc2-docstring:: philh_myftp_biz.modules.Repo.Repo
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.modules.Repo.Repo.__init__
+
+   .. py:attribute:: reset
+      :canonical: philh_myftp_biz.modules.Repo.Repo.reset
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Repo.Repo.reset
+
+   .. py:method:: refresh() -> None
+      :canonical: philh_myftp_biz.modules.Repo.Repo.refresh
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Repo.Repo.refresh
+
+   .. py:method:: rm(path: str, *, cached: bool = False, recurse: bool = True, force: bool = False) -> None
+      :canonical: philh_myftp_biz.modules.Repo.Repo.rm
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Repo.Repo.rm
+
+   .. py:method:: focus(path: str) -> None
+      :canonical: philh_myftp_biz.modules.Repo.Repo.focus
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Repo.Repo.focus
+
+   .. py:method:: add(path: str) -> None
+      :canonical: philh_myftp_biz.modules.Repo.Repo.add
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Repo.Repo.add
+
+   .. py:property:: changes
+      :canonical: philh_myftp_biz.modules.Repo.Repo.changes
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Repo.Repo.changes
+
+   .. py:method:: update_submodules(name: str = None, *, remote: bool = True, force: bool = False) -> None
+      :canonical: philh_myftp_biz.modules.Repo.Repo.update_submodules
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Repo.Repo.update_submodules

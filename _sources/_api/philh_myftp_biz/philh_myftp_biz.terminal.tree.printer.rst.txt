@@ -1,0 +1,39 @@
+:py:mod:`philh_myftp_biz.terminal.tree.printer`
+===============================================
+
+.. py:module:: philh_myftp_biz.terminal.tree.printer
+
+.. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Printer <philh_myftp_biz.terminal.tree.printer.Printer>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.Printer
+          :summary:
+
+API
+~~~
+
+.. py:class:: Printer
+   :canonical: philh_myftp_biz.terminal.tree.printer.Printer
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.Printer
+
+   .. py:method:: RunFile(args: tuple = ()) -> None
+      :canonical: philh_myftp_biz.terminal.tree.printer.Printer.RunFile
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.Printer.RunFile
+
+   .. py:method:: Error(mess: str = '') -> None
+      :canonical: philh_myftp_biz.terminal.tree.printer.Printer.Error
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.Printer.Error

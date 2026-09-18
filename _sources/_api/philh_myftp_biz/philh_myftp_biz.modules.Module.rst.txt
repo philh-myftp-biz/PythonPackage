@@ -1,0 +1,91 @@
+:py:mod:`philh_myftp_biz.modules.Module`
+========================================
+
+.. py:module:: philh_myftp_biz.modules.Module
+
+.. autodoc2-docstring:: philh_myftp_biz.modules.Module
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Module <philh_myftp_biz.modules.Module.Module>`
+     - .. autodoc2-docstring:: philh_myftp_biz.modules.Module.Module
+          :summary:
+
+API
+~~~
+
+.. py:class:: Module(module: str | Path)
+   :canonical: philh_myftp_biz.modules.Module.Module
+
+   Bases: :py:obj:`philh_myftp_biz.pc.Path`
+
+   .. autodoc2-docstring:: philh_myftp_biz.modules.Module.Module
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.modules.Module.Module.__init__
+
+   .. py:method:: Name() -> str
+      :canonical: philh_myftp_biz.modules.Module.Module.Name
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Module.Module.Name
+
+   .. py:property:: Connected
+      :canonical: philh_myftp_biz.modules.Module.Module.Connected
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Module.Module.Connected
+
+   .. py:method:: _run(func: philh_myftp_biz.process.SubProcess, args: tuple[str]) -> philh_myftp_biz.process.SubProcess
+      :canonical: philh_myftp_biz.modules.Module.Module._run
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Module.Module._run
+
+   .. py:method:: run(*args: str) -> philh_myftp_biz.process.SubProcess
+      :canonical: philh_myftp_biz.modules.Module.Module.run
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Module.Module.run
+
+   .. py:method:: runH(*args: str) -> philh_myftp_biz.process.SubProcess
+      :canonical: philh_myftp_biz.modules.Module.Module.runH
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Module.Module.runH
+
+   .. py:method:: start(*args: str) -> philh_myftp_biz.process.SubProcess
+      :canonical: philh_myftp_biz.modules.Module.Module.start
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Module.Module.start
+
+   .. py:method:: startH(*args: str) -> philh_myftp_biz.process.SubProcess
+      :canonical: philh_myftp_biz.modules.Module.Module.startH
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Module.Module.startH
+
+   .. py:method:: cap(*args: str)
+      :canonical: philh_myftp_biz.modules.Module.Module.cap
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Module.Module.cap
+
+   .. py:method:: file(*name: str) -> philh_myftp_biz.pc.Path
+      :canonical: philh_myftp_biz.modules.Module.Module.file
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Module.Module.file
+
+   .. py:method:: install(show: bool = True) -> None
+      :canonical: philh_myftp_biz.modules.Module.Module.install
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Module.Module.install
+
+   .. py:method:: repo()
+      :canonical: philh_myftp_biz.modules.Module.Module.repo
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Module.Module.repo

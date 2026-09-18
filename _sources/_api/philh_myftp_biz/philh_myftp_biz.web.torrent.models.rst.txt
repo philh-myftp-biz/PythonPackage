@@ -1,0 +1,111 @@
+:py:mod:`philh_myftp_biz.web.torrent.models`
+============================================
+
+.. py:module:: philh_myftp_biz.web.torrent.models
+
+.. autodoc2-docstring:: philh_myftp_biz.web.torrent.models
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`MediaData <philh_myftp_biz.web.torrent.models.MediaData>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.torrent.models.MediaData
+          :summary:
+   * - :py:obj:`MovieData <philh_myftp_biz.web.torrent.models.MovieData>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.torrent.models.MovieData
+          :summary:
+   * - :py:obj:`ShowData <philh_myftp_biz.web.torrent.models.ShowData>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.torrent.models.ShowData
+          :summary:
+   * - :py:obj:`EpisodeData <philh_myftp_biz.web.torrent.models.EpisodeData>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.torrent.models.EpisodeData
+          :summary:
+
+API
+~~~
+
+.. py:class:: MediaData
+   :canonical: philh_myftp_biz.web.torrent.models.MediaData
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.torrent.models.MediaData
+
+   .. py:attribute:: Title
+      :canonical: philh_myftp_biz.web.torrent.models.MediaData.Title
+      :type: str
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.models.MediaData.Title
+
+   .. py:attribute:: Torrent
+      :canonical: philh_myftp_biz.web.torrent.models.MediaData.Torrent
+      :type: None|Torrent
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.models.MediaData.Torrent
+
+   .. py:attribute:: Released
+      :canonical: philh_myftp_biz.web.torrent.models.MediaData.Released
+      :type: None|from_stamp
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.models.MediaData.Released
+
+   .. py:attribute:: imdb_id
+      :canonical: philh_myftp_biz.web.torrent.models.MediaData.imdb_id
+      :type: None | str
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.models.MediaData.imdb_id
+
+   .. py:method:: tmdb_id() -> None | str
+      :canonical: philh_myftp_biz.web.torrent.models.MediaData.tmdb_id
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.models.MediaData.tmdb_id
+
+   .. py:method:: Year() -> None | int
+      :canonical: philh_myftp_biz.web.torrent.models.MediaData.Year
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.models.MediaData.Year
+
+.. py:class:: MovieData
+   :canonical: philh_myftp_biz.web.torrent.models.MovieData
+
+   Bases: :py:obj:`philh_myftp_biz.web.torrent.models.MediaData`
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.torrent.models.MovieData
+
+.. py:class:: ShowData
+   :canonical: philh_myftp_biz.web.torrent.models.ShowData
+
+   Bases: :py:obj:`philh_myftp_biz.web.torrent.models.MediaData`
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.torrent.models.ShowData
+
+   .. py:attribute:: Seasons
+      :canonical: philh_myftp_biz.web.torrent.models.ShowData.Seasons
+      :type: dict[str, dict[str, EpisodeData]]
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.models.ShowData.Seasons
+
+.. py:class:: EpisodeData
+   :canonical: philh_myftp_biz.web.torrent.models.EpisodeData
+
+   Bases: :py:obj:`philh_myftp_biz.web.torrent.models.MediaData`
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.torrent.models.EpisodeData
+
+   .. py:attribute:: Number
+      :canonical: philh_myftp_biz.web.torrent.models.EpisodeData.Number
+      :type: int
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.models.EpisodeData.Number

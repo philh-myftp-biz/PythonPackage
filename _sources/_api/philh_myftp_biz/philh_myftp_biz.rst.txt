@@ -1,0 +1,111 @@
+:py:mod:`philh_myftp_biz`
+=========================
+
+.. py:module:: philh_myftp_biz
+
+.. autodoc2-docstring:: philh_myftp_biz
+   :allowtitles:
+
+Subpackages
+-----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   philh_myftp_biz.functools
+   philh_myftp_biz.gui
+   philh_myftp_biz.json
+   philh_myftp_biz.modules
+   philh_myftp_biz.pc
+   philh_myftp_biz.process
+   philh_myftp_biz.terminal
+   philh_myftp_biz.text
+   philh_myftp_biz.time
+   philh_myftp_biz.web
+
+Submodules
+----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   philh_myftp_biz.array
+   philh_myftp_biz.db
+   philh_myftp_biz.file
+   philh_myftp_biz.gps
+   philh_myftp_biz.num
+   philh_myftp_biz.programs
+   philh_myftp_biz._log
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`_Formatter <philh_myftp_biz._Formatter>`
+     -
+   * - :py:obj:`_StreamHandler <philh_myftp_biz._StreamHandler>`
+     -
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`_arg <philh_myftp_biz._arg>`
+     - .. autodoc2-docstring:: philh_myftp_biz._arg
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`HELP <philh_myftp_biz.HELP>`
+     - .. autodoc2-docstring:: philh_myftp_biz.HELP
+          :summary:
+   * - :py:obj:`VERBOSE <philh_myftp_biz.VERBOSE>`
+     - .. autodoc2-docstring:: philh_myftp_biz.VERBOSE
+          :summary:
+
+API
+~~~
+
+.. py:function:: _arg(*name: str)
+   :canonical: philh_myftp_biz._arg
+
+   .. autodoc2-docstring:: philh_myftp_biz._arg
+
+.. py:data:: HELP
+   :canonical: philh_myftp_biz.HELP
+   :type: bool
+   :value: '_arg(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.HELP
+
+.. py:data:: VERBOSE
+   :canonical: philh_myftp_biz.VERBOSE
+   :value: 'VERBOSE(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.VERBOSE
+
+.. py:class:: _Formatter()
+   :canonical: philh_myftp_biz._Formatter
+
+   Bases: :py:obj:`philh_myftp_biz._log.Formatter`, :py:obj:`logging.Formatter`
+
+.. py:class:: _StreamHandler()
+   :canonical: philh_myftp_biz._StreamHandler
+
+   Bases: :py:obj:`logging.StreamHandler`

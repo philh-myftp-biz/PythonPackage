@@ -1,0 +1,85 @@
+:py:mod:`philh_myftp_biz.pc`
+============================
+
+.. py:module:: philh_myftp_biz.pc
+
+.. autodoc2-docstring:: philh_myftp_biz.pc
+   :allowtitles:
+
+Submodules
+----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   philh_myftp_biz.pc.hardware
+   philh_myftp_biz.pc.Path
+   philh_myftp_biz.pc._pc
+
+Package Contents
+----------------
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`relscan <philh_myftp_biz.pc.relscan>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc.relscan
+          :summary:
+   * - :py:obj:`__getattr__ <philh_myftp_biz.pc.__getattr__>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc.__getattr__
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`cwd <philh_myftp_biz.pc.cwd>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc.cwd
+          :summary:
+   * - :py:obj:`NAME <philh_myftp_biz.pc.NAME>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc.NAME
+          :summary:
+   * - :py:obj:`OS <philh_myftp_biz.pc.OS>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc.OS
+          :summary:
+
+API
+~~~
+
+.. py:data:: cwd
+   :canonical: philh_myftp_biz.pc.cwd
+   :value: None
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.cwd
+
+.. py:function:: relscan(src: philh_myftp_biz.pc.Path.Path, dst: philh_myftp_biz.pc.Path.Path) -> typing.Generator[philh_myftp_biz.pc.Path.PathPair, None, None]
+   :canonical: philh_myftp_biz.pc.relscan
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.relscan
+
+.. py:data:: NAME
+   :canonical: philh_myftp_biz.pc.NAME
+   :type: str
+   :value: None
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.NAME
+
+.. py:data:: OS
+   :canonical: philh_myftp_biz.pc.OS
+   :type: typing.Literal[windows, unix]
+   :value: None
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.OS
+
+.. py:function:: __getattr__(attr: str)
+   :canonical: philh_myftp_biz.pc.__getattr__
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.__getattr__

@@ -1,0 +1,63 @@
+:py:mod:`philh_myftp_biz.text.hex`
+==================================
+
+.. py:module:: philh_myftp_biz.text.hex
+
+.. autodoc2-docstring:: philh_myftp_biz.text.hex
+   :allowtitles:
+
+Module Contents
+---------------
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`decode <philh_myftp_biz.text.hex.decode>`
+     - .. autodoc2-docstring:: philh_myftp_biz.text.hex.decode
+          :summary:
+   * - :py:obj:`encode <philh_myftp_biz.text.hex.encode>`
+     - .. autodoc2-docstring:: philh_myftp_biz.text.hex.encode
+          :summary:
+   * - :py:obj:`valid <philh_myftp_biz.text.hex.valid>`
+     - .. autodoc2-docstring:: philh_myftp_biz.text.hex.valid
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`PickleErrors <philh_myftp_biz.text.hex.PickleErrors>`
+     - .. autodoc2-docstring:: philh_myftp_biz.text.hex.PickleErrors
+          :summary:
+
+API
+~~~
+
+.. py:data:: PickleErrors
+   :canonical: philh_myftp_biz.text.hex.PickleErrors
+   :type: tuple
+   :value: None
+
+   .. autodoc2-docstring:: philh_myftp_biz.text.hex.PickleErrors
+
+.. py:function:: decode(value: str) -> object
+   :canonical: philh_myftp_biz.text.hex.decode
+
+   .. autodoc2-docstring:: philh_myftp_biz.text.hex.decode
+
+.. py:function:: encode(value: object) -> str
+   :canonical: philh_myftp_biz.text.hex.encode
+
+   .. autodoc2-docstring:: philh_myftp_biz.text.hex.encode
+
+.. py:function:: valid(string: str) -> bool
+   :canonical: philh_myftp_biz.text.hex.valid
+
+   .. autodoc2-docstring:: philh_myftp_biz.text.hex.valid

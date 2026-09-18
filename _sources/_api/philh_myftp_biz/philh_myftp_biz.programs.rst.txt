@@ -1,0 +1,65 @@
+:py:mod:`philh_myftp_biz.programs`
+==================================
+
+.. py:module:: philh_myftp_biz.programs
+
+.. autodoc2-docstring:: philh_myftp_biz.programs
+   :allowtitles:
+
+Module Contents
+---------------
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`__FFMPEG <philh_myftp_biz.programs.__FFMPEG>`
+     - .. autodoc2-docstring:: philh_myftp_biz.programs.__FFMPEG
+          :summary:
+   * - :py:obj:`COOKIES <philh_myftp_biz.programs.COOKIES>`
+     - .. autodoc2-docstring:: philh_myftp_biz.programs.COOKIES
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`FFMPEG <philh_myftp_biz.programs.FFMPEG>`
+     - .. autodoc2-docstring:: philh_myftp_biz.programs.FFMPEG
+          :summary:
+   * - :py:obj:`FFPROBE <philh_myftp_biz.programs.FFPROBE>`
+     - .. autodoc2-docstring:: philh_myftp_biz.programs.FFPROBE
+          :summary:
+
+API
+~~~
+
+.. py:function:: __FFMPEG(name: str) -> philh_myftp_biz.pc.Path
+   :canonical: philh_myftp_biz.programs.__FFMPEG
+
+   .. autodoc2-docstring:: philh_myftp_biz.programs.__FFMPEG
+
+.. py:data:: FFMPEG
+   :canonical: philh_myftp_biz.programs.FFMPEG
+   :type: functools.partial[philh_myftp_biz.pc.Path]
+   :value: 'partial(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.programs.FFMPEG
+
+.. py:data:: FFPROBE
+   :canonical: philh_myftp_biz.programs.FFPROBE
+   :type: functools.partial[philh_myftp_biz.pc.Path]
+   :value: 'partial(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.programs.FFPROBE
+
+.. py:function:: COOKIES() -> philh_myftp_biz.pc.Path
+   :canonical: philh_myftp_biz.programs.COOKIES
+
+   .. autodoc2-docstring:: philh_myftp_biz.programs.COOKIES

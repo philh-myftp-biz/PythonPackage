@@ -1,0 +1,55 @@
+:py:mod:`philh_myftp_biz.functools.cache.prop`
+==============================================
+
+.. py:module:: philh_myftp_biz.functools.cache.prop
+
+.. autodoc2-docstring:: philh_myftp_biz.functools.cache.prop
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`cached_property <philh_myftp_biz.functools.cache.prop.cached_property>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.cache.prop.cached_property
+          :summary:
+
+API
+~~~
+
+.. py:class:: cached_property(func)
+   :canonical: philh_myftp_biz.functools.cache.prop.cached_property
+
+   Bases: :py:obj:`functools.cached_property`\ [\ :py:obj:`philh_myftp_biz.functools.cache.prop.cached_property.T`\ ]
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.cache.prop.cached_property
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.cache.prop.cached_property.__init__
+
+   .. py:method:: __new__(*_, **__) -> functools.cached_property
+      :canonical: philh_myftp_biz.functools.cache.prop.cached_property.__new__
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.cache.prop.cached_property.__new__
+
+   .. py:method:: __set__(inst, value) -> None
+      :canonical: philh_myftp_biz.functools.cache.prop.cached_property.__set__
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.cache.prop.cached_property.__set__
+
+   .. py:method:: __delete__(inst) -> None
+      :canonical: philh_myftp_biz.functools.cache.prop.cached_property.__delete__
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.cache.prop.cached_property.__delete__
+
+   .. py:method:: setter(fset)
+      :canonical: philh_myftp_biz.functools.cache.prop.cached_property.setter
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.cache.prop.cached_property.setter

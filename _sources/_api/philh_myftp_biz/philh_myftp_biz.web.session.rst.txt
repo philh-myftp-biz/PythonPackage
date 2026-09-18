@@ -1,0 +1,42 @@
+:py:mod:`philh_myftp_biz.web.session`
+=====================================
+
+.. py:module:: philh_myftp_biz.web.session
+
+.. autodoc2-docstring:: philh_myftp_biz.web.session
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`RetryStrat <philh_myftp_biz.web.session.RetryStrat>`
+     -
+   * - :py:obj:`Adapter <philh_myftp_biz.web.session.Adapter>`
+     -
+   * - :py:obj:`Session <philh_myftp_biz.web.session.Session>`
+     -
+
+API
+~~~
+
+.. py:class:: RetryStrat(total: int = 0, backoff_factor: int = 1, status_forcelist=range(400, 600), allowed_methods=['GET', 'POST'], **kwargs)
+   :canonical: philh_myftp_biz.web.session.RetryStrat
+
+   Bases: :py:obj:`urllib3.util.Retry`
+
+.. py:class:: Adapter(retry_strategy: philh_myftp_biz.web.session.RetryStrat = None)
+   :canonical: philh_myftp_biz.web.session.Adapter
+
+   Bases: :py:obj:`requests.adapters.HTTPAdapter`
+
+.. py:class:: Session(name: str, max_age: int = -1, adapter: philh_myftp_biz.web.session.Adapter = None)
+   :canonical: philh_myftp_biz.web.session.Session
+
+   Bases: :py:obj:`requests_cache.CachedSession`

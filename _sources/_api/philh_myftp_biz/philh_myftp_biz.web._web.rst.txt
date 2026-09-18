@@ -1,0 +1,91 @@
+:py:mod:`philh_myftp_biz.web._web`
+==================================
+
+.. py:module:: philh_myftp_biz.web._web
+
+.. autodoc2-docstring:: philh_myftp_biz.web._web
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`FirewallException <philh_myftp_biz.web._web.FirewallException>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web._web.FirewallException
+          :summary:
+   * - :py:obj:`_IP <philh_myftp_biz.web._web._IP>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web._web._IP
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`IP <philh_myftp_biz.web._web.IP>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web._web.IP
+          :summary:
+
+API
+~~~
+
+.. py:data:: IP
+   :canonical: philh_myftp_biz.web._web.IP
+   :type: philh_myftp_biz.web._web._IP
+   :value: None
+
+   .. autodoc2-docstring:: philh_myftp_biz.web._web.IP
+
+.. py:class:: FirewallException(name: str)
+   :canonical: philh_myftp_biz.web._web.FirewallException
+
+   .. autodoc2-docstring:: philh_myftp_biz.web._web.FirewallException
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.web._web.FirewallException.__init__
+
+   .. py:method:: delete() -> None
+      :canonical: philh_myftp_biz.web._web.FirewallException.delete
+
+      .. autodoc2-docstring:: philh_myftp_biz.web._web.FirewallException.delete
+
+   .. py:method:: set(port: typing.SupportsInt | typing.SupportsIndex, dir: str = ...) -> None
+      :canonical: philh_myftp_biz.web._web.FirewallException.set
+
+      .. autodoc2-docstring:: philh_myftp_biz.web._web.FirewallException.set
+
+   .. py:property:: exists
+      :canonical: philh_myftp_biz.web._web.FirewallException.exists
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.web._web.FirewallException.exists
+
+.. py:class:: _IP(*args, **kwargs)
+   :canonical: philh_myftp_biz.web._web._IP
+
+   .. autodoc2-docstring:: philh_myftp_biz.web._web._IP
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.web._web._IP.__init__
+
+   .. py:property:: LAN
+      :canonical: philh_myftp_biz.web._web._IP.LAN
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.web._web._IP.LAN
+
+   .. py:property:: WAN
+      :canonical: philh_myftp_biz.web._web._IP.WAN
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.web._web._IP.WAN

@@ -1,0 +1,189 @@
+:py:mod:`philh_myftp_biz.terminal`
+==================================
+
+.. py:module:: philh_myftp_biz.terminal
+
+.. autodoc2-docstring:: philh_myftp_biz.terminal
+   :allowtitles:
+
+Subpackages
+-----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   philh_myftp_biz.terminal.tree
+
+Submodules
+----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   philh_myftp_biz.terminal.Args
+   philh_myftp_biz.terminal.KIC
+   philh_myftp_biz.terminal.Log
+   philh_myftp_biz.terminal.ProgressBar
+
+Package Contents
+----------------
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`width <philh_myftp_biz.terminal.width>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.width
+          :summary:
+   * - :py:obj:`del_last_line <philh_myftp_biz.terminal.del_last_line>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.del_last_line
+          :summary:
+   * - :py:obj:`is_elevated <philh_myftp_biz.terminal.is_elevated>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.is_elevated
+          :summary:
+   * - :py:obj:`elevate <philh_myftp_biz.terminal.elevate>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.elevate
+          :summary:
+   * - :py:obj:`write <philh_myftp_biz.terminal.write>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.write
+          :summary:
+   * - :py:obj:`print <philh_myftp_biz.terminal.print>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.print
+          :summary:
+   * - :py:obj:`input <philh_myftp_biz.terminal.input>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.input
+          :summary:
+   * - :py:obj:`pause <philh_myftp_biz.terminal.pause>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.pause
+          :summary:
+   * - :py:obj:`dash <philh_myftp_biz.terminal.dash>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.dash
+          :summary:
+   * - :py:obj:`cls <philh_myftp_biz.terminal.cls>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.cls
+          :summary:
+   * - :py:obj:`warn <philh_myftp_biz.terminal.warn>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.warn
+          :summary:
+   * - :py:obj:`get_module <philh_myftp_biz.terminal.get_module>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.get_module
+          :summary:
+   * - :py:obj:`main_module <philh_myftp_biz.terminal.main_module>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.main_module
+          :summary:
+   * - :py:obj:`set_package <philh_myftp_biz.terminal.set_package>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.set_package
+          :summary:
+   * - :py:obj:`script_file <philh_myftp_biz.terminal.script_file>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.script_file
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`_cls_hex <philh_myftp_biz.terminal._cls_hex>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal._cls_hex
+          :summary:
+   * - :py:obj:`_cls_cmd <philh_myftp_biz.terminal._cls_cmd>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal._cls_cmd
+          :summary:
+
+API
+~~~
+
+.. py:data:: _cls_hex
+   :canonical: philh_myftp_biz.terminal._cls_hex
+   :value: '8005951a000000000000008c162a2a2a20436c656172205465726d696e616c202a2a2a942e'
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal._cls_hex
+
+.. py:data:: _cls_cmd
+   :canonical: philh_myftp_biz.terminal._cls_cmd
+   :type: str
+   :value: None
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal._cls_cmd
+
+.. py:function:: width() -> int
+   :canonical: philh_myftp_biz.terminal.width
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.width
+
+.. py:function:: del_last_line() -> None
+   :canonical: philh_myftp_biz.terminal.del_last_line
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.del_last_line
+
+.. py:function:: is_elevated() -> bool
+   :canonical: philh_myftp_biz.terminal.is_elevated
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.is_elevated
+
+.. py:function:: elevate() -> None
+   :canonical: philh_myftp_biz.terminal.elevate
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.elevate
+
+.. py:function:: write(text: str, stream: typing.Literal[out, err] = 'out', flush: bool = True) -> None
+   :canonical: philh_myftp_biz.terminal.write
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.write
+
+.. py:function:: print(*args: str, pause: bool = False, color: philh_myftp_biz.db.Color.names = 'DEFAULT', sep: str = ' ', end: str = '\n', overwrite: bool = False) -> None
+   :canonical: philh_myftp_biz.terminal.print
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.print
+
+.. py:function:: input(prompt: str, timeout: int = None, default: philh_myftp_biz.terminal.input.D = None) -> philh_myftp_biz.terminal.input.D | str
+   :canonical: philh_myftp_biz.terminal.input
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.input
+
+.. py:function:: pause() -> None
+   :canonical: philh_myftp_biz.terminal.pause
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.pause
+
+.. py:function:: dash(p: int = 100) -> None
+   :canonical: philh_myftp_biz.terminal.dash
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.dash
+
+.. py:function:: cls() -> None
+   :canonical: philh_myftp_biz.terminal.cls
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.cls
+
+.. py:function:: warn(exc: Exception) -> None
+   :canonical: philh_myftp_biz.terminal.warn
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.warn
+
+.. py:function:: get_module(name: str)
+   :canonical: philh_myftp_biz.terminal.get_module
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.get_module
+
+.. py:function:: main_module()
+   :canonical: philh_myftp_biz.terminal.main_module
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.main_module
+
+.. py:function:: set_package(path: str|Path)
+   :canonical: philh_myftp_biz.terminal.set_package
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.set_package
+
+.. py:function:: script_file()
+   :canonical: philh_myftp_biz.terminal.script_file
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.script_file

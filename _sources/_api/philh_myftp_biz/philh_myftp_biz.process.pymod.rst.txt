@@ -1,0 +1,49 @@
+:py:mod:`philh_myftp_biz.process.pymod`
+=======================================
+
+.. py:module:: philh_myftp_biz.process.pymod
+
+.. autodoc2-docstring:: philh_myftp_biz.process.pymod
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`PyModule <philh_myftp_biz.process.pymod.PyModule>`
+     -
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`modscan <philh_myftp_biz.process.pymod.modscan>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.pymod.modscan
+          :summary:
+
+API
+~~~
+
+.. py:class:: PyModule(path: philh_myftp_biz.pc.Path.Path)
+   :canonical: philh_myftp_biz.process.pymod.PyModule
+
+   Bases: :py:obj:`philh_myftp_biz.process.SysTask.SysTask`
+
+   .. py:property:: _main
+      :canonical: philh_myftp_biz.process.pymod.PyModule._main
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.pymod.PyModule._main
+
+.. py:function:: modscan()
+   :canonical: philh_myftp_biz.process.pymod.modscan
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.pymod.modscan

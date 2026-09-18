@@ -1,0 +1,67 @@
+:py:mod:`philh_myftp_biz.process.Venv`
+======================================
+
+.. py:module:: philh_myftp_biz.process.Venv
+
+.. autodoc2-docstring:: philh_myftp_biz.process.Venv
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`SubVenv <philh_myftp_biz.process.Venv.SubVenv>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.Venv.SubVenv
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`_exepaths <philh_myftp_biz.process.Venv._exepaths>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.Venv._exepaths
+          :summary:
+
+API
+~~~
+
+.. py:data:: _exepaths
+   :canonical: philh_myftp_biz.process.Venv._exepaths
+   :value: ['/Scripts/python.exe', '/python.exe']
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.Venv._exepaths
+
+.. py:class:: SubVenv(path: typing.Any)
+   :canonical: philh_myftp_biz.process.Venv.SubVenv
+
+   Bases: :py:obj:`philh_myftp_biz.pc.Path.Path`
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.Venv.SubVenv
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.Venv.SubVenv.__init__
+
+   .. py:method:: exe() -> philh_myftp_biz.pc.Path.Path
+      :canonical: philh_myftp_biz.process.Venv.SubVenv.exe
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.Venv.SubVenv.exe
+
+   .. py:method:: enable() -> None
+      :canonical: philh_myftp_biz.process.Venv.SubVenv.enable
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.Venv.SubVenv.enable
+
+   .. py:method:: disable() -> None
+      :canonical: philh_myftp_biz.process.Venv.SubVenv.disable
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.Venv.SubVenv.disable

@@ -1,0 +1,137 @@
+:py:mod:`philh_myftp_biz.json.List`
+===================================
+
+.. py:module:: philh_myftp_biz.json.List
+
+.. autodoc2-docstring:: philh_myftp_biz.json.List
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`List <philh_myftp_biz.json.List.List>`
+     - .. autodoc2-docstring:: philh_myftp_biz.json.List.List
+          :summary:
+
+API
+~~~
+
+.. py:class:: List(t: STRUCT | File | Collection[T, STRUCT] | Any = None)
+   :canonical: philh_myftp_biz.json.List.List
+
+   Bases: :py:obj:`philh_myftp_biz.json.Collection.Collection`\ [\ :py:obj:`philh_myftp_biz.json.List.List.V`\ , :py:obj:`list`\ [\ :py:obj:`philh_myftp_biz.json.List.List.V`\ ]\ ]
+
+   .. autodoc2-docstring:: philh_myftp_biz.json.List.List
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.json.List.List.__init__
+
+   .. py:attribute:: _default
+      :canonical: philh_myftp_biz.json.List.List._default
+      :type: list[typing.Any]
+      :value: []
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List._default
+
+   .. py:method:: __getitem__(key: int | slice) -> V | list[V]
+      :canonical: philh_myftp_biz.json.List.List.__getitem__
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.__getitem__
+
+   .. py:method:: extend(items: typing.Iterable[V]) -> None
+      :canonical: philh_myftp_biz.json.List.List.extend
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.extend
+
+   .. py:method:: pop(i: int = -1, n: int = 1) -> tuple[V, ...]
+      :canonical: philh_myftp_biz.json.List.List.pop
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.pop
+
+   .. py:method:: __iadd__(value: V) -> typing.Self
+      :canonical: philh_myftp_biz.json.List.List.__iadd__
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.__iadd__
+
+   .. py:method:: __isub__(value: V) -> typing.Self
+      :canonical: philh_myftp_biz.json.List.List.__isub__
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.__isub__
+
+   .. py:method:: sorted(func: typing.Callable[[V], typing.Any] = lambda x: x) -> List[V]
+      :canonical: philh_myftp_biz.json.List.List.sorted
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.sorted
+
+   .. py:method:: sort(func: typing.Callable[[V], typing.Any] = lambda x: x) -> None
+      :canonical: philh_myftp_biz.json.List.List.sort
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.sort
+
+   .. py:method:: max(func: typing.Callable[[V], typing.Any] = lambda x: x) -> None | V
+      :canonical: philh_myftp_biz.json.List.List.max
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.max
+
+   .. py:method:: filtered(func: typing.Callable[[V], typing.Any] = lambda x: x) -> List[V]
+      :canonical: philh_myftp_biz.json.List.List.filtered
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.filtered
+
+   .. py:method:: filter(func: typing.Callable[[V], typing.Any] = lambda x: x) -> None
+      :canonical: philh_myftp_biz.json.List.List.filter
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.filter
+
+   .. py:method:: reversed() -> List[V]
+      :canonical: philh_myftp_biz.json.List.List.reversed
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.reversed
+
+   .. py:method:: reverse() -> None
+      :canonical: philh_myftp_biz.json.List.List.reverse
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.reverse
+
+   .. py:method:: random() -> None | V
+      :canonical: philh_myftp_biz.json.List.List.random
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.random
+
+   .. py:method:: shuffled() -> List[V]
+      :canonical: philh_myftp_biz.json.List.List.shuffled
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.shuffled
+
+   .. py:method:: shuffle() -> None
+      :canonical: philh_myftp_biz.json.List.List.shuffle
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.shuffle
+
+   .. py:method:: uniquified(func: typing.Callable[[V], typing.Any] = lambda x: x) -> List[V]
+      :canonical: philh_myftp_biz.json.List.List.uniquified
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.uniquified
+
+   .. py:method:: uniquify(func: typing.Callable[[V], typing.Any] = lambda x: x) -> None
+      :canonical: philh_myftp_biz.json.List.List.uniquify
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.uniquify
+
+   .. py:method:: flattened() -> List[Any]
+      :canonical: philh_myftp_biz.json.List.List.flattened
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.flattened
+
+   .. py:method:: flatten() -> None
+      :canonical: philh_myftp_biz.json.List.List.flatten
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.List.List.flatten

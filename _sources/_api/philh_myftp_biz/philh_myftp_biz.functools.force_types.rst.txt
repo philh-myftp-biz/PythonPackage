@@ -1,0 +1,37 @@
+:py:mod:`philh_myftp_biz.functools.force_types`
+===============================================
+
+.. py:module:: philh_myftp_biz.functools.force_types
+
+.. autodoc2-docstring:: philh_myftp_biz.functools.force_types
+   :allowtitles:
+
+Module Contents
+---------------
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`force_in_types <philh_myftp_biz.functools.force_types.force_in_types>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.force_types.force_in_types
+          :summary:
+   * - :py:obj:`force_out_type <philh_myftp_biz.functools.force_types.force_out_type>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.force_types.force_out_type
+          :summary:
+
+API
+~~~
+
+.. py:function:: force_in_types(func)
+   :canonical: philh_myftp_biz.functools.force_types.force_in_types
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.force_types.force_in_types
+
+.. py:function:: force_out_type(func)
+   :canonical: philh_myftp_biz.functools.force_types.force_out_type
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.force_types.force_out_type

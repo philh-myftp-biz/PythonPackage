@@ -1,0 +1,37 @@
+:py:mod:`philh_myftp_biz.text.contains`
+=======================================
+
+.. py:module:: philh_myftp_biz.text.contains
+
+.. autodoc2-docstring:: philh_myftp_biz.text.contains
+   :allowtitles:
+
+Module Contents
+---------------
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`all <philh_myftp_biz.text.contains.all>`
+     - .. autodoc2-docstring:: philh_myftp_biz.text.contains.all
+          :summary:
+   * - :py:obj:`any <philh_myftp_biz.text.contains.any>`
+     - .. autodoc2-docstring:: philh_myftp_biz.text.contains.any
+          :summary:
+
+API
+~~~
+
+.. py:function:: all(string: str, values: collections.abc.Sequence[str], case: bool = ...) -> bool
+   :canonical: philh_myftp_biz.text.contains.all
+
+   .. autodoc2-docstring:: philh_myftp_biz.text.contains.all
+
+.. py:function:: any(string: str, values: collections.abc.Sequence[str], case: bool = ...) -> bool
+   :canonical: philh_myftp_biz.text.contains.any
+
+   .. autodoc2-docstring:: philh_myftp_biz.text.contains.any

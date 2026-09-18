@@ -1,0 +1,99 @@
+:py:mod:`philh_myftp_biz.functools`
+===================================
+
+.. py:module:: philh_myftp_biz.functools
+
+.. autodoc2-docstring:: philh_myftp_biz.functools
+   :allowtitles:
+
+Subpackages
+-----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   philh_myftp_biz.functools.cache
+
+Submodules
+----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   philh_myftp_biz.functools.attr
+   philh_myftp_biz.functools.force_types
+   philh_myftp_biz.functools.paths
+   philh_myftp_biz.functools.SharedBuffer
+   philh_myftp_biz.functools.supports
+
+Package Contents
+----------------
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`is_iterable <philh_myftp_biz.functools.is_iterable>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.is_iterable
+          :summary:
+   * - :py:obj:`single_use <philh_myftp_biz.functools.single_use>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.single_use
+          :summary:
+   * - :py:obj:`loc <philh_myftp_biz.functools.loc>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.loc
+          :summary:
+   * - :py:obj:`retryfunc <philh_myftp_biz.functools.retryfunc>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.retryfunc
+          :summary:
+   * - :py:obj:`singleton <philh_myftp_biz.functools.singleton>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.singleton
+          :summary:
+   * - :py:obj:`remport <philh_myftp_biz.functools.remport>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.remport
+          :summary:
+   * - :py:obj:`return_type <philh_myftp_biz.functools.return_type>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.return_type
+          :summary:
+
+API
+~~~
+
+.. py:function:: is_iterable(obj) -> bool
+   :canonical: philh_myftp_biz.functools.is_iterable
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.is_iterable
+
+.. py:function:: single_use(f)
+   :canonical: philh_myftp_biz.functools.single_use
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.single_use
+
+.. py:function:: loc(obj: typing.Any) -> str
+   :canonical: philh_myftp_biz.functools.loc
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.loc
+
+.. py:function:: retryfunc(tries: int = 3, interval: int = 0, exc: Exception = Exception)
+   :canonical: philh_myftp_biz.functools.retryfunc
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.retryfunc
+
+.. py:function:: singleton(cls: type[philh_myftp_biz.functools.singleton.T] | typing.Callable[..., philh_myftp_biz.functools.singleton.T]) -> philh_myftp_biz.functools.singleton.T
+   :canonical: philh_myftp_biz.functools.singleton
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.singleton
+
+.. py:function:: remport(file: philh_myftp_biz.pc.Path, type: philh_myftp_biz.functools.remport.type[philh_myftp_biz.functools.remport.T] = Any) -> philh_myftp_biz.functools.remport.T
+   :canonical: philh_myftp_biz.functools.remport
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.remport
+
+.. py:function:: return_type(func: typing.Callable[..., philh_myftp_biz.functools.return_type.T]) -> None | type[philh_myftp_biz.functools.return_type.T]
+   :canonical: philh_myftp_biz.functools.return_type
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.return_type

@@ -1,0 +1,78 @@
+:py:mod:`philh_myftp_biz.terminal.tree`
+=======================================
+
+.. py:module:: philh_myftp_biz.terminal.tree
+
+.. autodoc2-docstring:: philh_myftp_biz.terminal.tree
+   :allowtitles:
+
+Submodules
+----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   philh_myftp_biz.terminal.tree.branch
+   philh_myftp_biz.terminal.tree.printer
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Tree <philh_myftp_biz.terminal.tree.Tree>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree
+          :summary:
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`run_tree <philh_myftp_biz.terminal.tree.run_tree>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.run_tree
+          :summary:
+
+API
+~~~
+
+.. py:class:: Tree(*args: str)
+   :canonical: philh_myftp_biz.terminal.tree.Tree
+
+   Bases: :py:obj:`philh_myftp_biz.terminal.tree.branch.Branch`
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree.__init__
+
+   .. py:method:: cls() -> None
+      :canonical: philh_myftp_biz.terminal.tree.Tree.cls
+      :classmethod:
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree.cls
+
+   .. py:class:: help
+      :canonical: philh_myftp_biz.terminal.tree.Tree.help
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree.help
+
+      .. py:attribute:: _NoArgs
+         :canonical: philh_myftp_biz.terminal.tree.Tree.help._NoArgs
+         :value: 'Help Message not finished'
+
+         .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree.help._NoArgs
+
+.. py:function:: run_tree(tree: type[philh_myftp_biz.terminal.tree.Tree]) -> None
+   :canonical: philh_myftp_biz.terminal.tree.run_tree
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.run_tree

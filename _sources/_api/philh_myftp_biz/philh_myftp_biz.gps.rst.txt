@@ -1,0 +1,49 @@
+:py:mod:`philh_myftp_biz.gps`
+=============================
+
+.. py:module:: philh_myftp_biz.gps
+
+.. autodoc2-docstring:: philh_myftp_biz.gps
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Coordinate <philh_myftp_biz.gps.Coordinate>`
+     -
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`fetch <philh_myftp_biz.gps.fetch>`
+     - .. autodoc2-docstring:: philh_myftp_biz.gps.fetch
+          :summary:
+
+API
+~~~
+
+.. py:class:: Coordinate(latitude: int, longitude: int)
+   :canonical: philh_myftp_biz.gps.Coordinate
+
+   Bases: :py:obj:`list`\ [\ :py:obj:`int`\ ]
+
+   .. py:method:: __sub__(other)
+      :canonical: philh_myftp_biz.gps.Coordinate.__sub__
+
+      .. autodoc2-docstring:: philh_myftp_biz.gps.Coordinate.__sub__
+
+.. py:function:: fetch(max_age: int = 0, timeout: int = 15) -> philh_myftp_biz.gps.Coordinate
+   :canonical: philh_myftp_biz.gps.fetch
+
+   .. autodoc2-docstring:: philh_myftp_biz.gps.fetch

@@ -1,0 +1,157 @@
+:py:mod:`philh_myftp_biz.web.torrent.torrent`
+=============================================
+
+.. py:module:: philh_myftp_biz.web.torrent.torrent
+
+.. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Torrent <philh_myftp_biz.web.torrent.torrent.Torrent>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent
+          :summary:
+
+API
+~~~
+
+.. py:class:: Torrent(**kwargs)
+   :canonical: philh_myftp_biz.web.torrent.torrent.Torrent
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.__init__
+
+   .. py:attribute:: size
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.size
+      :type: str
+      :value: <Multiline-String>
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.size
+
+   .. py:attribute:: url
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.url
+      :type: str
+      :value: <Multiline-String>
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.url
+
+   .. py:attribute:: uploaded
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.uploaded
+      :type: None | philh_myftp_biz.time._time.TimeStamp
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.uploaded
+
+   .. py:attribute:: type
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.type
+      :type: None | typing.Literal[Show, Movie, Episode]
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.type
+
+   .. py:method:: __repr__() -> str
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.__repr__
+
+   .. py:attribute:: __str__
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.__str__
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.__str__
+
+   .. py:method:: __format__(spec) -> str
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.__format__
+
+   .. py:method:: hash() -> None | str
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.hash
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.hash
+
+   .. py:property:: raw
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.raw
+      :type: qbittorrentapi.TorrentDictionary
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.raw
+
+   .. py:method:: files() -> tuple[philh_myftp_biz.web.torrent.file.TorrentFile, ...]
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.files
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.files
+
+   .. py:property:: enabled_files
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.enabled_files
+      :type: tuple[philh_myftp_biz.web.torrent.file.TorrentFile, ...]
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.enabled_files
+
+   .. py:method:: name() -> str
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.name
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.name
+
+   .. py:method:: seeders() -> int
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.seeders
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.seeders
+
+   .. py:method:: leechers() -> int
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.leechers
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.leechers
+
+   .. py:property:: errored
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.errored
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.errored
+
+   .. py:property:: downloading
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.downloading
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.downloading
+
+   .. py:property:: exists
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.exists
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.exists
+
+   .. py:method:: path() -> philh_myftp_biz.pc.Path
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.path
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.path
+
+   .. py:property:: finished
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.finished
+      :type: None | bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.finished
+
+   .. py:method:: stop(rm_files: bool = True) -> None
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.stop
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.stop
+
+   .. py:method:: start(stop_files: bool = False) -> bool
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.start
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.start
+
+   .. py:method:: __getstate__()
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.__getstate__
+
+   .. py:method:: __setstate__(state: dict)
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.__setstate__
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.__setstate__

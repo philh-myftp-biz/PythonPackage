@@ -1,0 +1,99 @@
+:py:mod:`philh_myftp_biz.terminal.Log`
+======================================
+
+.. py:module:: philh_myftp_biz.terminal.Log
+
+.. autodoc2-docstring:: philh_myftp_biz.terminal.Log
+   :allowtitles:
+
+Module Contents
+---------------
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`_log <philh_myftp_biz.terminal.Log._log>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.Log._log
+          :summary:
+   * - :py:obj:`on_call <philh_myftp_biz.terminal.Log.on_call>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.Log.on_call
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`VERB <philh_myftp_biz.terminal.Log.VERB>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.Log.VERB
+          :summary:
+   * - :py:obj:`INFO <philh_myftp_biz.terminal.Log.INFO>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.Log.INFO
+          :summary:
+   * - :py:obj:`MAIN <philh_myftp_biz.terminal.Log.MAIN>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.Log.MAIN
+          :summary:
+   * - :py:obj:`WARN <philh_myftp_biz.terminal.Log.WARN>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.Log.WARN
+          :summary:
+   * - :py:obj:`FAIL <philh_myftp_biz.terminal.Log.FAIL>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.Log.FAIL
+          :summary:
+   * - :py:obj:`CRIT <philh_myftp_biz.terminal.Log.CRIT>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.Log.CRIT
+          :summary:
+
+API
+~~~
+
+.. py:function:: _log(msg: typing.Any = '', exc_info: typing.Any = None, level: int = None) -> None
+   :canonical: philh_myftp_biz.terminal.Log._log
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.Log._log
+
+.. py:data:: VERB
+   :canonical: philh_myftp_biz.terminal.Log.VERB
+   :value: 'partial(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.Log.VERB
+
+.. py:data:: INFO
+   :canonical: philh_myftp_biz.terminal.Log.INFO
+   :value: 'partial(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.Log.INFO
+
+.. py:data:: MAIN
+   :canonical: philh_myftp_biz.terminal.Log.MAIN
+   :value: 'partial(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.Log.MAIN
+
+.. py:data:: WARN
+   :canonical: philh_myftp_biz.terminal.Log.WARN
+   :value: 'partial(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.Log.WARN
+
+.. py:data:: FAIL
+   :canonical: philh_myftp_biz.terminal.Log.FAIL
+   :value: 'partial(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.Log.FAIL
+
+.. py:data:: CRIT
+   :canonical: philh_myftp_biz.terminal.Log.CRIT
+   :value: 'partial(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.Log.CRIT
+
+.. py:function:: on_call(func=None, *, logger=VERB)
+   :canonical: philh_myftp_biz.terminal.Log.on_call
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.Log.on_call

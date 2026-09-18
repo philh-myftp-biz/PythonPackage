@@ -1,0 +1,98 @@
+:py:mod:`philh_myftp_biz.web.Omdb`
+==================================
+
+.. py:module:: philh_myftp_biz.web.Omdb
+
+.. autodoc2-docstring:: philh_myftp_biz.web.Omdb
+   :allowtitles:
+
+Module Contents
+---------------
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`_get_tmdb <philh_myftp_biz.web.Omdb._get_tmdb>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.Omdb._get_tmdb
+          :summary:
+   * - :py:obj:`_get_omdb <philh_myftp_biz.web.Omdb._get_omdb>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.Omdb._get_omdb
+          :summary:
+   * - :py:obj:`movie <philh_myftp_biz.web.Omdb.movie>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.Omdb.movie
+          :summary:
+   * - :py:obj:`show <philh_myftp_biz.web.Omdb.show>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.Omdb.show
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`_tmdb_key <philh_myftp_biz.web.Omdb._tmdb_key>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.Omdb._tmdb_key
+          :summary:
+   * - :py:obj:`_tmdb_url <philh_myftp_biz.web.Omdb._tmdb_url>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.Omdb._tmdb_url
+          :summary:
+   * - :py:obj:`_omdb_key <philh_myftp_biz.web.Omdb._omdb_key>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.Omdb._omdb_key
+          :summary:
+   * - :py:obj:`_omdb_url <philh_myftp_biz.web.Omdb._omdb_url>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.Omdb._omdb_url
+          :summary:
+
+API
+~~~
+
+.. py:data:: _tmdb_key
+   :canonical: philh_myftp_biz.web.Omdb._tmdb_key
+   :value: 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJjYjg3MDhlNGRhZDkxOTI5N2Y2YWExZmNjN2NkYjMzYyIsIm5iZiI6MTc4MzUxOTM2Mi4...'
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.Omdb._tmdb_key
+
+.. py:data:: _tmdb_url
+   :canonical: philh_myftp_biz.web.Omdb._tmdb_url
+   :value: 'URL(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.Omdb._tmdb_url
+
+.. py:function:: _get_tmdb(path: str, **params) -> dict
+   :canonical: philh_myftp_biz.web.Omdb._get_tmdb
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.Omdb._get_tmdb
+
+.. py:data:: _omdb_key
+   :canonical: philh_myftp_biz.web.Omdb._omdb_key
+   :type: typing.Literal[dc888719, 2e0c4a98]
+   :value: 'dc888719'
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.Omdb._omdb_key
+
+.. py:data:: _omdb_url
+   :canonical: philh_myftp_biz.web.Omdb._omdb_url
+   :value: 'URL(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.Omdb._omdb_url
+
+.. py:function:: _get_omdb(**params) -> dict
+   :canonical: philh_myftp_biz.web.Omdb._get_omdb
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.Omdb._get_omdb
+
+.. py:function:: movie(title: str, year: int) -> None | philh_myftp_biz.web.torrent.models.MovieData
+   :canonical: philh_myftp_biz.web.Omdb.movie
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.Omdb.movie
+
+.. py:function:: show(title: str, year: int) -> None | philh_myftp_biz.web.torrent.models.ShowData
+   :canonical: philh_myftp_biz.web.Omdb.show
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.Omdb.show

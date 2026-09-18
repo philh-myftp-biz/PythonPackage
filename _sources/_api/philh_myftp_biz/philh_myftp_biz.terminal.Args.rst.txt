@@ -1,0 +1,71 @@
+:py:mod:`philh_myftp_biz.terminal.Args`
+=======================================
+
+.. py:module:: philh_myftp_biz.terminal.Args
+
+.. autodoc2-docstring:: philh_myftp_biz.terminal.Args
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Args <philh_myftp_biz.terminal.Args.Args>`
+     -
+
+API
+~~~
+
+.. py:class:: Args()
+   :canonical: philh_myftp_biz.terminal.Args.Args
+
+   Bases: :py:obj:`tuple`\ [\ :py:obj:`philh_myftp_biz.json.SupportsJSON`\ ]
+
+   .. py:attribute:: _parser
+      :canonical: philh_myftp_biz.terminal.Args.Args._parser
+      :value: 'ArgumentParser(...)'
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.Args.Args._parser
+
+   .. py:attribute:: _handlers
+      :canonical: philh_myftp_biz.terminal.Args.Args._handlers
+      :type: dict[str, typing.Callable[[str], typing.Any]]
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.Args.Args._handlers
+
+   .. py:attribute:: _defaults
+      :canonical: philh_myftp_biz.terminal.Args.Args._defaults
+      :type: dict[str, typing.Any]
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.Args.Args._defaults
+
+   .. py:attribute:: _cache
+      :canonical: philh_myftp_biz.terminal.Args.Args._cache
+      :type: dict[str, typing.Any]
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.Args.Args._cache
+
+   .. py:method:: __new__()
+      :canonical: philh_myftp_biz.terminal.Args.Args.__new__
+
+   .. py:method:: Arg(name: str, default: str = None, desc: str = None, handler: typing.Callable[[str], typing.Any] = lambda x: x) -> None
+      :canonical: philh_myftp_biz.terminal.Args.Args.Arg
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.Args.Args.Arg
+
+   .. py:method:: Flag(name: str, letter: str = None, desc: str = None, invert: bool = False) -> None
+      :canonical: philh_myftp_biz.terminal.Args.Args.Flag
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.Args.Args.Flag
+
+   .. py:method:: __getitem__(key: str | int)
+      :canonical: philh_myftp_biz.terminal.Args.Args.__getitem__

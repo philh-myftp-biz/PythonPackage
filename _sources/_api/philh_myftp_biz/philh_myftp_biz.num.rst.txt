@@ -1,0 +1,85 @@
+:py:mod:`philh_myftp_biz.num`
+=============================
+
+.. py:module:: philh_myftp_biz.num
+
+.. autodoc2-docstring:: philh_myftp_biz.num
+   :allowtitles:
+
+Module Contents
+---------------
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`clamp <philh_myftp_biz.num.clamp>`
+     - .. autodoc2-docstring:: philh_myftp_biz.num.clamp
+          :summary:
+   * - :py:obj:`digit <philh_myftp_biz.num.digit>`
+     - .. autodoc2-docstring:: philh_myftp_biz.num.digit
+          :summary:
+   * - :py:obj:`is_float <philh_myftp_biz.num.is_float>`
+     - .. autodoc2-docstring:: philh_myftp_biz.num.is_float
+          :summary:
+   * - :py:obj:`is_int <philh_myftp_biz.num.is_int>`
+     - .. autodoc2-docstring:: philh_myftp_biz.num.is_int
+          :summary:
+   * - :py:obj:`is_num <philh_myftp_biz.num.is_num>`
+     - .. autodoc2-docstring:: philh_myftp_biz.num.is_num
+          :summary:
+   * - :py:obj:`is_prime <philh_myftp_biz.num.is_prime>`
+     - .. autodoc2-docstring:: philh_myftp_biz.num.is_prime
+          :summary:
+   * - :py:obj:`nearest_multiple <philh_myftp_biz.num.nearest_multiple>`
+     - .. autodoc2-docstring:: philh_myftp_biz.num.nearest_multiple
+          :summary:
+   * - :py:obj:`nlen <philh_myftp_biz.num.nlen>`
+     - .. autodoc2-docstring:: philh_myftp_biz.num.nlen
+          :summary:
+
+API
+~~~
+
+.. py:function:: clamp(x: typing.SupportsFloat | typing.SupportsIndex, MIN: typing.SupportsFloat | typing.SupportsIndex, MAX: typing.SupportsFloat | typing.SupportsIndex) -> float
+   :canonical: philh_myftp_biz.num.clamp
+
+   .. autodoc2-docstring:: philh_myftp_biz.num.clamp
+
+.. py:function:: digit(num: typing.SupportsInt | typing.SupportsIndex, i: typing.SupportsInt | typing.SupportsIndex) -> int
+   :canonical: philh_myftp_biz.num.digit
+
+   .. autodoc2-docstring:: philh_myftp_biz.num.digit
+
+.. py:function:: is_float(num: object) -> bool
+   :canonical: philh_myftp_biz.num.is_float
+
+   .. autodoc2-docstring:: philh_myftp_biz.num.is_float
+
+.. py:function:: is_int(num: object) -> bool
+   :canonical: philh_myftp_biz.num.is_int
+
+   .. autodoc2-docstring:: philh_myftp_biz.num.is_int
+
+.. py:function:: is_num(num: object) -> bool
+   :canonical: philh_myftp_biz.num.is_num
+
+   .. autodoc2-docstring:: philh_myftp_biz.num.is_num
+
+.. py:function:: is_prime(num: object) -> bool
+   :canonical: philh_myftp_biz.num.is_prime
+
+   .. autodoc2-docstring:: philh_myftp_biz.num.is_prime
+
+.. py:function:: nearest_multiple(x: typing.SupportsFloat | typing.SupportsIndex, multiple_of: typing.SupportsInt | typing.SupportsIndex) -> int
+   :canonical: philh_myftp_biz.num.nearest_multiple
+
+   .. autodoc2-docstring:: philh_myftp_biz.num.nearest_multiple
+
+.. py:function:: nlen(num: object) -> int
+   :canonical: philh_myftp_biz.num.nlen
+
+   .. autodoc2-docstring:: philh_myftp_biz.num.nlen

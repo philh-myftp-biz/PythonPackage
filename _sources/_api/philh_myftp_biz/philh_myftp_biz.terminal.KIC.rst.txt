@@ -1,0 +1,56 @@
+:py:mod:`philh_myftp_biz.terminal.KIC`
+======================================
+
+.. py:module:: philh_myftp_biz.terminal.KIC
+
+.. autodoc2-docstring:: philh_myftp_biz.terminal.KIC
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`KIC <philh_myftp_biz.terminal.KIC.KIC>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.KIC.KIC
+          :summary:
+
+API
+~~~
+
+.. py:class:: KIC
+   :canonical: philh_myftp_biz.terminal.KIC.KIC
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.KIC.KIC
+
+   .. py:attribute:: traceback
+      :canonical: philh_myftp_biz.terminal.KIC.KIC.traceback
+      :type: None|TracebackType
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.KIC.KIC.traceback
+
+   .. py:method:: enable() -> None
+      :canonical: philh_myftp_biz.terminal.KIC.KIC.enable
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.KIC.KIC.enable
+
+   .. py:method:: disable() -> None
+      :canonical: philh_myftp_biz.terminal.KIC.KIC.disable
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.KIC.KIC.disable
+
+   .. py:method:: _handler(sig: signal._HANDLER, frame: types.FrameType) -> None
+      :canonical: philh_myftp_biz.terminal.KIC.KIC._handler
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.KIC.KIC._handler
+
+   .. py:method:: check()
+      :canonical: philh_myftp_biz.terminal.KIC.KIC.check
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.KIC.KIC.check

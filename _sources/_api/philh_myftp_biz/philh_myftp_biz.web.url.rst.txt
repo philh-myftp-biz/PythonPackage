@@ -1,0 +1,130 @@
+:py:mod:`philh_myftp_biz.web.url`
+=================================
+
+.. py:module:: philh_myftp_biz.web.url
+
+.. autodoc2-docstring:: philh_myftp_biz.web.url
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`URL <philh_myftp_biz.web.url.URL>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.url.URL
+          :summary:
+
+API
+~~~
+
+.. py:class:: URL(url: str, *, params: dict[str, str] = {}, headers: dict[str, str] = {}, max_tries: int = 1, max_age: int = 0, timeout: None | int = 30)
+   :canonical: philh_myftp_biz.web.url.URL
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.url.URL
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.__init__
+
+   .. py:method:: __str__()
+      :canonical: philh_myftp_biz.web.url.URL.__str__
+
+   .. py:attribute:: __repr__
+      :canonical: philh_myftp_biz.web.url.URL.__repr__
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.__repr__
+
+   .. py:attribute:: furl
+      :canonical: philh_myftp_biz.web.url.URL.furl
+      :type: str
+      :value: 'property(...)'
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.furl
+
+   .. py:method:: __getattr__(name: str)
+      :canonical: philh_myftp_biz.web.url.URL.__getattr__
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.__getattr__
+
+   .. py:method:: copy(**kwargs)
+      :canonical: philh_myftp_biz.web.url.URL.copy
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.copy
+
+   .. py:method:: child(name: str, **kwargs)
+      :canonical: philh_myftp_biz.web.url.URL.child
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.child
+
+   .. py:method:: format(*args, **kwargs)
+      :canonical: philh_myftp_biz.web.url.URL.format
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.format
+
+   .. py:property:: stream
+      :canonical: philh_myftp_biz.web.url.URL.stream
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.stream
+
+   .. py:property:: content
+      :canonical: philh_myftp_biz.web.url.URL.content
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.content
+
+   .. py:property:: text
+      :canonical: philh_myftp_biz.web.url.URL.text
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.text
+
+   .. py:property:: json
+      :canonical: philh_myftp_biz.web.url.URL.json
+      :type: philh_myftp_biz.json.SupportsJSON
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.json
+
+   .. py:property:: head
+      :canonical: philh_myftp_biz.web.url.URL.head
+      :type: requests.Response
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.head
+
+   .. py:property:: exists
+      :canonical: philh_myftp_biz.web.url.URL.exists
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.exists
+
+   .. py:method:: download(path: philh_myftp_biz.pc.Path, force: bool = True) -> None
+      :canonical: philh_myftp_biz.web.url.URL.download
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.download
+
+   .. py:property:: size
+      :canonical: philh_myftp_biz.web.url.URL.size
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.size
+
+   .. py:method:: get(**kwargs) -> requests.Response
+      :canonical: philh_myftp_biz.web.url.URL.get
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.get
+
+   .. py:property:: online
+      :canonical: philh_myftp_biz.web.url.URL.online
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.online
+
+   .. py:property:: hash
+      :canonical: philh_myftp_biz.web.url.URL.hash
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.hash

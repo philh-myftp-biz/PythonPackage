@@ -1,0 +1,99 @@
+:py:mod:`philh_myftp_biz.terminal.ProgressBar`
+==============================================
+
+.. py:module:: philh_myftp_biz.terminal.ProgressBar
+
+.. autodoc2-docstring:: philh_myftp_biz.terminal.ProgressBar
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Pipe <philh_myftp_biz.terminal.ProgressBar.Pipe>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.ProgressBar.Pipe
+          :summary:
+   * - :py:obj:`ProgressBar <philh_myftp_biz.terminal.ProgressBar.ProgressBar>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.ProgressBar.ProgressBar
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`_modes <philh_myftp_biz.terminal.ProgressBar._modes>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.ProgressBar._modes
+          :summary:
+
+API
+~~~
+
+.. py:class:: Pipe()
+   :canonical: philh_myftp_biz.terminal.ProgressBar.Pipe
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.ProgressBar.Pipe
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.ProgressBar.Pipe.__init__
+
+   .. py:method:: write(s: str) -> None
+      :canonical: philh_myftp_biz.terminal.ProgressBar.Pipe.write
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.ProgressBar.Pipe.write
+
+   .. py:method:: __getattr__(name: str)
+      :canonical: philh_myftp_biz.terminal.ProgressBar.Pipe.__getattr__
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.ProgressBar.Pipe.__getattr__
+
+.. py:data:: _modes
+   :canonical: philh_myftp_biz.terminal.ProgressBar._modes
+   :value: None
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.ProgressBar._modes
+
+.. py:class:: ProgressBar(total: float | typing.Iterable = 0, *, mode: philh_myftp_biz.terminal.ProgressBar._modes = 'SCOUNTER', label: None | str = None, verbose: bool = False)
+   :canonical: philh_myftp_biz.terminal.ProgressBar.ProgressBar
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.ProgressBar.ProgressBar
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.ProgressBar.ProgressBar.__init__
+
+   .. py:method:: step(n: float | typing.Iterable = 1) -> None
+      :canonical: philh_myftp_biz.terminal.ProgressBar.ProgressBar.step
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.ProgressBar.ProgressBar.step
+
+   .. py:method:: stop() -> None
+      :canonical: philh_myftp_biz.terminal.ProgressBar.ProgressBar.stop
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.ProgressBar.ProgressBar.stop
+
+   .. py:method:: refresh() -> None
+      :canonical: philh_myftp_biz.terminal.ProgressBar.ProgressBar.refresh
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.ProgressBar.ProgressBar.refresh
+
+   .. py:property:: finished
+      :canonical: philh_myftp_biz.terminal.ProgressBar.ProgressBar.finished
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.ProgressBar.ProgressBar.finished
+
+   .. py:property:: running
+      :canonical: philh_myftp_biz.terminal.ProgressBar.ProgressBar.running
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.ProgressBar.ProgressBar.running

@@ -1,0 +1,133 @@
+:py:mod:`philh_myftp_biz._log`
+==============================
+
+.. py:module:: philh_myftp_biz._log
+
+.. autodoc2-docstring:: philh_myftp_biz._log
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Formatter <philh_myftp_biz._log.Formatter>`
+     - .. autodoc2-docstring:: philh_myftp_biz._log.Formatter
+          :summary:
+   * - :py:obj:`MutInt <philh_myftp_biz._log.MutInt>`
+     - .. autodoc2-docstring:: philh_myftp_biz._log.MutInt
+          :summary:
+   * - :py:obj:`VERBOSE <philh_myftp_biz._log.VERBOSE>`
+     - .. autodoc2-docstring:: philh_myftp_biz._log.VERBOSE
+          :summary:
+
+API
+~~~
+
+.. py:class:: Formatter()
+   :canonical: philh_myftp_biz._log.Formatter
+
+   .. autodoc2-docstring:: philh_myftp_biz._log.Formatter
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz._log.Formatter.__init__
+
+   .. py:method:: format(arg0: object) -> str
+      :canonical: philh_myftp_biz._log.Formatter.format
+
+      .. autodoc2-docstring:: philh_myftp_biz._log.Formatter.format
+
+.. py:class:: MutInt(arg0: typing.SupportsInt | typing.SupportsIndex)
+   :canonical: philh_myftp_biz._log.MutInt
+
+   .. autodoc2-docstring:: philh_myftp_biz._log.MutInt
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz._log.MutInt.__init__
+
+   .. py:attribute:: value
+      :canonical: philh_myftp_biz._log.MutInt.value
+      :type: int
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz._log.MutInt.value
+
+   .. py:method:: __add__(arg0: typing.SupportsInt | typing.SupportsIndex) -> philh_myftp_biz._log.MutInt
+      :canonical: philh_myftp_biz._log.MutInt.__add__
+
+      .. autodoc2-docstring:: philh_myftp_biz._log.MutInt.__add__
+
+   .. py:method:: __bool__() -> bool
+      :canonical: philh_myftp_biz._log.MutInt.__bool__
+
+      .. autodoc2-docstring:: philh_myftp_biz._log.MutInt.__bool__
+
+   .. py:method:: __iadd__(arg0: typing.SupportsInt | typing.SupportsIndex) -> philh_myftp_biz._log.MutInt
+      :canonical: philh_myftp_biz._log.MutInt.__iadd__
+
+      .. autodoc2-docstring:: philh_myftp_biz._log.MutInt.__iadd__
+
+   .. py:method:: __index__() -> int
+      :canonical: philh_myftp_biz._log.MutInt.__index__
+
+      .. autodoc2-docstring:: philh_myftp_biz._log.MutInt.__index__
+
+   .. py:method:: __int__() -> int
+      :canonical: philh_myftp_biz._log.MutInt.__int__
+
+      .. autodoc2-docstring:: philh_myftp_biz._log.MutInt.__int__
+
+   .. py:method:: __isub__(arg0: typing.SupportsInt | typing.SupportsIndex) -> philh_myftp_biz._log.MutInt
+      :canonical: philh_myftp_biz._log.MutInt.__isub__
+
+      .. autodoc2-docstring:: philh_myftp_biz._log.MutInt.__isub__
+
+   .. py:method:: __sub__(arg0: typing.SupportsInt | typing.SupportsIndex) -> philh_myftp_biz._log.MutInt
+      :canonical: philh_myftp_biz._log.MutInt.__sub__
+
+      .. autodoc2-docstring:: philh_myftp_biz._log.MutInt.__sub__
+
+.. py:class:: VERBOSE(parsed_lvalue: typing.SupportsInt | typing.SupportsIndex)
+   :canonical: philh_myftp_biz._log.VERBOSE
+
+   Bases: :py:obj:`philh_myftp_biz._log.MutInt`
+
+   .. autodoc2-docstring:: philh_myftp_biz._log.VERBOSE
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz._log.VERBOSE.__init__
+
+   .. py:attribute:: lvalue
+      :canonical: philh_myftp_biz._log.VERBOSE.lvalue
+      :type: int
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz._log.VERBOSE.lvalue
+
+   .. py:method:: disable() -> None
+      :canonical: philh_myftp_biz._log.VERBOSE.disable
+
+      .. autodoc2-docstring:: philh_myftp_biz._log.VERBOSE.disable
+
+   .. py:method:: enable() -> None
+      :canonical: philh_myftp_biz._log.VERBOSE.enable
+
+      .. autodoc2-docstring:: philh_myftp_biz._log.VERBOSE.enable
+
+   .. py:method:: pause() -> None
+      :canonical: philh_myftp_biz._log.VERBOSE.pause
+
+      .. autodoc2-docstring:: philh_myftp_biz._log.VERBOSE.pause
+
+   .. py:method:: resume() -> None
+      :canonical: philh_myftp_biz._log.VERBOSE.resume
+
+      .. autodoc2-docstring:: philh_myftp_biz._log.VERBOSE.resume

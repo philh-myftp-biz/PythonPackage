@@ -1,0 +1,41 @@
+:py:mod:`philh_myftp_biz.json`
+==============================
+
+.. py:module:: philh_myftp_biz.json
+
+.. autodoc2-docstring:: philh_myftp_biz.json
+   :allowtitles:
+
+Submodules
+----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   philh_myftp_biz.json.Collection
+   philh_myftp_biz.json.Dict
+   philh_myftp_biz.json.List
+   philh_myftp_biz.json.weights
+
+Package Contents
+----------------
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`is_json <philh_myftp_biz.json.is_json>`
+     - .. autodoc2-docstring:: philh_myftp_biz.json.is_json
+          :summary:
+
+API
+~~~
+
+.. py:function:: is_json(value: str) -> bool
+   :canonical: philh_myftp_biz.json.is_json
+
+   .. autodoc2-docstring:: philh_myftp_biz.json.is_json

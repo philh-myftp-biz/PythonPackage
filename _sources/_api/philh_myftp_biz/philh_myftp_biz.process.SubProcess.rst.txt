@@ -1,0 +1,229 @@
+:py:mod:`philh_myftp_biz.process.SubProcess`
+============================================
+
+.. py:module:: philh_myftp_biz.process.SubProcess
+
+.. autodoc2-docstring:: philh_myftp_biz.process.SubProcess
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Terminal <philh_myftp_biz.process.SubProcess.Terminal>`
+     -
+   * - :py:obj:`SubProcess <philh_myftp_biz.process.SubProcess.SubProcess>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess
+          :summary:
+   * - :py:obj:`Run <philh_myftp_biz.process.SubProcess.Run>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.Run
+          :summary:
+   * - :py:obj:`RunHidden <philh_myftp_biz.process.SubProcess.RunHidden>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.RunHidden
+          :summary:
+   * - :py:obj:`Start <philh_myftp_biz.process.SubProcess.Start>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.Start
+          :summary:
+   * - :py:obj:`StartHidden <philh_myftp_biz.process.SubProcess.StartHidden>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.StartHidden
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`_TerminalMap <philh_myftp_biz.process.SubProcess._TerminalMap>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess._TerminalMap
+          :summary:
+   * - :py:obj:`TerminalMap <philh_myftp_biz.process.SubProcess.TerminalMap>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.TerminalMap
+          :summary:
+
+API
+~~~
+
+.. py:class:: Terminal()
+   :canonical: philh_myftp_biz.process.SubProcess.Terminal
+
+   Bases: :py:obj:`typing.TypedDict`
+
+   .. py:attribute:: args
+      :canonical: philh_myftp_biz.process.SubProcess.Terminal.args
+      :type: tuple[str, ...]
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.Terminal.args
+
+   .. py:attribute:: exts
+      :canonical: philh_myftp_biz.process.SubProcess.Terminal.exts
+      :type: tuple[str, ...]
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.Terminal.exts
+
+.. py:data:: _TerminalMap
+   :canonical: philh_myftp_biz.process.SubProcess._TerminalMap
+   :type: dict[str, philh_myftp_biz.process.SubProcess.Terminal]
+   :value: None
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess._TerminalMap
+
+.. py:data:: TerminalMap
+   :canonical: philh_myftp_biz.process.SubProcess.TerminalMap
+   :value: 'deepcopy(...)'
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.TerminalMap
+
+.. py:class:: SubProcess(*args: str|Path, terminal: None | typing.Literal[cmd, ps, psfile, py, pym, vbs] = 'cmd', dir: Path|None = None)
+   :canonical: philh_myftp_biz.process.SubProcess.SubProcess
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess.__init__
+
+   .. py:attribute:: _hide
+      :canonical: philh_myftp_biz.process.SubProcess.SubProcess._hide
+      :type: bool
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess._hide
+
+   .. py:attribute:: _wait
+      :canonical: philh_myftp_biz.process.SubProcess.SubProcess._wait
+      :type: bool
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess._wait
+
+   .. py:property:: finished
+      :canonical: philh_myftp_biz.process.SubProcess.SubProcess.finished
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess.finished
+
+   .. py:method:: output(format: typing.Literal[philh_myftp_biz.json, philh_myftp_biz.text.hex] = None, stream: typing.Literal[out, err] = 'out') -> str | dict | list | bool | Any
+      :canonical: philh_myftp_biz.process.SubProcess.SubProcess.output
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess.output
+
+   .. py:property:: running
+      :canonical: philh_myftp_biz.process.SubProcess.SubProcess.running
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess.running
+
+   .. py:method:: wait()
+      :canonical: philh_myftp_biz.process.SubProcess.SubProcess.wait
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess.wait
+
+   .. py:method:: __getstate__()
+      :canonical: philh_myftp_biz.process.SubProcess.SubProcess.__getstate__
+
+   .. py:method:: __print() -> None
+      :canonical: philh_myftp_biz.process.SubProcess.SubProcess.__print
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess.__print
+
+.. py:class:: Run(*args: str|Path, terminal: None | typing.Literal[cmd, ps, psfile, py, pym, vbs] = 'cmd', dir: Path|None = None)
+   :canonical: philh_myftp_biz.process.SubProcess.Run
+
+   Bases: :py:obj:`philh_myftp_biz.process.SubProcess.SubProcess`
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.Run
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.Run.__init__
+
+   .. py:attribute:: _hide
+      :canonical: philh_myftp_biz.process.SubProcess.Run._hide
+      :value: False
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.Run._hide
+
+   .. py:attribute:: _wait
+      :canonical: philh_myftp_biz.process.SubProcess.Run._wait
+      :value: True
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.Run._wait
+
+.. py:class:: RunHidden(*args: str|Path, terminal: None | typing.Literal[cmd, ps, psfile, py, pym, vbs] = 'cmd', dir: Path|None = None)
+   :canonical: philh_myftp_biz.process.SubProcess.RunHidden
+
+   Bases: :py:obj:`philh_myftp_biz.process.SubProcess.SubProcess`
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.RunHidden
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.RunHidden.__init__
+
+   .. py:attribute:: _hide
+      :canonical: philh_myftp_biz.process.SubProcess.RunHidden._hide
+      :value: True
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.RunHidden._hide
+
+   .. py:attribute:: _wait
+      :canonical: philh_myftp_biz.process.SubProcess.RunHidden._wait
+      :value: True
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.RunHidden._wait
+
+.. py:class:: Start(*args: str|Path, terminal: None | typing.Literal[cmd, ps, psfile, py, pym, vbs] = 'cmd', dir: Path|None = None)
+   :canonical: philh_myftp_biz.process.SubProcess.Start
+
+   Bases: :py:obj:`philh_myftp_biz.process.SubProcess.SubProcess`
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.Start
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.Start.__init__
+
+   .. py:attribute:: _hide
+      :canonical: philh_myftp_biz.process.SubProcess.Start._hide
+      :value: False
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.Start._hide
+
+   .. py:attribute:: _wait
+      :canonical: philh_myftp_biz.process.SubProcess.Start._wait
+      :value: False
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.Start._wait
+
+.. py:class:: StartHidden(*args: str|Path, terminal: None | typing.Literal[cmd, ps, psfile, py, pym, vbs] = 'cmd', dir: Path|None = None)
+   :canonical: philh_myftp_biz.process.SubProcess.StartHidden
+
+   Bases: :py:obj:`philh_myftp_biz.process.SubProcess.SubProcess`
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.StartHidden
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.StartHidden.__init__
+
+   .. py:attribute:: _hide
+      :canonical: philh_myftp_biz.process.SubProcess.StartHidden._hide
+      :value: True
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.StartHidden._hide
+
+   .. py:attribute:: _wait
+      :canonical: philh_myftp_biz.process.SubProcess.StartHidden._wait
+      :value: False
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.StartHidden._wait

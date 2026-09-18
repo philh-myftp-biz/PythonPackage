@@ -1,0 +1,168 @@
+:py:mod:`philh_myftp_biz.db`
+============================
+
+.. py:module:: philh_myftp_biz.db
+
+.. autodoc2-docstring:: philh_myftp_biz.db
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Size <philh_myftp_biz.db.Size>`
+     - .. autodoc2-docstring:: philh_myftp_biz.db.Size
+          :summary:
+   * - :py:obj:`Color <philh_myftp_biz.db.Color>`
+     - .. autodoc2-docstring:: philh_myftp_biz.db.Color
+          :summary:
+   * - :py:obj:`Ring <philh_myftp_biz.db.Ring>`
+     - .. autodoc2-docstring:: philh_myftp_biz.db.Ring
+          :summary:
+   * - :py:obj:`Key <philh_myftp_biz.db.Key>`
+     - .. autodoc2-docstring:: philh_myftp_biz.db.Key
+          :summary:
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`__getattr__ <philh_myftp_biz.db.__getattr__>`
+     - .. autodoc2-docstring:: philh_myftp_biz.db.__getattr__
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`MIMETYPES <philh_myftp_biz.db.MIMETYPES>`
+     - .. autodoc2-docstring:: philh_myftp_biz.db.MIMETYPES
+          :summary:
+
+API
+~~~
+
+.. py:data:: MIMETYPES
+   :canonical: philh_myftp_biz.db.MIMETYPES
+   :type: dict[str, str]
+   :value: None
+
+   .. autodoc2-docstring:: philh_myftp_biz.db.MIMETYPES
+
+.. py:function:: __getattr__(attr: str)
+   :canonical: philh_myftp_biz.db.__getattr__
+
+   .. autodoc2-docstring:: philh_myftp_biz.db.__getattr__
+
+.. py:class:: Size
+   :canonical: philh_myftp_biz.db.Size
+
+   .. autodoc2-docstring:: philh_myftp_biz.db.Size
+
+   .. py:attribute:: units
+      :canonical: philh_myftp_biz.db.Size.units
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Size.units
+
+   .. py:attribute:: conv_factors
+      :canonical: philh_myftp_biz.db.Size.conv_factors
+      :type: dict[str, int]
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Size.conv_factors
+
+   .. py:method:: to_bytes(string: str) -> float
+      :canonical: philh_myftp_biz.db.Size.to_bytes
+      :staticmethod:
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Size.to_bytes
+
+   .. py:method:: from_bytes(unit: units | None = None, ndigits: int = maxsize) -> str
+      :canonical: philh_myftp_biz.db.Size.from_bytes
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Size.from_bytes
+
+.. py:class:: Color
+   :canonical: philh_myftp_biz.db.Color
+
+   .. autodoc2-docstring:: philh_myftp_biz.db.Color
+
+   .. py:attribute:: names
+      :canonical: philh_myftp_biz.db.Color.names
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Color.names
+
+   .. py:attribute:: values
+      :canonical: philh_myftp_biz.db.Color.values
+      :type: dict[philh_myftp_biz.db.Color.names, str]
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Color.values
+
+.. py:class:: Ring(name: str)
+   :canonical: philh_myftp_biz.db.Ring
+
+   .. autodoc2-docstring:: philh_myftp_biz.db.Ring
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.db.Ring.__init__
+
+   .. py:method:: Key(name: str) -> philh_myftp_biz.db.Key
+      :canonical: philh_myftp_biz.db.Ring.Key
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Ring.Key
+
+   .. py:attribute:: __getitem__
+      :canonical: philh_myftp_biz.db.Ring.__getitem__
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Ring.__getitem__
+
+.. py:class:: Key
+   :canonical: philh_myftp_biz.db.Key
+
+   .. autodoc2-docstring:: philh_myftp_biz.db.Key
+
+   .. py:attribute:: ring
+      :canonical: philh_myftp_biz.db.Key.ring
+      :type: philh_myftp_biz.db.Ring
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Key.ring
+
+   .. py:attribute:: name
+      :canonical: philh_myftp_biz.db.Key.name
+      :type: str
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Key.name
+
+   .. py:method:: save(value: T) -> None
+      :canonical: philh_myftp_biz.db.Key.save
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Key.save
+
+   .. py:method:: read() -> None | T
+      :canonical: philh_myftp_biz.db.Key.read
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Key.read
+
+   .. py:method:: prompt(secure: bool) -> None
+      :canonical: philh_myftp_biz.db.Key.prompt
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Key.prompt

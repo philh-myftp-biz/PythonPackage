@@ -1,0 +1,73 @@
+:py:mod:`philh_myftp_biz.web`
+=============================
+
+.. py:module:: philh_myftp_biz.web
+
+.. autodoc2-docstring:: philh_myftp_biz.web
+   :allowtitles:
+
+Subpackages
+-----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   philh_myftp_biz.web.torrent
+
+Submodules
+----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   philh_myftp_biz.web.driver
+   philh_myftp_biz.web.ftp
+   philh_myftp_biz.web.minecraft
+   philh_myftp_biz.web.Omdb
+   philh_myftp_biz.web.session
+   philh_myftp_biz.web.ssh
+   philh_myftp_biz.web.url
+   philh_myftp_biz.web.VirusTotal
+   philh_myftp_biz.web._web
+
+Package Contents
+----------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Port <philh_myftp_biz.web.Port>`
+     - .. autodoc2-docstring:: philh_myftp_biz.web.Port
+          :summary:
+
+API
+~~~
+
+.. py:class:: Port(port: int, host: str = '127.0.0.1')
+   :canonical: philh_myftp_biz.web.Port
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.Port
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.Port.__init__
+
+   .. py:property:: listening
+      :canonical: philh_myftp_biz.web.Port.listening
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.Port.listening
+
+   .. py:method:: __int__() -> int
+      :canonical: philh_myftp_biz.web.Port.__int__
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.Port.__int__
+
+   .. py:method:: __repr__() -> str
+      :canonical: philh_myftp_biz.web.Port.__repr__

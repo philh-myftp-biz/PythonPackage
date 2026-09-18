@@ -1,0 +1,45 @@
+:py:mod:`philh_myftp_biz.array`
+===============================
+
+.. py:module:: philh_myftp_biz.array
+
+.. autodoc2-docstring:: philh_myftp_biz.array
+   :allowtitles:
+
+Module Contents
+---------------
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`copy <philh_myftp_biz.array.copy>`
+     - .. autodoc2-docstring:: philh_myftp_biz.array.copy
+          :summary:
+   * - :py:obj:`is_sublist <philh_myftp_biz.array.is_sublist>`
+     - .. autodoc2-docstring:: philh_myftp_biz.array.is_sublist
+          :summary:
+   * - :py:obj:`stringify <philh_myftp_biz.array.stringify>`
+     - .. autodoc2-docstring:: philh_myftp_biz.array.stringify
+          :summary:
+
+API
+~~~
+
+.. py:function:: copy(array: list | tuple) -> list
+   :canonical: philh_myftp_biz.array.copy
+
+   .. autodoc2-docstring:: philh_myftp_biz.array.copy
+
+.. py:function:: is_sublist(sub: list, main: list)
+   :canonical: philh_myftp_biz.array.is_sublist
+
+   .. autodoc2-docstring:: philh_myftp_biz.array.is_sublist
+
+.. py:function:: stringify(array: list) -> list[str]
+   :canonical: philh_myftp_biz.array.stringify
+
+   .. autodoc2-docstring:: philh_myftp_biz.array.stringify

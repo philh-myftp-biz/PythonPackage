@@ -1,0 +1,112 @@
+:py:mod:`philh_myftp_biz.functools.attr`
+========================================
+
+.. py:module:: philh_myftp_biz.functools.attr
+
+.. autodoc2-docstring:: philh_myftp_biz.functools.attr
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`attr <philh_myftp_biz.functools.attr.attr>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.attr.attr
+          :summary:
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`attrs <philh_myftp_biz.functools.attr.attrs>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.attr.attrs
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`dunders <philh_myftp_biz.functools.attr.dunders>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.attr.dunders
+          :summary:
+
+API
+~~~
+
+.. py:data:: dunders
+   :canonical: philh_myftp_biz.functools.attr.dunders
+   :type: list[str]
+   :value: []
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.attr.dunders
+
+.. py:class:: attr
+   :canonical: philh_myftp_biz.functools.attr.attr
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.attr.attr
+
+   .. py:attribute:: parent
+      :canonical: philh_myftp_biz.functools.attr.attr.parent
+      :type: typing.Any
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.attr.attr.parent
+
+   .. py:attribute:: name
+      :canonical: philh_myftp_biz.functools.attr.attr.name
+      :type: str
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.attr.attr.name
+
+   .. py:method:: private() -> bool
+      :canonical: philh_myftp_biz.functools.attr.attr.private
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.attr.attr.private
+
+   .. py:method:: value()
+      :canonical: philh_myftp_biz.functools.attr.attr.value
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.attr.attr.value
+
+   .. py:method:: callable()
+      :canonical: philh_myftp_biz.functools.attr.attr.callable
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.attr.attr.callable
+
+   .. py:method:: parameters() -> list[str]
+      :canonical: philh_myftp_biz.functools.attr.attr.parameters
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.attr.attr.parameters
+
+   .. py:method:: null()
+      :canonical: philh_myftp_biz.functools.attr.attr.null
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.attr.attr.null
+
+   .. py:method:: set(value: typing.Any) -> None
+      :canonical: philh_myftp_biz.functools.attr.attr.set
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.attr.attr.set
+
+   .. py:method:: __str__() -> str
+      :canonical: philh_myftp_biz.functools.attr.attr.__str__
+
+      .. autodoc2-docstring:: philh_myftp_biz.functools.attr.attr.__str__
+
+.. py:function:: attrs(obj: typing.Any) -> typing.Generator[philh_myftp_biz.functools.attr.attr, typing.Any, None]
+   :canonical: philh_myftp_biz.functools.attr.attrs
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.attr.attrs
