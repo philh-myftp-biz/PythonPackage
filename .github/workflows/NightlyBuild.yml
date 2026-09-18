@@ -24,56 +24,33 @@ jobs:
             echo "has_changes=true" >> $GITHUB_OUTPUT
           fi
 
-  build-wheels:
+  prepare-version:
     needs: scan-changes
     if: needs.scan-changes.outputs.has_changes == 'true'
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [windows-latest, ubuntu-latest]
-    steps:
-      - uses: actions/checkout@v4
-        with:
-          submodules: recursive
-      - uses: docker/setup-qemu-action@v3
-        if: matrix.os == 'ubuntu-latest'
-      - uses: pypa/cibuildwheel@v2.22.0
-        env:
-          CIBW_BUILD: cp312-win_amd64 cp312-manylinux_x86_64
-          CIBW_MANYLINUX_X86_64_IMAGE: manylinux_2_28 # force a newer compiler image with proper C++20 support
-      - uses: actions/upload-artifact@v4
-        with:
-          name: cibw-wheels-${{ matrix.os }}
-          path: ./wheelhouse/*.whl
-
-  publish:
-    needs: build-wheels
     runs-on: ubuntu-latest
     permissions:
       contents: write
-      id-token: write
+    outputs:
+      version_iso: ${{ env.ISO }}
+      commit_sha: ${{ steps.commit.outputs.commit_hash }}
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref || github.repository_default_branch }} 
+          ref: ${{ github.ref || github.repository_default_branch }}
           submodules: recursive
-      - run: mkdir -p dist
-      - uses: actions/download-artifact@v4
-        with:
-          pattern: cibw-wheels-*
-          path: dist/
-          merge-multiple: true
-      - run: |
+
+      - name: Calculate Dynamic Date
+        run: |
           export TZ='America/New_York'
-          echo "ISO=$(date +'%Y.%m.%d')" >> $GITHUB_ENV 
+          echo "ISO=$(date +'%Y.%m.%d')" >> $GITHUB_ENV
+
       - uses: actions/setup-python@v5
-        with: 
+        with:
           python-version: '3.12'
-      - run: |
-          pip install poetry toml
-          poetry config virtualenvs.create false
-          poetry install --no-root --no-interaction
-      - run: |
+
+      - name: Patch pyproject.toml
+        run: |
+          pip install toml
           python -c "
           from toml import load, dump
           with open('pyproject.toml', 'r') as f:
@@ -82,22 +59,67 @@ jobs:
           with open('pyproject.toml', 'w') as f:
               dump(data, f)
           "
-          
-      # FIX 1: Added an ID here so we can grab the fresh commit hash
+
       - id: commit
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Apply automatic changes
+
+  build-wheels:
+    needs: prepare-version
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Checkout the exact commit hash that contains the version patch
+          ref: ${{ needs.prepare-version.outputs.commit_sha }}
+          submodules: recursive
+      - uses: docker/setup-qemu-action@v3
+        if: matrix.os == 'ubuntu-latest'
+      - uses: pypa/cibuildwheel@v2.22.0
+        env:
+          CIBW_BUILD: cp312-win_amd64 cp312-manylinux_x86_64
+          CIBW_MANYLINUX_X86_64_IMAGE: manylinux_2_28
+      - uses: actions/upload-artifact@v4
+        with:
+          name: cibw-wheels-${{ matrix.os }}
+          path: ./wheelhouse/*.whl
+
+  publish:
+    needs: [prepare-version, build-wheels]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.prepare-version.outputs.commit_sha }}
+          submodules: recursive
+      - run: mkdir -p dist
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: cibw-wheels-*
+          path: dist/
+          merge-multiple: true
+      - uses: actions/setup-python@v5
+        with: 
+          python-version: '3.12'
+      - run: |
+          pip install poetry toml
+          poetry config virtualenvs.create false
+          poetry install --no-root --no-interaction
           
-      # FIX 2: Moved below the commit step so the release includes the updated pyproject.toml
       - uses: softprops/action-gh-release@v1
         with:
-          tag_name: v${{ env.ISO }}
-          name: ${{ env.ISO }}
+          tag_name: v${{ needs.prepare-version.outputs.version_iso }}
+          name: ${{ needs.prepare-version.outputs.version_iso }}
           body: Automatic Nightly Build
           files: dist/* 
-          # Forces the GitHub Release tag to land exactly on the new version commit
-          target_commitish: ${{ steps.commit.outputs.commit_hash }}
+          target_commitish: ${{ needs.prepare-version.outputs.commit_sha }}
 
       - name: Publish package to PyPI
         env:
