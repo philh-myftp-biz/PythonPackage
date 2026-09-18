@@ -1,0 +1,107 @@
+philh_myftp_biz.pc.hardware
+===========================
+
+.. py:module:: philh_myftp_biz.pc.hardware
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   philh_myftp_biz.pc.hardware.Device
+   philh_myftp_biz.pc.hardware.HardDrive
+   philh_myftp_biz.pc.hardware.PCIeCard
+   philh_myftp_biz.pc.hardware.VirtualDisk
+
+
+Module Contents
+---------------
+
+.. py:class:: Device
+
+   .. py:property:: Connected
+      :type: bool
+
+
+
+   .. py:property:: Name
+      :type: str
+
+
+
+.. py:class:: HardDrive(Tower: str, Conn: str, ID: SupportsInt | SupportsIndex, SN: str)
+
+   Bases: :py:obj:`Device`
+
+
+   .. py:attribute:: FriendlyName
+      :type:  str
+
+
+   .. py:attribute:: Usage
+      :type:  str
+
+
+   .. py:method:: search() -> list[HardDrive]
+      :staticmethod:
+
+
+
+   .. py:property:: Conn
+      :type: str
+
+
+
+   .. py:property:: ID
+      :type: int
+
+
+
+   .. py:property:: Index
+      :type: int
+
+
+
+   .. py:property:: SN
+      :type: str
+
+
+
+   .. py:property:: Tower
+      :type: str
+
+
+
+.. py:class:: PCIeCard(Slot: SupportsInt | SupportsIndex, Lanes: SupportsInt | SupportsIndex = ...)
+
+   Bases: :py:obj:`Device`
+
+
+   .. py:property:: Lanes
+      :type: int
+
+
+
+   .. py:property:: Slot
+      :type: int
+
+
+
+.. py:class:: VirtualDisk(Name: str, Mount: str)
+
+   Bases: :py:obj:`Device`
+
+
+   .. py:attribute:: Connected
+      :type:  bool
+
+
+   .. py:method:: Repair() -> None
+
+
+   .. py:property:: Mount
+      :type: str
+
+
+

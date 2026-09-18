@@ -1,0 +1,36 @@
+philh_myftp_biz.text.hex
+========================
+
+.. py:module:: philh_myftp_biz.text.hex
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   philh_myftp_biz.text.hex.PickleErrors
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   philh_myftp_biz.text.hex.decode
+   philh_myftp_biz.text.hex.encode
+   philh_myftp_biz.text.hex.valid
+
+
+Module Contents
+---------------
+
+.. py:data:: PickleErrors
+   :type:  tuple
+
+.. py:function:: decode(value: str) -> object
+
+.. py:function:: encode(value: object) -> str
+
+.. py:function:: valid(string: str) -> bool
+

@@ -1,0 +1,40 @@
+philh_myftp_biz.num
+===================
+
+.. py:module:: philh_myftp_biz.num
+
+
+Functions
+---------
+
+.. autoapisummary::
+
+   philh_myftp_biz.num.clamp
+   philh_myftp_biz.num.digit
+   philh_myftp_biz.num.is_float
+   philh_myftp_biz.num.is_int
+   philh_myftp_biz.num.is_num
+   philh_myftp_biz.num.is_prime
+   philh_myftp_biz.num.nearest_multiple
+   philh_myftp_biz.num.nlen
+
+
+Module Contents
+---------------
+
+.. py:function:: clamp(x: SupportsFloat | SupportsIndex, MIN: SupportsFloat | SupportsIndex, MAX: SupportsFloat | SupportsIndex) -> float
+
+.. py:function:: digit(num: SupportsInt | SupportsIndex, i: SupportsInt | SupportsIndex) -> int
+
+.. py:function:: is_float(num: object) -> bool
+
+.. py:function:: is_int(num: object) -> bool
+
+.. py:function:: is_num(num: object) -> bool
+
+.. py:function:: is_prime(num: object) -> bool
+
+.. py:function:: nearest_multiple(x: SupportsFloat | SupportsIndex, multiple_of: SupportsInt | SupportsIndex) -> int
+
+.. py:function:: nlen(num: object) -> int
+

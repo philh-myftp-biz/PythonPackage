@@ -1,0 +1,83 @@
+philh_myftp_biz.pc._pc
+======================
+
+.. py:module:: philh_myftp_biz.pc._pc
+
+
+Attributes
+----------
+
+.. autoapisummary::
+
+   philh_myftp_biz.pc._pc.loc
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   philh_myftp_biz.pc._pc._Path
+   philh_myftp_biz.pc._pc._loc
+
+
+Module Contents
+---------------
+
+.. py:data:: loc
+   :type:  _loc
+
+.. py:class:: _Path(arg0: object)
+
+   .. py:property:: exists
+      :type: bool
+
+
+
+   .. py:property:: ext
+      :type: str
+
+
+
+   .. py:property:: is_dir
+      :type: bool
+
+
+
+   .. py:property:: is_file
+      :type: bool
+
+
+
+   .. py:property:: name
+      :type: str
+
+
+
+   .. py:property:: path
+      :type: str
+
+
+
+   .. py:property:: wpath
+      :type: str
+
+
+
+.. py:class:: _loc
+
+   .. py:property:: cache
+      :type: philh_myftp_biz.pc.Path.Path
+
+
+
+   .. py:property:: script
+      :type: philh_myftp_biz.pc.Path.Path
+
+
+
+   .. py:property:: temp
+      :type: philh_myftp_biz.pc.Path.Path
+
+
+

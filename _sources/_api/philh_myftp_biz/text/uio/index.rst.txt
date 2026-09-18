@@ -1,0 +1,25 @@
+philh_myftp_biz.text.uio
+========================
+
+.. py:module:: philh_myftp_biz.text.uio
+
+
+Classes
+-------
+
+.. autoapisummary::
+
+   philh_myftp_biz.text.uio.UnconsumingIO
+
+
+Module Contents
+---------------
+
+.. py:class:: UnconsumingIO(stream: object)
+
+   .. py:method:: read(size: object = ...) -> str
+
+
+   .. py:method:: write(arg0: str) -> None
+
+
