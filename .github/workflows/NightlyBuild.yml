@@ -40,6 +40,7 @@ jobs:
       - uses: pypa/cibuildwheel@v2.22.0
         env:
           CIBW_BUILD: cp312-win_amd64 cp312-manylinux_x86_64
+          CIBW_MANYLINUX_X86_64_IMAGE: manylinux_2_28 # force a newer compiler image with proper C++20 support
       - uses: actions/upload-artifact@v4
         with:
           name: cibw-wheels-${{ matrix.os }}
