@@ -1,13 +1,10 @@
 [build-system]
-requires = [
-    "setuptools>=74.1",
-    "pybind-setup-ext @ git+https://github.com/MineFartS/pybind-setup-ext",
-]
+requires = [ "setuptools>=74.1", "pybind-setup-ext @ git+https://github.com/MineFartS/pybind-setup-ext",]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "philh_myftp_biz"
-version = "v2026.09.16"
+version = "v2026.09.18"
 requires-python = ">=3.12"
 dynamic = [ "dependencies",]
 
@@ -15,12 +12,7 @@ dynamic = [ "dependencies",]
 target-version = "py312"
 
 [tool.ruff.lint]
-ignore = [ 
-    "F401", "E731", "E402", "E701", "E722", "F403", "I001", "B006", 
-    "B023", "B018", "UP035", "PLW0602", "UP029", "LOG015", "N999",
-    "BLE001", "RUF013", "RUF012", "SIM114", "PLW1510", "PLR1704",
-    "PYI034"
-]
+ignore = [ "F401", "E731", "E402", "E701", "E722", "F403", "I001", "B006", "B023", "B018", "UP035", "PLW0602", "UP029", "LOG015", "N999", "BLE001", "RUF013", "RUF012", "SIM114", "PLW1510", "PLR1704", "PYI034",]
 
 [tool.setuptools.package-data]
 "*" = [ "*.pyd", "*.so", "*.pyi",]
