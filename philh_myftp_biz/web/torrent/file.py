@@ -1,4 +1,4 @@
-from qbittorrentapi import TorrentFile as __TorrentFile
+from qbittorrentapi import TorrentFile as _TorrentFile
 from ...functools import cached_property
 from .qbit import qBitTorrent as qbit
 from dataclasses import dataclass
@@ -25,7 +25,7 @@ class TorrentFile:
     #===================================================
 
     @property
-    def raw(self) -> __TorrentFile:
+    def raw(self) -> _TorrentFile:
         for file in self.torrent.raw.files:
             if file.id == self.id:
                 return file

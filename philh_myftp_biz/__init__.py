@@ -1,12 +1,12 @@
-from logging import basicConfig as __basicConfig
-from sys import argv as __argv
+from logging import basicConfig as _basicConfig
+from sys import argv as _argv
 import logging as nlog
 from . import _log
 
 #================================================================
 
 def _arg(*name:str):
-    return len(set(name) & set(__argv))
+    return len(set(name) & set(_argv))
 
 # @dead-code-ignore
 HELP: bool = _arg('-h', '--help')
@@ -27,7 +27,7 @@ class _StreamHandler(nlog.StreamHandler):
         self.setFormatter(_Formatter())
         self.setLevel(10)
 
-__basicConfig(
+_basicConfig(
     level = 10,
     handlers = [_StreamHandler()]
 )

@@ -166,9 +166,9 @@ class FTP:
 
     @cached_property
     def _client(self):
-        from ftplib import FTP as __FTP
+        from ftplib import FTP as _FTP
 
-        ftp = __FTP(
+        ftp = _FTP(
             timeout = self.timeout
         )
 
