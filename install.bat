@@ -37,6 +37,6 @@ popd
 goto :EOF
 
 :pip_install
-    python.exe -m pip install --user %* || exit /b 1
+    python.exe -m pip install --user %* || goto :EOF
     exit /B
 

@@ -51,7 +51,7 @@ class _loc { public:
         fs::path pure;
 
         if (py::hasattr(mod, "__file__")) {
-            _file = mod.attr("__file__").cast<str>();
+            str _file = mod.attr("__file__").cast<str>();
             pure = fs::path(_file).parent_path();
         } else {
             pure = fs::current_path();
