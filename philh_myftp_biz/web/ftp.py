@@ -83,7 +83,7 @@ class FTPPath:
         return FTPPath(self.path.rstrip('/') + '/' + name)
 
     @cached_property
-    def children(self) -> Generator['FTPPath']:
+    def children(self) -> Generator['FTPPath', None, None]:
 
         with self.cd:
         
@@ -98,7 +98,7 @@ class FTPPath:
                     yield _path
 
     @cached_property
-    def descendants(self) -> Generator['FTPPath']:
+    def descendants(self) -> Generator['FTPPath', None, None]:
 
         def _scan(path:FTPPath):
     

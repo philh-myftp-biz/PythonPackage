@@ -17,7 +17,7 @@ cache: TransitoryCache[list[Torrent]] = TransitoryCache('__tpb__')
 
 @Log.on_call
 # @dead-code-ignore
-def search(*queries:str) -> Generator[Torrent]:
+def search(*queries:str) -> Generator[Torrent, None, None]:
     """Search thePirateBay for magnets"""
 
     for q in queries:
