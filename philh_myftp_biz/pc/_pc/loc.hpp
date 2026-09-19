@@ -1,6 +1,9 @@
 #pragma once
+
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
+#include <filesystem>
+#include <string>
 
 #include "remap.h"
 
@@ -19,21 +22,13 @@ namespace pybind11 { namespace detail {
     };
 }}
 
-class _loc {
-
-private:
-
-    py::dict get_modules() {
-        return import("sys").attr("modules");
-    }
+class _loc { public:
 
     py::object _Path(const auto path) {
         py::object mod = import("philh_myftp_biz.pc.Path");
         py::object cls = mod.attr("Path");
         return cls(py::str(path));
     }
-
-public:
     
     PathTypeHint get_temp() {
 
@@ -51,16 +46,19 @@ public:
 
     PathTypeHint get_script() {
 
-        py::object mod = get_modules()["__main__"];
+        py::object mod = import("sys").attr("modules")["__main__"];
+
+        fs::path pure;
 
         if (py::hasattr(mod, "__file__")) {
-            py::object parent_path = _Path(mod.attr("__file__")).attr("parent");
-            return PathTypeHint{ parent_path };
+            _file = mod.attr("__file__").cast<str>();
+            pure = fs::path(_file).parent_path();
         } else {
-            py::object current_path = _Path(fs::current_path().string());
-            return PathTypeHint{ current_path };
+            pure = fs::current_path();
         }
 
+        pyobj wrapped = _Path(pure.string());
+        return PathTypeHint{ wrapped };
     }
 
     PathTypeHint get_cache() {
