@@ -9,11 +9,16 @@
 
 // ========================================================
 // Helper Function: nlen
-// If num is float|int, returns num. If num is Iterable, returns len(num).
+// If num is float|int, returns int(num). If num is Iterable, returns len(num).
 // ========================================================
 int nlen(py::object num) {
-    if (py::isinstance<py::int_>(num) || py::isinstance<py::float_>(num))
+
+    if (py::isinstance<py::int_>(num))
         return num.cast<int>();
+    
+    if (py::isinstance<py::float_>(num))
+        return static_cast<int>(num.cast<double>());
+    
     // Fallback: assume it's an iterable and return its length
     return static_cast<int>(py::len(num));
 }
