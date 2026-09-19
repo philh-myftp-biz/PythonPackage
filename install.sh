@@ -25,7 +25,8 @@ export PYTHONWARNINGS="ignore:setup.py install is deprecated"
 pip_install() {
     python3 -m pip install "$@" \
         --break-system-packages \
-        --root-user-action=ignore
+        --root-user-action=ignore \
+        --user
 }
 
 pip_install -vvv . --ignore-installed urllib3
