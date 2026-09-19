@@ -90,12 +90,12 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.web.ftp.FTPPath.child
 
-   .. py:method:: children() -> typing.Generator[philh_myftp_biz.web.ftp.FTPPath]
+   .. py:method:: children() -> typing.Generator[philh_myftp_biz.web.ftp.FTPPath, None, None]
       :canonical: philh_myftp_biz.web.ftp.FTPPath.children
 
       .. autodoc2-docstring:: philh_myftp_biz.web.ftp.FTPPath.children
 
-   .. py:method:: descendants() -> typing.Generator[philh_myftp_biz.web.ftp.FTPPath]
+   .. py:method:: descendants() -> typing.Generator[philh_myftp_biz.web.ftp.FTPPath, None, None]
       :canonical: philh_myftp_biz.web.ftp.FTPPath.descendants
 
       .. autodoc2-docstring:: philh_myftp_biz.web.ftp.FTPPath.descendants

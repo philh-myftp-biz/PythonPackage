@@ -63,7 +63,7 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.web.torrent.tpb.cache
 
-.. py:function:: search(*queries: str) -> typing.Generator[philh_myftp_biz.web.torrent.torrent.Torrent]
+.. py:function:: search(*queries: str) -> typing.Generator[philh_myftp_biz.web.torrent.torrent.Torrent, None, None]
    :canonical: philh_myftp_biz.web.torrent.tpb.search
 
    .. autodoc2-docstring:: philh_myftp_biz.web.torrent.tpb.search
