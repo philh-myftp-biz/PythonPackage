@@ -63,7 +63,7 @@ API
 
 .. py:data:: tzinfo
    :canonical: philh_myftp_biz.time.tzinfo
-   :value: '__partial(...)'
+   :value: '_partial(...)'
 
    .. autodoc2-docstring:: philh_myftp_biz.time.tzinfo
 
