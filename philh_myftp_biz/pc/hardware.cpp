@@ -14,6 +14,7 @@ PYBIND11_MODULE(hardware, m) {
     py::class_<Device, PyDevice>(m, "Device")
         .def(py::init<>())
         .def_property_readonly("Name", &Device::GetName)
+        .def_property_readonly("HealthReport", &Device::GetHealthReport)
         .def_property_readonly("Connected", &Device::GetConnected);
     
     // Bind HardDrive as a child of Device

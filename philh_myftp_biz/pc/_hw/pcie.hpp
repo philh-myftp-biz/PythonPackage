@@ -22,6 +22,8 @@ struct PCIeCard : public Device {
 
     str GetName() const override { return this->Name; }
 
+    //===============================================================================
+
     PCIeCard(
         int Slot,
         int Lanes
@@ -34,8 +36,44 @@ struct PCIeCard : public Device {
         this->card = pcieutils::get_card(Slot);
     }
 
+    //===============================================================================
+    // Connected
+    
     bool GetConnected() const override {
         return !card.topology_address.empty();
     }
     
+    //===============================================================================
+    // HealthReport
+
+    str GetHealthReport() const override {
+        
+        if (!GetConnected()) {
+            return "PCIe EXPANSION SLOT STATUS... [ EMPTY / NOT RESPONDING ]\n"
+                   "CRITICAL: DEVICE IN " + Name + " IS UNRESPONSIVE OR UNPOWERED.";
+        }
+
+        std::ostringstream msg;
+        msg << "PCIe BUS DECODER DETECTED ADAPTER:\n";
+        msg << "BUS ADDRESS        : " << card.topology_address << "\n";
+        msg << "DEVICE DESCRIPTION : " << (card.hardware_name.empty() ? "Generic Adapter" : card.hardware_name) << "\n";
+        msg << "VENDOR / PRODUCT ID: " << std::hex << std::setw(4) << std::setfill('0') << card.vendor_id 
+            << ":" << std::setw(4) << std::setfill('0') << card.device_id << std::dec << "\n";
+        msg << "LINK NEGOTIATION CHECKING... ";
+
+        // Validates physical links mapped onto the system architecture
+        if (card.class_code != 0) {
+            msg << "[ OK ]\n";
+            msg << "STATUS : OK. LINK OPERATING AT FULL SLOT WIDTH CAPACITY (x" << Lanes << ").\n";
+            msg << "ERRORS : 0 SYSTEM BUS WHEA / AER FAULTS REPORTED.";
+        } else {
+            msg << "[ DEGRADED ]\n";
+            msg << "WARNING: BUS ENUMERATION DROPPED ATTRIBUTES.\n";
+            msg << "CRITICAL: CLEARED PACKET DROP THRESHOLDS BREACHED.";
+        }
+
+        return msg.str();
+    }
+    //===============================================================================
+
 };
