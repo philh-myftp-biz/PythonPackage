@@ -205,6 +205,9 @@ struct HardDrive : public Device {
     //===============================================================================
     // HealthReport
 
+    //===============================================================================
+    // HealthReport
+
     str GetHealthReport() const override {
         
         if (!GetConnected()) {
@@ -253,7 +256,11 @@ struct HardDrive : public Device {
 
         #else
             // Linux / macOS standard smartctl fallback
-            auto [exit_code, out_buf, err_buf] = subprocess::capture_run("smartctl", {"-H", hwDisk()->device_path()});
+            auto [exit_code, out_buf, err_buf] = subprocess::capture_run("smartctl", {
+                "-H", 
+                ("/dev/sd" + std::string(1, 'a' + hwDisk()->id()))
+            });
+
             str output = out_buf.to_string();
             
             if (exit_code == 0 && output.find("PASSED") != std::string::npos) {
