@@ -11,14 +11,14 @@
 PYBIND11_MODULE(hardware, m) {
 
     // Bind the strict superclass using the PyDevice trampoline
-    py::class_<Device, PyDevice>(m, "Device")
+    py::class_<Device, PyDevice>(m, "Device", py::dynamic_attr())
         .def(py::init<>())
         .def_property_readonly("Name", &Device::GetName)
         .def_property_readonly("HealthReport", &Device::GetHealthReport)
         .def_property_readonly("Connected", &Device::GetConnected);
     
     // Bind HardDrive as a child of Device
-    py::class_<HardDrive, Device>(m, "HardDrive")
+    py::class_<HardDrive, Device>(m, "HardDrive", py::dynamic_attr())
         .def(py::init<str, str, int, str>(),
             py::arg("Tower"), 
             py::arg("Conn"), 
@@ -36,7 +36,7 @@ PYBIND11_MODULE(hardware, m) {
 
 
     // Bind PCIeCard as a child of Device
-    py::class_<PCIeCard, Device>(m, "PCIeCard")
+    py::class_<PCIeCard, Device>(m, "PCIeCard", py::dynamic_attr())
         .def(py::init<int, int>(),
             py::arg("Slot"), 
             py::arg("Lanes") = 0
@@ -45,7 +45,7 @@ PYBIND11_MODULE(hardware, m) {
         .def_readonly("Lanes", &PCIeCard::Lanes);
 
     // Bind VirtualDisk as a child of Device
-    py::class_<VirtualDisk, Device>(m, "VirtualDisk")
+    py::class_<VirtualDisk, Device>(m, "VirtualDisk", py::dynamic_attr())
         .def(py::init<str, str>(),
             py::arg("Name"), 
             py::arg("Mount")
