@@ -29,7 +29,7 @@ pip_install() {
         --user
 }
 
-pip_install -vvv . --ignore-installed urllib3
+pip_install -vvv . --ignore-installed urllib3 || exit 1
 
 # Update API Reference Docs
 pip_install sphinx ghp-import
