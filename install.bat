@@ -18,7 +18,7 @@ if "%~1"=="-f" (
 
 set "PYTHONWARNINGS=ignore::UserWarning"
 
-CALL :pip_install "-vvv" "."
+CALL :pip_install "-vvv" "." || exit /B
 
 :: Locate package directory using pip
 for /f "delims=" %%i in ('pip show philh_myftp_biz ^| findstr "Location:"') do set "DIR=%%i"
@@ -31,12 +31,12 @@ python -m compileall -f "%DIR%"
 call :pip_install "sphinx" "ghp-import"
 call :pip_install "git+https://github.com/minefarts/sphinx-autodoc2"
 python.exe -m sphinx -M html . _build -E -a
-ghp-import -n -p -f _build\html
+python.exe -m ghp-import -n -p -f _build\html
 
 popd
 goto :EOF
 
 :pip_install
-    python.exe -m pip install --user %* || goto :EOF
-    exit /B
+    python.exe -m pip install --user %*
+    exit /B %ERRORLEVEL%
 
