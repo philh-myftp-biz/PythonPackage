@@ -33,14 +33,15 @@ struct HardDrive : public Device {
             
             str _sn = stru::strip( _hwDisk.serial_number() );
             if (_sn.starts_with('{')) continue;
+            if (_sn.empty()) continue;
             
-            HardDrive _hdd = HardDrive(
+            _hdds.push_back(HardDrive(
                 "?", // Tower
                 "?", // COnn
                 -1, // ID
                 _sn // SN
-            );
-            _hdds.push_back(_hdd);
+            ));
+            
         }
 
         return _hdds;
