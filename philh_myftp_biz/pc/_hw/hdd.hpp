@@ -85,16 +85,40 @@ struct HardDrive : public Device {
             }
         }
 
-        optional<wstr> PNPDeviceID() {
-            std::vector<str> pnpIds = hwWMI::query<str>(L"Win32_DiskDrive", L"PNPDeviceID");
-            std::vector<str> serials = hwWMI::query<str>(L"Win32_DiskDrive", L"SerialNumber");
+        mutable optional<wstr> _cached_pnp_id = nullopt;
+        optional<wstr> PNPDeviceID() const {
 
-            for (size_t i = 0; i < serials.size() && i < pnpIds.size(); ++i) {
-                if (stru::match_str(serials[i], SN))
-                    return stru::to_wstr(pnpIds[i]);
+            if (!_cached_pnp_id.has_value()) {
+
+                std::vector<str> pnpIds = hwWMI::query<str>(L"Win32_DiskDrive", L"PNPDeviceID");
+                std::vector<str> serials = hwWMI::query<str>(L"Win32_DiskDrive", L"SerialNumber");
+                if (serials.empty() || pnpIds.empty()) return nullopt;
+
+                for (size_t i = 0; i < std::min(serials.size(), pnpIds.size()); ++i) {
+                    if (stru::match_str(serials[i], SN) && !pnpIds[i].empty()) {
+                        _cached_pnp_id = stru::to_wstr(pnpIds[i]);
+                        break;
+                    }
+                }
+
             }
 
-            return nullopt;
+            return _cached_pnp_id;
+        }
+
+        winreg::RegKey _cached_fn_reg;
+        winreg::RegKey* _friendly_name_reg() {
+            
+            if (!_cached_fn_reg) {
+                if (auto pnpOpt = PNPDeviceID(); pnpOpt.has_value()) {
+                    (void)_cached_fn_reg.TryOpen(
+                        HKEY_LOCAL_MACHINE, 
+                        (L"SYSTEM\\ControlSet001\\Enum\\" + pnpOpt.value())
+                    );
+                }
+            }
+            
+            return _cached_fn_reg ? &_cached_fn_reg : nullptr;
         }
 
     #endif    
@@ -148,36 +172,25 @@ struct HardDrive : public Device {
     //===============================================================================
     // FriendlyName
 
-    #ifdef WINDOWS
-        std::unique_ptr<winreg::RegKey> _friendly_name_reg() {
-            auto pnpOpt = PNPDeviceID();
-            if (!pnpOpt.has_value()) return nullptr;
-            return std::make_unique<winreg::RegKey>(
-                HKEY_LOCAL_MACHINE, 
-                (L"SYSTEM\\ControlSet001\\Enum\\" + pnpOpt.value())
-            );
-        }
-    #endif
+    wstr FriendlyName() {
+        if (!GetConnected()) return L"";
 
-    str FriendlyName() {
-        if (!GetConnected()) return "";
         #ifdef WINDOWS
-            auto key = _friendly_name_reg();
-            if (!key) return "";
-            wstr wname = key->GetStringValue(L"FriendlyName");
-            return stru::to_str(wname);
-        #else
-            return hwDisk()->model();
+            if (auto key = _friendly_name_reg(); key != nullptr) {
+                auto name = key->TryGetStringValue(L"FriendlyName");
+                if (name.IsValid()) return name.GetValue();
+            }
         #endif
+        
+        return hwDisk().has_value() ? stru::to_wstr(hwDisk()->model()) : L"";
     }
 
-    void setFriendlyName(str name) {
+    void setFriendlyName(wstr name) {
         if (!GetConnected()) return;
         #ifdef WINDOWS
-            auto key = _friendly_name_reg();
-            if (!key) return;
-            wstr wname = stru::to_wstr(name);
-            key->SetStringValue(L"FriendlyName", wname);
+            if (auto key = _friendly_name_reg(); key != nullptr) {
+                key->SetStringValue(L"FriendlyName", name);
+            }
         #endif
     }
 
@@ -190,7 +203,8 @@ struct HardDrive : public Device {
         #ifdef WINDOWS
             str raw = _powershell("Select-Object -Property Usage | ConvertTo-Json"); 
             json data = json::parse(raw);
-            return data["Usage"].get<str>();
+            if (data.contains("Usage"))
+                return data["Usage"].get<str>();
         #endif
 
         return "";
@@ -202,9 +216,6 @@ struct HardDrive : public Device {
             _powershell("Set-PhysicalDisk -Usage '" + usage + "'");
         #endif
     }
-
-    //===============================================================================
-    // HealthReport
 
     //===============================================================================
     // HealthReport
@@ -275,7 +286,6 @@ struct HardDrive : public Device {
 
         return msg.str();
     }
-
 
     //===============================================================================
 
