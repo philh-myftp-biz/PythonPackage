@@ -10,8 +10,8 @@
 
 PYBIND11_MODULE(hardware, m) {
 
-    // Bind the strict superclass using the PyDevice trampoline
-    py::class_<Device, PyDevice>(m, "Device", py::dynamic_attr())
+    // Bind the Device superclass
+    py::class_<Device>(m, "Device", py::dynamic_attr())
         .def(py::init<>())
         .def_property_readonly("Name", &Device::GetName)
         .def_property_readonly("HealthReport", &Device::GetHealthReport)
