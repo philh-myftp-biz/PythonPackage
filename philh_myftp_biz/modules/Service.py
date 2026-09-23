@@ -1,5 +1,6 @@
 from functools import cached_property
 from typing import TYPE_CHECKING
+from ..pc.hardware import Device
 from ..pc import Path
 
 if TYPE_CHECKING:
@@ -10,7 +11,7 @@ class ServiceDisabledError(Exception):
     def __init__(self, serv:'Service') -> None:
         super().__init__(str(serv.path))
 
-class Service(Path):
+class Service(Path, Device):
     """
     EXAMPLE:
     
@@ -33,7 +34,8 @@ class Service(Path):
         #==============================
         # INIT
 
-        super().__init__(path)
+        Path.__init__(self, path)
+        Device.__init__(self)
 
         self.args = stringify(args)
 

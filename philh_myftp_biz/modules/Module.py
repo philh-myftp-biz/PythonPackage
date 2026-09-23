@@ -1,11 +1,12 @@
 from functools import cached_property
 from typing import TYPE_CHECKING
+from ..pc.hardware import Device
 from ..pc import Path
 
 if TYPE_CHECKING:
     from ..process import SubProcess
 
-class Module(Path):
+class Module(Path, Device):
     """
     Allows for easy interaction with other languages in a directory
 
@@ -35,7 +36,8 @@ class Module(Path):
         from ..process import SubVenv
         from ..file import YAML
 
-        super().__init__(module)
+        Path.__init__(self, module)
+        Device.__init__(self)
 
         #====================================================
         # LOAD CONFIGURATION
