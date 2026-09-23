@@ -19,11 +19,6 @@
 
 #include <_hw/device.h>
 
-#ifdef WINDOWS
-    #include <WinReg/WinReg.hpp>
-    #pragma comment(lib, "Advapi32.lib")
-#endif
-
 struct HardDrive : public Device {
 
     static std::vector<HardDrive> search() {
@@ -85,44 +80,7 @@ struct HardDrive : public Device {
             }
         }
 
-        mutable optional<wstr> _cached_pnp_id = nullopt;
-        optional<wstr> PNPDeviceID() const {
-
-            if (!_cached_pnp_id.has_value()) {
-
-                std::vector<str> pnpIds = hwWMI::query<str>(L"Win32_DiskDrive", L"PNPDeviceID");
-                std::vector<str> serials = hwWMI::query<str>(L"Win32_DiskDrive", L"SerialNumber");
-                if (serials.empty() || pnpIds.empty()) return nullopt;
-
-                for (size_t i = 0; i < std::min(serials.size(), pnpIds.size()); ++i) {
-                    if (stru::match_str(serials[i], SN) && !pnpIds[i].empty()) {
-                        _cached_pnp_id = stru::to_wstr(pnpIds[i]);
-                        break;
-                    }
-                }
-
-            }
-
-            return _cached_pnp_id;
-        }
-
-        winreg::RegKey _cached_fn_reg;
-        winreg::RegKey* _friendly_name_reg() {
-            
-            if (!_cached_fn_reg) {
-                if (auto pnpOpt = PNPDeviceID(); pnpOpt.has_value()) {
-                    (void)_cached_fn_reg.TryOpen(
-                        HKEY_LOCAL_MACHINE, 
-                        (L"SYSTEM\\ControlSet001\\Enum\\" + pnpOpt.value())
-                    );
-                }
-            }
-            
-            return _cached_fn_reg ? &_cached_fn_reg : nullptr;
-        }
-
-    #endif    
-
+    #endif
     //===============================================================================
     // hwDisk
 
@@ -172,25 +130,23 @@ struct HardDrive : public Device {
     //===============================================================================
     // FriendlyName
 
-    wstr FriendlyName() {
-        if (!GetConnected()) return L"";
+    str FriendlyName() const {
+        if (!GetConnected()) return "";
 
         #ifdef WINDOWS
-            if (auto key = _friendly_name_reg(); key != nullptr) {
-                auto name = key->TryGetStringValue(L"FriendlyName");
-                if (name.IsValid()) return name.GetValue();
-            }
+            str jsonRaw = _powershell("Select-Object -Property FriendlyName | ConvertTo-Json");
+            json data = json::parse(jsonRaw);
+            if (data.contains("FriendlyName") && !data["FriendlyName"].is_null())
+                return data["FriendlyName"].get<str>();
         #endif
         
-        return hwDisk().has_value() ? stru::to_wstr(hwDisk()->model()) : L"";
+        return hwDisk().has_value() ? hwDisk()->model() : "";
     }
 
-    void setFriendlyName(wstr name) {
+    void setFriendlyName(str name) {
         if (!GetConnected()) return;
         #ifdef WINDOWS
-            if (auto key = _friendly_name_reg(); key != nullptr) {
-                key->SetStringValue(L"FriendlyName", name);
-            }
+            _powershell("Set-PhysicalDisk -NewFriendlyName '" + name + "'");
         #endif
     }
 
