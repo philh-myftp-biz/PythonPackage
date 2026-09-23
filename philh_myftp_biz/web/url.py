@@ -5,6 +5,16 @@ if TYPE_CHECKING:
     from requests import Response
     from ..pc import Path
 
+#============================================================================
+
+from requests import exceptions
+
+exceptions.RetryError.__bases__ = (exceptions.RequestException, TimeoutError)
+
+exceptions.ConnectionError.__bases__ = (exceptions.RequestException, ConnectionError)
+
+#============================================================================
+
 class URL:
     
     def __init__(self, 
@@ -138,22 +148,6 @@ class URL:
     def size(self) -> int:
         return int(self.head.headers.get('Content-Length', 0))
 
-    def _get(self, _func, **kwargs):
-        from requests import exceptions
-        try:
-            return _func(
-                url = self.url,
-                headers = self.headers,
-                timeout = self.timeout,
-                allow_redirects = True,
-                **kwargs
-            )
-        except exceptions.RetryError as e:
-            raise TimeoutError() from e
-        
-        except exceptions.ConnectionError as e:
-            raise ConnectionError() from e
-
     def get(self, **kwargs) -> 'Response':
         """requests.get Wrapper"""
         from ..terminal import Log
@@ -166,10 +160,12 @@ class URL:
             f'{self.headers=}'
         )
 
-        return self._get(
-            self._session.get,
-            params = self.params,
-            **kwargs
+        return self._session.get(**kwargs,
+            url = self.url,
+            headers = self.headers,
+            timeout = self.timeout,
+            allow_redirects = True,
+            params = self.params,            
         )
 
     def post(self, **kwargs) -> 'Response':
@@ -184,10 +180,12 @@ class URL:
             f'{self.headers=}'
         )
 
-        return self._get(
-            self._session.post,
-            data = self.body,
-            **kwargs
+        return self._session.post(**kwargs,
+            url = self.url,
+            headers = self.headers,
+            timeout = self.timeout,
+            allow_redirects = True,
+            data = self.body,            
         )
 
     @property
