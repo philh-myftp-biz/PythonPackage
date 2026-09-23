@@ -1,4 +1,4 @@
-from typing import TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 from ..json import SupportsJSON
 
 if TYPE_CHECKING:
@@ -14,10 +14,12 @@ class URL:
         headers: dict[str, str] = {},
         max_tries: int = 1,
         max_age: int = 0,
-        timeout: None|int = 30
+        timeout: None|int = 30,
+        body: Any = None,
     ) -> None:
         from .session import Session, Adapter, RetryStrat
         from urllib.parse import urlparse, parse_qsl
+        from json import dumps
 
         self.url = url.split('?')[0]
         self.params  = params.copy()
@@ -25,6 +27,13 @@ class URL:
         self.timeout = timeout
         self._parsed = urlparse(url)
         self.addr = (self._parsed.netloc or url)
+
+        if isinstance(body, (dict, list)):
+            self.body = dumps(body)
+            if self.headers.get('Content-Type') is None:
+                self.headers['Content-Type'] = 'application/json'
+        else:
+            self.body = body
 
         if '?' in url:
             self.params |= parse_qsl(url.split('?', 1)[1])
@@ -40,7 +49,8 @@ class URL:
             'params': self.params.copy(),
             'headers': self.headers.copy(),
             'max_tries': max_tries,
-            'timeout': timeout
+            'timeout': timeout,
+            'body': body,
         }.copy()
 
     def __str__(self):
@@ -128,23 +138,11 @@ class URL:
     def size(self) -> int:
         return int(self.head.headers.get('Content-Length', 0))
 
-    def get(self, **kwargs) -> 'Response':
-        """requests.get Wrapper"""
+    def _get(self, _func, **kwargs):
         from requests import exceptions
-        from ..terminal import Log
-
-        Log.VERB(
-            'Requesting Page\n'+ \
-            f'{self.furl=}\n'+ \
-            f'{self.url=}\n'+ \
-            f'{self.params=}\n'+ \
-            f'{self.headers=}'
-        )
-
         try:
-            return self._session.get(
+            return _func(
                 url = self.url,
-                params = self.params,
                 headers = self.headers,
                 timeout = self.timeout,
                 allow_redirects = True,
@@ -155,6 +153,42 @@ class URL:
         
         except exceptions.ConnectionError as e:
             raise ConnectionError() from e
+
+    def get(self, **kwargs) -> 'Response':
+        """requests.get Wrapper"""
+        from ..terminal import Log
+
+        Log.VERB(
+            'Requesting Page\n'+ \
+            f'{self.furl=}\n'+ \
+            f'{self.url=}\n'+ \
+            f'{self.params=}\n'+ \
+            f'{self.headers=}'
+        )
+
+        return self._get(
+            self._session.get,
+            params = self.params,
+            **kwargs
+        )
+
+    def post(self, **kwargs) -> 'Response':
+        """requests.post Wrapper"""
+        from ..terminal import Log
+
+        Log.VERB(
+            'Requesting Page\n'+ \
+            f'{self.furl=}\n'+ \
+            f'{self.url=}\n'+ \
+            f'{self.body=}\n'+ \
+            f'{self.headers=}'
+        )
+
+        return self._get(
+            self._session.post,
+            data = self.body,
+            **kwargs
+        )
 
     @property
     def online(self) -> bool:
