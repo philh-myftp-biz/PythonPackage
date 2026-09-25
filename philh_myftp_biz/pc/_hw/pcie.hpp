@@ -6,6 +6,7 @@
 #include <algorithm>
 #include <sstream>
 #include <iomanip>
+#include <optional>
 
 #include <hwinfo/hwinfo.h>
 #include <remap.h>
@@ -36,18 +37,14 @@ struct PCIeCard : public Device {
     //===============================================================================
     // pci_dev
 
-    mutable pciutils::pci_dev* _cached_dev = nullptr;
+    mutable optional<pciutils::pci_dev> _cached_dev;
     
     pciutils::pci_dev* pci_dev() const {
 
         if (!_cached_dev) {
 
-            for (pciutils::pci_dev *dev : pciutils::get_devices()) {
-                if (dev->slot == this->Slot
-                    && dev->device_id != 0x0000
-                    && dev->vendor_id != 0xFFFF
-                    && dev->vendor_id != 0x0000
-                ) {
+            for (pciutils::pci_dev dev : pciutils::get_devices()) {
+                if (dev.slot == this->Slot) {
                     _cached_dev = dev;
                     break;
                 }
@@ -55,7 +52,7 @@ struct PCIeCard : public Device {
 
         }
         
-        return _cached_dev;
+        return _cached_dev ? &(*_cached_dev) : nullptr;
     }
 
     //===============================================================================
