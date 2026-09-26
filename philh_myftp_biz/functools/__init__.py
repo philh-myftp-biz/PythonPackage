@@ -86,3 +86,12 @@ def return_type[T](func: Callable[..., T]) -> None | type[T]:
         if isinstance(node, ast.Return) and isinstance(node.value, ast.Constant):
             return type(node.value.value) # pyright: ignore[reportReturnType]
 
+def iskind(obj, cls):
+    from inspect import isclass
+
+    if isclass(obj):
+        return issubclass(obj, cls)
+    else:
+        return isinstance(obj, cls)
+
+    istype: Callable = issubclass if isclass else isinstance
