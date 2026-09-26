@@ -23,7 +23,7 @@ Functions
 API
 ~~~
 
-.. py:function:: get_branches(cls: type[philh_myftp_biz.terminal.tree.branch.get_branches.T])
+.. py:function:: get_branches(cls: type[philh_myftp_biz.terminal.tree.branch.get_branches.T], recurse: bool)
    :canonical: philh_myftp_biz.terminal.tree.branch.get_branches
 
    .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.get_branches
