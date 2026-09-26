@@ -5,6 +5,18 @@ sudo apt install -y python3-pip
 
 clear
 
+pip_install() {
+    python3 -m pip install "$@" \
+        --break-system-packages \
+        --root-user-action=ignore \
+        --user
+}
+
+pip_remove() {
+    python3 -m pip uninstall -y "$@" \
+        --break-system-packages
+}
+
 if [ "$1" == "-f" ]; then
 
     rm -rf "philh_myftp_biz.egg-info"
@@ -13,8 +25,8 @@ if [ "$1" == "-f" ]; then
     rm -rf "_api"
     rm -rf "dist"
 
-    python3 -m pip uninstall -y philh_myftp_biz \
-        --break-system-packages
+    pip_remove philh_myftp_biz
+    pip_remove auto-python-docs
     
     pip cache purge
 
@@ -22,18 +34,8 @@ fi
 
 export PYTHONWARNINGS="ignore:setup.py install is deprecated"
 
-pip_install() {
-    python3 -m pip install "$@" \
-        --break-system-packages \
-        --root-user-action=ignore \
-        --user
-}
-
 pip_install -vvv . --ignore-installed urllib3 || exit 1
 
-# Update API Reference Docs
-pip_install sphinx ghp-import
-pip_install git+https://github.com/minefarts/sphinx-autodoc2
-python3 -m sphinx -M html . _build -E -a
-ghp-import -n -p -f _build/html
+pip_install "auto-python-docs @ git+https://github.com/MineFartS/auto-python-docs"
+python3 -m auto_python_docs.build
 

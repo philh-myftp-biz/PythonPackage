@@ -10,7 +10,8 @@ if "%~1"=="-f" (
     rmdir /s /q "_api"
     rmdir /s /q "dist"
     
-    pip uninstall philh_myftp_biz -y
+    call :pip_remove philh_myftp_biz
+    call :pip_remove auto-python-docs
     
     pip cache purge
 
@@ -28,15 +29,17 @@ set "DIR=%DIR:~10%\philh_myftp_biz"
 python -m compileall -f "%DIR%"
 
 :: Update API Reference Docs
-call :pip_install "sphinx" "ghp-import"
-call :pip_install "git+https://github.com/minefarts/sphinx-autodoc2"
-python.exe -m sphinx -M html . _build -E -a
-python.exe -m ghp-import -n -p -f _build\html
+call :pip_install "auto-python-docs @ git+https://github.com/MineFartS/auto-python-docs"
+python.exe -m auto_python_docs.build
 
 popd
 goto :EOF
 
 :pip_install
     python.exe -m pip install --user %*
+    exit /B %ERRORLEVEL%
+
+:pip_remove
+    python.exe -m pip uninstall -y %*
     exit /B %ERRORLEVEL%
 
