@@ -20,8 +20,24 @@ Classes
      - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch
           :summary:
 
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`get_sub_branches <philh_myftp_biz.terminal.tree.branch.get_sub_branches>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.get_sub_branches
+          :summary:
+
 API
 ~~~
+
+.. py:function:: get_sub_branches(cls)
+   :canonical: philh_myftp_biz.terminal.tree.branch.get_sub_branches
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.get_sub_branches
 
 .. py:class:: Branch
    :canonical: philh_myftp_biz.terminal.tree.branch.Branch
@@ -30,16 +46,10 @@ API
 
    .. py:attribute:: _sub_branches
       :canonical: philh_myftp_biz.terminal.tree.branch.Branch._sub_branches
-      :type: dict
+      :type: requests.structures.CaseInsensitiveDict
       :value: None
 
       .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch._sub_branches
-
-   .. py:method:: __init_subclass__(**kwargs) -> None
-      :canonical: philh_myftp_biz.terminal.tree.branch.Branch.__init_subclass__
-      :classmethod:
-
-      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch.__init_subclass__
 
    .. py:method:: __call__(*args: str) -> None
       :canonical: philh_myftp_biz.terminal.tree.branch.Branch.__call__
