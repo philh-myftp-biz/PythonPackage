@@ -55,22 +55,16 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree.__init__
 
+   .. py:method:: help(*args: str) -> None
+      :canonical: philh_myftp_biz.terminal.tree.Tree.help
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree.help
+
    .. py:method:: cls() -> None
       :canonical: philh_myftp_biz.terminal.tree.Tree.cls
       :classmethod:
 
       .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree.cls
-
-   .. py:class:: help
-      :canonical: philh_myftp_biz.terminal.tree.Tree.help
-
-      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree.help
-
-      .. py:attribute:: _NoArgs
-         :canonical: philh_myftp_biz.terminal.tree.Tree.help._NoArgs
-         :value: 'Help Message not finished'
-
-         .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree.help._NoArgs
 
 .. py:function:: run_tree(tree: type[philh_myftp_biz.terminal.tree.Tree]) -> None
    :canonical: philh_myftp_biz.terminal.tree.run_tree
