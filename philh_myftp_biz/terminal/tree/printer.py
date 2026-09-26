@@ -16,3 +16,6 @@ class Printer:
     ) -> None:        
         print(f'<{name}> {mess}')
 
+    def xitem(x:int, val:str) -> None:
+        print(f'{x:>2d}:', val)
+
