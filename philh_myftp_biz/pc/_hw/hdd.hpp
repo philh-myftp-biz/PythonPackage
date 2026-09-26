@@ -87,14 +87,21 @@ struct HardDrive : public Device {
     mutable optional<hwinfo::Disk> _cached_hwDisk = nullopt;
 
     optional<hwinfo::Disk> hwDisk() const {
+        using namespace stru;
+
         if (!_cached_hwDisk.has_value()) {
             for (const auto& _hwDisk : hwinfo::getAllDisks()) {
-                if (_hwDisk.serial_number() == SN) {
+                
+                str raw_sn = strip(_hwDisk.serial_number());
+
+                if (!raw_sn.empty() && match_str_nc(this->SN, raw_sn)) {
                     _cached_hwDisk = _hwDisk;
                     break;
                 }
+
             }
         }
+        
         return _cached_hwDisk;
     }
 
