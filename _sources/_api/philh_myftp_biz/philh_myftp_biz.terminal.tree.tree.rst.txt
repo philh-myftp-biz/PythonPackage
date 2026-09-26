@@ -20,24 +20,8 @@ Classes
      - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.tree.Tree
           :summary:
 
-Functions
-~~~~~~~~~
-
-.. list-table::
-   :class: autosummary longtable
-   :align: left
-
-   * - :py:obj:`_helpseg <philh_myftp_biz.terminal.tree.tree._helpseg>`
-     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.tree._helpseg
-          :summary:
-
 API
 ~~~
-
-.. py:function:: _helpseg(cls, key: str, x: tuple[int, int]) -> str
-   :canonical: philh_myftp_biz.terminal.tree.tree._helpseg
-
-   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.tree._helpseg
 
 .. py:class:: Tree
    :canonical: philh_myftp_biz.terminal.tree.tree.Tree
