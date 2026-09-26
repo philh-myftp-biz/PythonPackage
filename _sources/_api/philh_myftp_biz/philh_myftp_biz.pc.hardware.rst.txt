@@ -47,6 +47,12 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.Connected
 
+   .. py:property:: HealthReport
+      :canonical: philh_myftp_biz.pc.hardware.Device.HealthReport
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.HealthReport
+
    .. py:property:: Name
       :canonical: philh_myftp_biz.pc.hardware.Device.Name
       :type: str

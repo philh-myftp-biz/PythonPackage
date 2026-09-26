@@ -23,7 +23,7 @@ Classes
 API
 ~~~
 
-.. py:class:: URL(url: str, *, params: dict[str, str] = {}, headers: dict[str, str] = {}, max_tries: int = 1, max_age: int = 0, timeout: None | int = 30)
+.. py:class:: URL(url: str, *, params: dict[str, str] = {}, headers: dict[str, str] = {}, max_tries: int = 1, max_age: int = 0, timeout: None | int = 30, body: typing.Any = None)
    :canonical: philh_myftp_biz.web.url.URL
 
    .. autodoc2-docstring:: philh_myftp_biz.web.url.URL
@@ -116,6 +116,11 @@ API
       :canonical: philh_myftp_biz.web.url.URL.get
 
       .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.get
+
+   .. py:method:: post(**kwargs) -> requests.Response
+      :canonical: philh_myftp_biz.web.url.URL.post
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.post
 
    .. py:property:: online
       :canonical: philh_myftp_biz.web.url.URL.online

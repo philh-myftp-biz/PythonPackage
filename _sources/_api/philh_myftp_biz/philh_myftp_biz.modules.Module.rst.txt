@@ -26,7 +26,7 @@ API
 .. py:class:: Module(module: str | Path)
    :canonical: philh_myftp_biz.modules.Module.Module
 
-   Bases: :py:obj:`philh_myftp_biz.pc.Path`
+   Bases: :py:obj:`philh_myftp_biz.pc.Path`, :py:obj:`philh_myftp_biz.pc.hardware.Device`
 
    .. autodoc2-docstring:: philh_myftp_biz.modules.Module.Module
 

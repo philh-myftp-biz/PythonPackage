@@ -31,7 +31,7 @@ API
 .. py:class:: Service(path: str | Path, *args: str)
    :canonical: philh_myftp_biz.modules.Service.Service
 
-   Bases: :py:obj:`philh_myftp_biz.pc.Path`
+   Bases: :py:obj:`philh_myftp_biz.pc.Path`, :py:obj:`philh_myftp_biz.pc.hardware.Device`
 
    .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service
 
