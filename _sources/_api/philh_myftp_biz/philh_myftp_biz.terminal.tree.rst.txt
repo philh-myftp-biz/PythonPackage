@@ -57,6 +57,7 @@ API
 
    .. py:method:: help(*args: str) -> None
       :canonical: philh_myftp_biz.terminal.tree.Tree.help
+      :classmethod:
 
       .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree.help
 

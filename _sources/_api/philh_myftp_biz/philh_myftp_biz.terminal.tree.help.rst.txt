@@ -1,7 +1,0 @@
-:py:mod:`philh_myftp_biz.terminal.tree.help`
-============================================
-
-.. py:module:: philh_myftp_biz.terminal.tree.help
-
-.. autodoc2-docstring:: philh_myftp_biz.terminal.tree.help
-   :allowtitles:
