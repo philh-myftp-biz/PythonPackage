@@ -49,7 +49,7 @@ Functions
 API
 ~~~
 
-.. py:function:: _helpseg(cls, key: str, x: tuple[int, int])
+.. py:function:: _helpseg(cls, key: str, x: tuple[int, int]) -> str
    :canonical: philh_myftp_biz.terminal.tree._helpseg
 
    .. autodoc2-docstring:: philh_myftp_biz.terminal.tree._helpseg
@@ -71,7 +71,7 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree.cls
 
-.. py:function:: get_branches(cls)
+.. py:function:: get_branches(cls: type[philh_myftp_biz.terminal.tree.get_branches.T])
    :canonical: philh_myftp_biz.terminal.tree.get_branches
 
    .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.get_branches

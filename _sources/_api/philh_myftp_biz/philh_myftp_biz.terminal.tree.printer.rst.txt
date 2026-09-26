@@ -9,31 +9,37 @@
 Module Contents
 ---------------
 
-Classes
-~~~~~~~
+Functions
+~~~~~~~~~
 
 .. list-table::
    :class: autosummary longtable
    :align: left
 
-   * - :py:obj:`Printer <philh_myftp_biz.terminal.tree.printer.Printer>`
-     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.Printer
+   * - :py:obj:`RunFile <philh_myftp_biz.terminal.tree.printer.RunFile>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.RunFile
+          :summary:
+   * - :py:obj:`Error <philh_myftp_biz.terminal.tree.printer.Error>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.Error
+          :summary:
+   * - :py:obj:`xitem <philh_myftp_biz.terminal.tree.printer.xitem>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.xitem
           :summary:
 
 API
 ~~~
 
-.. py:class:: Printer
-   :canonical: philh_myftp_biz.terminal.tree.printer.Printer
+.. py:function:: RunFile(path: str, args: tuple = ()) -> None
+   :canonical: philh_myftp_biz.terminal.tree.printer.RunFile
 
-   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.Printer
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.RunFile
 
-   .. py:method:: RunFile(args: tuple = ()) -> None
-      :canonical: philh_myftp_biz.terminal.tree.printer.Printer.RunFile
+.. py:function:: Error(name: str, mess: str = '') -> None
+   :canonical: philh_myftp_biz.terminal.tree.printer.Error
 
-      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.Printer.RunFile
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.Error
 
-   .. py:method:: Error(mess: str = '') -> None
-      :canonical: philh_myftp_biz.terminal.tree.printer.Printer.Error
+.. py:function:: xitem(x: int, val: str) -> None
+   :canonical: philh_myftp_biz.terminal.tree.printer.xitem
 
-      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.Printer.Error
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.xitem
