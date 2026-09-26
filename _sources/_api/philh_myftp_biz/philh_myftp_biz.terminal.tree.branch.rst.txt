@@ -1,0 +1,29 @@
+:py:mod:`philh_myftp_biz.terminal.tree.branch`
+==============================================
+
+.. py:module:: philh_myftp_biz.terminal.tree.branch
+
+.. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch
+   :allowtitles:
+
+Module Contents
+---------------
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`get_branches <philh_myftp_biz.terminal.tree.branch.get_branches>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.get_branches
+          :summary:
+
+API
+~~~
+
+.. py:function:: get_branches(cls: type[philh_myftp_biz.terminal.tree.branch.get_branches.T])
+   :canonical: philh_myftp_biz.terminal.tree.branch.get_branches
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.get_branches
