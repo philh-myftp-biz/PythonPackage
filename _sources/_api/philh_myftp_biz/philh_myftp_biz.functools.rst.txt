@@ -59,6 +59,9 @@ Functions
    * - :py:obj:`return_type <philh_myftp_biz.functools.return_type>`
      - .. autodoc2-docstring:: philh_myftp_biz.functools.return_type
           :summary:
+   * - :py:obj:`iskind <philh_myftp_biz.functools.iskind>`
+     - .. autodoc2-docstring:: philh_myftp_biz.functools.iskind
+          :summary:
 
 API
 ~~~
@@ -97,3 +100,8 @@ API
    :canonical: philh_myftp_biz.functools.return_type
 
    .. autodoc2-docstring:: philh_myftp_biz.functools.return_type
+
+.. py:function:: iskind(obj, cls)
+   :canonical: philh_myftp_biz.functools.iskind
+
+   .. autodoc2-docstring:: philh_myftp_biz.functools.iskind
