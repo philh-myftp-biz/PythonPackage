@@ -23,14 +23,28 @@ Classes
 API
 ~~~
 
-.. py:class:: Branch(*args: str)
+.. py:class:: Branch
    :canonical: philh_myftp_biz.terminal.tree.branch.Branch
 
    .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch
 
-   .. rubric:: Initialization
+   .. py:attribute:: items
+      :canonical: philh_myftp_biz.terminal.tree.branch.Branch.items
+      :type: requests.structures.CaseInsensitiveDict
+      :value: None
 
-   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch.__init__
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch.items
+
+   .. py:method:: __init_subclass__(**kwargs) -> None
+      :canonical: philh_myftp_biz.terminal.tree.branch.Branch.__init_subclass__
+      :classmethod:
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch.__init_subclass__
+
+   .. py:method:: __call__(*args: str) -> None
+      :canonical: philh_myftp_biz.terminal.tree.branch.Branch.__call__
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch.__call__
 
    .. py:method:: _NoArgs() -> None
       :canonical: philh_myftp_biz.terminal.tree.branch.Branch._NoArgs

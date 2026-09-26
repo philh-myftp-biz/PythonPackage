@@ -37,9 +37,6 @@ Functions
    :class: autosummary longtable
    :align: left
 
-   * - :py:obj:`dictify <philh_myftp_biz.terminal.tree.dictify>`
-     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.dictify
-          :summary:
    * - :py:obj:`run_tree <philh_myftp_biz.terminal.tree.run_tree>`
      - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.run_tree
           :summary:
@@ -47,16 +44,12 @@ Functions
 API
 ~~~
 
-.. py:class:: Tree(*args: str)
+.. py:class:: Tree
    :canonical: philh_myftp_biz.terminal.tree.Tree
 
    Bases: :py:obj:`philh_myftp_biz.terminal.tree.branch.Branch`
 
    .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree
-
-   .. rubric:: Initialization
-
-   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree.__init__
 
    .. py:method:: help(*args: str) -> None
       :canonical: philh_myftp_biz.terminal.tree.Tree.help
@@ -69,11 +62,6 @@ API
       :classmethod:
 
       .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree.cls
-
-.. py:function:: dictify(branch: type[philh_myftp_biz.terminal.tree.branch.Branch])
-   :canonical: philh_myftp_biz.terminal.tree.dictify
-
-   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.dictify
 
 .. py:function:: run_tree(tree: type[philh_myftp_biz.terminal.tree.Tree]) -> None
    :canonical: philh_myftp_biz.terminal.tree.run_tree
