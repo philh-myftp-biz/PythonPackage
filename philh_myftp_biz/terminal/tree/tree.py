@@ -1,10 +1,5 @@
-from inspect import getdoc
-
-def _helpseg(cls, key:str, x:tuple[int, int]) -> str:
-    attr = getattr(cls, key.lower())
-    doc = getdoc(attr) or ""
-    doc = "\n".join(doc.splitlines()[x[0]:x[1]])
-    return (key.upper() + " | " + doc)
+from inspect import getdoc, isfunction
+from .branch import get_branches
 
 class Tree:
     """Base Command Tree"""
@@ -13,18 +8,27 @@ class Tree:
     def help(cls, *args: str) -> None:
         """Display help message"""
 
-        lines: list[str] = []
+        x: list = [0, 1]
+        name: tuple[str] = ()
 
+        # ('help', args[0])
         if len(args) > 0:
-            lines += [_helpseg(cls, args[0], [0,-1])]
+            cls = getattr(cls, args[0])
+            name = (cls.__name__.upper(),)
+            x[1] = None
+
+        if isfunction(cls):
+            name = ()
+            branches = {cls.__name__: cls}
         else:
-            for key in dir(cls):
-                if key.startswith('_'): continue
-                lines += [_helpseg(cls, key, [0,1])]
+            branches = get_branches(cls, False)
 
-        #msg += '\n\n' + getdoc(cls)
-
-        for l in lines: print(l)
+        for key, val in branches.items():
+            print( 
+                *name,
+                key.upper(), '|',
+                "\n".join((getdoc(val) or "").splitlines()[x[0]:x[1]])
+            )
 
     @classmethod
     def cls(cls) -> None:

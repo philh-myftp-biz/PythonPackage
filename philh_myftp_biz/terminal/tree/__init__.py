@@ -7,7 +7,7 @@ def run_tree(tree:type[Tree]) -> None:
     from shlex import split
     from .. import warn
 
-    treemap = get_branches(tree)
+    treemap = get_branches(tree, True)
 
     while True:
 
@@ -23,11 +23,8 @@ def run_tree(tree:type[Tree]) -> None:
                 branch = treemap
                 while isinstance(branch, cdict) and args:
                     branch = branch.get(args.pop(0))
-                branch(*args)
-
-        except TypeError:
-            Printer.Error("SyntaxError")
-
+                branch(*args) if branch else Printer.Error("SyntaxError")
+        
         except KeyboardInterrupt:
             Printer.Error('KeyboardInterrupt')
 
