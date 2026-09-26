@@ -14,20 +14,10 @@ Submodules
    :maxdepth: 1
 
    philh_myftp_biz.terminal.tree.Printer
+   philh_myftp_biz.terminal.tree.tree
 
 Package Contents
 ----------------
-
-Classes
-~~~~~~~
-
-.. list-table::
-   :class: autosummary longtable
-   :align: left
-
-   * - :py:obj:`Tree <philh_myftp_biz.terminal.tree.Tree>`
-     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree
-          :summary:
 
 Functions
 ~~~~~~~~~
@@ -36,9 +26,6 @@ Functions
    :class: autosummary longtable
    :align: left
 
-   * - :py:obj:`_helpseg <philh_myftp_biz.terminal.tree._helpseg>`
-     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree._helpseg
-          :summary:
    * - :py:obj:`get_branches <philh_myftp_biz.terminal.tree.get_branches>`
      - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.get_branches
           :summary:
@@ -49,34 +36,12 @@ Functions
 API
 ~~~
 
-.. py:function:: _helpseg(cls, key: str, x: tuple[int, int]) -> str
-   :canonical: philh_myftp_biz.terminal.tree._helpseg
-
-   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree._helpseg
-
-.. py:class:: Tree
-   :canonical: philh_myftp_biz.terminal.tree.Tree
-
-   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree
-
-   .. py:method:: help(*args: str) -> None
-      :canonical: philh_myftp_biz.terminal.tree.Tree.help
-      :classmethod:
-
-      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree.help
-
-   .. py:method:: cls() -> None
-      :canonical: philh_myftp_biz.terminal.tree.Tree.cls
-      :classmethod:
-
-      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree.cls
-
 .. py:function:: get_branches(cls: type[philh_myftp_biz.terminal.tree.get_branches.T])
    :canonical: philh_myftp_biz.terminal.tree.get_branches
 
    .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.get_branches
 
-.. py:function:: run_tree(tree: type[philh_myftp_biz.terminal.tree.Tree]) -> None
+.. py:function:: run_tree(tree: type[philh_myftp_biz.terminal.tree.tree.Tree]) -> None
    :canonical: philh_myftp_biz.terminal.tree.run_tree
 
    .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.run_tree
