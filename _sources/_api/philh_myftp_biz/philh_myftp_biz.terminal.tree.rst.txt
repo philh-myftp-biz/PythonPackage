@@ -13,7 +13,7 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
-   philh_myftp_biz.terminal.tree.printer
+   philh_myftp_biz.terminal.tree.Printer
 
 Package Contents
 ----------------

@@ -1,9 +1,9 @@
-:py:mod:`philh_myftp_biz.terminal.tree.printer`
+:py:mod:`philh_myftp_biz.terminal.tree.Printer`
 ===============================================
 
-.. py:module:: philh_myftp_biz.terminal.tree.printer
+.. py:module:: philh_myftp_biz.terminal.tree.Printer
 
-.. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer
+.. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Printer
    :allowtitles:
 
 Module Contents
@@ -16,30 +16,30 @@ Functions
    :class: autosummary longtable
    :align: left
 
-   * - :py:obj:`RunFile <philh_myftp_biz.terminal.tree.printer.RunFile>`
-     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.RunFile
+   * - :py:obj:`RunFile <philh_myftp_biz.terminal.tree.Printer.RunFile>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Printer.RunFile
           :summary:
-   * - :py:obj:`Error <philh_myftp_biz.terminal.tree.printer.Error>`
-     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.Error
+   * - :py:obj:`Error <philh_myftp_biz.terminal.tree.Printer.Error>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Printer.Error
           :summary:
-   * - :py:obj:`xitem <philh_myftp_biz.terminal.tree.printer.xitem>`
-     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.xitem
+   * - :py:obj:`xitem <philh_myftp_biz.terminal.tree.Printer.xitem>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Printer.xitem
           :summary:
 
 API
 ~~~
 
 .. py:function:: RunFile(path: str, args: tuple = ()) -> None
-   :canonical: philh_myftp_biz.terminal.tree.printer.RunFile
+   :canonical: philh_myftp_biz.terminal.tree.Printer.RunFile
 
-   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.RunFile
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Printer.RunFile
 
 .. py:function:: Error(name: str, mess: str = '') -> None
-   :canonical: philh_myftp_biz.terminal.tree.printer.Error
+   :canonical: philh_myftp_biz.terminal.tree.Printer.Error
 
-   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.Error
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Printer.Error
 
 .. py:function:: xitem(x: int, val: str) -> None
-   :canonical: philh_myftp_biz.terminal.tree.printer.xitem
+   :canonical: philh_myftp_biz.terminal.tree.Printer.xitem
 
-   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.printer.xitem
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Printer.xitem
