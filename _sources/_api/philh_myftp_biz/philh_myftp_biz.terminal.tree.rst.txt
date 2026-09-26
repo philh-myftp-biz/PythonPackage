@@ -13,7 +13,6 @@ Submodules
    :titlesonly:
    :maxdepth: 1
 
-   philh_myftp_biz.terminal.tree.branch
    philh_myftp_biz.terminal.tree.printer
 
 Package Contents
@@ -37,6 +36,9 @@ Functions
    :class: autosummary longtable
    :align: left
 
+   * - :py:obj:`get_branches <philh_myftp_biz.terminal.tree.get_branches>`
+     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.get_branches
+          :summary:
    * - :py:obj:`run_tree <philh_myftp_biz.terminal.tree.run_tree>`
      - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.run_tree
           :summary:
@@ -46,8 +48,6 @@ API
 
 .. py:class:: Tree
    :canonical: philh_myftp_biz.terminal.tree.Tree
-
-   Bases: :py:obj:`philh_myftp_biz.terminal.tree.branch.Branch`
 
    .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree
 
@@ -62,6 +62,11 @@ API
       :classmethod:
 
       .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree.cls
+
+.. py:function:: get_branches(cls)
+   :canonical: philh_myftp_biz.terminal.tree.get_branches
+
+   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.get_branches
 
 .. py:function:: run_tree(tree: type[philh_myftp_biz.terminal.tree.Tree]) -> None
    :canonical: philh_myftp_biz.terminal.tree.run_tree
