@@ -1,5 +1,6 @@
 from inspect import isclass, isfunction, ismethod, getmembers, getdoc
 from requests.structures import CaseInsensitiveDict as cdict
+from . import Printer
 
 def _helpseg(cls, key:str, x:tuple[int, int]) -> str:
     attr = getattr(cls, key.lower())
