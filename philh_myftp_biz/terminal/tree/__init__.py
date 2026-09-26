@@ -1,30 +1,35 @@
-from .printer import Printer
-from .branch import Branch
+from inspect import isclass, isfunction, ismethod, getmembers, getdoc
+from requests.structures import CaseInsensitiveDict as cdict
 
-class Tree(Branch):
+def _helpseg(cls, key:str, x:tuple[int, int]) -> str:
+    attr = getattr(cls, key.lower())
+    doc = getdoc(attr) or ""
+    doc = "\n".join(doc.splitlines()[x[0]:x[1]])
+    return (key.upper() + " | " + doc)
+
+class Tree:
     """Base Command Tree"""
 
-    def help(self, *args: str) -> None:
-        from inspect import getdoc
+    @classmethod
+    def help(cls, *args: str) -> None:
+        """Display help message"""
 
-        options: list[str]
-        if len(args) > 1:
-            options = [args[0]]
+        lines: list[str] = []
+
+        if len(args) > 0:
+            lines += [_helpseg(cls, args[0], [0,-1])]
         else:
-            options = [k for k in dir(self) if k[0]!='_']
+            for key in dir(cls):
+                if key.startswith('_'): continue
+                lines += [_helpseg(cls, key, [0,1])]
 
-        msg = ""
+        #msg += '\n\n' + getdoc(cls)
 
-        for key in options:
-            val = getattr(self, key)
-            msg += "\n".join(key.upper() + " | " + getdoc(val))
-
-        msg += '\n\n' + getdoc(self)
-
-        print(msg)
+        for l in lines: print(l)
 
     @classmethod
     def cls(cls) -> None:
+        """Clear the terminal"""
         from .. import _cls_cmd
         from os import system
         
@@ -43,9 +48,33 @@ class Tree(Branch):
         
         print('\n'.join(lines))
 
+def get_branches[T](cls:type[T]):
+
+    items: cdict = cdict()
+
+    inst: T = cls.__new__(cls)
+
+    for key, val in getmembers(cls):
+
+        if key.startswith('_'): 
+            pass
+
+        elif isfunction(val):
+            items[key] = val
+
+        elif ismethod(val):
+            items[key] = val.__get__(inst, cls)
+
+        elif isclass(val):
+            items[key] = get_branches(val)
+
+    return items
+
 def run_tree(tree:type[Tree]) -> None:
     from shlex import split
     from .. import warn
+
+    treemap = get_branches(tree)
 
     while True:
 
@@ -58,7 +87,13 @@ def run_tree(tree:type[Tree]) -> None:
             elif args[0] == 'exit':
                 break
             else:
-                tree(*args)
+                branch = treemap
+                while isinstance(branch, cdict) and args:
+                    branch = branch.get(args.pop(0))
+                branch(*args)
+
+        except TypeError:
+            Printer.Error("SyntaxError")
 
         except KeyboardInterrupt:
             Printer.Error('KeyboardInterrupt')
