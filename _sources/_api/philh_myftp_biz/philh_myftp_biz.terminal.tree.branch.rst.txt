@@ -20,42 +20,13 @@ Classes
      - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch
           :summary:
 
-Functions
-~~~~~~~~~
-
-.. list-table::
-   :class: autosummary longtable
-   :align: left
-
-   * - :py:obj:`get_items <philh_myftp_biz.terminal.tree.branch.get_items>`
-     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.get_items
-          :summary:
-
 API
 ~~~
-
-.. py:function:: get_items(cls)
-   :canonical: philh_myftp_biz.terminal.tree.branch.get_items
-
-   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.get_items
 
 .. py:class:: Branch
    :canonical: philh_myftp_biz.terminal.tree.branch.Branch
 
    .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch
-
-   .. py:attribute:: items
-      :canonical: philh_myftp_biz.terminal.tree.branch.Branch.items
-      :type: requests.structures.CaseInsensitiveDict
-      :value: None
-
-      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch.items
-
-   .. py:method:: __init_subclass__(**kwargs) -> None
-      :canonical: philh_myftp_biz.terminal.tree.branch.Branch.__init_subclass__
-      :classmethod:
-
-      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch.__init_subclass__
 
    .. py:method:: __call__(*args: str) -> None
       :canonical: philh_myftp_biz.terminal.tree.branch.Branch.__call__
