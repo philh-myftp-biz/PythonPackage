@@ -37,9 +37,6 @@ Functions
    :class: autosummary longtable
    :align: left
 
-   * - :py:obj:`get_items <philh_myftp_biz.terminal.tree.get_items>`
-     - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.get_items
-          :summary:
    * - :py:obj:`run_tree <philh_myftp_biz.terminal.tree.run_tree>`
      - .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.run_tree
           :summary:
@@ -65,11 +62,6 @@ API
       :classmethod:
 
       .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Tree.cls
-
-.. py:function:: get_items(cls: philh_myftp_biz.terminal.tree.Tree)
-   :canonical: philh_myftp_biz.terminal.tree.get_items
-
-   .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.get_items
 
 .. py:function:: run_tree(tree: type[philh_myftp_biz.terminal.tree.Tree]) -> None
    :canonical: philh_myftp_biz.terminal.tree.run_tree

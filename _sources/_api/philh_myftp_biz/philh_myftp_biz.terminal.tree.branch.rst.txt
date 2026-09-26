@@ -28,6 +28,19 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch
 
+   .. py:attribute:: _sub_branches
+      :canonical: philh_myftp_biz.terminal.tree.branch.Branch._sub_branches
+      :type: dict
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch._sub_branches
+
+   .. py:method:: __init_subclass__(**kwargs) -> None
+      :canonical: philh_myftp_biz.terminal.tree.branch.Branch.__init_subclass__
+      :classmethod:
+
+      .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.branch.Branch.__init_subclass__
+
    .. py:method:: __call__(*args: str) -> None
       :canonical: philh_myftp_biz.terminal.tree.branch.Branch.__call__
 
