@@ -1,6 +1,6 @@
 from functools import cached_property
 from typing import TYPE_CHECKING
-from ..pc.hardware import Device
+from hwdev import Device
 from ..pc import Path
 
 if TYPE_CHECKING:
