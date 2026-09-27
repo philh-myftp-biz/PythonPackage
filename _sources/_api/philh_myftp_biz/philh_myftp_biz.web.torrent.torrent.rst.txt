@@ -48,7 +48,7 @@ API
 
    .. py:attribute:: uploaded
       :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.uploaded
-      :type: None | timelib2.TimeStamp
+      :type: None | philh_myftp_biz.time._time.TimeStamp
       :value: None
 
       .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.uploaded
@@ -127,7 +127,7 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.exists
 
-   .. py:method:: path() -> pathlib4.Path
+   .. py:method:: path() -> philh_myftp_biz.pc.Path
       :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.path
 
       .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.path

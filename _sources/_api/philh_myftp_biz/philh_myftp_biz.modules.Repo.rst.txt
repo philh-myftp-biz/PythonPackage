@@ -23,7 +23,7 @@ Classes
 API
 ~~~
 
-.. py:class:: Repo(path: pathlib4.Path)
+.. py:class:: Repo(path: philh_myftp_biz.pc.Path)
    :canonical: philh_myftp_biz.modules.Repo.Repo
 
    .. autodoc2-docstring:: philh_myftp_biz.modules.Repo.Repo

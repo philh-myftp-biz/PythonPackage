@@ -1,0 +1,81 @@
+:py:mod:`philh_myftp_biz.gui.window`
+====================================
+
+.. py:module:: philh_myftp_biz.gui.window
+
+.. autodoc2-docstring:: philh_myftp_biz.gui.window
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Window <philh_myftp_biz.gui.window.Window>`
+     - .. autodoc2-docstring:: philh_myftp_biz.gui.window.Window
+          :summary:
+
+API
+~~~
+
+.. py:exception:: ClosedWindowException()
+   :canonical: philh_myftp_biz.gui.window.ClosedWindowException
+
+   Bases: :py:obj:`BaseException`
+
+   .. py:method:: throw() -> typing.NoReturn
+      :canonical: philh_myftp_biz.gui.window.ClosedWindowException.throw
+
+      .. autodoc2-docstring:: philh_myftp_biz.gui.window.ClosedWindowException.throw
+
+.. py:class:: Window()
+   :canonical: philh_myftp_biz.gui.window.Window
+
+   .. autodoc2-docstring:: philh_myftp_biz.gui.window.Window
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.gui.window.Window.__init__
+
+   .. py:property:: title
+      :canonical: philh_myftp_biz.gui.window.Window.title
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.gui.window.Window.title
+
+   .. py:property:: size
+      :canonical: philh_myftp_biz.gui.window.Window.size
+      :type: tuple[int, int]
+
+      .. autodoc2-docstring:: philh_myftp_biz.gui.window.Window.size
+
+   .. py:property:: page
+      :canonical: philh_myftp_biz.gui.window.Window.page
+      :type: None | Page
+
+      .. autodoc2-docstring:: philh_myftp_biz.gui.window.Window.page
+
+   .. py:method:: __report_callback_exception(exc_type, exc_value, exc_traceback) -> None
+      :canonical: philh_myftp_biz.gui.window.Window.__report_callback_exception
+
+      .. autodoc2-docstring:: philh_myftp_biz.gui.window.Window.__report_callback_exception
+
+   .. py:method:: run() -> None
+      :canonical: philh_myftp_biz.gui.window.Window.run
+
+      .. autodoc2-docstring:: philh_myftp_biz.gui.window.Window.run
+
+   .. py:method:: Page() -> philh_myftp_biz.gui.page.Page
+      :canonical: philh_myftp_biz.gui.window.Window.Page
+
+      .. autodoc2-docstring:: philh_myftp_biz.gui.window.Window.Page
+
+   .. py:method:: reload() -> None
+      :canonical: philh_myftp_biz.gui.window.Window.reload
+
+      .. autodoc2-docstring:: philh_myftp_biz.gui.window.Window.reload

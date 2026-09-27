@@ -1,0 +1,43 @@
+:py:mod:`philh_myftp_biz.text.uio`
+==================================
+
+.. py:module:: philh_myftp_biz.text.uio
+
+.. autodoc2-docstring:: philh_myftp_biz.text.uio
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`UnconsumingIO <philh_myftp_biz.text.uio.UnconsumingIO>`
+     - .. autodoc2-docstring:: philh_myftp_biz.text.uio.UnconsumingIO
+          :summary:
+
+API
+~~~
+
+.. py:class:: UnconsumingIO(stream: object)
+   :canonical: philh_myftp_biz.text.uio.UnconsumingIO
+
+   .. autodoc2-docstring:: philh_myftp_biz.text.uio.UnconsumingIO
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.text.uio.UnconsumingIO.__init__
+
+   .. py:method:: read(size: object = ...) -> str
+      :canonical: philh_myftp_biz.text.uio.UnconsumingIO.read
+
+      .. autodoc2-docstring:: philh_myftp_biz.text.uio.UnconsumingIO.read
+
+   .. py:method:: write(arg0: str) -> None
+      :canonical: philh_myftp_biz.text.uio.UnconsumingIO.write
+
+      .. autodoc2-docstring:: philh_myftp_biz.text.uio.UnconsumingIO.write

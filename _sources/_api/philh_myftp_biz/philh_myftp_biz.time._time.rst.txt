@@ -1,0 +1,213 @@
+:py:mod:`philh_myftp_biz.time._time`
+====================================
+
+.. py:module:: philh_myftp_biz.time._time
+
+.. autodoc2-docstring:: philh_myftp_biz.time._time
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Stopwatch <philh_myftp_biz.time._time.Stopwatch>`
+     - .. autodoc2-docstring:: philh_myftp_biz.time._time.Stopwatch
+          :summary:
+   * - :py:obj:`TimeStamp <philh_myftp_biz.time._time.TimeStamp>`
+     - .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp
+          :summary:
+   * - :py:obj:`Timeout <philh_myftp_biz.time._time.Timeout>`
+     - .. autodoc2-docstring:: philh_myftp_biz.time._time.Timeout
+          :summary:
+
+API
+~~~
+
+.. py:class:: Stopwatch()
+   :canonical: philh_myftp_biz.time._time.Stopwatch
+
+   .. autodoc2-docstring:: philh_myftp_biz.time._time.Stopwatch
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.time._time.Stopwatch.__init__
+
+   .. py:method:: start() -> philh_myftp_biz.time._time.Stopwatch
+      :canonical: philh_myftp_biz.time._time.Stopwatch.start
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.Stopwatch.start
+
+   .. py:method:: stop() -> philh_myftp_biz.time._time.Stopwatch
+      :canonical: philh_myftp_biz.time._time.Stopwatch.stop
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.Stopwatch.stop
+
+   .. py:method:: __eq__(arg0: typing.SupportsFloat | typing.SupportsIndex) -> bool
+      :canonical: philh_myftp_biz.time._time.Stopwatch.__eq__
+
+   .. py:method:: __float__() -> float
+      :canonical: philh_myftp_biz.time._time.Stopwatch.__float__
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.Stopwatch.__float__
+
+   .. py:method:: __ge__(arg0: typing.SupportsFloat | typing.SupportsIndex) -> bool
+      :canonical: philh_myftp_biz.time._time.Stopwatch.__ge__
+
+   .. py:method:: __gt__(arg0: typing.SupportsFloat | typing.SupportsIndex) -> bool
+      :canonical: philh_myftp_biz.time._time.Stopwatch.__gt__
+
+   .. py:method:: __int__() -> int
+      :canonical: philh_myftp_biz.time._time.Stopwatch.__int__
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.Stopwatch.__int__
+
+   .. py:method:: __le__(arg0: typing.SupportsFloat | typing.SupportsIndex) -> bool
+      :canonical: philh_myftp_biz.time._time.Stopwatch.__le__
+
+   .. py:method:: __lt__(arg0: typing.SupportsFloat | typing.SupportsIndex) -> bool
+      :canonical: philh_myftp_biz.time._time.Stopwatch.__lt__
+
+   .. py:property:: elapsed
+      :canonical: philh_myftp_biz.time._time.Stopwatch.elapsed
+      :type: float
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.Stopwatch.elapsed
+
+   .. py:property:: running
+      :canonical: philh_myftp_biz.time._time.Stopwatch.running
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.Stopwatch.running
+
+.. py:class:: TimeStamp(stamp: typing.SupportsFloat | typing.SupportsIndex, tz: str = ...)
+   :canonical: philh_myftp_biz.time._time.TimeStamp
+
+   .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp.__init__
+
+   .. py:method:: stamp(format: str = ...) -> object
+      :canonical: philh_myftp_biz.time._time.TimeStamp.stamp
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp.stamp
+
+   .. py:method:: __eq__(arg0: object) -> bool
+      :canonical: philh_myftp_biz.time._time.TimeStamp.__eq__
+
+   .. py:method:: __float__() -> float
+      :canonical: philh_myftp_biz.time._time.TimeStamp.__float__
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp.__float__
+
+   .. py:method:: __gt__(arg0: object) -> bool
+      :canonical: philh_myftp_biz.time._time.TimeStamp.__gt__
+
+   .. py:method:: __int__() -> int
+      :canonical: philh_myftp_biz.time._time.TimeStamp.__int__
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp.__int__
+
+   .. py:method:: __lt__(arg0: object) -> bool
+      :canonical: philh_myftp_biz.time._time.TimeStamp.__lt__
+
+   .. py:property:: ISO
+      :canonical: philh_myftp_biz.time._time.TimeStamp.ISO
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp.ISO
+
+   .. py:property:: centisecond
+      :canonical: philh_myftp_biz.time._time.TimeStamp.centisecond
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp.centisecond
+
+   .. py:property:: day
+      :canonical: philh_myftp_biz.time._time.TimeStamp.day
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp.day
+
+   .. py:property:: decisecond
+      :canonical: philh_myftp_biz.time._time.TimeStamp.decisecond
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp.decisecond
+
+   .. py:property:: hour
+      :canonical: philh_myftp_biz.time._time.TimeStamp.hour
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp.hour
+
+   .. py:property:: microsecond
+      :canonical: philh_myftp_biz.time._time.TimeStamp.microsecond
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp.microsecond
+
+   .. py:property:: millisecond
+      :canonical: philh_myftp_biz.time._time.TimeStamp.millisecond
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp.millisecond
+
+   .. py:property:: minute
+      :canonical: philh_myftp_biz.time._time.TimeStamp.minute
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp.minute
+
+   .. py:property:: month
+      :canonical: philh_myftp_biz.time._time.TimeStamp.month
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp.month
+
+   .. py:property:: second
+      :canonical: philh_myftp_biz.time._time.TimeStamp.second
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp.second
+
+   .. py:property:: unix
+      :canonical: philh_myftp_biz.time._time.TimeStamp.unix
+      :type: float
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp.unix
+
+   .. py:property:: year
+      :canonical: philh_myftp_biz.time._time.TimeStamp.year
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp.year
+
+.. py:class:: Timeout(timeout: typing.SupportsInt | typing.SupportsIndex)
+   :canonical: philh_myftp_biz.time._time.Timeout
+
+   Bases: :py:obj:`philh_myftp_biz.time._time.Stopwatch`
+
+   .. autodoc2-docstring:: philh_myftp_biz.time._time.Timeout
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.time._time.Timeout.__init__
+
+   .. py:method:: check() -> None
+      :canonical: philh_myftp_biz.time._time.Timeout.check
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.Timeout.check
+
+   .. py:property:: timed_out
+      :canonical: philh_myftp_biz.time._time.Timeout.timed_out
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.Timeout.timed_out

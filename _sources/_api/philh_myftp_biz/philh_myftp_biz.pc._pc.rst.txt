@@ -1,0 +1,123 @@
+:py:mod:`philh_myftp_biz.pc._pc`
+================================
+
+.. py:module:: philh_myftp_biz.pc._pc
+
+.. autodoc2-docstring:: philh_myftp_biz.pc._pc
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`_Path <philh_myftp_biz.pc._pc._Path>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path
+          :summary:
+   * - :py:obj:`_loc <philh_myftp_biz.pc._pc._loc>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc._pc._loc
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`loc <philh_myftp_biz.pc._pc.loc>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc._pc.loc
+          :summary:
+
+API
+~~~
+
+.. py:data:: loc
+   :canonical: philh_myftp_biz.pc._pc.loc
+   :type: philh_myftp_biz.pc._pc._loc
+   :value: None
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc._pc.loc
+
+.. py:class:: _Path(arg0: object)
+   :canonical: philh_myftp_biz.pc._pc._Path
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path.__init__
+
+   .. py:property:: exists
+      :canonical: philh_myftp_biz.pc._pc._Path.exists
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path.exists
+
+   .. py:property:: ext
+      :canonical: philh_myftp_biz.pc._pc._Path.ext
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path.ext
+
+   .. py:property:: is_dir
+      :canonical: philh_myftp_biz.pc._pc._Path.is_dir
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path.is_dir
+
+   .. py:property:: is_file
+      :canonical: philh_myftp_biz.pc._pc._Path.is_file
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path.is_file
+
+   .. py:property:: name
+      :canonical: philh_myftp_biz.pc._pc._Path.name
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path.name
+
+   .. py:property:: path
+      :canonical: philh_myftp_biz.pc._pc._Path.path
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path.path
+
+   .. py:property:: wpath
+      :canonical: philh_myftp_biz.pc._pc._Path.wpath
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path.wpath
+
+.. py:class:: _loc()
+   :canonical: philh_myftp_biz.pc._pc._loc
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc._pc._loc
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc._pc._loc.__init__
+
+   .. py:property:: cache
+      :canonical: philh_myftp_biz.pc._pc._loc.cache
+      :type: philh_myftp_biz.pc.Path.Path
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc._pc._loc.cache
+
+   .. py:property:: script
+      :canonical: philh_myftp_biz.pc._pc._loc.script
+      :type: philh_myftp_biz.pc.Path.Path
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc._pc._loc.script
+
+   .. py:property:: temp
+      :canonical: philh_myftp_biz.pc._pc._loc.temp
+      :type: philh_myftp_biz.pc.Path.Path
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc._pc._loc.temp

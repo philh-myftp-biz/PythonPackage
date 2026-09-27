@@ -1,0 +1,89 @@
+:py:mod:`philh_myftp_biz.text`
+==============================
+
+.. py:module:: philh_myftp_biz.text
+
+.. autodoc2-docstring:: philh_myftp_biz.text
+   :allowtitles:
+
+Submodules
+----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   philh_myftp_biz.text.contains
+   philh_myftp_biz.text.hex
+   philh_myftp_biz.text.regex
+   philh_myftp_biz.text.uio
+
+Package Contents
+----------------
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`split <philh_myftp_biz.text.split>`
+     - .. autodoc2-docstring:: philh_myftp_biz.text.split
+          :summary:
+   * - :py:obj:`int_stripper <philh_myftp_biz.text.int_stripper>`
+     - .. autodoc2-docstring:: philh_myftp_biz.text.int_stripper
+          :summary:
+   * - :py:obj:`auto_convert <philh_myftp_biz.text.auto_convert>`
+     - .. autodoc2-docstring:: philh_myftp_biz.text.auto_convert
+          :summary:
+   * - :py:obj:`random <philh_myftp_biz.text.random>`
+     - .. autodoc2-docstring:: philh_myftp_biz.text.random
+          :summary:
+   * - :py:obj:`similarity <philh_myftp_biz.text.similarity>`
+     - .. autodoc2-docstring:: philh_myftp_biz.text.similarity
+          :summary:
+   * - :py:obj:`abbr <philh_myftp_biz.text.abbr>`
+     - .. autodoc2-docstring:: philh_myftp_biz.text.abbr
+          :summary:
+   * - :py:obj:`to_slice <philh_myftp_biz.text.to_slice>`
+     - .. autodoc2-docstring:: philh_myftp_biz.text.to_slice
+          :summary:
+
+API
+~~~
+
+.. py:function:: split(value: str, sep: str = None) -> list[str]
+   :canonical: philh_myftp_biz.text.split
+
+   .. autodoc2-docstring:: philh_myftp_biz.text.split
+
+.. py:function:: int_stripper(string: str) -> None | int
+   :canonical: philh_myftp_biz.text.int_stripper
+
+   .. autodoc2-docstring:: philh_myftp_biz.text.int_stripper
+
+.. py:function:: auto_convert(string: str) -> int | float | bool | dict | str
+   :canonical: philh_myftp_biz.text.auto_convert
+
+   .. autodoc2-docstring:: philh_myftp_biz.text.auto_convert
+
+.. py:function:: random(length: int) -> str
+   :canonical: philh_myftp_biz.text.random
+
+   .. autodoc2-docstring:: philh_myftp_biz.text.random
+
+.. py:function:: similarity(a: str, b: str) -> float
+   :canonical: philh_myftp_biz.text.similarity
+
+   .. autodoc2-docstring:: philh_myftp_biz.text.similarity
+
+.. py:function:: abbr(num: int, string: str, inclusive: bool = True, end: str = '...') -> str
+   :canonical: philh_myftp_biz.text.abbr
+
+   .. autodoc2-docstring:: philh_myftp_biz.text.abbr
+
+.. py:function:: to_slice(string: str) -> None | list[slice | int]
+   :canonical: philh_myftp_biz.text.to_slice
+
+   .. autodoc2-docstring:: philh_myftp_biz.text.to_slice

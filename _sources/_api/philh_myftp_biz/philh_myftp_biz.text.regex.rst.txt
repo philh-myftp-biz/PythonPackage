@@ -1,0 +1,44 @@
+:py:mod:`philh_myftp_biz.text.regex`
+====================================
+
+.. py:module:: philh_myftp_biz.text.regex
+
+.. autodoc2-docstring:: philh_myftp_biz.text.regex
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Pattern <philh_myftp_biz.text.regex.Pattern>`
+     - .. autodoc2-docstring:: philh_myftp_biz.text.regex.Pattern
+          :summary:
+
+API
+~~~
+
+.. py:class:: Pattern(*patterns)
+   :canonical: philh_myftp_biz.text.regex.Pattern
+
+   .. autodoc2-docstring:: philh_myftp_biz.text.regex.Pattern
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.text.regex.Pattern.__init__
+
+   .. py:method:: __call__(string: philh_myftp_biz.functools.supports.SupportsStr)
+      :canonical: philh_myftp_biz.text.regex.Pattern.__call__
+
+      .. autodoc2-docstring:: philh_myftp_biz.text.regex.Pattern.__call__
+
+   .. py:method:: from_wildcard(*strings)
+      :canonical: philh_myftp_biz.text.regex.Pattern.from_wildcard
+      :staticmethod:
+
+      .. autodoc2-docstring:: philh_myftp_biz.text.regex.Pattern.from_wildcard

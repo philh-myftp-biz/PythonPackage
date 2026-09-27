@@ -101,7 +101,7 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.exists
 
-   .. py:method:: download(path: pathlib4.Path, force: bool = True) -> None
+   .. py:method:: download(path: philh_myftp_biz.pc.Path, force: bool = True) -> None
       :canonical: philh_myftp_biz.web.url.URL.download
 
       .. autodoc2-docstring:: philh_myftp_biz.web.url.URL.download

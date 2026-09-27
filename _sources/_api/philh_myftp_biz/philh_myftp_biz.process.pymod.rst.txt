@@ -33,7 +33,7 @@ Functions
 API
 ~~~
 
-.. py:class:: PyModule(path: pathlib4.Path)
+.. py:class:: PyModule(path: philh_myftp_biz.pc.Path.Path)
    :canonical: philh_myftp_biz.process.pymod.PyModule
 
    Bases: :py:obj:`philh_myftp_biz.process.SysTask.SysTask`

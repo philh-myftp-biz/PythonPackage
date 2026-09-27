@@ -26,7 +26,7 @@ Classes
 API
 ~~~
 
-.. py:class:: VirusReport(file: pathlib4.Path, VTobj: philh_myftp_biz.web.VirusTotal.VirusReport.__init__.VTobj)
+.. py:class:: VirusReport(file: philh_myftp_biz.pc.Path, VTobj: philh_myftp_biz.web.VirusTotal.VirusReport.__init__.VTobj)
    :canonical: philh_myftp_biz.web.VirusTotal.VirusReport
 
    .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusReport
@@ -66,17 +66,17 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusTotal.client
 
-   .. py:method:: _upload(file: pathlib4.Path, wait: bool = True) -> vt.object.Object
+   .. py:method:: _upload(file: philh_myftp_biz.pc.Path, wait: bool = True) -> vt.object.Object
       :canonical: philh_myftp_biz.web.VirusTotal.VirusTotal._upload
 
       .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusTotal._upload
 
-   .. py:method:: _check(file: pathlib4.Path) -> VTobj | None
+   .. py:method:: _check(file: philh_myftp_biz.pc.Path) -> VTobj | None
       :canonical: philh_myftp_biz.web.VirusTotal.VirusTotal._check
 
       .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusTotal._check
 
-   .. py:method:: scan(file: pathlib4.Path) -> philh_myftp_biz.web.VirusTotal.VirusReport
+   .. py:method:: scan(file: philh_myftp_biz.pc.Path) -> philh_myftp_biz.web.VirusTotal.VirusReport
       :canonical: philh_myftp_biz.web.VirusTotal.VirusTotal.scan
 
       .. autodoc2-docstring:: philh_myftp_biz.web.VirusTotal.VirusTotal.scan

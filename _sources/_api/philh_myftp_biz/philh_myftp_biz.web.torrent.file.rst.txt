@@ -56,7 +56,7 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.web.torrent.file.TorrentFile.raw
 
-   .. py:method:: path() -> pathlib4.Path
+   .. py:method:: path() -> philh_myftp_biz.pc.Path
       :canonical: philh_myftp_biz.web.torrent.file.TorrentFile.path
 
       .. autodoc2-docstring:: philh_myftp_biz.web.torrent.file.TorrentFile.path
