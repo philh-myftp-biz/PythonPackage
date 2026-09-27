@@ -6,7 +6,6 @@ paramiko
 winrt-Windows.Devices.Geolocation; sys_platform == 'win32'
 winrt-Windows.Foundation; sys_platform == 'win32'
 vt-py
-customtkinter
 selenium
 qbittorrent-api
 inputimeout
