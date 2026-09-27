@@ -1,5 +1,5 @@
 from typing import Literal, TYPE_CHECKING, Any, TypedDict
-from ..text.uio import UnconsumingIO
+from strlib2.uio import UnconsumingIO
 from .Thread import ThreadedFunc
 from sys import executable
 from copy import deepcopy
@@ -118,7 +118,7 @@ class SubProcess:
         stream: Literal['out', 'err'] = 'out'
     ) -> 'str | dict | list | bool | Any':
         """Read the output from the Subprocess"""
-        from ..text import hex
+        from strlib2 import hex
         from .. import json
 
         _stream: UnconsumingIO = getattr(self, 'std'+stream)

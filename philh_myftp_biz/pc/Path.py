@@ -281,7 +281,7 @@ class Path(_Path):
         key: Any, 
         value: Any
     ) -> None:
-        from ..text import hex
+        from strlib2 import hex
 
         og_mtime = self.mtime.get()
 
@@ -291,7 +291,7 @@ class Path(_Path):
         _mtime(path=self).set(mtime=og_mtime)
 
     def __getitem__(self, key:Any) -> None:
-        from ..text import hex
+        from strlib2 import hex
         try:
             with open(f'{self}:{hex.encode(key)}') as store:
                 return hex.decode(store.read()) # pyright: ignore[reportReturnType]

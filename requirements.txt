@@ -31,3 +31,5 @@ diskcache
 tenacity
 hwdev
 logger2
+pathlib4
+strlib2

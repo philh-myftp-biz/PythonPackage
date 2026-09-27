@@ -25,7 +25,7 @@ class TransitoryCache[T]:
 
     @property
     def _dict(self) -> 'Dict[CachedItem]':
-        from ...text.hex import PickleErrors
+        from strlib2.hex import PickleErrors
         from logger2 import Log
 
         try:

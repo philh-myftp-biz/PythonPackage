@@ -24,7 +24,7 @@ class Torrent:
 
     def __repr__(self) -> str:
         from ...functools import loc
-        from ...text import abbr
+        from strlib2 import abbr
 
         return f"<Torrent '{abbr(30, self.name)}' @{loc(self)}>"
     
@@ -48,7 +48,7 @@ class Torrent:
 
     @property
     def raw(self) -> 'TorrentDictionary':
-        from ...text import similarity
+        from strlib2 import similarity
 
         for torr in qbit.torrents_info():
             if similarity(self.hash, torr.hash) > .95:
