@@ -1,29 +1,33 @@
+pyyaml
+dill
 psutil
-dbwraps
+keyring
 paramiko
 winrt-Windows.Devices.Geolocation; sys_platform == 'win32'
 winrt-Windows.Foundation; sys_platform == 'win32'
 vt-py
+customtkinter
 selenium
 qbittorrent-api
 inputimeout
+configobj
 browser_cookie3
 elevate
 tqdm
+tomli_w
+toml
 ping3
-timelib2
+python-dateutil
+pytz
+xmltodict
 GitPython
 parse-torrent-title
 bs4
 geopy
+mutagen
 QuickSocketPY
 cpulimiter; sys_platform == 'win32'
 pywin32; sys_platform == 'win32'
 requests-cache
 diskcache
 tenacity
-strlib2
-
-hwdev @ git+https://github.com/MineFartS/hwdev/
-logger2 @ git+https://github.com/MineFartS/logger2/
-pathlib4 @ git+https://github.com/MineFartS/pathlib4/

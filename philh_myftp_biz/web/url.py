@@ -3,7 +3,7 @@ from ..json import SupportsJSON
 
 if TYPE_CHECKING:
     from requests import Response
-    from pathlib4 import Path
+    from ..pc import Path
 
 #============================================================================
 
@@ -120,7 +120,7 @@ class URL:
         force: bool = True
     ) -> None:
         """Download file to disk"""
-        from logger2 import Log, ProgressBar
+        from ..terminal import Log, ProgressBar
 
         if (not force) and (path.hash == self.hash):
             return
@@ -150,7 +150,7 @@ class URL:
 
     def get(self, **kwargs) -> 'Response':
         """requests.get Wrapper"""
-        from logger2 import Log
+        from ..terminal import Log
 
         Log.VERB(
             'Requesting Page\n'+ \
@@ -170,7 +170,7 @@ class URL:
 
     def post(self, **kwargs) -> 'Response':
         """requests.post Wrapper"""
-        from logger2 import Log
+        from ..terminal import Log
 
         Log.VERB(
             'Requesting Page\n'+ \

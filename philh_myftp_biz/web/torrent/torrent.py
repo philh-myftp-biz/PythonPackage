@@ -2,13 +2,13 @@ from qbittorrentapi.exceptions import NotFound404Error as TorrentNotFoundError
 from ...functools.cache.prop import cached_property
 from typing import TYPE_CHECKING, Literal
 from .qbit import qBitTorrent as qbit
-from timelib2 import TimeStamp
+from ...time._time import TimeStamp
 from .file import TorrentFile
-from logger2 import Log
+from ...terminal import Log
 
 if TYPE_CHECKING:
     from qbittorrentapi import TorrentDictionary
-    from pathlib4 import Path
+    from ...pc.Path import Path
 
 class Torrent:
 
@@ -24,7 +24,7 @@ class Torrent:
 
     def __repr__(self) -> str:
         from ...functools import loc
-        from strlib2 import abbr
+        from ...text import abbr
 
         return f"<Torrent '{abbr(30, self.name)}' @{loc(self)}>"
     
@@ -48,7 +48,7 @@ class Torrent:
 
     @property
     def raw(self) -> 'TorrentDictionary':
-        from strlib2 import similarity
+        from ...text import similarity
 
         for torr in qbit.torrents_info():
             if similarity(self.hash, torr.hash) > .95:
@@ -118,7 +118,7 @@ class Torrent:
     
     @cached_property
     def path(self) -> 'Path':
-        from pathlib4 import Path
+        from ...pc import Path
         return Path(self.raw.save_path)
 
     @property
@@ -137,7 +137,7 @@ class Torrent:
     def start(self,
         stop_files: bool = False,
     ) -> bool:
-        from logger2 import VERBOSE
+        from ... import VERBOSE
         from time import sleep
 
         if self.exists:

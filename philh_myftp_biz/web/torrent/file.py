@@ -3,10 +3,10 @@ from ...functools import cached_property
 from .qbit import qBitTorrent as qbit
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
-from logger2 import Log
+from ...terminal import Log
 
 if TYPE_CHECKING:
-    from pathlib4 import Path
+    from ...pc import Path
     from . import Torrent
 
 class TorrentFileNotFoundError(Exception): ...
@@ -19,7 +19,7 @@ class TorrentFile:
 
     def __repr__(self) -> str:
         from ...functools import loc
-        from strlib2 import abbr
+        from ...text import abbr
         return f"<File '{abbr(30, self.name)}' @{loc(obj=self)}>"
 
     #===================================================

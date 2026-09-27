@@ -1,6 +1,6 @@
 from ...functools import singleton
 from typing import TYPE_CHECKING
-from logger2 import Log
+from ...terminal import Log
 
 from ...array import SortFunc, FilterFunc
 from ...json import List
@@ -37,7 +37,7 @@ class qBitTorrent(
     ) -> None:
         from qbittorrentapi.exceptions import LoginFailed, Forbidden403Error, APIConnectionError
         from ..session import RetryStrat
-        from timelib2 import Timeout
+        from ...time import Timeout
         from random import randint
 
         infretry = RetryStrat(

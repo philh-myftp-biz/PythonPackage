@@ -16,7 +16,7 @@ class Args(tuple[SupportsJSON]):
     _cache: dict[str, Any] = {}
 
     def __new__(cls):
-        from strlib2 import auto_convert
+        from ..text import auto_convert
         from sys import argv
 
         args = (auto_convert(a) for a in argv[1:])

@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from vt.object import Object as VTobj
-    from pathlib4 import Path
+    from ..pc import Path
 
 # @dead-code-ignore
 class VirusReport:

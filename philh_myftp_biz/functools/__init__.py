@@ -8,7 +8,7 @@ from .force_types import force_in_types, force_out_type # pyright: ignore[report
 from .supports import *
 
 if TYPE_CHECKING:
-    from pathlib4 import Path
+    from ..pc import Path
 
 def is_iterable(obj) -> bool:
     """*Ignores strings"""

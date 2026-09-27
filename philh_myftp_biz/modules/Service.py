@@ -1,7 +1,7 @@
 from functools import cached_property
 from typing import TYPE_CHECKING
-from hwdev import Device
-from pathlib4 import Path
+from ..pc.hardware import Device
+from ..pc import Path
 
 if TYPE_CHECKING:
     from philh_myftp_biz.process import RunHidden
@@ -79,7 +79,7 @@ class Service(Path, Device):
         force: bool = False    
     ) -> None:
         """Start the Service"""
-        from logger2 import Log
+        from ..terminal import Log
 
         Log.VERB(f"Starting Service: {self.path}")
 
@@ -114,7 +114,7 @@ class Service(Path, Device):
     
     def stop(self) -> None:
         """Stop the Service"""
-        from logger2 import Log
+        from ..terminal import Log
 
         Log.VERB(f"Stopping Service: {self.path}")
 
@@ -126,7 +126,7 @@ class Service(Path, Device):
         return ((not self._lockfile.exists) and self.exists)
 
     def enable(self) -> None:
-        from logger2 import Log
+        from ..terminal import Log
 
         Log.VERB(f"Enabling Service: {self.path=}")
 
@@ -136,7 +136,7 @@ class Service(Path, Device):
     def disable(self,
         stop: bool = True
     ) -> None:
-        from logger2 import Log
+        from ..terminal import Log
 
         Log.VERB(f"Disabling Service: {self.path=}")
 
@@ -150,7 +150,7 @@ class Service(Path, Device):
 
     @cached_property
     def logfile(self) -> None | Path:
-        from pathlib4 import loc
+        from ..pc._pc import loc
 
         path = loc.temp.child('philh_myftp_biz.log')
 

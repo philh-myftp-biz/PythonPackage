@@ -1,9 +1,14 @@
+from dataclasses import dataclass
+from functools import cache
+from typing import Literal
+
+#========================================================
 
 MIMETYPES: dict[str, str]
 
 def __getattr__(attr:str):
     from .web.url import URL
-    from logger2 import VERBOSE
+    from . import VERBOSE
 
     if attr == 'MIMETYPES':
         try:
@@ -17,3 +22,193 @@ def __getattr__(attr:str):
 
     raise AttributeError(f"module '{__name__}' has no attribute '{attr}'")
 
+#========================================================
+
+class Size:
+    from sys import maxsize
+
+    units = Literal[
+        'B',
+        'KB',
+        'MB',
+        'GB',
+        'TB'
+    ]
+    """Type hint for keys in size.conv_factors"""
+
+    conv_factors: dict[str, int] = {
+        'B' : 1,
+        'KB': 1024,
+        'MB': 1024**2,
+        'GB': 1024**3,
+        'TB': 1024**4
+    }
+    """
+    Conversion Factors for file sizes
+
+    EXAMPLE:
+    size.conv_factors['B'] -> 1
+    size.conv_factors['KB'] -> 1024
+    """
+
+    @staticmethod
+    @cache
+    def to_bytes(string:str) -> float:
+        """
+        Convert Size String to bytes
+
+        EXAMPLE:
+        size.to_bytes('10B') -> 10
+        size.to_bytes('10GB')
+        """
+        from re import search
+
+        match = search(
+            pattern = r"(\d+(\.\d+)?)\s*([a-zA-Z]+)",
+            string = string.strip()
+        )
+
+        value = float(match.group(1))
+
+        unit = match.group(3).upper()
+        unit = unit[0] + unit[-1]
+
+        return (value * Size.conv_factors[unit])
+
+    def from_bytes(
+        value: float,
+        unit: units | None = None,
+        ndigits: int = maxsize
+    ) -> str:
+        """
+        Get Size String from bytes
+
+        If unit is not given, then the unit will be automatically determined
+        """
+
+        format = lambda unit: round(
+            number = (float(value) / Size.conv_factors[unit]),
+            ndigits = ndigits
+        )
+
+        if unit is None:
+                        
+            for unit in reversed(Size.conv_factors):
+                
+                if format(unit) >= 1:            
+                   
+                   break
+                
+        return f'{format(unit=unit)} {unit}'
+
+#========================================================
+
+class Color:
+
+    names = Literal[
+        'BLACK',
+        'RED',
+        'GREEN',
+        'YELLOW',
+        'BLUE',
+        'MAGENTA',
+        'CYAN',
+        'WHITE',
+        'DEFAULT',
+        'BOLD',
+        'GRAY'
+    ]
+    """
+    Type hint for keys in colors.values
+    """
+
+    values: dict[names, str] = {
+        'BLACK' : '\033[30m',
+        'RED' : '\033[31m',
+        'GREEN' : '\033[32m',
+        'YELLOW' : '\033[33m',
+        'BLUE' : '\033[34m',
+        'MAGENTA' : '\033[35m',
+        'CYAN' : '\033[36m',
+        'WHITE' : '\033[37m',
+        'DEFAULT' : '\033[0m',
+        'BOLD': '\033[1m',
+        'GRAY': '\033[90m'
+    }
+    r"""
+    COLOR CONVERSION TABLE
+
+    EXAMPLE:
+    colors.values['RED'] -> '\033[31m'
+    """
+
+#========================================================
+
+# @dead-code-ignore
+class Ring:
+    """Wrapper for keyring"""
+    
+    def __init__(self, name:str) -> None:
+        from .text import hex
+
+        self.rname = name
+        self.name: str = 'philh.myftp.biz/' + hex.encode(name)
+
+    def Key(self, name:str) -> 'Key':
+        """Get Key in Ring by name"""
+
+        return Key(ring=self, name=name)
+    
+    __getitem__ = Key
+
+@dataclass
+class Key[T]:
+    """Wrapper for keyring"""
+    
+    ring: Ring
+    name: str
+
+    def save(self, value:T) -> None:
+        """Save value to Key"""
+        from keyring import set_password
+        from .text import hex
+
+        set_password(
+            service_name = self.ring.name,
+            username = hex.encode(self.name),
+            password = hex.encode(value=value)            
+        )
+        
+    def read(self) -> None | T:
+        """Read value from key"""
+        from keyring import get_password
+        from .text import hex
+
+        rvalue: str | None = get_password(
+            service_name = self.ring.name,
+            username = hex.encode(self.name)
+        )
+        
+        try:
+            return hex.decode(rvalue)
+        except TypeError:
+            return None
+        
+    def prompt(self, secure:bool) -> None:
+        """Open GUI window asking for value"""
+        from .gui import Window, Widget
+
+        gui = Window()
+        gui.title = 'Keyring Prompt'
+
+        page = gui.Page()
+        page += Widget.Text(f'Ring: {self.ring.rname}')
+        page += Widget.Text(f'Key: {self.name}')
+        page += Widget.Input(self.name, key=self, secure=secure)
+        page += Widget.Button('Save', gui.close)
+
+        gui.page = page
+
+        gui.run()
+
+#========================================================

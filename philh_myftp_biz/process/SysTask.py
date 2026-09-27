@@ -5,7 +5,7 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from cpulimiter import CpuLimiter
-    from pathlib4 import Path
+    from ..pc.Path import Path
 
 AccessErrors: tuple[Exception, ...] = (AccessDenied, NoSuchProcess)
 
@@ -41,7 +41,7 @@ class Process(_Process):
 
     @cached_property
     def cwd(self) -> 'Path|None':
-        from pathlib4 import Path
+        from ..pc import Path
         try:
             return Path(super().cwd())
         except AccessErrors:

@@ -3,7 +3,7 @@ from functools import cached_property
 from dataclasses import dataclass
 
 if TYPE_CHECKING:
-    from pathlib4 import Path
+    from ..pc import Path
 
 @dataclass
 # @dead-code-ignore
@@ -20,7 +20,7 @@ class FTPPath:
     def download(self,
         local: 'Path'
     ) -> None:
-        from logger2 import Log
+        from ..terminal import Log
 
         if self.is_dir:
             raise NotImplementedError()

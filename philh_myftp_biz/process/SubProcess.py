@@ -1,11 +1,11 @@
 from typing import Literal, TYPE_CHECKING, Any, TypedDict
-from strlib2.uio import UnconsumingIO
+from ..text.uio import UnconsumingIO
 from .Thread import ThreadedFunc
 from sys import executable
 from copy import deepcopy
 
 if TYPE_CHECKING:
-    from pathlib4 import Path
+    from ..pc import Path
 
 class Terminal(TypedDict):
     args: tuple[str, ...]
@@ -60,8 +60,8 @@ class SubProcess:
         from subprocess import Popen, PIPE
         from ..array import stringify
         from .SysTask import SysTask
-        from logger2 import Log
-        from pathlib4 import Path, cwd
+        from ..terminal import Log
+        from ..pc import Path, cwd
 
         # =====================================
 
@@ -118,7 +118,7 @@ class SubProcess:
         stream: Literal['out', 'err'] = 'out'
     ) -> 'str | dict | list | bool | Any':
         """Read the output from the Subprocess"""
-        from strlib2 import hex
+        from ..text import hex
         from .. import json
 
         _stream: UnconsumingIO = getattr(self, 'std'+stream)

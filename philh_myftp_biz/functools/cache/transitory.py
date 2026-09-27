@@ -15,7 +15,7 @@ class TransitoryCache[T]:
         id: SupportsStr = 0, 
         expire: int = 18_000
     ) -> None:
-        from pathlib4 import loc
+        from ...pc._pc import loc
 
         self.expire = expire
 
@@ -25,8 +25,8 @@ class TransitoryCache[T]:
 
     @property
     def _dict(self) -> 'Dict[CachedItem]':
-        from strlib2.hex import PickleErrors
-        from logger2 import Log
+        from ...text.hex import PickleErrors
+        from ...terminal import Log
 
         try:
             data: dict[str, CachedItem] = self._pkl.read() or {}

@@ -1,7 +1,7 @@
 from ...functools.cache import TransitoryCache
 from typing import TYPE_CHECKING, Generator
 from .torrent import Torrent
-from logger2 import Log
+from ...terminal import Log
 from ..url import URL
 
 if TYPE_CHECKING:
@@ -27,11 +27,11 @@ def search(*queries:str) -> Generator[Torrent, None, None]:
 
 def _search(query:str) -> list[Torrent]:
     """Search thePirateBay for magnets"""
-    from timelib2 import from_string
+    from ...time import from_string
     from .name import NameParser
     from .torrent import Torrent
     from ..driver import Driver
-    from dbwraps import Size
+    from ...db import Size
 
     global driver, url, cache
 

@@ -1,7 +1,7 @@
 from functools import cached_property
 from typing import TYPE_CHECKING
-from pathlib4 import Path
-from hwdev import Device
+from ..pc.hardware import Device
+from ..pc import Path
 
 if TYPE_CHECKING:
     from ..process import SubProcess
@@ -34,7 +34,7 @@ class Module(Path, Device):
         module: 'str | Path'
     ) -> None:
         from ..process import SubVenv
-        from pathlib4.file import YAML
+        from ..file import YAML
 
         Path.__init__(self, module)
         Device.__init__(self)
