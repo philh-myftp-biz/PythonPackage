@@ -48,7 +48,7 @@ API
 
    .. py:attribute:: uploaded
       :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.uploaded
-      :type: None | philh_myftp_biz.time._time.TimeStamp
+      :type: None | timelib2.TimeStamp
       :value: None
 
       .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.uploaded

@@ -14,14 +14,12 @@ Subpackages
    :maxdepth: 3
 
    philh_myftp_biz.functools
-   philh_myftp_biz.gui
    philh_myftp_biz.json
    philh_myftp_biz.modules
    philh_myftp_biz.pc
    philh_myftp_biz.process
    philh_myftp_biz.terminal
    philh_myftp_biz.text
-   philh_myftp_biz.time
    philh_myftp_biz.web
 
 Submodules

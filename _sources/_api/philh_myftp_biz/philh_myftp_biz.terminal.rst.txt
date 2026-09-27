@@ -138,7 +138,7 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.terminal.write
 
-.. py:function:: print(*args: str, pause: bool = False, color: philh_myftp_biz.db.Color.names = 'DEFAULT', sep: str = ' ', end: str = '\n', overwrite: bool = False) -> None
+.. py:function:: print(*args: str, pause: bool = False, color: dbwraps.Color.names = 'DEFAULT', sep: str = ' ', end: str = '\n', overwrite: bool = False) -> None
    :canonical: philh_myftp_biz.terminal.print
 
    .. autodoc2-docstring:: philh_myftp_biz.terminal.print

@@ -53,7 +53,7 @@ API
 
    .. py:attribute:: Released
       :canonical: philh_myftp_biz.web.torrent.models.MediaData.Released
-      :type: None|from_stamp
+      :type: None|TimeStamp
       :value: None
 
       .. autodoc2-docstring:: philh_myftp_biz.web.torrent.models.MediaData.Released

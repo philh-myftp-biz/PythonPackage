@@ -369,7 +369,7 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.Path._mtime.path
 
-   .. py:method:: set(mtime: int|from_stamp = None) -> None
+   .. py:method:: set(mtime: int|TimeStamp = None) -> None
       :canonical: philh_myftp_biz.pc.Path._mtime.set
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.Path._mtime.set
