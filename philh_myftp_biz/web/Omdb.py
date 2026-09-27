@@ -52,7 +52,7 @@ def _get_omdb(**params) -> dict:
 # @dead-code-ignore
 def movie(title:str, year:int) -> None | MovieData:
     """Get details of a movie"""
-    from ..time import from_string
+    from timelib2 import from_string
 
     r = _get_omdb(t=title, y=year)
 
@@ -76,7 +76,7 @@ def show(
     year: int
 ) -> None | ShowData:
     """Get details of a show"""
-    from ..time import from_string, from_ymdhms
+    from timelib2 import from_string, from_ymdhms
     
     # Request raw list of seasons
     r1 = _get_omdb(t=title, y=year)

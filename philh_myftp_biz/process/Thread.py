@@ -43,7 +43,7 @@ class Thread[T]:
         timeout: int,
         default: T = None
     ) -> T:
-        from ..time import Timeout
+        from timelib2 import Timeout
 
         to = Timeout(timeout)
 
@@ -101,7 +101,7 @@ class Watcher[T](Thread):
 
     def _main(self) -> None:
         from inspect import signature
-        from ..time import sleep
+        from timelib2 import sleep
 
         lvalue: T = None
 
@@ -129,7 +129,7 @@ class Looper(Watcher):
         func: Callable[[], None],
         interval: float = .3
     ) -> None:
-        from ..time import now
+        from timelib2 import now
 
         super().__init__(
             checker = now, 

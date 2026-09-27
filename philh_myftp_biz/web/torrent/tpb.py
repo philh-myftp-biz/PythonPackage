@@ -27,7 +27,7 @@ def search(*queries:str) -> Generator[Torrent, None, None]:
 
 def _search(query:str) -> list[Torrent]:
     """Search thePirateBay for magnets"""
-    from ...time import from_string
+    from timelib2 import from_string
     from .name import NameParser
     from .torrent import Torrent
     from ..driver import Driver

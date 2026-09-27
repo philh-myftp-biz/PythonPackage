@@ -37,7 +37,7 @@ class qBitTorrent(
     ) -> None:
         from qbittorrentapi.exceptions import LoginFailed, Forbidden403Error, APIConnectionError
         from ..session import RetryStrat
-        from ...time import Timeout
+        from timelib2 import Timeout
         from random import randint
 
         infretry = RetryStrat(

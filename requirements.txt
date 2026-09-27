@@ -16,8 +16,7 @@ tqdm
 tomli_w
 toml
 ping3
-python-dateutil
-pytz
+timelib2
 xmltodict
 GitPython
 parse-torrent-title

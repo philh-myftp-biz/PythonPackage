@@ -5,7 +5,7 @@ from ._pc import _Path
 from .. import file
 
 if TYPE_CHECKING:
-    from ..time import from_stamp
+    from timelib2 import TimeStamp
 
 #========================================================
 
@@ -28,12 +28,12 @@ class Path(_Path):
 
     @property
     def ctime(self):
-        from ..time import from_stamp
+        from timelib2 import TimeStamp
         from os import path
 
         stamp = path.getctime(self.path)
 
-        return from_stamp(stamp)
+        return TimeStamp(stamp)
 
     @cached_property
     def cd(self) -> '_cd':
@@ -438,9 +438,9 @@ class _mtime:
     path: Path
 
     def set(self,
-        mtime: 'int|from_stamp' = None
+        mtime: 'int|TimeStamp' = None
     ) -> None:
-        from ..time import now
+        from timelib2 import now
         from os import utime
 
         if mtime is None:
@@ -453,10 +453,10 @@ class _mtime:
 
     @property
     def current(self):
-        from ..time import from_stamp
+        from timelib2 import TimeStamp
         from os import path
 
-        return from_stamp(
+        return TimeStamp(
             path.getmtime( str(self.path) )
         )
     
@@ -468,7 +468,7 @@ class _mtime:
 
     @property
     def stopwatch(self):
-        from ..time import Stopwatch
+        from timelib2 import Stopwatch
 
         SW = Stopwatch()
 

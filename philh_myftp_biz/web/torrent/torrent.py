@@ -2,7 +2,7 @@ from qbittorrentapi.exceptions import NotFound404Error as TorrentNotFoundError
 from ...functools.cache.prop import cached_property
 from typing import TYPE_CHECKING, Literal
 from .qbit import qBitTorrent as qbit
-from ...time._time import TimeStamp
+from timelib2 import TimeStamp
 from .file import TorrentFile
 from ...terminal import Log
 

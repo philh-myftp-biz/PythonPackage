@@ -4,14 +4,14 @@ from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from ..torrent import Torrent
-    from ...time import from_stamp
+    from timelib2 import TimeStamp
 
 @dataclass(kw_only=True)
 class MediaData:
     
     Title: str
     Torrent: 'None|Torrent' = None
-    Released: 'None|from_stamp' = None
+    Released: 'None|TimeStamp' = None
     imdb_id: None|str = None
 
     @cached_property
