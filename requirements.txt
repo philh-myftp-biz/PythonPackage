@@ -31,3 +31,4 @@ pywin32; sys_platform == 'win32'
 requests-cache
 diskcache
 tenacity
+logger2

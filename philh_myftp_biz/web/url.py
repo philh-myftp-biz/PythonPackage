@@ -120,7 +120,7 @@ class URL:
         force: bool = True
     ) -> None:
         """Download file to disk"""
-        from ..terminal import Log, ProgressBar
+        from logger2 import Log, ProgressBar
 
         if (not force) and (path.hash == self.hash):
             return
@@ -150,7 +150,7 @@ class URL:
 
     def get(self, **kwargs) -> 'Response':
         """requests.get Wrapper"""
-        from ..terminal import Log
+        from logger2 import Log
 
         Log.VERB(
             'Requesting Page\n'+ \
@@ -170,7 +170,7 @@ class URL:
 
     def post(self, **kwargs) -> 'Response':
         """requests.post Wrapper"""
-        from ..terminal import Log
+        from logger2 import Log
 
         Log.VERB(
             'Requesting Page\n'+ \

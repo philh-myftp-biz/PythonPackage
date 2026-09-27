@@ -20,7 +20,7 @@ class FTPPath:
     def download(self,
         local: 'Path'
     ) -> None:
-        from ..terminal import Log
+        from logger2 import Log
 
         if self.is_dir:
             raise NotImplementedError()

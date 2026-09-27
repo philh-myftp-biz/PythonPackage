@@ -2,7 +2,7 @@ from argparse import ArgumentParser
 from ..functools import singleton
 from typing import Callable, Any
 from ..json import SupportsJSON
-from . import Log
+from logger2 import Log
 
 @singleton
 class Args(tuple[SupportsJSON]):

@@ -79,7 +79,7 @@ class Service(Path, Device):
         force: bool = False    
     ) -> None:
         """Start the Service"""
-        from ..terminal import Log
+        from logger2 import Log
 
         Log.VERB(f"Starting Service: {self.path}")
 
@@ -114,7 +114,7 @@ class Service(Path, Device):
     
     def stop(self) -> None:
         """Stop the Service"""
-        from ..terminal import Log
+        from logger2 import Log
 
         Log.VERB(f"Stopping Service: {self.path}")
 
@@ -126,7 +126,7 @@ class Service(Path, Device):
         return ((not self._lockfile.exists) and self.exists)
 
     def enable(self) -> None:
-        from ..terminal import Log
+        from logger2 import Log
 
         Log.VERB(f"Enabling Service: {self.path=}")
 
@@ -136,7 +136,7 @@ class Service(Path, Device):
     def disable(self,
         stop: bool = True
     ) -> None:
-        from ..terminal import Log
+        from logger2 import Log
 
         Log.VERB(f"Disabling Service: {self.path=}")
 

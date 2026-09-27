@@ -3,7 +3,7 @@ from ...functools import cached_property
 from .qbit import qBitTorrent as qbit
 from dataclasses import dataclass
 from typing import TYPE_CHECKING
-from ...terminal import Log
+from logger2 import Log
 
 if TYPE_CHECKING:
     from ...pc import Path

@@ -7,7 +7,6 @@ _kw_templ['include_dirs'] += ['headers']
 
 setup(
 
-    cpp_ext("philh_myftp_biz/_log.cpp"),
     cpp_ext("philh_myftp_biz/num.cpp"),
     cpp_ext("philh_myftp_biz/web/_web.cpp"),
     cpp_ext("philh_myftp_biz/time/_time.cpp"),

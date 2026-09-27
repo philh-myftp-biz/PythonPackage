@@ -11,7 +11,7 @@ from sys import stdout, stderr # pyright: ignore[reportUnusedImport]
 from .ProgressBar import ProgressBar # pyright: ignore[reportUnusedImport]
 from .Args import Args # pyright: ignore[reportUnusedImport]
 from .KIC import KIC # pyright: ignore[reportUnusedImport]
-from . import Log # pyright: ignore[reportUnusedImport]
+from logger2 import Log # pyright: ignore[reportUnusedImport]
 
 #========================================================
 

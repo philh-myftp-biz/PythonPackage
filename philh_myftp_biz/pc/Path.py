@@ -130,8 +130,7 @@ class Path(_Path):
         self.open('w').close()
 
     def delete(self) -> None:
-        from ..terminal import Log
-        from .. import VERBOSE
+        from logger2 import Log, VERBOSE
 
         if self.is_dir:
             from shutil import rmtree as delete
@@ -149,7 +148,7 @@ class Path(_Path):
             delete(self.path)
 
     def rename(self, dst:Any) -> 'Path':
-        from ..terminal import Log
+        from logger2 import Log
         from os import rename
         
         with self.parent.cd:
@@ -180,7 +179,8 @@ class Path(_Path):
         return self.path.strip('/').split(sep='/')[i]
 
     def copy(self, dst:'Path') -> None:
-        from ..terminal import Log, ProgressBar
+        from ..terminal import ProgressBar
+        from logger2 import Log
         from . import relscan
 
         files: list[PathPair] = []
@@ -341,7 +341,7 @@ class Path(_Path):
     
     def clear_exif(self):
         # TODO Add Video/Audio parsing
-        from ..terminal import Log
+        from logger2 import Log
                     
         Log.VERB(f'Clearing Exif Data: {self.path}')
 
@@ -490,7 +490,7 @@ class _set_access:
             yield from self.path.descendants
     
     def readonly(self) -> None:
-        from ..terminal import Log
+        from logger2 import Log
         from os import chmod
 
         if self.path.in_use:
@@ -502,7 +502,7 @@ class _set_access:
 
     def full(self) -> None:
         from ..process import RunHidden
-        from ..terminal import Log
+        from logger2 import Log
         from os import chmod
 
         if self.path.is_dir:
