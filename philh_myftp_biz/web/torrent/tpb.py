@@ -31,7 +31,7 @@ def _search(query:str) -> list[Torrent]:
     from .name import NameParser
     from .torrent import Torrent
     from ..driver import Driver
-    from ...db import Size
+    from dbwraps import Size
 
     global driver, url, cache
 

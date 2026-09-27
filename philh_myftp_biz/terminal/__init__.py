@@ -4,7 +4,7 @@ from sys import platform
 
 if TYPE_CHECKING:
     from ..pc.Path import Path
-    from ..db import Color
+    from dbwraps import Color
 
 from sys import stdout, stderr # pyright: ignore[reportUnusedImport]
 
@@ -79,7 +79,7 @@ def print(
     overwrite: bool = False
 ) -> None:
     """Wrapper for built-in print function"""
-    from ..db import Color
+    from dbwraps import Color
     
     if overwrite:
         end = ''

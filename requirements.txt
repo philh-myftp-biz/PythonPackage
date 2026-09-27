@@ -1,7 +1,7 @@
 pyyaml
 dill
 psutil
-keyring
+dbwraps
 paramiko
 winrt-Windows.Devices.Geolocation; sys_platform == 'win32'
 winrt-Windows.Foundation; sys_platform == 'win32'

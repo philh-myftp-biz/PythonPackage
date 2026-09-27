@@ -85,9 +85,8 @@ class Path(_Path):
         
     @property
     def fsize(self) -> str:
-        from ..db import Size
-
-        return Size.from_bytes(self.size, ndigits=2)
+        from dbwraps.Size import from_bytes
+        return from_bytes(self.size, ndigits=2)
 
     @property
     def children(self) -> Generator['Path', None, None]:
