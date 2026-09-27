@@ -1,6 +1,6 @@
 from ...functools import singleton
 from typing import TYPE_CHECKING
-from ...terminal import Log
+from logger2 import Log
 
 from ...array import SortFunc, FilterFunc
 from ...json import List

@@ -60,7 +60,7 @@ class SubProcess:
         from subprocess import Popen, PIPE
         from ..array import stringify
         from .SysTask import SysTask
-        from ..terminal import Log
+        from logger2 import Log
         from ..pc import Path, cwd
 
         # =====================================

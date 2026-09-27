@@ -43,7 +43,7 @@ class Driver:
         from selenium.webdriver.firefox.options import Options
         from ..functools import attr
         from ..process import SysTask
-        from ..terminal import Log
+        from logger2 import Log
         from time import sleep
 
         Log.VERB(
@@ -95,7 +95,7 @@ class Driver:
 
     def reload(self) -> None:
         """Reload the Current Page"""
-        from ..terminal import Log
+        from logger2 import Log
 
         Log.VERB(f'Reloading Page: {self.URL=}')
 
@@ -104,7 +104,7 @@ class Driver:
     def run(self, code:str, log:bool=True):
         """Run JavaScript Code on the Current Page"""
         from selenium.common.exceptions import JavascriptException
-        from ..terminal import Log
+        from logger2 import Log
 
         try:
 
@@ -129,7 +129,7 @@ class Driver:
     ) -> list[Element]:
         """Get List of Elements by query"""
         from selenium.webdriver.common.by import By
-        from ..terminal import Log
+        from logger2 import Log
 
         Log.VERB(f"Finding Element: {by=} | {name=}")
 
@@ -161,7 +161,7 @@ class Driver:
         """Open a url"""
         from selenium.common.exceptions import WebDriverException
         from urllib3.exceptions import ReadTimeoutError
-        from ..terminal import Log
+        from logger2 import Log
 
         Log.VERB(f"Opening Page: {url=}")
 
@@ -181,7 +181,7 @@ class Driver:
 
         try:
             from selenium.common.exceptions import InvalidSessionIdException
-            from ..terminal import Log
+            from logger2 import Log
 
             Log.VERB('Closing Session')
         except ImportError:

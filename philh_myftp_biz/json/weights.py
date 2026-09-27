@@ -24,7 +24,7 @@ class Weights:
         self.controls = controls
 
     def __call__(self, **samples) -> bool:
-        from ..terminal import Log
+        from logger2 import Log
 
         logm: str = 'Weighing Samples:'
         valid = True

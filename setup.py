@@ -8,7 +8,6 @@ kw = {
 
 setup(
 
-    cpp_ext("philh_myftp_biz/_log.cpp", **kw),
     cpp_ext("philh_myftp_biz/num.cpp", **kw),
     cpp_ext("philh_myftp_biz/web/_web.cpp", **kw),
     cpp_ext("philh_myftp_biz/text/uio.cpp", **kw),

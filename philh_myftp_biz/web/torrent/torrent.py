@@ -4,7 +4,7 @@ from typing import TYPE_CHECKING, Literal
 from .qbit import qBitTorrent as qbit
 from timelib2 import TimeStamp
 from .file import TorrentFile
-from ...terminal import Log
+from logger2 import Log
 
 if TYPE_CHECKING:
     from qbittorrentapi import TorrentDictionary
@@ -137,7 +137,7 @@ class Torrent:
     def start(self,
         stop_files: bool = False,
     ) -> bool:
-        from ... import VERBOSE
+        from logger2 import VERBOSE
         from time import sleep
 
         if self.exists:

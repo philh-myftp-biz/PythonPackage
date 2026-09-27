@@ -1,7 +1,7 @@
 from ...functools.cache import TransitoryCache
 from typing import TYPE_CHECKING, Generator
 from .torrent import Torrent
-from ...terminal import Log
+from logger2 import Log
 from ..url import URL
 
 if TYPE_CHECKING:

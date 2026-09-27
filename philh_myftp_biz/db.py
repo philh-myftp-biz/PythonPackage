@@ -3,7 +3,7 @@ MIMETYPES: dict[str, str]
 
 def __getattr__(attr:str):
     from .web.url import URL
-    from . import VERBOSE
+    from logger2 import VERBOSE
 
     if attr == 'MIMETYPES':
         try:

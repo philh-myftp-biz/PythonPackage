@@ -43,7 +43,7 @@ class ProgressBar:
         label: None|str = None,
         verbose: bool = False
     ) -> None:
-        from .. import VERBOSE
+        from logger2 import VERBOSE
         from tqdm import tqdm
         
         kwargs: dict = {

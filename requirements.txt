@@ -29,7 +29,5 @@ pywin32; sys_platform == 'win32'
 requests-cache
 diskcache
 tenacity
-strlib2
-
-hwdev @ git+https://github.com/MineFartS/hwdev/
-pathlib4 @ git+https://github.com/MineFartS/pathlib4/
+hwdev
+logger2
