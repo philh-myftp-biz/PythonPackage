@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>philh_myftp_biz.process.SubProcess &#8212; philh_myftp_biz  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css?v=27fed22d" />
+    <script src="../../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for philh_myftp_biz.process.SubProcess</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">TypedDict</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">strlib2.uio</span><span class="w"> </span><span class="kn">import</span> <span class="n">UnconsumingIO</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.Thread</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThreadedFunc</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sys</span><span class="w"> </span><span class="kn">import</span> <span class="n">executable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
+
+<span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib4</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<div class="viewcode-block" id="Terminal">
+<a class="viewcode-back" href="../../../_api/philh_myftp_biz/philh_myftp_biz.process.SubProcess.html#philh_myftp_biz.process.SubProcess.Terminal">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Terminal</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">):</span>
+    <span class="n">args</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+    <span class="n">exts</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span></div>
+
+
+<span class="n">_TerminalMap</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Terminal</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+
+    <span class="s1">'cmd'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'args'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'cmd'</span><span class="p">,</span> <span class="s1">'/c'</span><span class="p">),</span>
+        <span class="s1">'exts'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'exe'</span><span class="p">,</span> <span class="s1">'bat'</span><span class="p">)</span>
+    <span class="p">},</span>
+
+    <span class="s1">'ps'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'args'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'Powershell'</span><span class="p">,</span> <span class="s1">'-Command'</span><span class="p">),</span>
+        <span class="s1">'exts'</span><span class="p">:</span> <span class="p">()</span>
+    <span class="p">},</span>
+
+    <span class="s1">'psfile'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'args'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'Powershell'</span><span class="p">,</span> <span class="s1">'-File'</span><span class="p">),</span>
+        <span class="s1">'exts'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'ps1'</span><span class="p">,)</span>
+    <span class="p">},</span>
+
+    <span class="s1">'py'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'args'</span><span class="p">:</span> <span class="p">(</span><span class="n">executable</span><span class="p">,),</span>
+        <span class="s1">'exts'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'py'</span><span class="p">,)</span>
+    <span class="p">},</span>
+
+    <span class="s1">'pym'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'args'</span><span class="p">:</span> <span class="p">(</span><span class="n">executable</span><span class="p">,</span> <span class="s1">'-m'</span><span class="p">),</span>
+        <span class="s1">'exts'</span><span class="p">:</span> <span class="p">()</span>
+    <span class="p">},</span>
+
+    <span class="s1">'vbs'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'args'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'wscript'</span><span class="p">,),</span>
+        <span class="s1">'exts'</span><span class="p">:</span> <span class="p">(</span><span class="s1">'vbs'</span><span class="p">,)</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+
+<span class="n">TerminalMap</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">_TerminalMap</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SubProcess">
+<a class="viewcode-back" href="../../../_api/philh_myftp_biz/philh_myftp_biz.process.SubProcess.html#philh_myftp_biz.process.SubProcess.SubProcess">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SubProcess</span><span class="p">:</span>
+
+    <span class="n">_hide</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">_wait</span><span class="p">:</span> <span class="nb">bool</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="s1">'str|Path'</span><span class="p">,</span>
+        <span class="n">terminal</span><span class="p">:</span> <span class="kc">None</span><span class="o">|</span><span class="n">Literal</span><span class="p">[</span><span class="s1">'cmd'</span><span class="p">,</span> <span class="s1">'ps'</span><span class="p">,</span> <span class="s1">'psfile'</span><span class="p">,</span> <span class="s1">'py'</span><span class="p">,</span> <span class="s1">'pym'</span><span class="p">,</span> <span class="s1">'vbs'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'cmd'</span><span class="p">,</span>
+        <span class="nb">dir</span><span class="p">:</span> <span class="s1">'Path|None'</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">subprocess</span><span class="w"> </span><span class="kn">import</span> <span class="n">Popen</span><span class="p">,</span> <span class="n">PIPE</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">..array</span><span class="w"> </span><span class="kn">import</span> <span class="n">stringify</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">.SysTask</span><span class="w"> </span><span class="kn">import</span> <span class="n">SysTask</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">logger2</span><span class="w"> </span><span class="kn">import</span> <span class="n">Log</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib4</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span><span class="p">,</span> <span class="n">cwd</span>
+
+        <span class="c1"># =====================================</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">terminal</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="n">_terminal</span> <span class="o">=</span> <span class="n">TerminalMap</span><span class="p">[</span><span class="n">terminal</span><span class="p">]</span>
+
+        <span class="k">elif</span> <span class="n">terminal</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">ext</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">ext</span>
+            <span class="n">_terminal</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">TerminalMap</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="p">(</span><span class="n">ext</span> <span class="ow">in</span> <span class="n">t</span><span class="p">[</span><span class="s1">'exts'</span><span class="p">])),</span>
+                <span class="n">TerminalMap</span><span class="p">[</span><span class="s1">'cmd'</span><span class="p">]</span>
+            <span class="p">)</span>
+
+        <span class="n">args</span> <span class="o">=</span> <span class="p">[</span><span class="o">*</span><span class="n">_terminal</span><span class="p">[</span><span class="s1">'args'</span><span class="p">],</span> <span class="o">*</span><span class="n">stringify</span><span class="p">(</span><span class="n">args</span><span class="p">)]</span>
+        
+        <span class="c1"># =====================================</span>
+
+        <span class="n">Log</span><span class="o">.</span><span class="n">VERB</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Running Subprocess:</span><span class="se">\n</span><span class="si">{</span><span class="n">args</span><span class="si">=}</span><span class="se">\n</span><span class="si">{</span><span class="nb">dir</span><span class="si">=}</span><span class="se">\n</span><span class="s1">hide=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_hide</span><span class="si">}</span><span class="se">\n</span><span class="s1">wait=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_wait</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_process</span> <span class="o">=</span> <span class="n">Popen</span><span class="p">(</span>
+            <span class="n">args</span> <span class="o">=</span> <span class="n">args</span><span class="p">,</span>
+            <span class="n">cwd</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">dir</span> <span class="ow">or</span> <span class="n">cwd</span><span class="p">()),</span>
+            <span class="n">stdout</span> <span class="o">=</span> <span class="n">PIPE</span><span class="p">,</span>
+            <span class="n">stderr</span> <span class="o">=</span> <span class="n">PIPE</span><span class="p">,</span>
+            <span class="n">text</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+            <span class="n">errors</span> <span class="o">=</span> <span class="s1">'ignore'</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_task</span> <span class="o">=</span> <span class="n">SysTask</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_process</span><span class="o">.</span><span class="n">pid</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">stop</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_task</span><span class="o">.</span><span class="n">stop</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">send</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process</span><span class="o">.</span><span class="n">communicate</span>
+
+        <span class="c1"># =====================================</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span> <span class="o">=</span> <span class="n">UnconsumingIO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_process</span><span class="o">.</span><span class="n">stdout</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span> <span class="o">=</span> <span class="n">UnconsumingIO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_process</span><span class="o">.</span><span class="n">stderr</span><span class="p">)</span>
+
+        <span class="c1"># =====================================</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_hide</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">__print</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wait</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">finished</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span><span class="p">)</span>
+
+<div class="viewcode-block" id="SubProcess.output">
+<a class="viewcode-back" href="../../../_api/philh_myftp_biz/philh_myftp_biz.process.SubProcess.html#philh_myftp_biz.process.SubProcess.SubProcess.output">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+        <span class="nb">format</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">'json'</span><span class="p">,</span> <span class="s1">'hex'</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">stream</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">'out'</span><span class="p">,</span> <span class="s1">'err'</span><span class="p">]</span> <span class="o">=</span> <span class="s1">'out'</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'str | dict | list | bool | Any'</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Read the output from the Subprocess"""</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">strlib2</span><span class="w"> </span><span class="kn">import</span> <span class="nb">hex</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">..</span><span class="w"> </span><span class="kn">import</span> <span class="n">json</span>
+
+        <span class="n">_stream</span><span class="p">:</span> <span class="n">UnconsumingIO</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">'std'</span><span class="o">+</span><span class="n">stream</span><span class="p">)</span>
+
+        <span class="n">output</span> <span class="o">=</span> <span class="n">_stream</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="nb">format</span> <span class="o">==</span> <span class="s1">'json'</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+        
+        <span class="k">elif</span> <span class="nb">format</span> <span class="o">==</span> <span class="s1">'hex'</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">hex</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">output</span><span class="p">)</span>
+        
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">output</span></div>
+
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">running</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_task</span><span class="o">.</span><span class="n">exists</span>
+    
+<div class="viewcode-block" id="SubProcess.wait">
+<a class="viewcode-back" href="../../../_api/philh_myftp_biz/philh_myftp_biz.process.SubProcess.html#philh_myftp_biz.process.SubProcess.SubProcess.wait">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">wait</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
+            <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="SubProcess.__getstate__">
+<a class="viewcode-back" href="../../../_api/philh_myftp_biz/philh_myftp_biz.process.SubProcess.html#philh_myftp_biz.process.SubProcess.SubProcess.__getstate__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__getstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+
+        <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="n">state</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">'_process'</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">state</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">'__print'</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">state</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">'send'</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">state</span></div>
+
+
+    <span class="nd">@ThreadedFunc</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">__print</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">..terminal</span><span class="w"> </span><span class="kn">import</span> <span class="n">write</span>
+        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span><span class="p">:</span>
+            <span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="s1">'out'</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+            <span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stderr</span><span class="o">.</span><span class="n">read</span><span class="p">(),</span> <span class="s1">'err'</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Run">
+<a class="viewcode-back" href="../../../_api/philh_myftp_biz/philh_myftp_biz.process.SubProcess.html#philh_myftp_biz.process.SubProcess.Run">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Run</span><span class="p">(</span><span class="n">SubProcess</span><span class="p">):</span>
+    <span class="n">_hide</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">_wait</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="RunHidden">
+<a class="viewcode-back" href="../../../_api/philh_myftp_biz/philh_myftp_biz.process.SubProcess.html#philh_myftp_biz.process.SubProcess.RunHidden">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">RunHidden</span><span class="p">(</span><span class="n">SubProcess</span><span class="p">):</span>
+    <span class="n">_hide</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">_wait</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="Start">
+<a class="viewcode-back" href="../../../_api/philh_myftp_biz/philh_myftp_biz.process.SubProcess.html#philh_myftp_biz.process.SubProcess.Start">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Start</span><span class="p">(</span><span class="n">SubProcess</span><span class="p">):</span>
+    <span class="n">_hide</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">_wait</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+
+<div class="viewcode-block" id="StartHidden">
+<a class="viewcode-back" href="../../../_api/philh_myftp_biz/philh_myftp_biz.process.SubProcess.html#philh_myftp_biz.process.SubProcess.StartHidden">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">StartHidden</span><span class="p">(</span><span class="n">SubProcess</span><span class="p">):</span>
+    <span class="n">_hide</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">_wait</span> <span class="o">=</span> <span class="kc">False</span></div>
+
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">philh_myftp_biz</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../_api/index.html">API Reference</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Phil Hunt.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>
