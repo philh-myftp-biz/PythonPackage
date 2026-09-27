@@ -127,7 +127,7 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.exists
 
-   .. py:method:: path() -> philh_myftp_biz.pc.Path
+   .. py:method:: path() -> pathlib4.Path
       :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.path
 
       .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.path

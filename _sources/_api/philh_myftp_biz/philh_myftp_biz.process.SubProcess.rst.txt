@@ -112,7 +112,7 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess.finished
 
-   .. py:method:: output(format: typing.Literal[philh_myftp_biz.json, philh_myftp_biz.text.hex] = None, stream: typing.Literal[out, err] = 'out') -> str | dict | list | bool | Any
+   .. py:method:: output(format: typing.Literal[philh_myftp_biz.json, strlib2.hex] = None, stream: typing.Literal[out, err] = 'out') -> str | dict | list | bool | Any
       :canonical: philh_myftp_biz.process.SubProcess.SubProcess.output
 
       .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess.output

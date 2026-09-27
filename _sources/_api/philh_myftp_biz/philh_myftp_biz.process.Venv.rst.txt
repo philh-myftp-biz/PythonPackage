@@ -43,7 +43,7 @@ API
 .. py:class:: SubVenv(path: typing.Any)
    :canonical: philh_myftp_biz.process.Venv.SubVenv
 
-   Bases: :py:obj:`philh_myftp_biz.pc.Path.Path`
+   Bases: :py:obj:`pathlib4.Path`
 
    .. autodoc2-docstring:: philh_myftp_biz.process.Venv.SubVenv
 
@@ -51,7 +51,7 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.process.Venv.SubVenv.__init__
 
-   .. py:method:: exe() -> philh_myftp_biz.pc.Path.Path
+   .. py:method:: exe() -> pathlib4.Path
       :canonical: philh_myftp_biz.process.Venv.SubVenv.exe
 
       .. autodoc2-docstring:: philh_myftp_biz.process.Venv.SubVenv.exe

@@ -91,7 +91,7 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.functools.singleton
 
-.. py:function:: remport(file: philh_myftp_biz.pc.Path, type: philh_myftp_biz.functools.remport.type[philh_myftp_biz.functools.remport.T] = Any) -> philh_myftp_biz.functools.remport.T
+.. py:function:: remport(file: pathlib4.Path, type: philh_myftp_biz.functools.remport.type[philh_myftp_biz.functools.remport.T] = Any) -> philh_myftp_biz.functools.remport.T
    :canonical: philh_myftp_biz.functools.remport
 
    .. autodoc2-docstring:: philh_myftp_biz.functools.remport

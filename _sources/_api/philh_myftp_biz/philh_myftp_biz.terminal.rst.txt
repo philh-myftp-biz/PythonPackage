@@ -24,7 +24,6 @@ Submodules
 
    philh_myftp_biz.terminal.Args
    philh_myftp_biz.terminal.KIC
-   philh_myftp_biz.terminal.Log
    philh_myftp_biz.terminal.ProgressBar
 
 Package Contents

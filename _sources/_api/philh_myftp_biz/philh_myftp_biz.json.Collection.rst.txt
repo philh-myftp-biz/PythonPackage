@@ -65,7 +65,7 @@ API
 
    .. py:attribute:: var
       :canonical: philh_myftp_biz.json.Collection.Collection.var
-      :type: philh_myftp_biz.file._Template
+      :type: pathlib4.file._Template
       :value: None
 
       .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.var

@@ -40,26 +40,26 @@ Data
 API
 ~~~
 
-.. py:function:: __FFMPEG(name: str) -> philh_myftp_biz.pc.Path
+.. py:function:: __FFMPEG(name: str) -> pathlib4.Path
    :canonical: philh_myftp_biz.programs.__FFMPEG
 
    .. autodoc2-docstring:: philh_myftp_biz.programs.__FFMPEG
 
 .. py:data:: FFMPEG
    :canonical: philh_myftp_biz.programs.FFMPEG
-   :type: functools.partial[philh_myftp_biz.pc.Path]
+   :type: functools.partial[pathlib4.Path]
    :value: 'partial(...)'
 
    .. autodoc2-docstring:: philh_myftp_biz.programs.FFMPEG
 
 .. py:data:: FFPROBE
    :canonical: philh_myftp_biz.programs.FFPROBE
-   :type: functools.partial[philh_myftp_biz.pc.Path]
+   :type: functools.partial[pathlib4.Path]
    :value: 'partial(...)'
 
    .. autodoc2-docstring:: philh_myftp_biz.programs.FFPROBE
 
-.. py:function:: COOKIES() -> philh_myftp_biz.pc.Path
+.. py:function:: COOKIES() -> pathlib4.Path
    :canonical: philh_myftp_biz.programs.COOKIES
 
    .. autodoc2-docstring:: philh_myftp_biz.programs.COOKIES

@@ -57,7 +57,7 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.web.ftp.FTPPath.__repr__
 
-   .. py:method:: download(local: philh_myftp_biz.pc.Path) -> None
+   .. py:method:: download(local: pathlib4.Path) -> None
       :canonical: philh_myftp_biz.web.ftp.FTPPath.download
 
       .. autodoc2-docstring:: philh_myftp_biz.web.ftp.FTPPath.download

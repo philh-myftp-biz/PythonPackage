@@ -41,8 +41,6 @@ API
    .. py:method:: __str__() -> str
       :canonical: philh_myftp_biz.functools.supports.SupportsStr.__str__
 
-      .. autodoc2-docstring:: philh_myftp_biz.functools.supports.SupportsStr.__str__
-
 .. py:data:: SupportsJSON
    :canonical: philh_myftp_biz.functools.supports.SupportsJSON
    :value: None
