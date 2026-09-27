@@ -1,6 +1,6 @@
 from .SubProcess import TerminalMap, _TerminalMap
 from functools import cached_property
-from ..pc.Path import Path
+from pathlib4 import Path
 
 _exepaths = [
     "/Scripts/python.exe",

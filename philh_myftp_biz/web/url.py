@@ -3,7 +3,7 @@ from ..json import SupportsJSON
 
 if TYPE_CHECKING:
     from requests import Response
-    from ..pc import Path
+    from pathlib4 import Path
 
 #============================================================================
 

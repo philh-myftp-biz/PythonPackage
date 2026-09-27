@@ -2,13 +2,13 @@ from git.exc import InvalidGitRepositoryError as InvalidRepoError # pyright: ign
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from ..pc import Path
+    from pathlib4 import Path
 
 class Repo:
 
     def __init__(self, path:'Path') -> None:
         from git.exc import NoSuchPathError
-        from ..pc import Path
+        from pathlib4 import Path
         from git import Repo
 
         self.path = Path(path)

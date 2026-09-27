@@ -5,7 +5,7 @@ from sys import executable
 from copy import deepcopy
 
 if TYPE_CHECKING:
-    from ..pc import Path
+    from pathlib4 import Path
 
 class Terminal(TypedDict):
     args: tuple[str, ...]
@@ -61,7 +61,7 @@ class SubProcess:
         from ..array import stringify
         from .SysTask import SysTask
         from logger2 import Log
-        from ..pc import Path, cwd
+        from pathlib4 import Path, cwd
 
         # =====================================
 

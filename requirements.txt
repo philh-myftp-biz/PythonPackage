@@ -1,5 +1,3 @@
-pyyaml
-dill
 psutil
 dbwraps
 paramiko
@@ -9,27 +7,23 @@ vt-py
 selenium
 qbittorrent-api
 inputimeout
-configobj
 browser_cookie3
 elevate
 tqdm
-tomli_w
-toml
 ping3
 timelib2
-xmltodict
 GitPython
 parse-torrent-title
 bs4
 geopy
-mutagen
 QuickSocketPY
 cpulimiter; sys_platform == 'win32'
 pywin32; sys_platform == 'win32'
 requests-cache
 diskcache
 tenacity
-hwdev
-logger2
-pathlib4
 strlib2
+
+hwdev @ git+https://github.com/MineFartS/hwdev/
+logger2 @ git+https://github.com/MineFartS/logger2/
+pathlib4 @ git+https://github.com/MineFartS/pathlib4/

@@ -3,7 +3,7 @@ from functools import cached_property
 from dataclasses import dataclass
 
 if TYPE_CHECKING:
-    from ..pc import Path
+    from pathlib4 import Path
 
 @dataclass
 # @dead-code-ignore

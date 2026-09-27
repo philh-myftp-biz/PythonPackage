@@ -1,6 +1,6 @@
 from ..functools import force_in_types
 from .SysTask import SysTask, rscan
-from ..pc.Path import Path
+from pathlib4 import Path
 
 class PyModule(SysTask):
 

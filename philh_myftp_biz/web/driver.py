@@ -6,7 +6,7 @@ from dataclasses import dataclass
 
 if TYPE_CHECKING:
     from .url import URL
-    from ..pc import Path
+    from pathlib4 import Path
 
 @dataclass
 class Element(WebElement):

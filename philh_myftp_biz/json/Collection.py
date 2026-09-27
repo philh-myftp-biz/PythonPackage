@@ -1,6 +1,6 @@
 from typing import Self, Any, cast, Generator, Iterator
 from contextlib import contextmanager
-from ..file import _Template as File
+from pathlib4.file import _Template as File
 from json import dumps
 
 _NO_VALUE = object()

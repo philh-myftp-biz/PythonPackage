@@ -1,7 +1,7 @@
 from functools import cached_property
 from typing import TYPE_CHECKING
 from hwdev import Device
-from ..pc import Path
+from pathlib4 import Path
 
 if TYPE_CHECKING:
     from philh_myftp_biz.process import RunHidden
@@ -150,7 +150,7 @@ class Service(Path, Device):
 
     @cached_property
     def logfile(self) -> None | Path:
-        from ..pc._pc import loc
+        from pathlib4 import loc
 
         path = loc.temp.child('philh_myftp_biz.log')
 

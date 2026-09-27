@@ -3,7 +3,7 @@ from functools import cache
 from sys import platform
 
 if TYPE_CHECKING:
-    from ..pc.Path import Path
+    from pathlib4 import Path
     from dbwraps import Color
 
 from sys import stdout, stderr # pyright: ignore[reportUnusedImport]
@@ -127,7 +127,7 @@ def input[D] (
 def pause() -> None:
     """Pause the execution and wait for user input"""
     from os import system
-    from ..pc import OS
+    from pathlib4 import OS
 
     if OS == 'windows':
         system('pause')
@@ -157,7 +157,7 @@ def cls() -> None:
     (Prints a hexidecimal value so it can be detected from a subprocess)
     """
     from os import system
-    from ..pc import OS
+    from pathlib4 import OS
 
     print(_cls_hex)
     system(_cls_cmd)
@@ -203,7 +203,7 @@ def main_module():
 
 # @dead-code-ignore
 def set_package(path:'str|Path'):
-    from ..pc.Path import Path
+    from pathlib4 import Path
     import sys
 
     path = Path(path)
@@ -215,7 +215,7 @@ def set_package(path:'str|Path'):
 # @dead-code-ignore
 def script_file():
     from sys import executable
-    from ..pc import Path
+    from pathlib4 import Path
 
     mod = main_module()
 

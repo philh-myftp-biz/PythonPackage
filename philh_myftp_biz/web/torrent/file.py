@@ -6,7 +6,7 @@ from typing import TYPE_CHECKING
 from logger2 import Log
 
 if TYPE_CHECKING:
-    from ...pc import Path
+    from pathlib4 import Path
     from . import Torrent
 
 class TorrentFileNotFoundError(Exception): ...

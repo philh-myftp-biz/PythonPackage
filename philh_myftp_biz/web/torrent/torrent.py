@@ -8,7 +8,7 @@ from logger2 import Log
 
 if TYPE_CHECKING:
     from qbittorrentapi import TorrentDictionary
-    from ...pc.Path import Path
+    from pathlib4 import Path
 
 class Torrent:
 
@@ -118,7 +118,7 @@ class Torrent:
     
     @cached_property
     def path(self) -> 'Path':
-        from ...pc import Path
+        from pathlib4 import Path
         return Path(self.raw.save_path)
 
     @property
