@@ -3,4 +3,12 @@
     "search.exclude": {
         "headers": true,
     },
+    "files.exclude": {
+        "_api": true,
+        "_build": true,
+        ".mypy_cache": true,
+        ".ruff_cache": true,
+        "**.egg-info": true,
+        "build": true
+    },
 }
