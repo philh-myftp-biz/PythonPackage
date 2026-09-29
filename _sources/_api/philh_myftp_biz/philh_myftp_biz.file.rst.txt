@@ -87,25 +87,22 @@ API
 
    .. py:attribute:: _read
       :canonical: philh_myftp_biz.file._Template._read
+      :type: typing.Callable[[], typing.Any]
       :value: None
 
       .. autodoc2-docstring:: philh_myftp_biz.file._Template._read
 
-   .. py:attribute:: _save
-      :canonical: philh_myftp_biz.file._Template._save
+   .. py:attribute:: save
+      :canonical: philh_myftp_biz.file._Template.save
+      :type: typing.Callable[[typing.Any], None]
       :value: None
 
-      .. autodoc2-docstring:: philh_myftp_biz.file._Template._save
+      .. autodoc2-docstring:: philh_myftp_biz.file._Template.save
 
    .. py:method:: read()
       :canonical: philh_myftp_biz.file._Template.read
 
       .. autodoc2-docstring:: philh_myftp_biz.file._Template.read
-
-   .. py:method:: save(data: typing.Any)
-      :canonical: philh_myftp_biz.file._Template.save
-
-      .. autodoc2-docstring:: philh_myftp_biz.file._Template.save
 
    .. py:property:: raw
       :canonical: philh_myftp_biz.file._Template.raw
@@ -139,10 +136,10 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.file.XML._read
 
-   .. py:method:: _save(data: dict) -> None
-      :canonical: philh_myftp_biz.file.XML._save
+   .. py:method:: save(data: dict) -> None
+      :canonical: philh_myftp_biz.file.XML.save
 
-      .. autodoc2-docstring:: philh_myftp_biz.file.XML._save
+      .. autodoc2-docstring:: philh_myftp_biz.file.XML.save
 
 .. py:class:: PKL(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
    :canonical: philh_myftp_biz.file.PKL
@@ -160,10 +157,10 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.file.PKL._read
 
-   .. py:method:: _save(value: typing.Any) -> None
-      :canonical: philh_myftp_biz.file.PKL._save
+   .. py:method:: save(value: typing.Any) -> None
+      :canonical: philh_myftp_biz.file.PKL.save
 
-      .. autodoc2-docstring:: philh_myftp_biz.file.PKL._save
+      .. autodoc2-docstring:: philh_myftp_biz.file.PKL.save
 
 .. py:class:: VHDX(VHD: philh_myftp_biz.pc.Path, MNT: philh_myftp_biz.pc.Path, timeout: int = 30, readonly: bool = False)
    :canonical: philh_myftp_biz.file.VHDX
@@ -200,10 +197,10 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.file.JSON._read
 
-   .. py:method:: _save(data: dict) -> None
-      :canonical: philh_myftp_biz.file.JSON._save
+   .. py:method:: save(data: dict) -> None
+      :canonical: philh_myftp_biz.file.JSON.save
 
-      .. autodoc2-docstring:: philh_myftp_biz.file.JSON._save
+      .. autodoc2-docstring:: philh_myftp_biz.file.JSON.save
 
 .. py:class:: INI(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
    :canonical: philh_myftp_biz.file.INI
@@ -221,10 +218,10 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.file.INI._read
 
-   .. py:method:: _save(data: dict) -> None
-      :canonical: philh_myftp_biz.file.INI._save
+   .. py:method:: save(data: dict) -> None
+      :canonical: philh_myftp_biz.file.INI.save
 
-      .. autodoc2-docstring:: philh_myftp_biz.file.INI._save
+      .. autodoc2-docstring:: philh_myftp_biz.file.INI.save
 
 .. py:class:: YAML(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
    :canonical: philh_myftp_biz.file.YAML
@@ -242,10 +239,10 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.file.YAML._read
 
-   .. py:method:: _save(data: dict) -> None
-      :canonical: philh_myftp_biz.file.YAML._save
+   .. py:method:: save(data: dict) -> None
+      :canonical: philh_myftp_biz.file.YAML.save
 
-      .. autodoc2-docstring:: philh_myftp_biz.file.YAML._save
+      .. autodoc2-docstring:: philh_myftp_biz.file.YAML.save
 
 .. py:class:: TXT(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
    :canonical: philh_myftp_biz.file.TXT
@@ -263,10 +260,10 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.file.TXT._read
 
-   .. py:method:: _save(data: str) -> None
-      :canonical: philh_myftp_biz.file.TXT._save
+   .. py:method:: save(data: str) -> None
+      :canonical: philh_myftp_biz.file.TXT.save
 
-      .. autodoc2-docstring:: philh_myftp_biz.file.TXT._save
+      .. autodoc2-docstring:: philh_myftp_biz.file.TXT.save
 
 .. py:class:: ZIP
    :canonical: philh_myftp_biz.file.ZIP
@@ -346,10 +343,10 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.file.CSV._read
 
-   .. py:method:: _save(data: list[list]) -> None
-      :canonical: philh_myftp_biz.file.CSV._save
+   .. py:method:: save(data: list[list]) -> None
+      :canonical: philh_myftp_biz.file.CSV.save
 
-      .. autodoc2-docstring:: philh_myftp_biz.file.CSV._save
+      .. autodoc2-docstring:: philh_myftp_biz.file.CSV.save
 
 .. py:class:: TOML(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
    :canonical: philh_myftp_biz.file.TOML
@@ -367,7 +364,7 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.file.TOML._read
 
-   .. py:method:: _save(data: dict) -> None
-      :canonical: philh_myftp_biz.file.TOML._save
+   .. py:method:: save(data: dict) -> None
+      :canonical: philh_myftp_biz.file.TOML.save
 
-      .. autodoc2-docstring:: philh_myftp_biz.file.TOML._save
+      .. autodoc2-docstring:: philh_myftp_biz.file.TOML.save
