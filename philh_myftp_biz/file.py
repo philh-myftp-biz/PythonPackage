@@ -42,8 +42,10 @@ class _Template:
 
     parsed: Any
 
-    _read = Callable[[], Any]
-    _save = Callable[[Any], None]
+    _read: Callable[[], Any]
+
+    save: Callable[[Any], None]
+    """Write data to the file"""
 
     def read(self):
         """Read data from the file"""
@@ -52,17 +54,6 @@ class _Template:
             return self._read()
         
         return self.default
-
-    def save(self, data:Any):
-        """Write data to the file"""
-
-        _data = self.read()
-
-        try:
-            self._save(data)
-        except Exception as e:
-            self._save(_data)
-            raise e from None
 
     @property
     def raw(self) -> bytes:
@@ -96,7 +87,7 @@ class XML(_Template):
 
             return parse(f.read())
 
-    def _save(self,
+    def save(self,
         data: dict
     ) -> None:
         from xmltodict import unparse
@@ -117,7 +108,7 @@ class PKL(_Template):
         with self.path.open('rb') as f:
             return load(f)
 
-    def _save(self,
+    def save(self,
         value: Any
     ) -> None:
         from dill import dump
@@ -180,7 +171,7 @@ class JSON(_Template):
 
         return load(fp=self.path.open())
 
-    def _save(self, data: dict) -> None:
+    def save(self, data: dict) -> None:
         from json import dump
 
         dump(
@@ -198,7 +189,7 @@ class INI(_Template):
         
         return ConfigObj(str(self.path)).dict()
          
-    def _save(self, data:dict) -> None:
+    def save(self, data:dict) -> None:
         from configobj import ConfigObj
 
         obj = ConfigObj(str(self.path))
@@ -216,7 +207,7 @@ class YAML(_Template):
 
         return safe_load(self.raw)
     
-    def _save(self, data:dict) -> None:
+    def save(self, data:dict) -> None:
         from yaml import dump
 
         dump(
@@ -234,7 +225,7 @@ class TXT(_Template):
         """Read data from the txt file"""
         return self.path.open(mode='r').read()
     
-    def _save(self, data:str) -> None:
+    def save(self, data:str) -> None:
         """Save data to the txt file"""
         self.path.open(mode='w').write(str(data))
 
@@ -302,7 +293,7 @@ class CSV(_Template):
         with self.path.open() as csvfile:
             return reader(csvfile)
 
-    def _save(self, data:list[list]) -> None:
+    def save(self, data:list[list]) -> None:
         from csv import writer
 
         with self.path.open('w') as csvfile:
@@ -318,7 +309,7 @@ class TOML(_Template):
         with self.path.open() as f:
             return load(f)
         
-    def _save(self, data:dict) -> None:
+    def save(self, data:dict) -> None:
         from tomli_w import dump
 
         with self.path.open('wb') as f:
