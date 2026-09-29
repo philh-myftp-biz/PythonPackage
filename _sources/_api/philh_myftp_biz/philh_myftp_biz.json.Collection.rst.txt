@@ -40,7 +40,7 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.json.Collection._NO_VALUE
 
-.. py:class:: Collection(t: STRUCT | File | Collection[T, STRUCT] | Any = None)
+.. py:class:: Collection(t: STRUCT | RWFile | Collection[T, STRUCT] | Any = None)
    :canonical: philh_myftp_biz.json.Collection.Collection
 
    .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection
@@ -65,7 +65,7 @@ API
 
    .. py:attribute:: var
       :canonical: philh_myftp_biz.json.Collection.Collection.var
-      :type: philh_myftp_biz.file._Template
+      :type: philh_myftp_biz.file.RWFile
       :value: None
 
       .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.var

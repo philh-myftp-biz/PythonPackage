@@ -23,7 +23,7 @@ Classes
 API
 ~~~
 
-.. py:class:: Dict(t: STRUCT | File | Collection[T, STRUCT] | Any = None)
+.. py:class:: Dict(t: STRUCT | RWFile | Collection[T, STRUCT] | Any = None)
    :canonical: philh_myftp_biz.json.Dict.Dict
 
    Bases: :py:obj:`philh_myftp_biz.json.Collection.Collection`\ [\ :py:obj:`philh_myftp_biz.json.Dict.Dict.T`\ , :py:obj:`dict`\ [\ :py:obj:`str`\ , :py:obj:`philh_myftp_biz.json.Dict.Dict.T`\ ]\ ]

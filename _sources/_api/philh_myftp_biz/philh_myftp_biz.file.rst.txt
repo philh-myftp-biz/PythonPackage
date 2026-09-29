@@ -16,8 +16,8 @@ Classes
    :class: autosummary longtable
    :align: left
 
-   * - :py:obj:`_Template <philh_myftp_biz.file._Template>`
-     - .. autodoc2-docstring:: philh_myftp_biz.file._Template
+   * - :py:obj:`RWFile <philh_myftp_biz.file.RWFile>`
+     - .. autodoc2-docstring:: philh_myftp_biz.file.RWFile
           :summary:
    * - :py:obj:`XML <philh_myftp_biz.file.XML>`
      - .. autodoc2-docstring:: philh_myftp_biz.file.XML
@@ -69,61 +69,61 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.file.temp
 
-.. py:class:: _Template(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
-   :canonical: philh_myftp_biz.file._Template
+.. py:class:: RWFile(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
+   :canonical: philh_myftp_biz.file.RWFile
 
-   .. autodoc2-docstring:: philh_myftp_biz.file._Template
+   .. autodoc2-docstring:: philh_myftp_biz.file.RWFile
 
    .. rubric:: Initialization
 
-   .. autodoc2-docstring:: philh_myftp_biz.file._Template.__init__
+   .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.__init__
 
    .. py:attribute:: parsed
-      :canonical: philh_myftp_biz.file._Template.parsed
+      :canonical: philh_myftp_biz.file.RWFile.parsed
       :type: typing.Any
       :value: None
 
-      .. autodoc2-docstring:: philh_myftp_biz.file._Template.parsed
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.parsed
 
    .. py:attribute:: _read
-      :canonical: philh_myftp_biz.file._Template._read
+      :canonical: philh_myftp_biz.file.RWFile._read
       :type: typing.Callable[[], typing.Any]
       :value: None
 
-      .. autodoc2-docstring:: philh_myftp_biz.file._Template._read
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile._read
 
    .. py:attribute:: save
-      :canonical: philh_myftp_biz.file._Template.save
+      :canonical: philh_myftp_biz.file.RWFile.save
       :type: typing.Callable[[typing.Any], None]
       :value: None
 
-      .. autodoc2-docstring:: philh_myftp_biz.file._Template.save
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.save
 
    .. py:method:: read()
-      :canonical: philh_myftp_biz.file._Template.read
+      :canonical: philh_myftp_biz.file.RWFile.read
 
-      .. autodoc2-docstring:: philh_myftp_biz.file._Template.read
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.read
 
    .. py:property:: raw
-      :canonical: philh_myftp_biz.file._Template.raw
+      :canonical: philh_myftp_biz.file.RWFile.raw
       :type: bytes
 
-      .. autodoc2-docstring:: philh_myftp_biz.file._Template.raw
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.raw
 
    .. py:method:: Dict()
-      :canonical: philh_myftp_biz.file._Template.Dict
+      :canonical: philh_myftp_biz.file.RWFile.Dict
 
-      .. autodoc2-docstring:: philh_myftp_biz.file._Template.Dict
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.Dict
 
    .. py:method:: List()
-      :canonical: philh_myftp_biz.file._Template.List
+      :canonical: philh_myftp_biz.file.RWFile.List
 
-      .. autodoc2-docstring:: philh_myftp_biz.file._Template.List
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.List
 
 .. py:class:: XML(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
    :canonical: philh_myftp_biz.file.XML
 
-   Bases: :py:obj:`philh_myftp_biz.file._Template`
+   Bases: :py:obj:`philh_myftp_biz.file.RWFile`
 
    .. autodoc2-docstring:: philh_myftp_biz.file.XML
 
@@ -144,7 +144,7 @@ API
 .. py:class:: PKL(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
    :canonical: philh_myftp_biz.file.PKL
 
-   Bases: :py:obj:`philh_myftp_biz.file._Template`
+   Bases: :py:obj:`philh_myftp_biz.file.RWFile`
 
    .. autodoc2-docstring:: philh_myftp_biz.file.PKL
 
@@ -184,7 +184,7 @@ API
 .. py:class:: JSON(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
    :canonical: philh_myftp_biz.file.JSON
 
-   Bases: :py:obj:`philh_myftp_biz.file._Template`
+   Bases: :py:obj:`philh_myftp_biz.file.RWFile`
 
    .. autodoc2-docstring:: philh_myftp_biz.file.JSON
 
@@ -205,7 +205,7 @@ API
 .. py:class:: INI(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
    :canonical: philh_myftp_biz.file.INI
 
-   Bases: :py:obj:`philh_myftp_biz.file._Template`
+   Bases: :py:obj:`philh_myftp_biz.file.RWFile`
 
    .. autodoc2-docstring:: philh_myftp_biz.file.INI
 
@@ -226,7 +226,7 @@ API
 .. py:class:: YAML(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
    :canonical: philh_myftp_biz.file.YAML
 
-   Bases: :py:obj:`philh_myftp_biz.file._Template`
+   Bases: :py:obj:`philh_myftp_biz.file.RWFile`
 
    .. autodoc2-docstring:: philh_myftp_biz.file.YAML
 
@@ -247,7 +247,7 @@ API
 .. py:class:: TXT(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
    :canonical: philh_myftp_biz.file.TXT
 
-   Bases: :py:obj:`philh_myftp_biz.file._Template`
+   Bases: :py:obj:`philh_myftp_biz.file.RWFile`
 
    .. autodoc2-docstring:: philh_myftp_biz.file.TXT
 
@@ -330,7 +330,7 @@ API
 .. py:class:: CSV(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
    :canonical: philh_myftp_biz.file.CSV
 
-   Bases: :py:obj:`philh_myftp_biz.file._Template`
+   Bases: :py:obj:`philh_myftp_biz.file.RWFile`
 
    .. autodoc2-docstring:: philh_myftp_biz.file.CSV
 
@@ -351,7 +351,7 @@ API
 .. py:class:: TOML(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
    :canonical: philh_myftp_biz.file.TOML
 
-   Bases: :py:obj:`philh_myftp_biz.file._Template`
+   Bases: :py:obj:`philh_myftp_biz.file.RWFile`
 
    .. autodoc2-docstring:: philh_myftp_biz.file.TOML
 

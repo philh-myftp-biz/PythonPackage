@@ -23,7 +23,7 @@ Classes
 API
 ~~~
 
-.. py:class:: List(t: STRUCT | File | Collection[T, STRUCT] | Any = None)
+.. py:class:: List(t: STRUCT | RWFile | Collection[T, STRUCT] | Any = None)
    :canonical: philh_myftp_biz.json.List.List
 
    Bases: :py:obj:`philh_myftp_biz.json.Collection.Collection`\ [\ :py:obj:`philh_myftp_biz.json.List.List.V`\ , :py:obj:`list`\ [\ :py:obj:`philh_myftp_biz.json.List.List.V`\ ]\ ]
