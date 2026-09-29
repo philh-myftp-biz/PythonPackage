@@ -26,7 +26,7 @@ def temp(
 
 #========================================================
 
-class _Template:
+class RWFile:
 
     def __init__(self,
         path: 'Path',
@@ -77,7 +77,7 @@ class _Template:
 #========================================================
 
 # @dead-code-ignore
-class XML(_Template):
+class XML(RWFile):
     """.XML File"""
 
     def _read(self) -> dict:
@@ -99,7 +99,7 @@ class XML(_Template):
             f.write(data)
 
 # @dead-code-ignore
-class PKL(_Template):
+class PKL(RWFile):
     """.PKL File"""
 
     def _read(self):
@@ -163,7 +163,7 @@ class VHDX:
         self.MNT.delete()
 
 # @dead-code-ignore
-class JSON(_Template):
+class JSON(RWFile):
     """.JSON File"""
 
     def _read(self):
@@ -181,7 +181,7 @@ class JSON(_Template):
         )
 
 # @dead-code-ignore
-class INI(_Template):
+class INI(RWFile):
     """.INI/.PROPERTIES File"""
     
     def _read(self):
@@ -199,7 +199,7 @@ class INI(_Template):
 
         obj.write()
 
-class YAML(_Template):
+class YAML(RWFile):
     """.YML/.YAML File"""
     
     def _read(self):
@@ -218,7 +218,7 @@ class YAML(_Template):
         )
 
 # @dead-code-ignore
-class TXT(_Template):
+class TXT(RWFile):
     """.TXT File"""
     
     def _read(self):
@@ -284,7 +284,7 @@ class ZIP:
         self._zip.extractall(str(path))
 
 # @dead-code-ignore
-class CSV(_Template):
+class CSV(RWFile):
     """.CSV File"""
 
     def _read(self):
@@ -300,7 +300,7 @@ class CSV(_Template):
             writer(csvfile).writerows(data)
 
 # @dead-code-ignore
-class TOML(_Template):
+class TOML(RWFile):
     """.TOML File"""
 
     def _read(self):

@@ -1,6 +1,6 @@
 from typing import Self, Any, cast, Generator, Iterator
 from contextlib import contextmanager
-from ..file import _Template as File
+from ..file import RWFile
 from json import dumps
 
 _NO_VALUE = object()
@@ -11,10 +11,10 @@ class Collection[T, STRUCT]:
 
     _cache: STRUCT
 
-    var: File
+    var: RWFile
 
     def __init__(self,
-        t: 'STRUCT | File | Collection[T, STRUCT] | Any' = None
+        t: 'STRUCT | RWFile | Collection[T, STRUCT] | Any' = None
     ) -> None:
         from types import GeneratorType
 
@@ -22,7 +22,7 @@ class Collection[T, STRUCT]:
             self.var = t.var
             self._cache = t.var.read()
 
-        elif isinstance(t, File):
+        elif isinstance(t, RWFile):
             t.default = self._default
             self.var = t
             self._cache = t.read()
