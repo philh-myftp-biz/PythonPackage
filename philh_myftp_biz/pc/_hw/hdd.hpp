@@ -24,19 +24,13 @@ struct HardDrive : public Device {
     static std::vector<HardDrive> search() {
         std::vector<HardDrive> _hdds;
 
-        for (const auto& _hwDisk : hwinfo::getAllDisks()) {
-            
-            str _sn = stru::strip( _hwDisk.serial_number() );
-            if (_sn.starts_with('{')) continue;
-            if (_sn.empty()) continue;
-            
+        for (const auto& dsk : hwinfo::getAllDisksClean()) {
             _hdds.push_back(HardDrive(
                 "?", // Tower
                 "?", // COnn
                 -1, // ID
-                _sn // SN
+                dsk.serial_number() // SN
             ));
-            
         }
 
         return _hdds;
@@ -84,35 +78,29 @@ struct HardDrive : public Device {
     //===============================================================================
     // hwDisk
 
-    mutable optional<hwinfo::Disk> _cached_hwDisk = nullopt;
+    using optDisk = optional<hwinfo::Disk>;
 
-    optional<hwinfo::Disk> hwDisk() const {
-        using namespace stru;
+    mutable optDisk _cached_disk = nullopt; 
 
-        if (!_cached_hwDisk.has_value()) {
-            for (const auto& _hwDisk : hwinfo::getAllDisks()) {
-                
-                str raw_sn = strip(_hwDisk.serial_number());
-
-                if (!raw_sn.empty() && match_str_nc(this->SN, raw_sn)) {
-                    _cached_hwDisk = _hwDisk;
+    optDisk hwDisk() const {
+        if (!_cached_disk.has_value()) {
+            for (const auto& dsk : hwinfo::getAllDisksClean()) {
+                if (stru::match_str_nc(this->SN, dsk.serial_number())) {
+                    _cached_disk = dsk;
                     break;
                 }
-
             }
         }
-        
-        return _cached_hwDisk;
+        return _cached_disk;
     }
 
     //===============================================================================
     // Name
 
     str GetName() const override {
-        int _index = const_cast<HardDrive*>(this)->Index(); 
         std::ostringstream oss;
         oss << std::setfill('0') << std::setw(2) << ID << "-" << Tower;
-        oss << " [" << _index << ", " << SN << "]";
+        oss << " [" << Index() << ", " << SN << "]";
         return oss.str();
     }
 
@@ -126,12 +114,8 @@ struct HardDrive : public Device {
     //===============================================================================
     // Index
 
-    int Index() {
-        if (GetConnected()) {
-            return hwDisk()->id();
-        } else {
-            return -1;
-        }
+    int Index() const {
+        return GetConnected() ? hwDisk()->id() : -1;
     }
 
     //===============================================================================
