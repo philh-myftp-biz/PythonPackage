@@ -1,29 +1,28 @@
 from pybind_setup_ext import cpp_ext, setup, update_submodule
+from pybind_setup_ext.cpp_ext import _kw_templ
 
 update_submodule('headers', force=True, remote=True)
 
-kw = {
-    'include_dirs': ["headers"]
-}
+_kw_templ['include_dirs'] += ['headers']
 
 setup(
 
-    cpp_ext("philh_myftp_biz/_log.cpp", **kw),
-    cpp_ext("philh_myftp_biz/num.cpp", **kw),
-    cpp_ext("philh_myftp_biz/web/_web.cpp", **kw),
-    cpp_ext("philh_myftp_biz/time/_time.cpp", **kw),
-    cpp_ext("philh_myftp_biz/text/uio.cpp", **kw),
-    cpp_ext("philh_myftp_biz/text/hex.cpp", **kw),
-    cpp_ext("philh_myftp_biz/text/contains.cpp", **kw),
-    cpp_ext("philh_myftp_biz/pc/_pc.cpp", **kw),
+    cpp_ext("philh_myftp_biz/_log.cpp"),
+    cpp_ext("philh_myftp_biz/num.cpp"),
+    cpp_ext("philh_myftp_biz/web/_web.cpp"),
+    cpp_ext("philh_myftp_biz/time/_time.cpp"),
+    cpp_ext("philh_myftp_biz/text/uio.cpp"),
+    cpp_ext("philh_myftp_biz/text/hex.cpp"),
+    cpp_ext("philh_myftp_biz/text/contains.cpp"),
+    cpp_ext("philh_myftp_biz/pc/_pc.cpp"),
 
     cpp_ext(
-        "philh_myftp_biz/pc/hardware.cpp", **kw, 
+        "philh_myftp_biz/pc/hardware.cpp",
         platforms = ['win32'],
     ),
 
     cpp_ext(
-        "philh_myftp_biz/pc/hardware.cpp", **kw, 
+        "philh_myftp_biz/pc/hardware.cpp",
         platforms = ['linux', 'darwin'],
         extra_objects = [
             "headers/hwinfo/*.a",
