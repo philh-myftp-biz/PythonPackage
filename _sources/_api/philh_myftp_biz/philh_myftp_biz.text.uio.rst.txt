@@ -23,14 +23,10 @@ Classes
 API
 ~~~
 
-.. py:class:: UnconsumingIO(stream: object)
+.. py:class:: UnconsumingIO
    :canonical: philh_myftp_biz.text.uio.UnconsumingIO
 
    .. autodoc2-docstring:: philh_myftp_biz.text.uio.UnconsumingIO
-
-   .. rubric:: Initialization
-
-   .. autodoc2-docstring:: philh_myftp_biz.text.uio.UnconsumingIO.__init__
 
    .. py:method:: read(size: object = ...) -> str
       :canonical: philh_myftp_biz.text.uio.UnconsumingIO.read
