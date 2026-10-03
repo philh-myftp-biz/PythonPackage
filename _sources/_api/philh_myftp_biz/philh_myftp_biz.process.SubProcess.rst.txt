@@ -18,8 +18,6 @@ Classes
 
    * - :py:obj:`Terminal <philh_myftp_biz.process.SubProcess.Terminal>`
      -
-   * - :py:obj:`Capture <philh_myftp_biz.process.SubProcess.Capture>`
-     -
    * - :py:obj:`SubProcess <philh_myftp_biz.process.SubProcess.SubProcess>`
      - .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess
           :summary:
@@ -85,16 +83,6 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.TerminalMap
 
-.. py:class:: Capture(io: typing.Any)
-   :canonical: philh_myftp_biz.process.SubProcess.Capture
-
-   Bases: :py:obj:`sarge.Capture`
-
-   .. py:method:: write(data: bytes) -> None
-      :canonical: philh_myftp_biz.process.SubProcess.Capture.write
-
-      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.Capture.write
-
 .. py:class:: SubProcess(*args: str|Path, terminal: None | typing.Literal[cmd, ps, psfile, py, pym, vbs] = 'cmd', dir: Path|None = None)
    :canonical: philh_myftp_biz.process.SubProcess.SubProcess
 
@@ -135,8 +123,18 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess.running
 
+   .. py:method:: wait()
+      :canonical: philh_myftp_biz.process.SubProcess.SubProcess.wait
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess.wait
+
    .. py:method:: __getstate__()
       :canonical: philh_myftp_biz.process.SubProcess.SubProcess.__getstate__
+
+   .. py:method:: __print() -> None
+      :canonical: philh_myftp_biz.process.SubProcess.SubProcess.__print
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess.__print
 
 .. py:class:: Run(*args: str|Path, terminal: None | typing.Literal[cmd, ps, psfile, py, pym, vbs] = 'cmd', dir: Path|None = None)
    :canonical: philh_myftp_biz.process.SubProcess.Run
