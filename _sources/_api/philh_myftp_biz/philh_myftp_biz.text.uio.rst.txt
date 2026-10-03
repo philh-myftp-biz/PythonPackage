@@ -28,6 +28,11 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.text.uio.UnconsumingIO
 
+   .. py:method:: flush() -> None
+      :canonical: philh_myftp_biz.text.uio.UnconsumingIO.flush
+
+      .. autodoc2-docstring:: philh_myftp_biz.text.uio.UnconsumingIO.flush
+
    .. py:method:: read(size: typing.SupportsInt | typing.SupportsIndex = ...) -> str
       :canonical: philh_myftp_biz.text.uio.UnconsumingIO.read
 
@@ -37,3 +42,9 @@ API
       :canonical: philh_myftp_biz.text.uio.UnconsumingIO.seek
 
       .. autodoc2-docstring:: philh_myftp_biz.text.uio.UnconsumingIO.seek
+
+   .. py:property:: pos
+      :canonical: philh_myftp_biz.text.uio.UnconsumingIO.pos
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.text.uio.UnconsumingIO.pos
