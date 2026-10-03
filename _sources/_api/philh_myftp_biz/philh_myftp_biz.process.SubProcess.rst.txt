@@ -86,8 +86,6 @@ API
 .. py:class:: SubProcess(*args: str|Path, terminal: None | typing.Literal[cmd, ps, psfile, py, pym, vbs] = 'cmd', dir: Path|None = None)
    :canonical: philh_myftp_biz.process.SubProcess.SubProcess
 
-   Bases: :py:obj:`philh_myftp_biz.process._sp._SubProcess`
-
    .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess
 
    .. rubric:: Initialization
@@ -108,10 +106,35 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess._wait
 
+   .. py:property:: finished
+      :canonical: philh_myftp_biz.process.SubProcess.SubProcess.finished
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess.finished
+
    .. py:method:: output(format: typing.Literal[philh_myftp_biz.json, philh_myftp_biz.text.hex] = None, stream: typing.Literal[out, err] = 'out') -> str | dict | list | bool | Any
       :canonical: philh_myftp_biz.process.SubProcess.SubProcess.output
 
       .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess.output
+
+   .. py:property:: running
+      :canonical: philh_myftp_biz.process.SubProcess.SubProcess.running
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess.running
+
+   .. py:method:: wait()
+      :canonical: philh_myftp_biz.process.SubProcess.SubProcess.wait
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess.wait
+
+   .. py:method:: __getstate__()
+      :canonical: philh_myftp_biz.process.SubProcess.SubProcess.__getstate__
+
+   .. py:method:: __print() -> None
+      :canonical: philh_myftp_biz.process.SubProcess.SubProcess.__print
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SubProcess.SubProcess.__print
 
 .. py:class:: Run(*args: str|Path, terminal: None | typing.Literal[cmd, ps, psfile, py, pym, vbs] = 'cmd', dir: Path|None = None)
    :canonical: philh_myftp_biz.process.SubProcess.Run
