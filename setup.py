@@ -14,6 +14,7 @@ setup(
     cpp_ext("philh_myftp_biz/text/hex.cpp"),
     cpp_ext("philh_myftp_biz/text/contains.cpp"),
     cpp_ext("philh_myftp_biz/pc/_pc.cpp"),
+    cpp_ext("philh_myftp_biz/process/_sp.cpp"),
 
     cpp_ext(
         "philh_myftp_biz/pc/hardware.cpp",
