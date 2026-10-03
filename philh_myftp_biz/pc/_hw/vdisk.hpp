@@ -38,7 +38,8 @@ struct VirtualDisk : public Device {
     // Connected
 
     bool GetConnected() const override {
-        return fs::exists(Mount);
+        std::error_code ec;
+        return fs::exists(Mount, ec) && !ec;
     }
 
     void setConnected(bool connected) {
