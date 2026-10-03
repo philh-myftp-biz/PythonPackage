@@ -24,6 +24,11 @@ class UnconsumingIO { public:
         _stream.attr("write")(data);
     }
 
+    void write(const py::bytes& data) {
+        py::str sdata = data.attr("decode")("utf-8", "ignore");
+        this->write(sdata.cast<str>());
+    }
+
     str read(py::object size = py::none()) {
         
         _buffer += _stream.attr("read")().cast<str>();
@@ -46,7 +51,8 @@ PYBIND11_MODULE(uio, m) {
 
     py::class_<UnconsumingIO>(m, "UnconsumingIO")
         .def(py::init<py::object>(), py::arg("stream"))
-        .def("write", &UnconsumingIO::write)
+        .def("write", py::overload_cast<const str&>(&UnconsumingIO::write))
+        .def("write", py::overload_cast<const py::bytes&>(&UnconsumingIO::write))
         .def("read", &UnconsumingIO::read, py::arg("size") = py::none());
 
 }
