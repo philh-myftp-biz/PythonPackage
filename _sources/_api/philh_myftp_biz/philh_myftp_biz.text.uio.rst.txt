@@ -36,8 +36,3 @@ API
       :canonical: philh_myftp_biz.text.uio.UnconsumingIO.read
 
       .. autodoc2-docstring:: philh_myftp_biz.text.uio.UnconsumingIO.read
-
-   .. py:method:: write(arg0: str) -> None
-      :canonical: philh_myftp_biz.text.uio.UnconsumingIO.write
-
-      .. autodoc2-docstring:: philh_myftp_biz.text.uio.UnconsumingIO.write
