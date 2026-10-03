@@ -12,7 +12,7 @@ class _IP { public:
 
     std::string LAN() {
 
-        std::vector<std::string> addrs = gmlc::netif::getInterfaceAddressesV4();
+        vector<std::string> addrs = gmlc::netif::getInterfaceAddressesV4();
 
         if (addrs.empty()) return "";
 

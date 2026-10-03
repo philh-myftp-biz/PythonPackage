@@ -18,7 +18,7 @@ std::string to_lower(std::string s) {
 // Check if string contains ANY of the values
 bool any(
     std::string str, 
-    std::vector<std::string> values, 
+    vector<std::string> values, 
     bool case_sensitive = false
 ) {
     if (!case_sensitive) {
@@ -39,7 +39,7 @@ bool any(
 // Check if string contains ALL of the values
 bool all(
     std::string str, 
-    std::vector<std::string> values, 
+    vector<std::string> values, 
     bool case_sensitive = false
 ) {
     if (!case_sensitive) {

@@ -21,8 +21,8 @@
 
 struct HardDrive : public Device {
 
-    static std::vector<HardDrive> search() {
-        std::vector<HardDrive> _hdds;
+    static vector<HardDrive> search() {
+        vector<HardDrive> _hdds;
 
         for (const auto& dsk : hwinfo::getAllDisksClean()) {
             _hdds.push_back(HardDrive(
