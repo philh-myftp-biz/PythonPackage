@@ -1,5 +1,6 @@
 from typing import Literal, TYPE_CHECKING, Any, TypedDict
-from ._sp import _SubProcess
+from ..text.uio import UnconsumingIO
+from .Thread import ThreadedFunc
 from sys import executable
 from copy import deepcopy
 
@@ -46,7 +47,7 @@ _TerminalMap: dict[str, Terminal] = {
 
 TerminalMap = deepcopy(_TerminalMap)
 
-class SubProcess(_SubProcess):
+class SubProcess:
 
     _hide: bool
     _wait: bool
@@ -56,9 +57,11 @@ class SubProcess(_SubProcess):
         terminal: None|Literal['cmd', 'ps', 'psfile', 'py', 'pym', 'vbs'] = 'cmd',
         dir: 'Path|None' = None
     ) -> None:
+        from subprocess import Popen, PIPE
         from ..array import stringify
-        from ..pc import Path, cwd
+        from .SysTask import SysTask
         from logger2 import Log
+        from ..pc import Path, cwd
 
         # =====================================
 
@@ -78,12 +81,37 @@ class SubProcess(_SubProcess):
 
         Log.VERB(f'Running Subprocess:\n{args=}\n{dir=}\nhide={self._hide}\nwait={self._wait}')
 
-        super().__init__(
+        self._process = Popen(
             args = args,
             cwd = str(dir or cwd()),
-            hide = self._hide,
-            wait = self._wait,
+            stdout = PIPE,
+            stderr = PIPE,
+            text = True,
+            errors = 'ignore'
         )
+
+        self._task = SysTask(self._process.pid)
+
+        self.stop = self._task.stop
+
+        self.send = self._process.communicate
+
+        # =====================================
+
+        self.stdout = UnconsumingIO(self._process.stdout)
+        self.stderr = UnconsumingIO(self._process.stderr)
+
+        # =====================================
+
+        if not self._hide:
+            self.__print()
+
+        if self._wait:
+            self.wait()
+
+    @property
+    def finished(self) -> bool:
+        return (not self.running)
 
     def output(self,
         format: Literal['json', 'hex'] = None,
@@ -93,7 +121,9 @@ class SubProcess(_SubProcess):
         from ..text import hex
         from .. import json
 
-        output: str = getattr(self, 'std'+stream)
+        _stream: UnconsumingIO = getattr(self, 'std'+stream)
+
+        output = _stream.read()
 
         if format == 'json':
             return json.loads(output)
@@ -103,6 +133,31 @@ class SubProcess(_SubProcess):
         
         else:
             return output
+
+    @property
+    def running(self) -> bool:
+        return self._task.exists
+    
+    def wait(self):
+        while self.running:
+            pass
+
+    def __getstate__(self):
+
+        state = self.__dict__.copy()
+
+        state.pop('_process', 0)
+        state.pop('__print', 0)
+        state.pop('send', 0)
+
+        return state
+
+    @ThreadedFunc
+    def __print(self) -> None:
+        from ..terminal import write
+        while self.running:
+            write(self.stdout.read(), 'out', True)
+            write(self.stderr.read(), 'err', True)
 
 class Run(SubProcess):
     _hide = False
