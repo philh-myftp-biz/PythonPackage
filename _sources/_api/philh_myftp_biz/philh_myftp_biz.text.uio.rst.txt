@@ -28,7 +28,12 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.text.uio.UnconsumingIO
 
-   .. py:method:: read(size: object = ...) -> str
+   .. py:method:: read(size: typing.SupportsInt | typing.SupportsIndex = ...) -> str
       :canonical: philh_myftp_biz.text.uio.UnconsumingIO.read
 
       .. autodoc2-docstring:: philh_myftp_biz.text.uio.UnconsumingIO.read
+
+   .. py:method:: seek(arg0: typing.SupportsInt | typing.SupportsIndex) -> None
+      :canonical: philh_myftp_biz.text.uio.UnconsumingIO.seek
+
+      .. autodoc2-docstring:: philh_myftp_biz.text.uio.UnconsumingIO.seek
