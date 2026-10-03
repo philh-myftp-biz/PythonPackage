@@ -3,11 +3,10 @@ from ._time import Stopwatch, Timeout, TimeStamp
 from_stamp = TimeStamp # TODO deprecated
 
 #==============================================================================
-from functools import partial as _partial
-from pytz import timezone as _timezone
 
-tzinfo = _partial(_timezone, zone="America/New_York")
-#==============================================================================
+def tzinfo():
+    from pytz import timezone
+    return timezone("America/New_York")
 
 def now() -> TimeStamp:
     """Get details of the current time"""

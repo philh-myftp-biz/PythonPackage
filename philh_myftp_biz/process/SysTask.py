@@ -1,5 +1,13 @@
-from psutil import process_iter, NoSuchProcess, AccessDenied
-from psutil import Process as _Process
+
+try:
+    from psutil import process_iter, NoSuchProcess, AccessDenied
+    from psutil import Process as _Process
+except ImportError:
+    process_iter = object
+    NoSuchProcess = object
+    AccessDenied = object
+    _Process = object
+
 from functools import cached_property
 from typing import TYPE_CHECKING
 
