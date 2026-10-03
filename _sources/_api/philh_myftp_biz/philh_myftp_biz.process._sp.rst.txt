@@ -1,0 +1,67 @@
+:py:mod:`philh_myftp_biz.process._sp`
+=====================================
+
+.. py:module:: philh_myftp_biz.process._sp
+
+.. autodoc2-docstring:: philh_myftp_biz.process._sp
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`_SubProcess <philh_myftp_biz.process._sp._SubProcess>`
+     - .. autodoc2-docstring:: philh_myftp_biz.process._sp._SubProcess
+          :summary:
+
+API
+~~~
+
+.. py:class:: _SubProcess(args: collections.abc.Sequence[str], cwd: str, hide: bool, wait: bool)
+   :canonical: philh_myftp_biz.process._sp._SubProcess
+
+   .. autodoc2-docstring:: philh_myftp_biz.process._sp._SubProcess
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.process._sp._SubProcess.__init__
+
+   .. py:method:: stop() -> None
+      :canonical: philh_myftp_biz.process._sp._SubProcess.stop
+
+      .. autodoc2-docstring:: philh_myftp_biz.process._sp._SubProcess.stop
+
+   .. py:method:: wait() -> int
+      :canonical: philh_myftp_biz.process._sp._SubProcess.wait
+
+      .. autodoc2-docstring:: philh_myftp_biz.process._sp._SubProcess.wait
+
+   .. py:property:: pid
+      :canonical: philh_myftp_biz.process._sp._SubProcess.pid
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.process._sp._SubProcess.pid
+
+   .. py:property:: running
+      :canonical: philh_myftp_biz.process._sp._SubProcess.running
+      :type: bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.process._sp._SubProcess.running
+
+   .. py:property:: stderr
+      :canonical: philh_myftp_biz.process._sp._SubProcess.stderr
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.process._sp._SubProcess.stderr
+
+   .. py:property:: stdout
+      :canonical: philh_myftp_biz.process._sp._SubProcess.stdout
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.process._sp._SubProcess.stdout

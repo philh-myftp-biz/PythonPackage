@@ -18,3 +18,4 @@ Submodules
    philh_myftp_biz.process.SysTask
    philh_myftp_biz.process.Thread
    philh_myftp_biz.process.Venv
+   philh_myftp_biz.process._sp

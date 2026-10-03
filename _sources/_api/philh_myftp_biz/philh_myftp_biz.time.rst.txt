@@ -25,6 +25,9 @@ Functions
    :class: autosummary longtable
    :align: left
 
+   * - :py:obj:`tzinfo <philh_myftp_biz.time.tzinfo>`
+     - .. autodoc2-docstring:: philh_myftp_biz.time.tzinfo
+          :summary:
    * - :py:obj:`now <philh_myftp_biz.time.now>`
      - .. autodoc2-docstring:: philh_myftp_biz.time.now
           :summary:
@@ -48,9 +51,6 @@ Data
    * - :py:obj:`from_stamp <philh_myftp_biz.time.from_stamp>`
      - .. autodoc2-docstring:: philh_myftp_biz.time.from_stamp
           :summary:
-   * - :py:obj:`tzinfo <philh_myftp_biz.time.tzinfo>`
-     - .. autodoc2-docstring:: philh_myftp_biz.time.tzinfo
-          :summary:
 
 API
 ~~~
@@ -61,9 +61,8 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.time.from_stamp
 
-.. py:data:: tzinfo
+.. py:function:: tzinfo()
    :canonical: philh_myftp_biz.time.tzinfo
-   :value: '_partial(...)'
 
    .. autodoc2-docstring:: philh_myftp_biz.time.tzinfo
 
