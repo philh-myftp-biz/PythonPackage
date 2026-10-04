@@ -41,7 +41,7 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.__init__
 
-   .. py:method:: search() -> list[Self]
+   .. py:method:: search() -> list[typing.Self]
       :canonical: philh_myftp_biz.pc.hardware.Device.search
       :staticmethod:
 
