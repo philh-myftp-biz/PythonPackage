@@ -13,6 +13,7 @@ PYBIND11_MODULE(hardware, m) {
     // Bind the Device superclass
     py::class_<Device>(m, "Device", py::dynamic_attr())
         .def(py::init<>())
+        .def_static("search", &Device::search)
         .def_property_readonly("Name", &Device::GetName)
         .def_property_readonly("HealthReport", &Device::GetHealthReport)
         .def_property_readonly("Connected", &Device::GetConnected);

@@ -7,6 +7,11 @@
 
 class Device { public:
 
+    static vector<Device> search() {
+        vector<Device> devs;
+        return devs;
+    }
+
     virtual ~Device() = default;
     
     virtual str GetName() const {
