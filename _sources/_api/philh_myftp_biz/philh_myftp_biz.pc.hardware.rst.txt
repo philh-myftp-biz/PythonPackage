@@ -71,7 +71,7 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.Name
 
-.. py:class:: HardDrive(Tower: str, Conn: str, ID: typing.SupportsInt | typing.SupportsIndex, SN: str)
+.. py:class:: HardDrive(Tower: str, Conn: str, Slot: typing.SupportsInt | typing.SupportsIndex, SN: str)
    :canonical: philh_myftp_biz.pc.hardware.HardDrive
 
    Bases: :py:obj:`philh_myftp_biz.pc.hardware.Device`
@@ -107,12 +107,6 @@ API
       :type: str
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.Conn
-
-   .. py:property:: ID
-      :canonical: philh_myftp_biz.pc.hardware.HardDrive.ID
-      :type: int
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.ID
 
    .. py:property:: Index
       :canonical: philh_myftp_biz.pc.hardware.HardDrive.Index
@@ -154,12 +148,6 @@ API
       :staticmethod:
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard.search
-
-   .. py:property:: ID
-      :canonical: philh_myftp_biz.pc.hardware.PCIeCard.ID
-      :type: int
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard.ID
 
    .. py:property:: Lanes
       :canonical: philh_myftp_biz.pc.hardware.PCIeCard.Lanes
