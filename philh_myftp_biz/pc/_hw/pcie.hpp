@@ -7,6 +7,7 @@
 #include <sstream>
 #include <iomanip>
 #include <optional>
+#include <unordered_set>
 
 #include <hwinfo/hwinfo.h>
 #include <remap.h>
@@ -17,6 +18,20 @@
 
 struct PCIeCard : public Device {
 
+    static vector<PCIeCard> search() {
+        vector<PCIeCard> cards;
+        std::unordered_set<int> slots;
+
+        for (pciutils::pci_dev dev : pciutils::get_devices()) {
+            if (slots.insert(dev.slot).second) {
+                cards.push_back(PCIeCard(dev.slot, dev.lanes));
+            }
+        }
+        return cards;
+    }
+
+    //===============================================================================
+    
     int Slot; // 0, 1, 2, 3, 4, ...
     int Lanes; // 1, 4, 16
     str Name;

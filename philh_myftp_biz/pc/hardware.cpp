@@ -42,6 +42,7 @@ PYBIND11_MODULE(hardware, m) {
             py::arg("Slot"), 
             py::arg("Lanes") = 0
         )
+        .def_static("search", &PCIeCard::search)
         .def_readonly("Slot", &PCIeCard::Slot)
         .def_readonly("Lanes", &PCIeCard::Lanes);
 
