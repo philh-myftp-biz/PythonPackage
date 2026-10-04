@@ -41,24 +41,28 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.__init__
 
-   .. py:method:: search() -> list[typing.Self]
+   .. py:attribute:: search
       :canonical: philh_myftp_biz.pc.hardware.Device.search
-      :staticmethod:
+      :type: typing.ClassVar[method]
+      :value: Ellipsis
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.search
 
    .. py:property:: Connected
       :canonical: philh_myftp_biz.pc.hardware.Device.Connected
+      :type: bool
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.Connected
 
    .. py:property:: HealthReport
       :canonical: philh_myftp_biz.pc.hardware.Device.HealthReport
+      :type: str
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.HealthReport
 
    .. py:property:: Name
       :canonical: philh_myftp_biz.pc.hardware.Device.Name
+      :type: str
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.Name
 
