@@ -59,6 +59,12 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.HealthReport
 
+   .. py:property:: ID
+      :canonical: philh_myftp_biz.pc.hardware.Device.ID
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.ID
+
    .. py:property:: Name
       :canonical: philh_myftp_biz.pc.hardware.Device.Name
       :type: str
@@ -120,6 +126,12 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.SN
 
+   .. py:property:: Slot
+      :canonical: philh_myftp_biz.pc.hardware.HardDrive.Slot
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.Slot
+
    .. py:property:: Tower
       :canonical: philh_myftp_biz.pc.hardware.HardDrive.Tower
       :type: str
@@ -142,6 +154,12 @@ API
       :staticmethod:
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard.search
+
+   .. py:property:: ID
+      :canonical: philh_myftp_biz.pc.hardware.PCIeCard.ID
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard.ID
 
    .. py:property:: Lanes
       :canonical: philh_myftp_biz.pc.hardware.PCIeCard.Lanes
