@@ -41,6 +41,12 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.__init__
 
+   .. py:method:: search() -> list[philh_myftp_biz.pc.hardware.Device]
+      :canonical: philh_myftp_biz.pc.hardware.Device.search
+      :staticmethod:
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.search
+
    .. py:property:: Connected
       :canonical: philh_myftp_biz.pc.hardware.Device.Connected
       :type: bool
@@ -83,12 +89,6 @@ API
       :value: None
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.Usage
-
-   .. py:method:: search() -> list[philh_myftp_biz.pc.hardware.HardDrive]
-      :canonical: philh_myftp_biz.pc.hardware.HardDrive.search
-      :staticmethod:
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.search
 
    .. py:property:: Conn
       :canonical: philh_myftp_biz.pc.hardware.HardDrive.Conn
