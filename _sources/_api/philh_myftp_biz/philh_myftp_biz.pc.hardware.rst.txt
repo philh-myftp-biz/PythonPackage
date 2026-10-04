@@ -32,7 +32,7 @@ Classes
 API
 ~~~
 
-.. py:class:: Device()
+.. py:class:: Device(*args, **kwargs)
    :canonical: philh_myftp_biz.pc.hardware.Device
 
    .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device
@@ -41,21 +41,24 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.__init__
 
+   .. py:method:: search() -> list[Self]
+      :canonical: philh_myftp_biz.pc.hardware.Device.search
+      :staticmethod:
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.search
+
    .. py:property:: Connected
       :canonical: philh_myftp_biz.pc.hardware.Device.Connected
-      :type: bool
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.Connected
 
    .. py:property:: HealthReport
       :canonical: philh_myftp_biz.pc.hardware.Device.HealthReport
-      :type: str
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.HealthReport
 
    .. py:property:: Name
       :canonical: philh_myftp_biz.pc.hardware.Device.Name
-      :type: str
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.Name
 
