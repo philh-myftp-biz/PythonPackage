@@ -9,6 +9,7 @@
 #include <iterator>
 #include <iomanip>
 #include <memory>
+#include <functional>
 #include <pybind11/stl.h>
 
 #include <subprocess.hpp>
@@ -28,7 +29,7 @@ struct HardDrive : public Device {
             _hdds.push_back(HardDrive(
                 "?", // Tower
                 "?", // COnn
-                -1, // ID
+                -1, // Slot
                 dsk.serial_number() // SN
             ));
         }
@@ -42,19 +43,19 @@ struct HardDrive : public Device {
     str Tower;
     str Conn;
     str SN;
-    int ID;
+    int Slot;
 
     void* cached_hDevInfo = nullptr; 
 
     HardDrive(
         str Tower,
         str Conn,
-        int ID,
+        int Slot,
         str SN
     ) {
         this->Tower = Tower;
         this->Conn = Conn;
-        this->ID = ID;
+        this->Slot = Slot;
         this->SN = SN;
     }
 
@@ -95,11 +96,19 @@ struct HardDrive : public Device {
     }
 
     //===============================================================================
+    // ID
+
+    int GetID() const override {
+        size_t id = std::hash<str>{}(SN);
+        return static_cast<int>(id);
+    }
+
+    //===============================================================================
     // Name
 
     str GetName() const override {
         std::ostringstream oss;
-        oss << std::setfill('0') << std::setw(2) << ID << "-" << Tower;
+        oss << std::setfill('0') << std::setw(2) << Slot << "-" << Tower;
         oss << " [" << Index() << ", " << SN << "]";
         return oss.str();
     }

@@ -16,6 +16,7 @@ PYBIND11_MODULE(hardware, m) {
         .def_static("search", &Device::search)
         .def_property_readonly("Name", &Device::GetName)
         .def_property_readonly("HealthReport", &Device::GetHealthReport)
+        .def_property_readonly("ID", &Device::GetID)
         .def_property_readonly("Connected", &Device::GetConnected);
     
     // Bind HardDrive as a child of Device
@@ -23,13 +24,13 @@ PYBIND11_MODULE(hardware, m) {
         .def(py::init<str, str, int, str>(),
             py::arg("Tower"), 
             py::arg("Conn"), 
-            py::arg("ID"), 
+            py::arg("Slot"), 
             py::arg("SN")
         )
         .def_static("search", &HardDrive::search)
         .def_readonly("Tower", &HardDrive::Tower)
         .def_readonly("Conn", &HardDrive::Conn)
-        .def_readonly("ID", &HardDrive::ID)
+        .def_readonly("Slot", &HardDrive::Slot)
         .def_readonly("SN", &HardDrive::SN)
         .def_property_readonly("Index", &HardDrive::Index)
         .def_property("FriendlyName", &HardDrive::FriendlyName, &HardDrive::setFriendlyName)

@@ -35,6 +35,14 @@ struct VirtualDisk : public Device {
     }
 
     //===============================================================================
+    // ID
+
+    int GetID() const override {
+        size_t hash = std::hash<str>{}(Mount);
+        return static_cast<int>(hash);
+    }
+    
+    //===============================================================================
     // Connected
 
     bool GetConnected() const override {

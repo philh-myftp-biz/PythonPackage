@@ -71,6 +71,13 @@ struct PCIeCard : public Device {
     }
 
     //===============================================================================
+    // ID
+    
+    int GetID() const override {
+        return this->Slot;
+    }
+
+    //===============================================================================
     // Connected
     
     bool GetConnected() const override {
