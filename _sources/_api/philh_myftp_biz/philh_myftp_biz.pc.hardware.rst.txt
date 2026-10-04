@@ -41,10 +41,9 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.__init__
 
-   .. py:attribute:: search
+   .. py:method:: search(cls) -> list[typing.Self]
       :canonical: philh_myftp_biz.pc.hardware.Device.search
-      :type: typing.ClassVar[method]
-      :value: Ellipsis
+      :staticmethod:
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.search
 
