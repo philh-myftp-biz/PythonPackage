@@ -71,6 +71,24 @@ struct PCIeCard : public Device {
     }
 
     //===============================================================================
+    // Link
+
+    str GetLink() const override {
+
+        std::ostringstream msg;
+        pciutils::pci_dev* card = pci_dev();
+        
+        if (card != nullptr) {
+            msg << "https://admin.pci-ids.ucw.cz/read/PC/";
+            msg << std::hex;
+            msg << card->vendor_id << "/";
+            msg << card->device_id << "/";
+        }
+
+        return msg.str();
+    }
+
+    //===============================================================================
     // ID
     
     int GetID() const override {
