@@ -155,6 +155,12 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard.search
 
+   .. py:property:: DeviceID
+      :canonical: philh_myftp_biz.pc.hardware.PCIeCard.DeviceID
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard.DeviceID
+
    .. py:property:: Lanes
       :canonical: philh_myftp_biz.pc.hardware.PCIeCard.Lanes
       :type: int
@@ -166,6 +172,12 @@ API
       :type: int
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard.Slot
+
+   .. py:property:: VendorID
+      :canonical: philh_myftp_biz.pc.hardware.PCIeCard.VendorID
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard.VendorID
 
 .. py:class:: VirtualDisk(Name: str, Mount: str)
    :canonical: philh_myftp_biz.pc.hardware.VirtualDisk
