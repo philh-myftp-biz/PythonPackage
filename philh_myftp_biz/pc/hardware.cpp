@@ -17,6 +17,7 @@ PYBIND11_MODULE(hardware, m) {
         .def_property_readonly("Name", &Device::GetName)
         .def_property_readonly("HealthReport", &Device::GetHealthReport)
         .def_property_readonly("ID", &Device::GetID)
+        .def_property_readonly("Link", &Device::GetLink)
         .def_property_readonly("Connected", &Device::GetConnected);
     
     // Bind HardDrive as a child of Device

@@ -24,6 +24,10 @@ class Device { public:
         return "";
     }
 
+    virtual str GetLink() const {
+        return "";
+    }
+
     virtual bool GetConnected() const {
         return false;
     }
