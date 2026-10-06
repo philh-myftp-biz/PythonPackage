@@ -20,13 +20,12 @@ struct PCIeCard : public Device {
 
     static vector<PCIeCard> search() {
         vector<PCIeCard> cards;
-        std::unordered_set<int> slots;
-
         for (pciutils::pci_dev dev : pciutils::get_devices()) {
-            if (slots.insert(dev.slot).second) {
-                cards.push_back(PCIeCard(dev.slot, dev.lanes));
-            }
-        }
+            cards.push_back(PCIeCard(
+                dev.vendor_id,
+                dev.device_id
+            ));
+        }        
         return cards;
     }
 
@@ -35,15 +34,21 @@ struct PCIeCard : public Device {
     int Slot; // 0, 1, 2, 3, 4, ...
     int Lanes; // 1, 4, 16
     str Name;
+    int VendorID;
+    int DeviceID;
 
     str GetName() const override { return this->Name; }
 
     //===============================================================================
 
     PCIeCard(
-        int Slot,
+        int VendorID,
+        int DeviceID,
+        int Slot = -1,
         int Lanes = -1
     ) {
+        this->VendorID = VendorID;
+        this->DeviceID = DeviceID;
         this->Slot = Slot;
         this->Lanes = Lanes;
         this->Name = "Slot " + std::to_string(Slot) + " [x" + stru::zfill(2, Lanes) + "]";
@@ -59,7 +64,9 @@ struct PCIeCard : public Device {
         if (!_cached_dev) {
 
             for (pciutils::pci_dev dev : pciutils::get_devices()) {
-                if (dev.slot == this->Slot) {
+                if (DeviceID == dev.device_id &&
+                    VendorID == dev.vendor_id
+                ) {
                     _cached_dev = dev;
                     break;
                 }
