@@ -18,6 +18,7 @@ PYBIND11_MODULE(hardware, m) {
         .def_property_readonly("HealthReport", &Device::GetHealthReport)
         .def_property_readonly("ID", &Device::GetID)
         .def_property_readonly("Link", &Device::GetLink)
+        .def_property_readonly("FriendlyName", &Device::GetFriendlyName)
         .def_property_readonly("Connected", &Device::GetConnected);
     
     // Bind HardDrive as a child of Device
@@ -34,7 +35,7 @@ PYBIND11_MODULE(hardware, m) {
         .def_readonly("Slot", &HardDrive::Slot)
         .def_readonly("SN", &HardDrive::SN)
         .def_property_readonly("Index", &HardDrive::Index)
-        .def_property("FriendlyName", &HardDrive::FriendlyName, &HardDrive::setFriendlyName)
+        .def_property("FriendlyName", &HardDrive::GetFriendlyName, &HardDrive::setFriendlyName)
         .def_property("Usage", &HardDrive::Usage, &HardDrive::setUsage);
 
 

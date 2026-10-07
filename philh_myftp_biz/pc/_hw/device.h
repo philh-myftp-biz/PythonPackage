@@ -28,6 +28,10 @@ class Device { public:
         return "";
     }
 
+    virtual str GetFriendlyName() const {
+        return "";
+    }
+
     virtual bool GetConnected() const {
         return false;
     }

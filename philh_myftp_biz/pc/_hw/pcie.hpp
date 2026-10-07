@@ -80,6 +80,20 @@ struct PCIeCard : public Device {
     //===============================================================================
     // Link
 
+    str GetFriendlyName() const {
+        std::ostringstream msg;
+
+        pciutils::pci_dev* card = pci_dev();
+
+        if (card->vendor_name && card->device_name) {
+            msg << card->vendor_name;
+            msg << " ";
+            msg << card->device_name;
+        }
+
+        return msg.str();
+    }
+
     str GetLink() const override {
 
         std::ostringstream msg;

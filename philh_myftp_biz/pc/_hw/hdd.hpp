@@ -130,7 +130,7 @@ struct HardDrive : public Device {
     //===============================================================================
     // FriendlyName
 
-    str FriendlyName() const {
+    str GetFriendlyName() const override {
         if (!GetConnected()) return "";
 
         #ifdef WINDOWS
