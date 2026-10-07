@@ -7,14 +7,6 @@ _kw_templ['include_dirs'] += ['headers']
 
 setup(
 
-    cpp_ext("philh_myftp_biz/num.cpp"),
-    cpp_ext("philh_myftp_biz/web/_web.cpp"),
-    cpp_ext("philh_myftp_biz/time/_time.cpp"),
-    cpp_ext("philh_myftp_biz/text/uio.cpp"),
-    cpp_ext("philh_myftp_biz/text/hex.cpp"),
-    cpp_ext("philh_myftp_biz/text/contains.cpp"),
-    cpp_ext("philh_myftp_biz/pc/_pc.cpp"),
-
     cpp_ext(
         "philh_myftp_biz/pc/hardware.cpp",
         platforms = ['win32'],
@@ -29,6 +21,14 @@ setup(
         ],
         extra_link_args = ["-lz", "-lresolv"],
     ),
+
+    cpp_ext("philh_myftp_biz/num.cpp"),
+    cpp_ext("philh_myftp_biz/web/_web.cpp"),
+    cpp_ext("philh_myftp_biz/time/_time.cpp"),
+    cpp_ext("philh_myftp_biz/text/uio.cpp"),
+    cpp_ext("philh_myftp_biz/text/hex.cpp"),
+    cpp_ext("philh_myftp_biz/text/contains.cpp"),
+    cpp_ext("philh_myftp_biz/pc/_pc.cpp"),
 
 )
 
