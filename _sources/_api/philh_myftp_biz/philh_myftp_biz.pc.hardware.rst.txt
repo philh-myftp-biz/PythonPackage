@@ -144,7 +144,7 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.Tower
 
-.. py:class:: PCIeCard(Slot: typing.SupportsInt | typing.SupportsIndex, Lanes: typing.SupportsInt | typing.SupportsIndex = ...)
+.. py:class:: PCIeCard(VendorID: typing.SupportsInt | typing.SupportsIndex, DeviceID: typing.SupportsInt | typing.SupportsIndex, Slot: typing.SupportsInt | typing.SupportsIndex, Lanes: typing.SupportsInt | typing.SupportsIndex = ...)
    :canonical: philh_myftp_biz.pc.hardware.PCIeCard
 
    Bases: :py:obj:`philh_myftp_biz.pc.hardware.Device`
