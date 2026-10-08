@@ -56,7 +56,7 @@ struct HardDrive : public Device {
         this->Tower = Tower;
         this->Conn = Conn;
         this->Slot = Slot;
-        this->SN = SN;
+        this->SN = py::bytes(SN).attr("decode")("latin1").cast<str>();
     }
 
     //===============================================================================
