@@ -19,7 +19,7 @@ if "%~1"=="-f" (
 
 set "PYTHONWARNINGS=ignore::UserWarning"
 
-CALL :pip_install "-vvv" "." || exit /B
+CALL :pip_install "-v" "." || exit /B
 
 :: Locate package directory using pip
 for /f "delims=" %%i in ('pip show philh_myftp_biz ^| findstr "Location:"') do set "DIR=%%i"
