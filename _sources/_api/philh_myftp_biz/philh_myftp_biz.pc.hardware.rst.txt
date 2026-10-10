@@ -41,6 +41,11 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.__init__
 
+   .. py:method:: _pybind11_conduit_v1_(*args, **kwargs)
+      :canonical: philh_myftp_biz.pc.hardware.Device._pybind11_conduit_v1_
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device._pybind11_conduit_v1_
+
    .. py:method:: search() -> list[philh_myftp_biz.pc.hardware.Device]
       :canonical: philh_myftp_biz.pc.hardware.Device.search
       :staticmethod:
@@ -108,6 +113,11 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.Usage
 
+   .. py:method:: _pybind11_conduit_v1_(*args, **kwargs)
+      :canonical: philh_myftp_biz.pc.hardware.HardDrive._pybind11_conduit_v1_
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive._pybind11_conduit_v1_
+
    .. py:method:: search() -> list[philh_myftp_biz.pc.hardware.HardDrive]
       :canonical: philh_myftp_biz.pc.hardware.HardDrive.search
       :staticmethod:
@@ -154,6 +164,11 @@ API
    .. rubric:: Initialization
 
    .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard.__init__
+
+   .. py:method:: _pybind11_conduit_v1_(*args, **kwargs)
+      :canonical: philh_myftp_biz.pc.hardware.PCIeCard._pybind11_conduit_v1_
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard._pybind11_conduit_v1_
 
    .. py:method:: search() -> list[philh_myftp_biz.pc.hardware.PCIeCard]
       :canonical: philh_myftp_biz.pc.hardware.PCIeCard.search
@@ -207,6 +222,11 @@ API
       :canonical: philh_myftp_biz.pc.hardware.VirtualDisk.Repair
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.VirtualDisk.Repair
+
+   .. py:method:: _pybind11_conduit_v1_(*args, **kwargs)
+      :canonical: philh_myftp_biz.pc.hardware.VirtualDisk._pybind11_conduit_v1_
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.VirtualDisk._pybind11_conduit_v1_
 
    .. py:property:: Mount
       :canonical: philh_myftp_biz.pc.hardware.VirtualDisk.Mount

@@ -53,6 +53,23 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path.__init__
 
+   .. py:method:: _parse(arg0: object) -> str
+      :canonical: philh_myftp_biz.pc._pc._Path._parse
+      :staticmethod:
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path._parse
+
+   .. py:method:: _pybind11_conduit_v1_(*args, **kwargs)
+      :canonical: philh_myftp_biz.pc._pc._Path._pybind11_conduit_v1_
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path._pybind11_conduit_v1_
+
+   .. py:property:: _pure
+      :canonical: philh_myftp_biz.pc._pc._Path._pure
+      :type: pathlib.Path
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path._pure
+
    .. py:property:: exists
       :canonical: philh_myftp_biz.pc._pc._Path.exists
       :type: bool
@@ -109,6 +126,11 @@ API
    .. rubric:: Initialization
 
    .. autodoc2-docstring:: philh_myftp_biz.pc._pc._loc.__init__
+
+   .. py:method:: _pybind11_conduit_v1_(*args, **kwargs)
+      :canonical: philh_myftp_biz.pc._pc._loc._pybind11_conduit_v1_
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc._pc._loc._pybind11_conduit_v1_
 
    .. py:property:: cache
       :canonical: philh_myftp_biz.pc._pc._loc.cache

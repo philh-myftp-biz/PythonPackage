@@ -38,6 +38,11 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.time._time.Stopwatch.__init__
 
+   .. py:method:: _pybind11_conduit_v1_(*args, **kwargs)
+      :canonical: philh_myftp_biz.time._time.Stopwatch._pybind11_conduit_v1_
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.Stopwatch._pybind11_conduit_v1_
+
    .. py:method:: start() -> philh_myftp_biz.time._time.Stopwatch
       :canonical: philh_myftp_biz.time._time.Stopwatch.start
 
@@ -93,6 +98,11 @@ API
    .. rubric:: Initialization
 
    .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp.__init__
+
+   .. py:method:: _pybind11_conduit_v1_(*args, **kwargs)
+      :canonical: philh_myftp_biz.time._time.TimeStamp._pybind11_conduit_v1_
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.TimeStamp._pybind11_conduit_v1_
 
    .. py:method:: stamp(format: str = ...) -> object
       :canonical: philh_myftp_biz.time._time.TimeStamp.stamp
@@ -200,6 +210,11 @@ API
    .. rubric:: Initialization
 
    .. autodoc2-docstring:: philh_myftp_biz.time._time.Timeout.__init__
+
+   .. py:method:: _pybind11_conduit_v1_(*args, **kwargs)
+      :canonical: philh_myftp_biz.time._time.Timeout._pybind11_conduit_v1_
+
+      .. autodoc2-docstring:: philh_myftp_biz.time._time.Timeout._pybind11_conduit_v1_
 
    .. py:method:: check() -> None
       :canonical: philh_myftp_biz.time._time.Timeout.check
