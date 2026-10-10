@@ -153,11 +153,6 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.Path.Path.rename
 
-   .. py:method:: seg(i: int = -1) -> str
-      :canonical: philh_myftp_biz.pc.Path.Path.seg
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.Path.Path.seg
-
    .. py:method:: copy(dst: philh_myftp_biz.pc.Path.Path) -> None
       :canonical: philh_myftp_biz.pc.Path.Path.copy
 

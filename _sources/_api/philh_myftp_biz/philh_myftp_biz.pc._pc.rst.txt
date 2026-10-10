@@ -64,11 +64,6 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path._pybind11_conduit_v1_
 
-   .. py:method:: seg(i: typing.SupportsInt | typing.SupportsIndex = ...) -> str
-      :canonical: philh_myftp_biz.pc._pc._Path.seg
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path.seg
-
    .. py:property:: _pure
       :canonical: philh_myftp_biz.pc._pc._Path._pure
       :type: pathlib.Path
