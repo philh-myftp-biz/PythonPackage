@@ -4,6 +4,7 @@
 #include <string>
 #include <algorithm>
 #include <filesystem>
+#include <optional>
 
 #include "remap.h"
 
@@ -90,6 +91,12 @@ class _Path { public:
             return true;
         std::error_code ec;
         return fs::is_directory(path, ec);
+    }
+
+    optional<size_t> size() {
+        if (is_file())
+            return fs::file_size(_pure);
+        return nullopt;
     }
 
     std::string __str__() const {

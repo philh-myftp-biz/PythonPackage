@@ -74,14 +74,6 @@ class Path(_Path):
 
     def __eq__(self, other:object) -> bool:
         return (self.path == self._parse(other))
-
-    @property
-    def size(self) -> None|int:
-        """Get File Size"""
-        from os import path
-
-        if self.is_file:
-            return path.getsize(self.path)
         
     @property
     def fsize(self) -> str:
