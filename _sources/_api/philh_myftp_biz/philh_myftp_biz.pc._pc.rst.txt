@@ -89,6 +89,12 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path.path
 
+   .. py:property:: size
+      :canonical: philh_myftp_biz.pc._pc._Path.size
+      :type: int | None
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc._pc._Path.size
+
    .. py:property:: wpath
       :canonical: philh_myftp_biz.pc._pc._Path.wpath
       :type: str
