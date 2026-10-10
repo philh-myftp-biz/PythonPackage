@@ -6,7 +6,7 @@
 #include <string>
 #include "remap.h"
 
-#include <stopwatch.hpp>
+#include <time/stopwatch.hpp>
 
 class Timeout : public Stopwatch { public:
  

@@ -1,9 +1,8 @@
-from pybind_setup_ext import cpp_ext, setup, update_submodule
-from pybind_setup_ext.cpp_ext import _kw_templ
+from pybind_setup_ext import cpp_ext, setup, update_submodule, include_dirs
 
 update_submodule('headers', force=True, remote=True)
 
-_kw_templ['include_dirs'] += ['headers']
+include_dirs.append('headers')
 
 setup(
 

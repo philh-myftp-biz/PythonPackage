@@ -2,8 +2,8 @@
 
 #include "remap.h"
 
-#include "FirewallException.hpp"
-#include "IP.hpp"
+#include "web/FirewallException.hpp"
+#include "web/IP.hpp"
 
 PYBIND11_MODULE(_web, m) {
 

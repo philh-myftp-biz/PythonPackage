@@ -3,10 +3,10 @@
 #include <string>
 #include <remap.h>
 
-#include <_hw/device.h>
-#include <_hw/hdd.hpp>
-#include <_hw/pcie.hpp>
-#include <_hw/vdisk.hpp>
+#include <pc/_hw/device.h>
+#include <pc/_hw/hdd.hpp>
+#include <pc/_hw/pcie.hpp>
+#include <pc/_hw/vdisk.hpp>
 
 PYBIND11_MODULE(hardware, m) {
 

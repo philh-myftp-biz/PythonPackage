@@ -7,9 +7,9 @@
 #include <thread>
 #include "remap.h"
 
-#include <stopwatch.hpp>
-#include <timeout.hpp>
-#include <timestamp.hpp>
+#include <time/stopwatch.hpp>
+#include <time/timeout.hpp>
+#include <time/timestamp.hpp>
 
 PYBIND11_MODULE(_time, m) {
 
