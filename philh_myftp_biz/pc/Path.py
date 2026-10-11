@@ -160,16 +160,6 @@ class Path(_Path):
 
         return dst
 
-    def seg(self,
-        i: int = -1
-    ) -> str:
-        """
-        Returns segment of path split by '/'
-        (Ignores last slash)
-        """
-        
-        return self.path.strip('/').split(sep='/')[i]
-
     def copy(self, dst:'Path') -> None:
         from ..terminal import ProgressBar
         from logger2 import Log

@@ -5,6 +5,9 @@
 #include <algorithm>
 #include <filesystem>
 #include <optional>
+#include <iostream>
+#include <vector>
+#include <sstream>
 
 #include "remap.h"
 
@@ -97,6 +100,25 @@ class _Path { public:
         if (is_file())
             return fs::file_size(_pure);
         return nullopt;
+    }
+
+    str seg(size_t i = -1) {
+        
+        size_t end = path.length();
+        if (path[end-1] == '/') end--;
+        
+        std::stringstream ss(path.substr(0, end));
+        
+        vector<str> parts;
+        str line;
+        while (std::getline(ss, line, '/')) {
+            if (!line.empty())
+                parts.push_back(line);
+        }
+
+        if (i < 0) i += parts.size();
+        
+        return parts[i];        
     }
 
     std::string __str__() const {

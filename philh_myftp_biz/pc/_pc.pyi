@@ -1,5 +1,7 @@
 import pathlib
+import typing
 from .Path import Path
+from typing import overload
 
 loc: _loc
 
@@ -8,6 +10,10 @@ class _Path:
     @staticmethod
     def _parse(arg0: object) -> str: ...
     def _pybind11_conduit_v1_(self, *args, **kwargs): ...
+    @overload
+    def seg(self, i: typing.SupportsInt | typing.SupportsIndex = ...) -> str: ...
+    @overload
+    def seg(self, i: int = ...) -> str: ...
     @property
     def _pure(self) -> pathlib.Path: ...
     @property

@@ -13,6 +13,13 @@ PYBIND11_MODULE(_pc, m) {
     py::class_<_Path>(m, "_Path")
         .def(py::init<py::object>())
         .def_static("_parse", &_Path::_parse)
+        .def("seg", &_Path::seg, 
+            py::arg("i") = -1,
+            "seg(self, i: int = -1) -> str\n"
+            "--\n\n"
+            "Returns segment of path split by '/'\n"
+            "(Ignores last slash)"
+        )
         .def("__str__", &_Path::__str__)
         .def("__repr__", &_Path::__str__)
         .def_readonly("path", &_Path::path)
