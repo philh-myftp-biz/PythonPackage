@@ -186,12 +186,12 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.HEALTHY
 
-   .. py:attribute:: UNHEALTHY
-      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.UNHEALTHY
+   .. py:attribute:: NOTGOOD
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.NOTGOOD
       :type: typing.ClassVar[philh_myftp_biz.pc.hardware.HealthStatus]
       :value: Ellipsis
 
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.UNHEALTHY
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.NOTGOOD
 
    .. py:attribute:: UNKNOWN
       :canonical: philh_myftp_biz.pc.hardware.HealthStatus.UNKNOWN
