@@ -22,6 +22,9 @@ Classes
    * - :py:obj:`HardDrive <philh_myftp_biz.pc.hardware.HardDrive>`
      - .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive
           :summary:
+   * - :py:obj:`HealthStatus <philh_myftp_biz.pc.hardware.HealthStatus>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus
+          :summary:
    * - :py:obj:`PCIeCard <philh_myftp_biz.pc.hardware.PCIeCard>`
      - .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard
           :summary:
@@ -63,6 +66,12 @@ API
       :type: str
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.FriendlyName
+
+   .. py:property:: Health
+      :canonical: philh_myftp_biz.pc.hardware.Device.Health
+      :type: philh_myftp_biz.pc.hardware.HealthStatus
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.Health
 
    .. py:property:: HealthReport
       :canonical: philh_myftp_biz.pc.hardware.Device.HealthReport
@@ -153,6 +162,93 @@ API
       :type: str
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.Tower
+
+.. py:class:: HealthStatus(value: typing.SupportsInt | typing.SupportsIndex)
+   :canonical: philh_myftp_biz.pc.hardware.HealthStatus
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.__init__
+
+   .. py:attribute:: __members__
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.__members__
+      :type: typing.ClassVar[dict]
+      :value: Ellipsis
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.__members__
+
+   .. py:attribute:: HEALTHY
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.HEALTHY
+      :type: typing.ClassVar[philh_myftp_biz.pc.hardware.HealthStatus]
+      :value: Ellipsis
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.HEALTHY
+
+   .. py:attribute:: UNHEALTHY
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.UNHEALTHY
+      :type: typing.ClassVar[philh_myftp_biz.pc.hardware.HealthStatus]
+      :value: Ellipsis
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.UNHEALTHY
+
+   .. py:attribute:: UNKNOWN
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.UNKNOWN
+      :type: typing.ClassVar[philh_myftp_biz.pc.hardware.HealthStatus]
+      :value: Ellipsis
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.UNKNOWN
+
+   .. py:attribute:: WARNING
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.WARNING
+      :type: typing.ClassVar[philh_myftp_biz.pc.hardware.HealthStatus]
+      :value: Ellipsis
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.WARNING
+
+   .. py:attribute:: __entries
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.__entries
+      :type: typing.ClassVar[dict]
+      :value: Ellipsis
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.__entries
+
+   .. py:method:: _pybind11_conduit_v1_(*args, **kwargs)
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus._pybind11_conduit_v1_
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus._pybind11_conduit_v1_
+
+   .. py:method:: __eq__(other: object) -> bool
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.__eq__
+
+   .. py:method:: __hash__() -> int
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.__hash__
+
+   .. py:method:: __index__() -> int
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.__index__
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.__index__
+
+   .. py:method:: __int__() -> int
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.__int__
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.__int__
+
+   .. py:method:: __ne__(other: object) -> bool
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.__ne__
+
+   .. py:property:: name
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.name
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.name
+
+   .. py:property:: value
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.value
+      :type: int
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.value
 
 .. py:class:: PCIeCard(VendorID: typing.SupportsInt | typing.SupportsIndex, DeviceID: typing.SupportsInt | typing.SupportsIndex, Slot: typing.SupportsInt | typing.SupportsIndex, Lanes: typing.SupportsInt | typing.SupportsIndex = ...)
    :canonical: philh_myftp_biz.pc.hardware.PCIeCard
