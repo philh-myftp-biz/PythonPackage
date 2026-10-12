@@ -16,11 +16,19 @@ PYBIND11_MODULE(hardware, m) {
         .def_static("search", &Device::search)
         .def_property_readonly("Name", &Device::GetName)
         .def_property_readonly("HealthReport", &Device::GetHealthReport)
+        .def_property_readonly("Health", &Device::GetHealth)
         .def_property_readonly("ID", &Device::GetID)
         .def_property_readonly("Link", &Device::GetLink)
         .def_property_readonly("FriendlyName", &Device::GetFriendlyName)
         .def_property_readonly("Connected", &Device::GetConnected);
     
+    // Bind the HealthStatus Enumerator
+    py::enum_<HealthStatus>(m, "HealthStatus")
+        .value("UNKNOWN", HealthStatus::UNKNOWN)  // 0
+        .value("HEALTHY", HealthStatus::HEALTHY)  // 1
+        .value("WARNING", HealthStatus::WARNING)  // 2
+        .value("NOTGOOD", HealthStatus::NOTGOOD); // 3
+
     // Bind HardDrive as a child of Device
     py::class_<HardDrive, Device>(m, "HardDrive", py::dynamic_attr())
         .def(py::init<str, str, int, str>(),

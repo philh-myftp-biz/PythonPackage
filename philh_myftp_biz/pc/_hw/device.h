@@ -7,6 +7,13 @@
 #include <json.hpp>
 #include "remap.h"
 
+enum HealthStatus {
+    UNKNOWN, // 0
+    HEALTHY, // 1
+    WARNING, // 2
+    NOTGOOD, // 3
+};
+
 class Device { public:
 
     static vector<Device> search() {
@@ -22,6 +29,10 @@ class Device { public:
 
     virtual str GetHealthReport() const {
         return "";
+    }
+
+    virtual HealthStatus GetHealth() const {
+        return UNKNOWN;
     }
 
     virtual str GetLink() const {
