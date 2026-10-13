@@ -63,16 +63,14 @@ struct HardDrive : public Device {
     // Windows Helpers
     #ifdef WINDOWS
 
-        str _powershell(str cmd) const {
-            str script = "Get-PhysicalDisk | Where-Object SerialNumber -eq '" + SN + "' | " + cmd;
-            
-            auto [exit_code, out_buf, err_buf] = subprocess::capture_run(narg::$powershell, script);
-            
-            if (exit_code == 0) {
-                return out_buf.to_string();
-            } else {
-                return "";
-            }
+        json _powershell(str cmd) const {
+            auto [exit_code, out_buf, err_buf] = sp::capture_run(
+                narg::$powershell,
+                "Get-PhysicalDisk -SerialNumber '" + SN + "' | Select -First 1 " + cmd + " | ConvertTo-Json"
+            );
+            return (exit_code == 0 && !out_buf.empty()) 
+                ? json::parse( out_buf.to_string() )
+                : json::object();
         }
 
     #endif
@@ -133,20 +131,20 @@ struct HardDrive : public Device {
     str GetFriendlyName() const override {
         if (!GetConnected()) return "";
 
+        str model = hwDisk().has_value() ? hwDisk()->model() : "";
+
         #ifdef WINDOWS
-            str jsonRaw = _powershell("Select-Object -Property FriendlyName | ConvertTo-Json");
-            json data = json::parse(jsonRaw);
-            if (data.contains("FriendlyName") && !data["FriendlyName"].is_null())
-                return data["FriendlyName"].get<str>();
+            json data = _powershell("");
+            return data.value("FriendlyName", model);
         #endif
-        
-        return hwDisk().has_value() ? hwDisk()->model() : "";
+
+        return model;        
     }
 
     void setFriendlyName(str name) {
         if (!GetConnected()) return;
         #ifdef WINDOWS
-            _powershell("Set-PhysicalDisk -NewFriendlyName '" + name + "'");
+            _powershell("| Set-PhysicalDisk -NewFriendlyName '" + name + "'");
         #endif
     }
 
@@ -157,10 +155,8 @@ struct HardDrive : public Device {
         if (!GetConnected()) return "";
 
         #ifdef WINDOWS
-            str raw = _powershell("Select-Object -Property Usage | ConvertTo-Json"); 
-            json data = json::parse(raw);
-            if (data.contains("Usage"))
-                return data["Usage"].get<str>();
+            json data = _powershell(""); 
+            return data.value("Usage", "");
         #endif
 
         return "";
@@ -186,52 +182,30 @@ struct HardDrive : public Device {
         std::ostringstream msg;
         msg << "PRI. MASTER DISK: " << hwDisk()->model() << "\n";
         msg << "SERIAL NUMBER   : " << SN << "\n";
-        msg << "S.M.A.R.T. CAPABLE AND STATUS CHECKING... ";
+        msg << "S.M.A.R.T. CAPABLE AND STATUS... ";
 
         #ifdef WINDOWS
-            // Queries Windows Storage API for physical hardware status matching this drive's SN
-            str raw = _powershell("Select-Object -Property HealthStatus, OperationalStatus | ConvertTo-Json");
-            
-            if (!raw.empty()) {
-                try {
-                    json data = json::parse(raw);
-                    str health = data.contains("HealthStatus") ? data["HealthStatus"].get<str>() : "Unknown";
-                    str opStatus = data.contains("OperationalStatus") ? data["OperationalStatus"].dump() : "";
+            json data = _powershell("");
 
-                    // A BIOS traditionally alerts on Predictive Failure or non-Healthy states
-                    if (health == "Healthy" && opStatus.find("Predictive Failure") == std::string::npos) {
-                        msg << "[ OK ]\n";
-                        msg << "STATUS: OK. NO BAD SECTORS OR HARDWARE FAULTS DETECTED.";
-                    } else {
-                        msg << "[ BAD ]\n";
-                        msg << "WARNING: S.M.A.R.T. HARDWARE FAILURE PREDICTED ON DETECTED DRIVE.\n";
-                        msg << "STATUS : " << health << " (" << opStatus << ")\n";
-                        msg << "CRITICAL: BAD SECTORS OR HARDWARE INSTABILITY DETECTED. BACK UP DATA IMMEDIATELY!";
-                    }
-                    return msg.str();
-                } catch (...) {
-                    // Fall through to raw check if JSON parsing fails
-                }
-            }
-
-            // Quick fallback method using plain text output if JSON parsing fails
-            str plainStatus = _powershell("(Get-PhysicalDisk).HealthStatus");
-            if (plainStatus.find("Healthy") != std::string::npos) {
-                msg << "[ OK ]\nSTATUS: OK. ALL SECTORS FUNCTIONAL.";
+            if (data.value("HealthStatus", "?") == "Healthy") {
+                msg << "[ OK ]\n";
+                msg << "STATUS: OK. NO BAD SECTORS OR HARDWARE FAULTS DETECTED.";
             } else {
-                msg << "[ FAILED ]\nCRITICAL: DEVICE HARDWARE STATUS IS UNHEALTHY. REPLACE DRIVE.";
+                msg << "[ BAD ]\n";
+                msg << "WARNING: S.M.A.R.T. HARDWARE FAILURE PREDICTED ON DETECTED DRIVE.\n";
+                msg << "STATUS : " << data.value("HealthStatus", "Unknown");
+                msg << " (" << (data.contains("OperationalStatus") ? data["OperationalStatus"].dump() : "...") << ")\n";
+                msg << "CRITICAL: BAD SECTORS OR HARDWARE INSTABILITY DETECTED. BACK UP DATA IMMEDIATELY!";
             }
-
         #else
-            // Linux / macOS standard smartctl fallback
-            auto [exit_code, out_buf, err_buf] = subprocess::capture_run("smartctl", {
+            auto [exit_code, out_buf, err_buf] = sp::capture_run("smartctl", {
                 "-H", 
-                ("/dev/sd" + std::string(1, 'a' + hwDisk()->id()))
+                ("/dev/sd" + str(1, 'a' + hwDisk()->id()))
             });
 
             str output = out_buf.to_string();
             
-            if (exit_code == 0 && output.find("PASSED") != std::string::npos) {
+            if (exit_code == 0 && output.find("PASSED") != str::npos) {
                 msg << "[ OK ]\nSTATUS: OK. DRIVE IS HEALTHY.";
             } else {
                 msg << "[ FAILED ]\n";
@@ -243,6 +217,13 @@ struct HardDrive : public Device {
         return msg.str();
     }
 
+    //===============================================================================
+    // Health
+
+//    HealthStatus GetHealth() {
+        
+//    }
+    
     //===============================================================================
 
 };
