@@ -1,4 +1,5 @@
 #include <pybind11/pybind11.h>
+#include <pybind11/native_enum.h>
 #include <iostream>
 #include <string>
 #include <remap.h>
@@ -22,12 +23,12 @@ PYBIND11_MODULE(hardware, m) {
         .def_property_readonly("FriendlyName", &Device::GetFriendlyName)
         .def_property_readonly("Connected", &Device::GetConnected);
     
-    // Bind the HealthStatus Enumerator
-    py::enum_<HealthStatus>(m, "HealthStatus")
-        .value("UNKNOWN", HealthStatus::UNKNOWN)  // 0
-        .value("HEALTHY", HealthStatus::HEALTHY)  // 1
-        .value("WARNING", HealthStatus::WARNING)  // 2
-        .value("NOTGOOD", HealthStatus::NOTGOOD); // 3
+    py::native_enum<HealthStatus>(m, "HealthStatus", "enum.IntEnum")
+        .value("UNKNOWN", HealthStatus::UNKNOWN) // 0
+        .value("HEALTHY", HealthStatus::HEALTHY) // 1
+        .value("WARNING", HealthStatus::WARNING) // 2
+        .value("NOTGOOD", HealthStatus::NOTGOOD) // 3
+        .finalize();
 
     // Bind HardDrive as a child of Device
     py::class_<HardDrive, Device>(m, "HardDrive", py::dynamic_attr())
