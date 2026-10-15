@@ -66,17 +66,17 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.FriendlyName
 
-   .. py:property:: Health
-      :canonical: philh_myftp_biz.pc.hardware.Device.Health
-      :type: philh_myftp_biz.pc.hardware.HealthStatus
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.Health
-
    .. py:property:: HealthReport
       :canonical: philh_myftp_biz.pc.hardware.Device.HealthReport
       :type: str
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.HealthReport
+
+   .. py:property:: HealthStatus
+      :canonical: philh_myftp_biz.pc.hardware.Device.HealthStatus
+      :type: philh_myftp_biz.pc.hardware.HealthStatus
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.HealthStatus
 
    .. py:property:: ID
       :canonical: philh_myftp_biz.pc.hardware.Device.ID
@@ -180,6 +180,13 @@ API
       :value: Ellipsis
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.HEALTHY
+
+   .. py:attribute:: MISSING
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.MISSING
+      :type: typing.ClassVar[philh_myftp_biz.pc.hardware.HealthStatus]
+      :value: Ellipsis
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.MISSING
 
    .. py:attribute:: NOTGOOD
       :canonical: philh_myftp_biz.pc.hardware.HealthStatus.NOTGOOD
