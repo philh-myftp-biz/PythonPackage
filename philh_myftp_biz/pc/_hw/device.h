@@ -32,7 +32,7 @@ class Device { public:
         return "";
     }
 
-    virtual HealthStatus GetHealth() const {
+    virtual HealthStatus GetHealthStatus() const {
         return UNKNOWN;
     }
 

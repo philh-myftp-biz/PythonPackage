@@ -220,9 +220,26 @@ struct HardDrive : public Device {
     //===============================================================================
     // Health
 
-//    HealthStatus GetHealth() {
-        
-//    }
+    HealthStatus GetHealthStatus() const override {
+        if (!GetConnected()) return MISSING;
+
+        #ifdef WINDOWS
+            json data = _powershell("");
+            std::string status = data.value("HealthStatus", "Unknown");
+            if (status == "Healthy")   return HEALTHY;
+            if (status == "Warning")   return WARNING;
+            if (status == "Unhealthy") return NOTGOOD;
+            return UNKNOWN;
+        #else
+            auto [exit_code, out_buf, err_buf] = sp::capture_run("smartctl", {
+                "-H", 
+                ("/dev/sd" + str(1, 'a' + hwDisk()->id()))
+            });
+            return (exit_code == 0 && out_buf.to_string().find("PASSED") != str::npos) 
+                ? HEALTHY 
+                : NOTGOOD;
+        #endif
+    }
     
     //===============================================================================
 
