@@ -5,6 +5,7 @@ build
 _build
 philh_myftp_biz.egg-info
 **.pyd
+**.pdb
 dist
 .mypy_cache
 _api
