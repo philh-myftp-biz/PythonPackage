@@ -1,12 +1,12 @@
+from os import environ
 
-try:
-    from psutil import process_iter, NoSuchProcess, AccessDenied
-    from psutil import Process as _Process
-except ImportError:
-    process_iter = object
+if environ.get('STUBGEN'):
     NoSuchProcess = object
     AccessDenied = object
     _Process = object
+else:
+    from psutil import process_iter, NoSuchProcess, AccessDenied
+    from psutil import Process as _Process
 
 from functools import cached_property
 from typing import TYPE_CHECKING

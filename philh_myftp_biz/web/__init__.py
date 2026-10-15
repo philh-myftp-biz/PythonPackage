@@ -1,8 +1,6 @@
-from sys import modules
+from os import environ
 
-if "mypy" in modules:
-    URL, Session, Adapter, RetryStrat = [object]*4
-else:
+if not environ.get('STUBGEN'):
     from .url import URL # pyright: ignore[reportUnusedImport]
     from .session import Session, Adapter, RetryStrat # pyright: ignore[reportUnusedImport]
 

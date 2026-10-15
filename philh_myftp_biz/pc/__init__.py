@@ -1,7 +1,9 @@
 from typing import Literal, Generator
 from .Path import Path, PathPair
+from os import environ
 
-from ._pc import loc # pyright: ignore[reportUnusedImport]
+if not environ.get('STUBGEN'):
+    from ._pc import loc # pyright: ignore[reportUnusedImport]
 
 #========================================================
 
