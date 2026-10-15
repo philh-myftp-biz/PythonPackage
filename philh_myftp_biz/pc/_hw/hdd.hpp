@@ -173,46 +173,26 @@ struct HardDrive : public Device {
     // HealthReport
 
     str GetHealthReport() const override {
+
+        str SerialNumber = "N/A";
+        str Model = "N/A";
+        str Status = "Missing";
         
-        if (!GetConnected()) {
-            return "DISK DETECT STATUS... [ NOT FOUND ]\n"
-                   "CRITICAL: DEVICE DISCONNECTED OR NOT RESPONDING.";
+        if (GetConnected()) {
+            SerialNumber = SN;
+            Model = hwDisk()->model();
+            switch (GetHealthStatus()) {
+                case HEALTHY: Status = "Healthy";
+                case WARNING: Status = "Warning";
+                case NOTGOOD: Status = "NotGood";
+                default: Status = "Unknown";
+            }
         }
 
         std::ostringstream msg;
-        msg << "PRI. MASTER DISK: " << hwDisk()->model() << "\n";
-        msg << "SERIAL NUMBER   : " << SN << "\n";
-        msg << "S.M.A.R.T. CAPABLE AND STATUS... ";
-
-        #ifdef WINDOWS
-            json data = _powershell("");
-
-            if (data.value("HealthStatus", "?") == "Healthy") {
-                msg << "[ OK ]\n";
-                msg << "STATUS: OK. NO BAD SECTORS OR HARDWARE FAULTS DETECTED.";
-            } else {
-                msg << "[ BAD ]\n";
-                msg << "WARNING: S.M.A.R.T. HARDWARE FAILURE PREDICTED ON DETECTED DRIVE.\n";
-                msg << "STATUS : " << data.value("HealthStatus", "Unknown");
-                msg << " (" << (data.contains("OperationalStatus") ? data["OperationalStatus"].dump() : "...") << ")\n";
-                msg << "CRITICAL: BAD SECTORS OR HARDWARE INSTABILITY DETECTED. BACK UP DATA IMMEDIATELY!";
-            }
-        #else
-            auto [exit_code, out_buf, err_buf] = sp::capture_run("smartctl", {
-                "-H", 
-                ("/dev/sd" + str(1, 'a' + hwDisk()->id()))
-            });
-
-            str output = out_buf.to_string();
-            
-            if (exit_code == 0 && output.find("PASSED") != str::npos) {
-                msg << "[ OK ]\nSTATUS: OK. DRIVE IS HEALTHY.";
-            } else {
-                msg << "[ FAILED ]\n";
-                msg << "WARNING: S.M.A.R.T. HARDWARE HEALTH CHECK FAILED.\n";
-                msg << "CRITICAL: SURFACE SECTOR FAILURE OR HARDWARE DEGRADATION DETECTED.";
-            }
-        #endif
+        msg << "SERIAL NUMBER: " << SerialNumber << "\n";
+        msg << "MODEL........: " << Model << "\n";
+        msg << "STATUS.......: " << Status << "\n";
 
         return msg.str();
     }
