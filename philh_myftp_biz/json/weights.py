@@ -1,3 +1,4 @@
+from frozendict import deepfreeze
 
 class Weights:
     """```
@@ -20,8 +21,8 @@ class Weights:
 
     ```"""
     
-    def __init__(self, **controls):
-        self.controls = controls
+    def __init__(self, **controls) -> None:
+        self.controls = deepfreeze(controls)
 
     def __call__(self, **samples) -> bool:
         from logger2 import Log

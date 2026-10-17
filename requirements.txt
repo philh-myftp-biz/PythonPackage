@@ -32,3 +32,4 @@ requests-cache
 diskcache
 tenacity
 logger2
+frozendict
