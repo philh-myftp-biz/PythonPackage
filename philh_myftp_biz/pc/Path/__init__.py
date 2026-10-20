@@ -7,6 +7,8 @@ from ... import file
 if TYPE_CHECKING:
     from .helpers import _mtime, _cd
 
+from . import patch # Execute patches
+
 #========================================================
 
 class Path(_Path):
