@@ -6,6 +6,15 @@
 .. autodoc2-docstring:: philh_myftp_biz.pc
    :allowtitles:
 
+Subpackages
+-----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   philh_myftp_biz.pc.Path
+
 Submodules
 ----------
 
@@ -14,7 +23,6 @@ Submodules
    :maxdepth: 1
 
    philh_myftp_biz.pc.hardware
-   philh_myftp_biz.pc.Path
    philh_myftp_biz.pc._pc
 
 Package Contents
