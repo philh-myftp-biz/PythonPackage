@@ -8,6 +8,7 @@
 #include <pc/_hw/hdd.hpp>
 #include <pc/_hw/pcie.hpp>
 #include <pc/_hw/vdisk.hpp>
+#include <pc/_hw/tower.hpp>
 
 PYBIND11_MODULE(hardware, m) {
 
@@ -72,6 +73,11 @@ PYBIND11_MODULE(hardware, m) {
         .def_readonly("Mount", &VirtualDisk::Mount)
         .def_property("Connected", &VirtualDisk::GetConnected, &VirtualDisk::setConnected)
         .def("Repair", &VirtualDisk::Repair);
+
+    py::class_<Tower, Device>(m, "Tower")
+        .def(py::init<str>())
+        .def_readonly("Tower", &Tower::tower)
+        .def_property("HardDrives", &Tower::getHardDrives, &Tower::setHardDrives);
 
 }
 
