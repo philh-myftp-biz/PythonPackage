@@ -14,8 +14,8 @@
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="philh_myftp_biz.pc._pc" href="philh_myftp_biz.pc._pc.html" />
-    <link rel="prev" title="philh_myftp_biz.pc.Path.patch" href="philh_myftp_biz.pc.Path.patch.html" />
+    <link rel="next" title="philh_myftp_biz.pc.Path" href="philh_myftp_biz.pc.Path.html" />
+    <link rel="prev" title="philh_myftp_biz.pc" href="philh_myftp_biz.pc.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -53,7 +53,10 @@
 <tr class="row-even"><td><p><a class="reference internal" href="#philh_myftp_biz.pc.hardware.PCIeCard" title="philh_myftp_biz.pc.hardware.PCIeCard"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PCIeCard</span></code></a></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#philh_myftp_biz.pc.hardware.VirtualDisk" title="philh_myftp_biz.pc.hardware.VirtualDisk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VirtualDisk</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#philh_myftp_biz.pc.hardware.Tower" title="philh_myftp_biz.pc.hardware.Tower"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tower</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#philh_myftp_biz.pc.hardware.VirtualDisk" title="philh_myftp_biz.pc.hardware.VirtualDisk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VirtualDisk</span></code></a></p></td>
 <td></td>
 </tr>
 </tbody>
@@ -293,6 +296,28 @@
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.Tower">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.pc.hardware.</span></span><span class="sig-name descname"><span class="pre">Tower</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tower</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hdds</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">collections.abc.Sequence</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#philh_myftp_biz.pc.hardware.HardDrive" title="philh_myftp_biz.pc.hardware.HardDrive"><span class="pre">philh_myftp_biz.pc.hardware.HardDrive</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.Tower" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#philh_myftp_biz.pc.hardware.Device" title="philh_myftp_biz.pc.hardware.Device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">philh_myftp_biz.pc.hardware.Device</span></code></a></p>
+<p class="rubric">Initialization</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.Tower._pybind11_conduit_v1_">
+<span class="sig-name descname"><span class="pre">_pybind11_conduit_v1_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.Tower._pybind11_conduit_v1_" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.Tower.HardDrives">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">HardDrives</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#philh_myftp_biz.pc.hardware.HardDrive" title="philh_myftp_biz.pc.hardware.HardDrive"><span class="pre">philh_myftp_biz.pc.hardware.HardDrive</span></a><span class="p"><span class="pre">]</span></span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.Tower.HardDrives" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.Tower.Tower">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">Tower</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.Tower.Tower" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.VirtualDisk">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.pc.hardware.</span></span><span class="sig-name descname"><span class="pre">VirtualDisk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Mount</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.VirtualDisk" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#philh_myftp_biz.pc.hardware.Device" title="philh_myftp_biz.pc.hardware.Device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">philh_myftp_biz.pc.hardware.Device</span></code></a></p>
@@ -364,8 +389,8 @@
   <li><a href="../index.html">API Reference</a><ul>
   <li><a href="philh_myftp_biz.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz</span></code></a><ul>
   <li><a href="philh_myftp_biz.pc.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.pc</span></code></a><ul>
-      <li>Previous: <a href="philh_myftp_biz.pc.Path.patch.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.pc.Path.patch</span></code></a></li>
-      <li>Next: <a href="philh_myftp_biz.pc._pc.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.pc._pc</span></code></a></li>
+      <li>Previous: <a href="philh_myftp_biz.pc.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.pc</span></code></a></li>
+      <li>Next: <a href="philh_myftp_biz.pc.Path.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.pc.Path</span></code></a></li>
   </ul></li>
   </ul></li>
   </ul></li>

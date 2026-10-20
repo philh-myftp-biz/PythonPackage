@@ -6,18 +6,8 @@
 .. autodoc2-docstring:: philh_myftp_biz.pc.Path
    :allowtitles:
 
-Submodules
-----------
-
-.. toctree::
-   :titlesonly:
-   :maxdepth: 1
-
-   philh_myftp_biz.pc.Path.helpers
-   philh_myftp_biz.pc.Path.patch
-
-Package Contents
-----------------
+Module Contents
+---------------
 
 Classes
 ~~~~~~~
@@ -31,6 +21,18 @@ Classes
           :summary:
    * - :py:obj:`PathPair <philh_myftp_biz.pc.Path.PathPair>`
      - .. autodoc2-docstring:: philh_myftp_biz.pc.Path.PathPair
+          :summary:
+   * - :py:obj:`_cd <philh_myftp_biz.pc.Path._cd>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc.Path._cd
+          :summary:
+   * - :py:obj:`_mtime <philh_myftp_biz.pc.Path._mtime>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc.Path._mtime
+          :summary:
+   * - :py:obj:`_set_access <philh_myftp_biz.pc.Path._set_access>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc.Path._set_access
+          :summary:
+   * - :py:obj:`_visibility <philh_myftp_biz.pc.Path._visibility>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc.Path._visibility
           :summary:
 
 API
@@ -62,7 +64,7 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.Path.Path.ctime
 
-   .. py:method:: cd() -> philh_myftp_biz.pc.Path.helpers._cd
+   .. py:method:: cd() -> philh_myftp_biz.pc.Path._cd
       :canonical: philh_myftp_biz.pc.Path.Path.cd
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.Path.Path.cd
@@ -90,8 +92,12 @@ API
    .. py:method:: __format__(spec: str) -> str
       :canonical: philh_myftp_biz.pc.Path.Path.__format__
 
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path.Path.__format__
+
    .. py:method:: __eq__(other: object) -> bool
       :canonical: philh_myftp_biz.pc.Path.Path.__eq__
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path.Path.__eq__
 
    .. py:property:: fsize
       :canonical: philh_myftp_biz.pc.Path.Path.fsize
@@ -298,3 +304,136 @@ API
 
    .. py:method:: __setattr__(key: str, value: typing.Any) -> None
       :canonical: philh_myftp_biz.pc.Path.PathPair.__setattr__
+
+.. py:class:: _cd(path: philh_myftp_biz.pc.Path.Path)
+   :canonical: philh_myftp_biz.pc.Path._cd
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.Path._cd
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.Path._cd.__init__
+
+   .. py:attribute:: __via_with
+      :canonical: philh_myftp_biz.pc.Path._cd.__via_with
+      :value: False
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._cd.__via_with
+
+   .. py:method:: __enter__() -> None
+      :canonical: philh_myftp_biz.pc.Path._cd.__enter__
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._cd.__enter__
+
+   .. py:method:: __exit__(*_) -> None
+      :canonical: philh_myftp_biz.pc.Path._cd.__exit__
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._cd.__exit__
+
+   .. py:method:: open() -> None
+      :canonical: philh_myftp_biz.pc.Path._cd.open
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._cd.open
+
+   .. py:attribute:: __call__
+      :canonical: philh_myftp_biz.pc.Path._cd.__call__
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._cd.__call__
+
+   .. py:method:: back() -> None
+      :canonical: philh_myftp_biz.pc.Path._cd.back
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._cd.back
+
+.. py:class:: _mtime
+   :canonical: philh_myftp_biz.pc.Path._mtime
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.Path._mtime
+
+   .. py:attribute:: path
+      :canonical: philh_myftp_biz.pc.Path._mtime.path
+      :type: philh_myftp_biz.pc.Path.Path
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._mtime.path
+
+   .. py:method:: set(mtime: int|from_stamp = None) -> None
+      :canonical: philh_myftp_biz.pc.Path._mtime.set
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._mtime.set
+
+   .. py:property:: current
+      :canonical: philh_myftp_biz.pc.Path._mtime.current
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._mtime.current
+
+   .. py:method:: __int__()
+      :canonical: philh_myftp_biz.pc.Path._mtime.__int__
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._mtime.__int__
+
+   .. py:method:: __float__()
+      :canonical: philh_myftp_biz.pc.Path._mtime.__float__
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._mtime.__float__
+
+   .. py:property:: stopwatch
+      :canonical: philh_myftp_biz.pc.Path._mtime.stopwatch
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._mtime.stopwatch
+
+.. py:class:: _set_access
+   :canonical: philh_myftp_biz.pc.Path._set_access
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.Path._set_access
+
+   .. py:attribute:: path
+      :canonical: philh_myftp_biz.pc.Path._set_access.path
+      :type: philh_myftp_biz.pc.Path.Path
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._set_access.path
+
+   .. py:method:: __paths() -> typing.Generator[philh_myftp_biz.pc.Path.Path, None, None]
+      :canonical: philh_myftp_biz.pc.Path._set_access.__paths
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._set_access.__paths
+
+   .. py:method:: readonly() -> None
+      :canonical: philh_myftp_biz.pc.Path._set_access.readonly
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._set_access.readonly
+
+   .. py:method:: full() -> None
+      :canonical: philh_myftp_biz.pc.Path._set_access.full
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._set_access.full
+
+.. py:class:: _visibility
+   :canonical: philh_myftp_biz.pc.Path._visibility
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.Path._visibility
+
+   .. py:attribute:: path
+      :canonical: philh_myftp_biz.pc.Path._visibility.path
+      :type: philh_myftp_biz.pc.Path.Path
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._visibility.path
+
+   .. py:method:: hide() -> None
+      :canonical: philh_myftp_biz.pc.Path._visibility.hide
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._visibility.hide
+
+   .. py:method:: show() -> None
+      :canonical: philh_myftp_biz.pc.Path._visibility.show
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._visibility.show
+
+   .. py:property:: hidden
+      :canonical: philh_myftp_biz.pc.Path._visibility.hidden
+      :type: None | bool
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path._visibility.hidden

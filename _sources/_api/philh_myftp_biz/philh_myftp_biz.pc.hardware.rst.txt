@@ -27,6 +27,9 @@ Classes
    * - :py:obj:`PCIeCard <philh_myftp_biz.pc.hardware.PCIeCard>`
      - .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard
           :summary:
+   * - :py:obj:`Tower <philh_myftp_biz.pc.hardware.Tower>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Tower
+          :summary:
    * - :py:obj:`VirtualDisk <philh_myftp_biz.pc.hardware.VirtualDisk>`
      - .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.VirtualDisk
           :summary:
@@ -324,6 +327,34 @@ API
       :type: int
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.PCIeCard.VendorID
+
+.. py:class:: Tower(tower: str, hdds: collections.abc.Sequence[philh_myftp_biz.pc.hardware.HardDrive])
+   :canonical: philh_myftp_biz.pc.hardware.Tower
+
+   Bases: :py:obj:`philh_myftp_biz.pc.hardware.Device`
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Tower
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Tower.__init__
+
+   .. py:method:: _pybind11_conduit_v1_(*args, **kwargs)
+      :canonical: philh_myftp_biz.pc.hardware.Tower._pybind11_conduit_v1_
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Tower._pybind11_conduit_v1_
+
+   .. py:property:: HardDrives
+      :canonical: philh_myftp_biz.pc.hardware.Tower.HardDrives
+      :type: list[philh_myftp_biz.pc.hardware.HardDrive]
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Tower.HardDrives
+
+   .. py:property:: Tower
+      :canonical: philh_myftp_biz.pc.hardware.Tower.Tower
+      :type: str
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Tower.Tower
 
 .. py:class:: VirtualDisk(Name: str, Mount: str)
    :canonical: philh_myftp_biz.pc.hardware.VirtualDisk
