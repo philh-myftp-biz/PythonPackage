@@ -17,6 +17,7 @@ class Torrent:
 
     size: str = ""
     url : str = ""
+    file: 'None|Path' = None
     uploaded: None|TimeStamp = None
     type: None|Literal['Show', 'Movie', 'Episode'] = None
 
@@ -38,7 +39,14 @@ class Torrent:
     @cached_property
     def hash(self) -> None|str:
         from urllib.parse import urlparse, parse_qs
+        from bencoding import bdecode, bencode
+        from hashlib import sha1
 
+        if self.file:
+            tdict = bdecode(self.file.bytes)
+            raw_tdict = bencode(tdict[b"info"])
+            return sha1(raw_tdict).hexdigest().lower()
+        
         XT: str = parse_qs(urlparse(self.url).query)['xt'][0]
 
         if XT.startswith('urn:btih:'): # v1
@@ -143,6 +151,8 @@ class Torrent:
         if self.exists:
             self.raw.recheck()
             return True
+        elif self.file:
+            qbit.torrents_add(torrent_files=self.file.bytes)
         else:
             qbit.torrents_add(self.url)
         
@@ -170,12 +180,15 @@ class Torrent:
             'seeders': self.seeders,
             'leechers': self.leechers,
             'uploaded': self.uploaded and self.uploaded.unix,
+            'file': self.file.path,
             'type': self.type
         }
 
     def __setstate__(self, state:dict):
+        from ...pc.Path import Path
         if state['uploaded']:
             state['uploaded'] = TimeStamp(state['uploaded'])
+        state['file'] = Path(state['file'])
         self.__dict__ |= state
 
     #===================================================

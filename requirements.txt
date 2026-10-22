@@ -33,3 +33,4 @@ diskcache
 tenacity
 logger2
 frozendict
+bencoding
