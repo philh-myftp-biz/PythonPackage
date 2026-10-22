@@ -159,6 +159,12 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.Slot
 
+   .. py:property:: Temperature
+      :canonical: philh_myftp_biz.pc.hardware.HardDrive.Temperature
+      :type: float
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.Temperature
+
    .. py:property:: Tower
       :canonical: philh_myftp_biz.pc.hardware.HardDrive.Tower
       :type: str
