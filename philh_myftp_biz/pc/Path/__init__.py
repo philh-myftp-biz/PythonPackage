@@ -263,6 +263,20 @@ class Path(_Path):
         )
 
     @property
+    def text(self) -> str:
+        with self.open('r') as f:
+            return f.read()
+
+    @property
+    def bytes(self) -> bytes:
+        with self.open('rb') as f:
+            return f.read()
+    
+    def chunks(self, n:int=8192):
+        with self.open("rb") as f:
+            yield from iter(lambda: f.read(n=n), b"")
+
+    @property
     def siblings(self):
         return [c for c in self.parent.children if c!=self]
 
@@ -315,9 +329,8 @@ class Path(_Path):
         
             hasher = sha256()
             
-            with self.open("rb") as f:
-                for chunk in iter(lambda: f.read(8192), b""):
-                    hasher.update(chunk)
+            for chunk in self.chunks(8192):
+                hasher.update(chunk)
             
             return hasher.hexdigest()
         
