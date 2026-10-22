@@ -39,7 +39,7 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Printer.Error
 
-.. py:function:: xitem(x: int, val: str, color: philh_myftp_biz.db.Color.names = 'DEFAULT') -> None
+.. py:function:: xitem(x: int, val: str, tag: str = None, color: philh_myftp_biz.db.Color.names = 'DEFAULT') -> None
    :canonical: philh_myftp_biz.terminal.tree.Printer.xitem
 
    .. autodoc2-docstring:: philh_myftp_biz.terminal.tree.Printer.xitem
