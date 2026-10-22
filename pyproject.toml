@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "philh_myftp_biz"
-version = "v2026.10.20"
+version = "v2026.10.22"
 requires-python = ">=3.12"
 dynamic = [ "dependencies",]
 
@@ -20,7 +20,7 @@ ignore = [ "F401", "E731", "E402", "E701", "E722", "F403", "I001", "B006", "B023
 [tool.setuptools.packages.find]
 where = [ ".",]
 namespaces = true
-exclude = [ "**/__pycache__", "*.pyc" ]
+exclude = [ "**/__pycache__", "*.pyc",]
 
 [tool.setuptools.dynamic.dependencies]
 file = [ "requirements.txt",]

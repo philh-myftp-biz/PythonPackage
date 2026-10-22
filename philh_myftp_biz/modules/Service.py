@@ -1,6 +1,6 @@
+from ..pc.hardware import Device, HealthStatus as HS
 from functools import cached_property
 from typing import TYPE_CHECKING
-from ..pc.hardware import Device
 from ..pc import Path
 
 if TYPE_CHECKING:
@@ -50,6 +50,15 @@ class Service(Path, Device):
     @property
     def Connected(self) -> bool:
         return self.running
+
+    @property
+    def HealthStatus(self) -> HS:
+        if not self.exists:
+            return HS.MISSING
+        elif self.running:
+            return HS.RUNNING
+        else:
+            return HS.STOPPED
 
     def file(self, name:str) -> Path:
 
