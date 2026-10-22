@@ -204,6 +204,20 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.NOTGOOD
 
+   .. py:attribute:: RUNNING
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.RUNNING
+      :type: typing.ClassVar[philh_myftp_biz.pc.hardware.HealthStatus]
+      :value: Ellipsis
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.RUNNING
+
+   .. py:attribute:: STOPPED
+      :canonical: philh_myftp_biz.pc.hardware.HealthStatus.STOPPED
+      :type: typing.ClassVar[philh_myftp_biz.pc.hardware.HealthStatus]
+      :value: Ellipsis
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HealthStatus.STOPPED
+
    .. py:attribute:: UNKNOWN
       :canonical: philh_myftp_biz.pc.hardware.HealthStatus.UNKNOWN
       :type: typing.ClassVar[philh_myftp_biz.pc.hardware.HealthStatus]

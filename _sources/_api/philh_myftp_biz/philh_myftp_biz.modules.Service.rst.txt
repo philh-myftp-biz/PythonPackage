@@ -50,6 +50,12 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service.Connected
 
+   .. py:property:: HealthStatus
+      :canonical: philh_myftp_biz.modules.Service.Service.HealthStatus
+      :type: philh_myftp_biz.pc.hardware.HealthStatus
+
+      .. autodoc2-docstring:: philh_myftp_biz.modules.Service.Service.HealthStatus
+
    .. py:method:: file(name: str) -> philh_myftp_biz.pc.Path
       :canonical: philh_myftp_biz.modules.Service.Service.file
 
