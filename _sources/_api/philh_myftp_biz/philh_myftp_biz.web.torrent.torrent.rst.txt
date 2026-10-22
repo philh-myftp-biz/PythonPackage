@@ -46,6 +46,13 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.url
 
+   .. py:attribute:: file
+      :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.file
+      :type: None|Path
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.web.torrent.torrent.Torrent.file
+
    .. py:attribute:: uploaded
       :canonical: philh_myftp_biz.web.torrent.torrent.Torrent.uploaded
       :type: None | philh_myftp_biz.time._time.TimeStamp
