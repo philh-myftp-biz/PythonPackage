@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from functools import cache
 from typing import Literal
+from enum import StrEnum
 
 #========================================================
 
@@ -103,44 +104,24 @@ class Size:
 
 #========================================================
 
-class Color:
-
-    names = Literal[
-        'BLACK',
-        'RED',
-        'GREEN',
-        'YELLOW',
-        'BLUE',
-        'MAGENTA',
-        'CYAN',
-        'WHITE',
-        'DEFAULT',
-        'BOLD',
-        'GRAY'
-    ]
-    """
-    Type hint for keys in colors.values
-    """
-
-    values: dict[names, str] = {
-        'BLACK' : '\033[30m',
-        'RED' : '\033[31m',
-        'GREEN' : '\033[32m',
-        'YELLOW' : '\033[33m',
-        'BLUE' : '\033[34m',
-        'MAGENTA' : '\033[35m',
-        'CYAN' : '\033[36m',
-        'WHITE' : '\033[37m',
-        'DEFAULT' : '\033[0m',
-        'BOLD': '\033[1m',
-        'GRAY': '\033[90m'
-    }
+class Color(StrEnum):
     r"""
     COLOR CONVERSION TABLE
 
     EXAMPLE:
-    colors.values['RED'] -> '\033[31m'
+    Color.RED -> '\033[31m'
     """
+    BLACK = '\033[30m'
+    RED = '\033[31m'
+    GREEN = '\033[32m'
+    YELLOW = '\033[33m'
+    BLUE = '\033[34m'
+    MAGENTA = '\033[35m'
+    CYAN = '\033[36m'
+    WHITE = '\033[37m'
+    DEFAULT = '\033[0m'
+    BOLD = '\033[1m'
+    GRAY = '\033[90m'
 
 #========================================================
 

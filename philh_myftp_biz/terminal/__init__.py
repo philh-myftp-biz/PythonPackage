@@ -1,10 +1,10 @@
 from typing import Literal, TYPE_CHECKING
 from functools import cache
 from sys import platform
+from ..db import Color
 
 if TYPE_CHECKING:
     from ..pc.Path import Path
-    from ..db import Color
 
 from sys import stdout, stderr # pyright: ignore[reportUnusedImport]
 
@@ -73,28 +73,28 @@ def write(
 def print(
     *args:str,
     pause: bool = False,
-    color: 'Color.names' = 'DEFAULT',
+    color: Color = Color.DEFAULT,
     sep: str = ' ',
     end: str = '\n',
     overwrite: bool = False
 ) -> None:
     """Wrapper for built-in print function"""
-    from ..db import Color
+    from io import StringIO
     
     if overwrite:
         end = ''
         del_last_line()
     
-    message = Color.values[color.upper()]
-    for arg in args:
-        message += str(arg) + sep
-
-    message = message[:-1] + Color.values['DEFAULT'] + end
+    msg = StringIO()
+    msg.write(color)
+    msg.write(sep.join(args))
+    msg.write(Color.DEFAULT)
+    msg.write(end)
 
     if pause:
-        input(prompt=message)
+        input(prompt=msg.getvalue())
     else:
-        write(text=message)
+        write(text=msg.getvalue())
 
 #========================================================
 
