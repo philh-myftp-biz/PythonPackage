@@ -26,15 +26,21 @@ struct VirtualDisk : public Device {
         this->Mount = Mount;
     }
 
-    void powershell(str cmd) {
-        #ifdef WINDOWS
-            subprocess::run(
-                narg::$powershell, 
-                (cmd + "-VirtualDisk -FriendlyName '" + Name + "'")
-            );
-        #endif
-    }
+    //===============================================================================
+    // Windows Helpers
+    #ifdef WINDOWS
 
+        json _powershell(str cmd) const {
+            auto [exit_code, out_buf, err_buf] = sp::capture_run(
+                narg::$powershell,
+                cmd + "-VirtualDisk -FriendlyName '" + Name + "' | Select -First 1 | ConvertTo-Json" 
+            );
+            return (exit_code == 0 && !out_buf.empty()) 
+                ? json::parse( out_buf.to_string() )
+                : json::object();
+        }
+    
+    #endif
     //===============================================================================
     // ID
 
@@ -54,10 +60,10 @@ struct VirtualDisk : public Device {
     void setConnected(bool connected) {
         if (connected) {
             // Connect-VirtualDisk
-            powershell("Connect");
+            _powershell("Connect");
         } else {
             // Disconnect-VirtualDisk
-            powershell("Disconnect");
+            _powershell("Disconnect");
         }
     }
 
@@ -66,7 +72,7 @@ struct VirtualDisk : public Device {
 
     void Repair() {
         // Repair-VirtualDisk
-        powershell("Repair");
+        _powershell("Repair");
     }
 
     //===============================================================================
