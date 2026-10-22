@@ -14,6 +14,8 @@ enum HealthStatus {
     WARNING, // 2
     NOTGOOD, // 3
     MISSING, // 4
+    RUNNING, // 5
+    STOPPED, // 6
 };
 
 class Device { public:

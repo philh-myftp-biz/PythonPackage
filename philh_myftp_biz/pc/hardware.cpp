@@ -31,6 +31,8 @@ PYBIND11_MODULE(hardware, m) {
         .value("WARNING", HealthStatus::WARNING) // 2
         .value("NOTGOOD", HealthStatus::NOTGOOD) // 3
         .value("MISSING", HealthStatus::MISSING) // 4
+        .value("RUNNING", HealthStatus::RUNNING) // 5
+        .value("STOPPED", HealthStatus::STOPPED) // 6
         .finalize();
 
     // Bind HardDrive as a child of Device
