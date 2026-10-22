@@ -45,7 +45,7 @@
 <td></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="#philh_myftp_biz.db.Color" title="philh_myftp_biz.db.Color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color</span></code></a></p></td>
-<td></td>
+<td><p>COLOR CONVERSION TABLE</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="#philh_myftp_biz.db.Ring" title="philh_myftp_biz.db.Ring"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Ring</span></code></a></p></td>
 <td><p>Wrapper for keyring</p></td>
@@ -127,19 +127,66 @@ size.to_bytes(‘10GB’)</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="philh_myftp_biz.db.Color">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.db.</span></span><span class="sig-name descname"><span class="pre">Color</span></span><a class="reference internal" href="../../_modules/philh_myftp_biz/db.html#Color"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.db.Color" title="Link to this definition">¶</a></dt>
-<dd><dl class="py attribute">
-<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.names">
-<span class="sig-name descname"><span class="pre">names</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.names" title="Link to this definition">¶</a></dt>
-<dd><p>Type hint for keys in colors.values</p>
-</dd></dl>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.StrEnum</span></code></p>
+<p>COLOR CONVERSION TABLE</p>
+<p>EXAMPLE:
+Color.RED -&gt; ‘033[31m’</p>
+<p class="rubric">Initialization</p>
+<p>Initialize self.  See help(type(self)) for accurate signature.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.BLACK">
+<span class="sig-name descname"><span class="pre">BLACK</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[30m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.BLACK" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="py attribute">
-<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.values">
-<span class="sig-name descname"><span class="pre">values</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#philh_myftp_biz.db.Color.names" title="philh_myftp_biz.db.Color.names"><span class="pre">philh_myftp_biz.db.Color.names</span></a><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.values" title="Link to this definition">¶</a></dt>
-<dd><p>COLOR CONVERSION TABLE</p>
-<p>EXAMPLE:
-colors.values[‘RED’] -&gt; ‘033[31m’</p>
-</dd></dl>
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.RED">
+<span class="sig-name descname"><span class="pre">RED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[31m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.RED" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.GREEN">
+<span class="sig-name descname"><span class="pre">GREEN</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[32m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.GREEN" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.YELLOW">
+<span class="sig-name descname"><span class="pre">YELLOW</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[33m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.YELLOW" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.BLUE">
+<span class="sig-name descname"><span class="pre">BLUE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[34m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.BLUE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.MAGENTA">
+<span class="sig-name descname"><span class="pre">MAGENTA</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[35m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.MAGENTA" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.CYAN">
+<span class="sig-name descname"><span class="pre">CYAN</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[36m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.CYAN" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.WHITE">
+<span class="sig-name descname"><span class="pre">WHITE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[37m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.WHITE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.DEFAULT">
+<span class="sig-name descname"><span class="pre">DEFAULT</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[0m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.DEFAULT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.BOLD">
+<span class="sig-name descname"><span class="pre">BOLD</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[1m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.BOLD" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.GRAY">
+<span class="sig-name descname"><span class="pre">GRAY</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[90m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.GRAY" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 

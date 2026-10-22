@@ -34,6 +34,7 @@
 <span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">cache</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">StrEnum</span>
 
 <span class="c1">#========================================================</span>
 
@@ -150,44 +151,24 @@
 
 <div class="viewcode-block" id="Color">
 <a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.db.html#philh_myftp_biz.db.Color">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">Color</span><span class="p">:</span>
-
-    <span class="n">names</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span>
-        <span class="s1">'BLACK'</span><span class="p">,</span>
-        <span class="s1">'RED'</span><span class="p">,</span>
-        <span class="s1">'GREEN'</span><span class="p">,</span>
-        <span class="s1">'YELLOW'</span><span class="p">,</span>
-        <span class="s1">'BLUE'</span><span class="p">,</span>
-        <span class="s1">'MAGENTA'</span><span class="p">,</span>
-        <span class="s1">'CYAN'</span><span class="p">,</span>
-        <span class="s1">'WHITE'</span><span class="p">,</span>
-        <span class="s1">'DEFAULT'</span><span class="p">,</span>
-        <span class="s1">'BOLD'</span><span class="p">,</span>
-        <span class="s1">'GRAY'</span>
-    <span class="p">]</span>
-<span class="w">    </span><span class="sd">"""</span>
-<span class="sd">    Type hint for keys in colors.values</span>
-<span class="sd">    """</span>
-
-    <span class="n">values</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="n">names</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s1">'BLACK'</span> <span class="p">:</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[30m'</span><span class="p">,</span>
-        <span class="s1">'RED'</span> <span class="p">:</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[31m'</span><span class="p">,</span>
-        <span class="s1">'GREEN'</span> <span class="p">:</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[32m'</span><span class="p">,</span>
-        <span class="s1">'YELLOW'</span> <span class="p">:</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[33m'</span><span class="p">,</span>
-        <span class="s1">'BLUE'</span> <span class="p">:</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[34m'</span><span class="p">,</span>
-        <span class="s1">'MAGENTA'</span> <span class="p">:</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[35m'</span><span class="p">,</span>
-        <span class="s1">'CYAN'</span> <span class="p">:</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[36m'</span><span class="p">,</span>
-        <span class="s1">'WHITE'</span> <span class="p">:</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[37m'</span><span class="p">,</span>
-        <span class="s1">'DEFAULT'</span> <span class="p">:</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[0m'</span><span class="p">,</span>
-        <span class="s1">'BOLD'</span><span class="p">:</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[1m'</span><span class="p">,</span>
-        <span class="s1">'GRAY'</span><span class="p">:</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[90m'</span>
-    <span class="p">}</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Color</span><span class="p">(</span><span class="n">StrEnum</span><span class="p">):</span>
 <span class="w">    </span><span class="sa">r</span><span class="sd">"""</span>
 <span class="sd">    COLOR CONVERSION TABLE</span>
 
 <span class="sd">    EXAMPLE:</span>
-<span class="sd">    colors.values['RED'] -&gt; '\033[31m'</span>
-<span class="sd">    """</span></div>
+<span class="sd">    Color.RED -&gt; '\033[31m'</span>
+<span class="sd">    """</span>
+    <span class="n">BLACK</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[30m'</span>
+    <span class="n">RED</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[31m'</span>
+    <span class="n">GREEN</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[32m'</span>
+    <span class="n">YELLOW</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[33m'</span>
+    <span class="n">BLUE</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[34m'</span>
+    <span class="n">MAGENTA</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[35m'</span>
+    <span class="n">CYAN</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[36m'</span>
+    <span class="n">WHITE</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[37m'</span>
+    <span class="n">DEFAULT</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[0m'</span>
+    <span class="n">BOLD</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[1m'</span>
+    <span class="n">GRAY</span> <span class="o">=</span> <span class="s1">'</span><span class="se">\033</span><span class="s1">[90m'</span></div>
 
 
 <span class="c1">#========================================================</span>

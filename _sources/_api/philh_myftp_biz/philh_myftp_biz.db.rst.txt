@@ -95,23 +95,82 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.db.Size.from_bytes
 
-.. py:class:: Color
+.. py:class:: Color()
    :canonical: philh_myftp_biz.db.Color
+
+   Bases: :py:obj:`enum.StrEnum`
 
    .. autodoc2-docstring:: philh_myftp_biz.db.Color
 
-   .. py:attribute:: names
-      :canonical: philh_myftp_biz.db.Color.names
-      :value: None
+   .. rubric:: Initialization
 
-      .. autodoc2-docstring:: philh_myftp_biz.db.Color.names
+   .. autodoc2-docstring:: philh_myftp_biz.db.Color.__init__
 
-   .. py:attribute:: values
-      :canonical: philh_myftp_biz.db.Color.values
-      :type: dict[philh_myftp_biz.db.Color.names, str]
-      :value: None
+   .. py:attribute:: BLACK
+      :canonical: philh_myftp_biz.db.Color.BLACK
+      :value: '\x1b[30m'
 
-      .. autodoc2-docstring:: philh_myftp_biz.db.Color.values
+      .. autodoc2-docstring:: philh_myftp_biz.db.Color.BLACK
+
+   .. py:attribute:: RED
+      :canonical: philh_myftp_biz.db.Color.RED
+      :value: '\x1b[31m'
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Color.RED
+
+   .. py:attribute:: GREEN
+      :canonical: philh_myftp_biz.db.Color.GREEN
+      :value: '\x1b[32m'
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Color.GREEN
+
+   .. py:attribute:: YELLOW
+      :canonical: philh_myftp_biz.db.Color.YELLOW
+      :value: '\x1b[33m'
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Color.YELLOW
+
+   .. py:attribute:: BLUE
+      :canonical: philh_myftp_biz.db.Color.BLUE
+      :value: '\x1b[34m'
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Color.BLUE
+
+   .. py:attribute:: MAGENTA
+      :canonical: philh_myftp_biz.db.Color.MAGENTA
+      :value: '\x1b[35m'
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Color.MAGENTA
+
+   .. py:attribute:: CYAN
+      :canonical: philh_myftp_biz.db.Color.CYAN
+      :value: '\x1b[36m'
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Color.CYAN
+
+   .. py:attribute:: WHITE
+      :canonical: philh_myftp_biz.db.Color.WHITE
+      :value: '\x1b[37m'
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Color.WHITE
+
+   .. py:attribute:: DEFAULT
+      :canonical: philh_myftp_biz.db.Color.DEFAULT
+      :value: '\x1b[0m'
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Color.DEFAULT
+
+   .. py:attribute:: BOLD
+      :canonical: philh_myftp_biz.db.Color.BOLD
+      :value: '\x1b[1m'
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Color.BOLD
+
+   .. py:attribute:: GRAY
+      :canonical: philh_myftp_biz.db.Color.GRAY
+      :value: '\x1b[90m'
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.Color.GRAY
 
 .. py:class:: Ring(name: str)
    :canonical: philh_myftp_biz.db.Ring
