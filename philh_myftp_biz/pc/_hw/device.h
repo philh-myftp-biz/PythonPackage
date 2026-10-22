@@ -34,7 +34,7 @@ class Device { public:
     }
 
     virtual HealthStatus GetHealthStatus() const {
-        return UNKNOWN;
+        return GetConnected() ? HEALTHY : MISSING;
     }
 
     virtual str GetLink() const {
