@@ -2,6 +2,7 @@
 
 #include <string>
 #include <functional>
+#include <optional>
 #include <pybind11/pybind11.h>
 
 #include <json.hpp>
@@ -56,6 +57,10 @@ class Device { public:
 
         size_t id = std::hash<str>{}(j.dump());
         return static_cast<int>(id);
+    }
+
+    virtual optional<float> GetTemperature() const {
+        return nullopt;
     }
 
 };

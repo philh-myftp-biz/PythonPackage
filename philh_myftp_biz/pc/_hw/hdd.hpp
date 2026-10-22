@@ -202,6 +202,7 @@ struct HardDrive : public Device {
 
     HealthStatus GetHealthStatus() const override {
         if (!GetConnected()) return MISSING;
+        if (GetTemperature().value_or(0) >= 55.0f) return WARNING;
 
         #ifdef WINDOWS
             json data = _powershell("");
