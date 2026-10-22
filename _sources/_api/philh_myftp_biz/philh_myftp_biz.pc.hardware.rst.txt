@@ -101,7 +101,7 @@ API
 
    .. py:property:: Temperature
       :canonical: philh_myftp_biz.pc.hardware.Device.Temperature
-      :type: float
+      :type: float | None
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.Temperature
 
