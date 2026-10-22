@@ -20,6 +20,7 @@ ignore = [ "F401", "E731", "E402", "E701", "E722", "F403", "I001", "B006", "B023
 [tool.setuptools.packages.find]
 where = [ ".",]
 namespaces = true
+exclude = [ "**/__pycache__", "*.pyc" ]
 
 [tool.setuptools.dynamic.dependencies]
 file = [ "requirements.txt",]
