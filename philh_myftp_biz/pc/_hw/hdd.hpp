@@ -12,6 +12,7 @@
 #include <functional>
 #include <pybind11/stl.h>
 
+#include <magic_enum/magic_enum_all.hpp>
 #include <subprocess.hpp>
 #include <json.hpp>
 #include <hwinfo/hwinfo.h>
@@ -19,6 +20,15 @@
 #include <remap.h>
 
 #include <pc/_hw/device.h>
+
+enum class DiskUsage {
+    AutoSelect,
+    ManualSelect,
+    HotSpare,
+    Retired,
+    Journal,
+    Unknown
+};
 
 struct HardDrive : public Device {
 
@@ -151,21 +161,24 @@ struct HardDrive : public Device {
     //===============================================================================
     // Usage
 
-    str Usage() {
-        if (!GetConnected()) return "";
+    DiskUsage Usage() {
+        if (!GetConnected()) return DiskUsage::Unknown;
 
         #ifdef WINDOWS
             json data = _powershell(""); 
-            return data.value("Usage", "");
+            str _usage = data.value("Usage", "Unknown");
+            _usage = stru::erase(_usage, str("-"));
+            return me::enum_cast<DiskUsage>(_usage).value_or(DiskUsage::Unknown);
         #endif
 
-        return "";
+        return DiskUsage::Unknown;
     }
 
-    void setUsage(str usage) {
+    void setUsage(DiskUsage usage) {
         if (!GetConnected()) return;
         #ifdef WINDOWS
-            _powershell("Set-PhysicalDisk -Usage '" + usage + "'");
+            str _usage = (str)me::enum_name(usage);
+            _powershell("| Set-PhysicalDisk -Usage '" + _usage + "'");
         #endif
     }
 

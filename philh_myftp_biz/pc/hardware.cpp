@@ -34,6 +34,15 @@ PYBIND11_MODULE(hardware, m) {
         .value("RUNNING", HealthStatus::RUNNING) // 5
         .value("STOPPED", HealthStatus::STOPPED) // 6
         .finalize();
+    
+    py::native_enum<DiskUsage>(m, "DiskUsage", "enum.IntEnum")
+        .value("AutoSelect", DiskUsage::AutoSelect)
+        .value("ManualSelect", DiskUsage::ManualSelect)
+        .value("HotSpare", DiskUsage::HotSpare)
+        .value("Retired", DiskUsage::Retired)
+        .value("Journal", DiskUsage::Journal)
+        .value("Unknown", DiskUsage::Unknown)
+        .finalize();
 
     // Bind HardDrive as a child of Device
     py::class_<HardDrive, Device>(m, "HardDrive", py::dynamic_attr())
