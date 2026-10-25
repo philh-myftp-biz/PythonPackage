@@ -44,19 +44,22 @@
 <tr class="row-odd"><td><p><a class="reference internal" href="#philh_myftp_biz.pc.hardware.Device" title="philh_myftp_biz.pc.hardware.Device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Device</span></code></a></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#philh_myftp_biz.pc.hardware.HardDrive" title="philh_myftp_biz.pc.hardware.HardDrive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HardDrive</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#philh_myftp_biz.pc.hardware.DiskUsage" title="philh_myftp_biz.pc.hardware.DiskUsage"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DiskUsage</span></code></a></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#philh_myftp_biz.pc.hardware.HealthStatus" title="philh_myftp_biz.pc.hardware.HealthStatus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HealthStatus</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#philh_myftp_biz.pc.hardware.HardDrive" title="philh_myftp_biz.pc.hardware.HardDrive"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HardDrive</span></code></a></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#philh_myftp_biz.pc.hardware.PCIeCard" title="philh_myftp_biz.pc.hardware.PCIeCard"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PCIeCard</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#philh_myftp_biz.pc.hardware.HealthStatus" title="philh_myftp_biz.pc.hardware.HealthStatus"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HealthStatus</span></code></a></p></td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="#philh_myftp_biz.pc.hardware.Tower" title="philh_myftp_biz.pc.hardware.Tower"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tower</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="#philh_myftp_biz.pc.hardware.PCIeCard" title="philh_myftp_biz.pc.hardware.PCIeCard"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PCIeCard</span></code></a></p></td>
 <td></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="#philh_myftp_biz.pc.hardware.VirtualDisk" title="philh_myftp_biz.pc.hardware.VirtualDisk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VirtualDisk</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="#philh_myftp_biz.pc.hardware.Tower" title="philh_myftp_biz.pc.hardware.Tower"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Tower</span></code></a></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#philh_myftp_biz.pc.hardware.VirtualDisk" title="philh_myftp_biz.pc.hardware.VirtualDisk"><code class="xref py py-obj docutils literal notranslate"><span class="pre">VirtualDisk</span></code></a></p></td>
 <td></td>
 </tr>
 </tbody>
@@ -121,6 +124,102 @@
 </dd></dl>
 
 <dl class="py class">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.pc.hardware.</span></span><span class="sig-name descname"><span class="pre">DiskUsage</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage.__new__">
+<span class="sig-name descname"><span class="pre">__new__</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Ellipsis</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage.__new__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage.AutoSelect">
+<span class="sig-name descname"><span class="pre">AutoSelect</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#philh_myftp_biz.pc.hardware.DiskUsage" title="philh_myftp_biz.pc.hardware.DiskUsage"><span class="pre">philh_myftp_biz.pc.hardware.DiskUsage</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Ellipsis</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage.AutoSelect" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage.HotSpare">
+<span class="sig-name descname"><span class="pre">HotSpare</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#philh_myftp_biz.pc.hardware.DiskUsage" title="philh_myftp_biz.pc.hardware.DiskUsage"><span class="pre">philh_myftp_biz.pc.hardware.DiskUsage</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Ellipsis</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage.HotSpare" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage.Journal">
+<span class="sig-name descname"><span class="pre">Journal</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#philh_myftp_biz.pc.hardware.DiskUsage" title="philh_myftp_biz.pc.hardware.DiskUsage"><span class="pre">philh_myftp_biz.pc.hardware.DiskUsage</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Ellipsis</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage.Journal" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage.ManualSelect">
+<span class="sig-name descname"><span class="pre">ManualSelect</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#philh_myftp_biz.pc.hardware.DiskUsage" title="philh_myftp_biz.pc.hardware.DiskUsage"><span class="pre">philh_myftp_biz.pc.hardware.DiskUsage</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Ellipsis</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage.ManualSelect" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage.Retired">
+<span class="sig-name descname"><span class="pre">Retired</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#philh_myftp_biz.pc.hardware.DiskUsage" title="philh_myftp_biz.pc.hardware.DiskUsage"><span class="pre">philh_myftp_biz.pc.hardware.DiskUsage</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Ellipsis</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage.Retired" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage.Unknown">
+<span class="sig-name descname"><span class="pre">Unknown</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#philh_myftp_biz.pc.hardware.DiskUsage" title="philh_myftp_biz.pc.hardware.DiskUsage"><span class="pre">philh_myftp_biz.pc.hardware.DiskUsage</span></a><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Ellipsis</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage.Unknown" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage._generate_next_value_">
+<span class="sig-name descname"><span class="pre">_generate_next_value_</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">Callable</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Ellipsis</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage._generate_next_value_" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage._member_map_">
+<span class="sig-name descname"><span class="pre">_member_map_</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Ellipsis</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage._member_map_" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage._member_names_">
+<span class="sig-name descname"><span class="pre">_member_names_</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Ellipsis</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage._member_names_" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage._member_type_">
+<span class="sig-name descname"><span class="pre">_member_type_</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="philh_myftp_biz.web.torrent.torrent.html#philh_myftp_biz.web.torrent.torrent.Torrent.type" title="philh_myftp_biz.web.torrent.torrent.Torrent.type"><span class="pre">type</span></a><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Ellipsis</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage._member_type_" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage._unhashable_values_">
+<span class="sig-name descname"><span class="pre">_unhashable_values_</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Ellipsis</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage._unhashable_values_" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage._use_args_">
+<span class="sig-name descname"><span class="pre">_use_args_</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Ellipsis</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage._use_args_" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage._value2member_map_">
+<span class="sig-name descname"><span class="pre">_value2member_map_</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Ellipsis</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage._value2member_map_" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage.__pybind11_native_enum__">
+<span class="sig-name descname"><span class="pre">__pybind11_native_enum__</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">PyCapsule</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">Ellipsis</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage.__pybind11_native_enum__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage._new_member_">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">_new_member_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage._new_member_" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage._value_repr_">
+<span class="sig-name descname"><span class="pre">_value_repr_</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage._value_repr_" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.DiskUsage.__format__">
+<span class="sig-name descname"><span class="pre">__format__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.DiskUsage.__format__" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.HardDrive">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.pc.hardware.</span></span><span class="sig-name descname"><span class="pre">HardDrive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">Tower</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Conn</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Slot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">SupportsInt</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">SupportsIndex</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SN</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.HardDrive" title="Link to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="#philh_myftp_biz.pc.hardware.Device" title="philh_myftp_biz.pc.hardware.Device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">philh_myftp_biz.pc.hardware.Device</span></code></a></p>
@@ -132,7 +231,7 @@
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="philh_myftp_biz.pc.hardware.HardDrive.Usage">
-<span class="sig-name descname"><span class="pre">Usage</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.HardDrive.Usage" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">Usage</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#philh_myftp_biz.pc.hardware.DiskUsage" title="philh_myftp_biz.pc.hardware.DiskUsage"><span class="pre">philh_myftp_biz.pc.hardware.DiskUsage</span></a></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#philh_myftp_biz.pc.hardware.HardDrive.Usage" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
