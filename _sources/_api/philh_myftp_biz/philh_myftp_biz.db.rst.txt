@@ -6,28 +6,18 @@
 .. autodoc2-docstring:: philh_myftp_biz.db
    :allowtitles:
 
-Module Contents
----------------
+Submodules
+----------
 
-Classes
-~~~~~~~
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
 
-.. list-table::
-   :class: autosummary longtable
-   :align: left
+   philh_myftp_biz.db.keyring
+   philh_myftp_biz.db.Size
 
-   * - :py:obj:`Size <philh_myftp_biz.db.Size>`
-     - .. autodoc2-docstring:: philh_myftp_biz.db.Size
-          :summary:
-   * - :py:obj:`Color <philh_myftp_biz.db.Color>`
-     - .. autodoc2-docstring:: philh_myftp_biz.db.Color
-          :summary:
-   * - :py:obj:`Ring <philh_myftp_biz.db.Ring>`
-     - .. autodoc2-docstring:: philh_myftp_biz.db.Ring
-          :summary:
-   * - :py:obj:`Key <philh_myftp_biz.db.Key>`
-     - .. autodoc2-docstring:: philh_myftp_biz.db.Key
-          :summary:
+Package Contents
+----------------
 
 Functions
 ~~~~~~~~~
@@ -65,163 +55,3 @@ API
    :canonical: philh_myftp_biz.db.__getattr__
 
    .. autodoc2-docstring:: philh_myftp_biz.db.__getattr__
-
-.. py:class:: Size
-   :canonical: philh_myftp_biz.db.Size
-
-   .. autodoc2-docstring:: philh_myftp_biz.db.Size
-
-   .. py:attribute:: units
-      :canonical: philh_myftp_biz.db.Size.units
-      :value: None
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Size.units
-
-   .. py:attribute:: conv_factors
-      :canonical: philh_myftp_biz.db.Size.conv_factors
-      :type: dict[str, int]
-      :value: None
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Size.conv_factors
-
-   .. py:method:: to_bytes(string: str) -> float
-      :canonical: philh_myftp_biz.db.Size.to_bytes
-      :staticmethod:
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Size.to_bytes
-
-   .. py:method:: from_bytes(unit: units | None = None, ndigits: int = maxsize) -> str
-      :canonical: philh_myftp_biz.db.Size.from_bytes
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Size.from_bytes
-
-.. py:class:: Color()
-   :canonical: philh_myftp_biz.db.Color
-
-   Bases: :py:obj:`enum.StrEnum`
-
-   .. autodoc2-docstring:: philh_myftp_biz.db.Color
-
-   .. rubric:: Initialization
-
-   .. autodoc2-docstring:: philh_myftp_biz.db.Color.__init__
-
-   .. py:attribute:: BLACK
-      :canonical: philh_myftp_biz.db.Color.BLACK
-      :value: '\x1b[30m'
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Color.BLACK
-
-   .. py:attribute:: RED
-      :canonical: philh_myftp_biz.db.Color.RED
-      :value: '\x1b[31m'
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Color.RED
-
-   .. py:attribute:: GREEN
-      :canonical: philh_myftp_biz.db.Color.GREEN
-      :value: '\x1b[32m'
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Color.GREEN
-
-   .. py:attribute:: YELLOW
-      :canonical: philh_myftp_biz.db.Color.YELLOW
-      :value: '\x1b[33m'
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Color.YELLOW
-
-   .. py:attribute:: BLUE
-      :canonical: philh_myftp_biz.db.Color.BLUE
-      :value: '\x1b[34m'
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Color.BLUE
-
-   .. py:attribute:: MAGENTA
-      :canonical: philh_myftp_biz.db.Color.MAGENTA
-      :value: '\x1b[35m'
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Color.MAGENTA
-
-   .. py:attribute:: CYAN
-      :canonical: philh_myftp_biz.db.Color.CYAN
-      :value: '\x1b[36m'
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Color.CYAN
-
-   .. py:attribute:: WHITE
-      :canonical: philh_myftp_biz.db.Color.WHITE
-      :value: '\x1b[37m'
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Color.WHITE
-
-   .. py:attribute:: DEFAULT
-      :canonical: philh_myftp_biz.db.Color.DEFAULT
-      :value: '\x1b[0m'
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Color.DEFAULT
-
-   .. py:attribute:: BOLD
-      :canonical: philh_myftp_biz.db.Color.BOLD
-      :value: '\x1b[1m'
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Color.BOLD
-
-   .. py:attribute:: GRAY
-      :canonical: philh_myftp_biz.db.Color.GRAY
-      :value: '\x1b[90m'
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Color.GRAY
-
-.. py:class:: Ring(name: str)
-   :canonical: philh_myftp_biz.db.Ring
-
-   .. autodoc2-docstring:: philh_myftp_biz.db.Ring
-
-   .. rubric:: Initialization
-
-   .. autodoc2-docstring:: philh_myftp_biz.db.Ring.__init__
-
-   .. py:method:: Key(name: str) -> philh_myftp_biz.db.Key
-      :canonical: philh_myftp_biz.db.Ring.Key
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Ring.Key
-
-   .. py:attribute:: __getitem__
-      :canonical: philh_myftp_biz.db.Ring.__getitem__
-      :value: None
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Ring.__getitem__
-
-.. py:class:: Key
-   :canonical: philh_myftp_biz.db.Key
-
-   .. autodoc2-docstring:: philh_myftp_biz.db.Key
-
-   .. py:attribute:: ring
-      :canonical: philh_myftp_biz.db.Key.ring
-      :type: philh_myftp_biz.db.Ring
-      :value: None
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Key.ring
-
-   .. py:attribute:: name
-      :canonical: philh_myftp_biz.db.Key.name
-      :type: str
-      :value: None
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Key.name
-
-   .. py:method:: save(value: T) -> None
-      :canonical: philh_myftp_biz.db.Key.save
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Key.save
-
-   .. py:method:: read() -> None | T
-      :canonical: philh_myftp_biz.db.Key.read
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Key.read
-
-   .. py:method:: prompt(secure: bool) -> None
-      :canonical: philh_myftp_biz.db.Key.prompt
-
-      .. autodoc2-docstring:: philh_myftp_biz.db.Key.prompt

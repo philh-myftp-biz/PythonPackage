@@ -1,0 +1,62 @@
+:py:mod:`philh_myftp_biz.db.Size`
+=================================
+
+.. py:module:: philh_myftp_biz.db.Size
+
+.. autodoc2-docstring:: philh_myftp_biz.db.Size
+   :allowtitles:
+
+Module Contents
+---------------
+
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`from_bytes <philh_myftp_biz.db.Size.from_bytes>`
+     - .. autodoc2-docstring:: philh_myftp_biz.db.Size.from_bytes
+          :summary:
+
+Data
+~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`units <philh_myftp_biz.db.Size.units>`
+     - .. autodoc2-docstring:: philh_myftp_biz.db.Size.units
+          :summary:
+   * - :py:obj:`conv_factors <philh_myftp_biz.db.Size.conv_factors>`
+     - .. autodoc2-docstring:: philh_myftp_biz.db.Size.conv_factors
+          :summary:
+
+API
+~~~
+
+.. py:data:: units
+   :canonical: philh_myftp_biz.db.Size.units
+   :value: None
+
+   .. autodoc2-docstring:: philh_myftp_biz.db.Size.units
+
+.. py:data:: conv_factors
+   :canonical: philh_myftp_biz.db.Size.conv_factors
+   :type: dict[str, int]
+   :value: None
+
+   .. autodoc2-docstring:: philh_myftp_biz.db.Size.conv_factors
+
+.. py:method:: to_bytes(string: str) -> float
+   :canonical: philh_myftp_biz.db.Size.to_bytes
+   :staticmethod:
+
+   .. autodoc2-docstring:: philh_myftp_biz.db.Size.to_bytes
+
+.. py:function:: from_bytes(value: float, unit: philh_myftp_biz.db.Size.units | None = None, ndigits: int = maxsize) -> str
+   :canonical: philh_myftp_biz.db.Size.from_bytes
+
+   .. autodoc2-docstring:: philh_myftp_biz.db.Size.from_bytes

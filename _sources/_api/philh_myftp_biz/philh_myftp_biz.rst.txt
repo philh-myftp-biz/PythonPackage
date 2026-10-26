@@ -13,6 +13,7 @@ Subpackages
    :titlesonly:
    :maxdepth: 3
 
+   philh_myftp_biz.db
    philh_myftp_biz.functools
    philh_myftp_biz.gui
    philh_myftp_biz.json
@@ -32,7 +33,6 @@ Submodules
    :maxdepth: 1
 
    philh_myftp_biz.array
-   philh_myftp_biz.db
    philh_myftp_biz.file
    philh_myftp_biz.gps
    philh_myftp_biz.num

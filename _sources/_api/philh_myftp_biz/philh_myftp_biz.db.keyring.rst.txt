@@ -1,0 +1,81 @@
+:py:mod:`philh_myftp_biz.db.keyring`
+====================================
+
+.. py:module:: philh_myftp_biz.db.keyring
+
+.. autodoc2-docstring:: philh_myftp_biz.db.keyring
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`Ring <philh_myftp_biz.db.keyring.Ring>`
+     - .. autodoc2-docstring:: philh_myftp_biz.db.keyring.Ring
+          :summary:
+   * - :py:obj:`Key <philh_myftp_biz.db.keyring.Key>`
+     - .. autodoc2-docstring:: philh_myftp_biz.db.keyring.Key
+          :summary:
+
+API
+~~~
+
+.. py:class:: Ring(name: str)
+   :canonical: philh_myftp_biz.db.keyring.Ring
+
+   .. autodoc2-docstring:: philh_myftp_biz.db.keyring.Ring
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.db.keyring.Ring.__init__
+
+   .. py:method:: Key(name: str) -> philh_myftp_biz.db.keyring.Key
+      :canonical: philh_myftp_biz.db.keyring.Ring.Key
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.keyring.Ring.Key
+
+   .. py:attribute:: __getitem__
+      :canonical: philh_myftp_biz.db.keyring.Ring.__getitem__
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.keyring.Ring.__getitem__
+
+.. py:class:: Key
+   :canonical: philh_myftp_biz.db.keyring.Key
+
+   .. autodoc2-docstring:: philh_myftp_biz.db.keyring.Key
+
+   .. py:attribute:: ring
+      :canonical: philh_myftp_biz.db.keyring.Key.ring
+      :type: philh_myftp_biz.db.keyring.Ring
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.keyring.Key.ring
+
+   .. py:attribute:: name
+      :canonical: philh_myftp_biz.db.keyring.Key.name
+      :type: str
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.keyring.Key.name
+
+   .. py:method:: save(value: T) -> None
+      :canonical: philh_myftp_biz.db.keyring.Key.save
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.keyring.Key.save
+
+   .. py:method:: read() -> None | T
+      :canonical: philh_myftp_biz.db.keyring.Key.read
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.keyring.Key.read
+
+   .. py:method:: prompt(secure: bool) -> None
+      :canonical: philh_myftp_biz.db.keyring.Key.prompt
+
+      .. autodoc2-docstring:: philh_myftp_biz.db.keyring.Key.prompt

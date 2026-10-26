@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>philh_myftp_biz.db.Size &#8212; philh_myftp_biz  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=5ecbeea2" />
+    <link rel="stylesheet" type="text/css" href="../../_static/basic.css?v=b08954a9" />
+    <link rel="stylesheet" type="text/css" href="../../_static/alabaster.css?v=27fed22d" />
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="philh_myftp_biz.functools" href="philh_myftp_biz.functools.html" />
+    <link rel="prev" title="philh_myftp_biz.db.keyring" href="philh_myftp_biz.db.keyring.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-philh_myftp_biz.db.Size">
+<span id="philh-myftp-biz-db-size"></span><h1><a class="reference internal" href="#module-philh_myftp_biz.db.Size" title="philh_myftp_biz.db.Size"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.db.Size</span></code></a><a class="headerlink" href="#module-philh_myftp_biz.db.Size" title="Link to this heading">¶</a></h1>
+<section id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Link to this heading">¶</a></h2>
+<section id="functions">
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#philh_myftp_biz.db.Size.from_bytes" title="philh_myftp_biz.db.Size.from_bytes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_bytes</span></code></a></p></td>
+<td><p>Get Size String from bytes</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="data">
+<h3>Data<a class="headerlink" href="#data" title="Link to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#philh_myftp_biz.db.Size.units" title="philh_myftp_biz.db.Size.units"><code class="xref py py-obj docutils literal notranslate"><span class="pre">units</span></code></a></p></td>
+<td><p>Type hint for keys in size.conv_factors</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#philh_myftp_biz.db.Size.conv_factors" title="philh_myftp_biz.db.Size.conv_factors"><code class="xref py py-obj docutils literal notranslate"><span class="pre">conv_factors</span></code></a></p></td>
+<td><p>Conversion Factors for file sizes</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="api">
+<h3>API<a class="headerlink" href="#api" title="Link to this heading">¶</a></h3>
+<dl class="py data">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Size.units">
+<span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.db.Size.</span></span><span class="sig-name descname"><span class="pre">units</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#philh_myftp_biz.db.Size.units" title="Link to this definition">¶</a></dt>
+<dd><p>Type hint for keys in size.conv_factors</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Size.conv_factors">
+<span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.db.Size.</span></span><span class="sig-name descname"><span class="pre">conv_factors</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#philh_myftp_biz.db.Size.conv_factors" title="Link to this definition">¶</a></dt>
+<dd><p>Conversion Factors for file sizes</p>
+<p>EXAMPLE:
+size.conv_factors[‘B’] -&gt; 1
+size.conv_factors[‘KB’] -&gt; 1024</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Size.to_bytes">
+<span class="property"><span class="k"><span class="pre">static</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.db.Size.</span></span><span class="sig-name descname"><span class="pre">to_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#philh_myftp_biz.db.Size.to_bytes" title="Link to this definition">¶</a></dt>
+<dd><p>Convert Size String to bytes</p>
+<p>EXAMPLE:
+size.to_bytes(‘10B’) -&gt; 10
+size.to_bytes(‘10GB’)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Size.from_bytes">
+<span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.db.Size.</span></span><span class="sig-name descname"><span class="pre">from_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#philh_myftp_biz.db.Size.units" title="philh_myftp_biz.db.Size.units"><span class="pre">philh_myftp_biz.db.Size.units</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ndigits</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">maxsize</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#philh_myftp_biz.db.Size.from_bytes" title="Link to this definition">¶</a></dt>
+<dd><p>Get Size String from bytes</p>
+<p>If unit is not given, then the unit will be automatically determined</p>
+</dd></dl>
+
+</section>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="Main">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">philh_myftp_biz</a></h1>
+
+
+
+
+
+
+
+
+
+<search id="searchbox" style="display: none" role="search">
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</search>
+<script>document.getElementById('searchbox').style.display = "block"</script><h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="philh_myftp_biz.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../index.html">Documentation overview</a><ul>
+  <li><a href="../index.html">API Reference</a><ul>
+  <li><a href="philh_myftp_biz.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz</span></code></a><ul>
+  <li><a href="philh_myftp_biz.db.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.db</span></code></a><ul>
+      <li>Previous: <a href="philh_myftp_biz.db.keyring.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.db.keyring</span></code></a></li>
+      <li>Next: <a href="philh_myftp_biz.functools.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.functools</span></code></a></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2026, Phil Hunt.
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 9.1.0</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 1.0.0</a>
+      
+      |
+      <a href="../../_sources/_api/philh_myftp_biz/philh_myftp_biz.db.Size.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
