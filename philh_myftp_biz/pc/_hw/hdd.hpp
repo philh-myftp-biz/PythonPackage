@@ -241,5 +241,24 @@ struct HardDrive : public Device {
     }
     
     //===============================================================================
+    // Online
+
+    bool Online() {
+        #ifdef WINDOWS
+            json data = _powershell("| Get-Disk");
+            return !data.value("IsOffline", true);
+        #else
+            return GetConnected();
+        #endif
+    }
+
+    void setOnline(bool online) {
+        #ifdef WINDOWS
+            str IsOffline = online ? "$False" : "$True";
+            _powershell("| Get-Disk | Set-Disk -IsOffline " + IsOffline);
+        #endif
+    }
+
+    //===============================================================================
 
 };
