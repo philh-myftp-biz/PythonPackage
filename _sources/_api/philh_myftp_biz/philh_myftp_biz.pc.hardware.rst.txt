@@ -249,6 +249,13 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.FriendlyName
 
+   .. py:attribute:: Online
+      :canonical: philh_myftp_biz.pc.hardware.HardDrive.Online
+      :type: bool
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.Online
+
    .. py:attribute:: Usage
       :canonical: philh_myftp_biz.pc.hardware.HardDrive.Usage
       :type: philh_myftp_biz.pc.hardware.DiskUsage
