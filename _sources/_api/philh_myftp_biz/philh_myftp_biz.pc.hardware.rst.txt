@@ -251,7 +251,7 @@ API
 
    .. py:attribute:: Usage
       :canonical: philh_myftp_biz.pc.hardware.HardDrive.Usage
-      :type: str
+      :type: philh_myftp_biz.pc.hardware.DiskUsage
       :value: None
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.Usage
