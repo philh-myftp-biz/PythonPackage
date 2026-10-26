@@ -220,11 +220,12 @@ struct HardDrive : public Device {
 
     HealthStatus GetHealthStatus() const override {
         if (!GetConnected()) return MISSING;
+        if (!Online()) return STOPPED;
         if (GetTemperature().value_or(0) >= 55.0f) return WARNING;
 
         #ifdef WINDOWS
             json data = _powershell("");
-            std::string status = data.value("HealthStatus", "Unknown");
+            str status = data.value("HealthStatus", "Unknown");
             if (status == "Healthy")   return HEALTHY;
             if (status == "Warning")   return WARNING;
             if (status == "Unhealthy") return NOTGOOD;
@@ -243,7 +244,7 @@ struct HardDrive : public Device {
     //===============================================================================
     // Online
 
-    bool Online() {
+    bool Online() const {
         #ifdef WINDOWS
             json data = _powershell("| Get-Disk");
             return !data.value("IsOffline", true);
