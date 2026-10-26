@@ -176,6 +176,11 @@ struct HardDrive : public Device {
 
     void setUsage(DiskUsage usage) {
         if (!GetConnected()) return;
+
+        if (usage == DiskUsage::AutoSelect && 
+            (!GetConnected() || GetHealthStatus() != HealthStatus::HEALTHY)
+        ) usage = DiskUsage::Retired;
+
         #ifdef WINDOWS
             str _usage = (str)me::enum_name(usage);
             _powershell("| Set-PhysicalDisk -Usage '" + _usage + "'");
