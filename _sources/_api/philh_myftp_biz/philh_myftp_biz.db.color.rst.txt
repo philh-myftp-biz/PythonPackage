@@ -19,6 +19,17 @@ Classes
    * - :py:obj:`Color <philh_myftp_biz.db.color.Color>`
      -
 
+Functions
+~~~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`test <philh_myftp_biz.db.color.test>`
+     - .. autodoc2-docstring:: philh_myftp_biz.db.color.test
+          :summary:
+
 API
 ~~~
 
@@ -179,3 +190,8 @@ API
       :classmethod:
 
       .. autodoc2-docstring:: philh_myftp_biz.db.color.Color._new_member_
+
+.. py:function:: test(arg0: philh_myftp_biz.db.color.Color) -> str
+   :canonical: philh_myftp_biz.db.color.test
+
+   .. autodoc2-docstring:: philh_myftp_biz.db.color.test
