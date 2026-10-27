@@ -14,7 +14,7 @@
     <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="philh_myftp_biz.db.color" href="philh_myftp_biz.db.color.html" />
+    <link rel="next" title="philh_myftp_biz.db.keyring" href="philh_myftp_biz.db.keyring.html" />
     <link rel="prev" title="philh_myftp_biz" href="philh_myftp_biz.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -39,7 +39,6 @@
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="philh_myftp_biz.db.color.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.db.color</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="philh_myftp_biz.db.keyring.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.db.keyring</span></code></a></li>
 <li class="toctree-l1"><a class="reference internal" href="philh_myftp_biz.db.Size.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.db.Size</span></code></a></li>
 </ul>
@@ -47,6 +46,16 @@
 </section>
 <section id="package-contents">
 <h2>Package Contents<a class="headerlink" href="#package-contents" title="Link to this heading">¶</a></h2>
+<section id="classes">
+<h3>Classes<a class="headerlink" href="#classes" title="Link to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-left">
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#philh_myftp_biz.db.Color" title="philh_myftp_biz.db.Color"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Color</span></code></a></p></td>
+<td><p>COLOR CONVERSION TABLE</p></td>
+</tr>
+</tbody>
+</table>
+</section>
 <section id="functions">
 <h3>Functions<a class="headerlink" href="#functions" title="Link to this heading">¶</a></h3>
 <table class="autosummary longtable docutils align-left">
@@ -76,8 +85,74 @@
 
 <dl class="py function">
 <dt class="sig sig-object py" id="philh_myftp_biz.db.__getattr__">
-<span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.db.</span></span><span class="sig-name descname"><span class="pre">__getattr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#philh_myftp_biz.db.__getattr__" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.db.</span></span><span class="sig-name descname"><span class="pre">__getattr__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">attr</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/philh_myftp_biz/db.html#__getattr__"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.db.__getattr__" title="Link to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">philh_myftp_biz.db.</span></span><span class="sig-name descname"><span class="pre">Color</span></span><a class="reference internal" href="../../_modules/philh_myftp_biz/db.html#Color"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#philh_myftp_biz.db.Color" title="Link to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-obj docutils literal notranslate"><span class="pre">enum.StrEnum</span></code></p>
+<p>COLOR CONVERSION TABLE</p>
+<p>EXAMPLE:
+Color.RED -&gt; ‘033[31m’</p>
+<p class="rubric">Initialization</p>
+<p>Initialize self.  See help(type(self)) for accurate signature.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.BLACK">
+<span class="sig-name descname"><span class="pre">BLACK</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[30m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.BLACK" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.RED">
+<span class="sig-name descname"><span class="pre">RED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[31m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.RED" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.GREEN">
+<span class="sig-name descname"><span class="pre">GREEN</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[32m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.GREEN" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.YELLOW">
+<span class="sig-name descname"><span class="pre">YELLOW</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[33m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.YELLOW" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.BLUE">
+<span class="sig-name descname"><span class="pre">BLUE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[34m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.BLUE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.MAGENTA">
+<span class="sig-name descname"><span class="pre">MAGENTA</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[35m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.MAGENTA" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.CYAN">
+<span class="sig-name descname"><span class="pre">CYAN</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[36m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.CYAN" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.WHITE">
+<span class="sig-name descname"><span class="pre">WHITE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[37m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.WHITE" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.DEFAULT">
+<span class="sig-name descname"><span class="pre">DEFAULT</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[0m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.DEFAULT" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.BOLD">
+<span class="sig-name descname"><span class="pre">BOLD</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[1m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.BOLD" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="philh_myftp_biz.db.Color.GRAY">
+<span class="sig-name descname"><span class="pre">GRAY</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'\x1b[90m'</span></span><a class="headerlink" href="#philh_myftp_biz.db.Color.GRAY" title="Link to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
 
 </section>
 </section>
@@ -124,7 +199,7 @@
   <li><a href="../index.html">API Reference</a><ul>
   <li><a href="philh_myftp_biz.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz</span></code></a><ul>
       <li>Previous: <a href="philh_myftp_biz.html" title="previous chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz</span></code></a></li>
-      <li>Next: <a href="philh_myftp_biz.db.color.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.db.color</span></code></a></li>
+      <li>Next: <a href="philh_myftp_biz.db.keyring.html" title="next chapter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">philh_myftp_biz.db.keyring</span></code></a></li>
   </ul></li>
   </ul></li>
   </ul></li>
