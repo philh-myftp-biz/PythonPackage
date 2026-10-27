@@ -251,7 +251,7 @@ API
 
    .. py:attribute:: Online
       :canonical: philh_myftp_biz.pc.hardware.HardDrive.Online
-      :type: bool
+      :type: bool | None
       :value: None
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.Online
