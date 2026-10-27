@@ -10,6 +10,7 @@
 #include <iomanip>
 #include <memory>
 #include <functional>
+#include <optional>
 #include <pybind11/stl.h>
 
 #include <magic_enum/magic_enum_all.hpp>
@@ -220,7 +221,7 @@ struct HardDrive : public Device {
 
     HealthStatus GetHealthStatus() const override {
         if (!GetConnected()) return MISSING;
-        if (!Online()) return STOPPED;
+        if (Online() == false) return STOPPED;
         if (GetTemperature().value_or(0) >= 55.0f) return WARNING;
 
         #ifdef WINDOWS
@@ -244,13 +245,13 @@ struct HardDrive : public Device {
     //===============================================================================
     // Online
 
-    bool Online() const {
+    optional<bool> Online() const {
         #ifdef WINDOWS
             json data = _powershell("| Get-Disk");
-            return !data.value("IsOffline", true);
-        #else
-            return GetConnected();
+            if (data.contains("IsOffline"))
+                return data["IsOffline"];
         #endif
+        return nullopt;
     }
 
     void setOnline(bool online) {
