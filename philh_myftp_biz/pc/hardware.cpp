@@ -58,6 +58,7 @@ PYBIND11_MODULE(hardware, m) {
         .def_readonly("Slot", &HardDrive::Slot)
         .def_readonly("SN", &HardDrive::SN)
         .def_property_readonly("Index", &HardDrive::Index)
+        .def_property("HealthStatus", &HardDrive::GetHealthStatus, &HardDrive::setHealthStatus)
         .def_property("FriendlyName", &HardDrive::GetFriendlyName, &HardDrive::setFriendlyName)
         .def_property("Usage", &HardDrive::Usage, &HardDrive::setUsage);
 

@@ -242,6 +242,25 @@ struct HardDrive : public Device {
         #endif
     }
 
+    void setHealthStatus(HealthStatus status) {
+
+        switch (status) {
+
+            case RUNNING:
+                setUsage(DiskUsage::AutoSelect);
+                _powershell("| Get-Disk | Set-Disk -IsOffline $False");
+                break;
+            
+            case STOPPED:
+                setUsage(DiskUsage::Retired);
+                _powershell("| Get-Disk | Set-Disk -IsOffline $True");
+                break;
+
+            default:
+                PyErr_SetString(PyExc_NotImplementedError, me::enum_name(status).data());
+                throw py::error_already_set();
+            
+        }
 
     }
 
