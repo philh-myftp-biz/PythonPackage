@@ -22,15 +22,6 @@
 
 #include <pc/_hw/device.h>
 
-enum class DiskUsage {
-    AutoSelect,
-    ManualSelect,
-    HotSpare,
-    Retired,
-    Journal,
-    Unknown
-};
-
 struct HardDrive : public Device {
 
     static vector<HardDrive> search() {
@@ -160,35 +151,6 @@ struct HardDrive : public Device {
     }
 
     //===============================================================================
-    // Usage
-
-    DiskUsage Usage() {
-        if (!GetConnected()) return DiskUsage::Unknown;
-
-        #ifdef WINDOWS
-            json data = _powershell(""); 
-            str _usage = data.value("Usage", "Unknown");
-            _usage = stru::erase(_usage, str("-"));
-            return me::enum_cast<DiskUsage>(_usage).value_or(DiskUsage::Unknown);
-        #endif
-
-        return DiskUsage::Unknown;
-    }
-
-    void setUsage(DiskUsage usage) {
-        if (!GetConnected()) return;
-
-        if (usage == DiskUsage::AutoSelect && 
-            (!GetConnected() || GetHealthStatus() != HealthStatus::HEALTHY)
-        ) usage = DiskUsage::Retired;
-
-        #ifdef WINDOWS
-            str _usage = (str)me::enum_name(usage);
-            _powershell("| Set-PhysicalDisk -Usage '" + _usage + "'");
-        #endif
-    }
-
-    //===============================================================================
     // HealthReport
 
     str GetHealthReport() const override {
@@ -221,15 +183,20 @@ struct HardDrive : public Device {
 
     HealthStatus GetHealthStatus() const override {
         if (!GetConnected()) return MISSING;
-        if (_powershell("| Get-Disk").value("IsOffline", false)) return STOPPED;
         if (GetTemperature().value_or(0) >= 55.0f) return WARNING;
 
         #ifdef WINDOWS
             json data = _powershell("");
+        
+            if (data.value("Usage", "") == "Retired" ||
+                _powershell("| Get-Disk").value("IsOffline", false)
+            ) return STOPPED;
+
             str status = data.value("HealthStatus", "Unknown");
             if (status == "Healthy")   return HEALTHY;
             if (status == "Warning")   return WARNING;
             if (status == "Unhealthy") return NOTGOOD;
+            
             return UNKNOWN;
         #else
             auto [exit_code, out_buf, err_buf] = sp::capture_run("smartctl", {
@@ -243,17 +210,16 @@ struct HardDrive : public Device {
     }
 
     void setHealthStatus(HealthStatus status) {
-
         switch (status) {
 
             case RUNNING:
-                setUsage(DiskUsage::AutoSelect);
                 _powershell("| Get-Disk | Set-Disk -IsOffline $False");
+                _powershell("| Set-PhysicalDisk -Usage 'Auto-Select'");
                 break;
             
             case STOPPED:
-                setUsage(DiskUsage::Retired);
                 _powershell("| Get-Disk | Set-Disk -IsOffline $True");
+                _powershell("| Set-PhysicalDisk -Usage 'Retired'");
                 break;
 
             default:
@@ -261,7 +227,6 @@ struct HardDrive : public Device {
                 throw py::error_already_set();
             
         }
-
     }
 
     //===============================================================================

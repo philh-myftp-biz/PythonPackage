@@ -34,15 +34,6 @@ PYBIND11_MODULE(hardware, m) {
         .value("RUNNING", HealthStatus::RUNNING) // 5
         .value("STOPPED", HealthStatus::STOPPED) // 6
         .finalize();
-    
-    py::native_enum<DiskUsage>(m, "DiskUsage", "enum.IntEnum")
-        .value("AutoSelect", DiskUsage::AutoSelect)
-        .value("ManualSelect", DiskUsage::ManualSelect)
-        .value("HotSpare", DiskUsage::HotSpare)
-        .value("Retired", DiskUsage::Retired)
-        .value("Journal", DiskUsage::Journal)
-        .value("Unknown", DiskUsage::Unknown)
-        .finalize();
 
     // Bind HardDrive as a child of Device
     py::class_<HardDrive, Device>(m, "HardDrive", py::dynamic_attr())
@@ -59,9 +50,7 @@ PYBIND11_MODULE(hardware, m) {
         .def_readonly("SN", &HardDrive::SN)
         .def_property_readonly("Index", &HardDrive::Index)
         .def_property("HealthStatus", &HardDrive::GetHealthStatus, &HardDrive::setHealthStatus)
-        .def_property("FriendlyName", &HardDrive::GetFriendlyName, &HardDrive::setFriendlyName)
-        .def_property("Usage", &HardDrive::Usage, &HardDrive::setUsage);
-
+        .def_property("FriendlyName", &HardDrive::GetFriendlyName, &HardDrive::setFriendlyName);
 
     // Bind PCIeCard as a child of Device
     py::class_<PCIeCard, Device>(m, "PCIeCard", py::dynamic_attr())
