@@ -221,7 +221,7 @@ struct HardDrive : public Device {
 
     HealthStatus GetHealthStatus() const override {
         if (!GetConnected()) return MISSING;
-        if (Online() == false) return STOPPED;
+        if (_powershell("| Get-Disk").value("IsOffline", false)) return STOPPED;
         if (GetTemperature().value_or(0) >= 55.0f) return WARNING;
 
         #ifdef WINDOWS
@@ -241,24 +241,8 @@ struct HardDrive : public Device {
                 : NOTGOOD;
         #endif
     }
-    
-    //===============================================================================
-    // Online
 
-    optional<bool> Online() const {
-        #ifdef WINDOWS
-            json data = _powershell("| Get-Disk");
-            if (data.contains("IsOffline"))
-                return data["IsOffline"];
-        #endif
-        return nullopt;
-    }
 
-    void setOnline(bool online) {
-        #ifdef WINDOWS
-            str IsOffline = online ? "$False" : "$True";
-            _powershell("| Get-Disk | Set-Disk -IsOffline " + IsOffline);
-        #endif
     }
 
     //===============================================================================

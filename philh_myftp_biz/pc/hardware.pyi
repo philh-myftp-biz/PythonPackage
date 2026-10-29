@@ -47,7 +47,7 @@ class DiskUsage(enum.IntEnum):
 
 class HardDrive(Device):
     FriendlyName: str
-    Online: bool | None
+    HealthStatus: HealthStatus
     Usage: DiskUsage
     def __init__(self, Tower: str, Conn: str, Slot: typing.SupportsInt | typing.SupportsIndex, SN: str) -> None: ...
     def _pybind11_conduit_v1_(self, *args, **kwargs): ...
