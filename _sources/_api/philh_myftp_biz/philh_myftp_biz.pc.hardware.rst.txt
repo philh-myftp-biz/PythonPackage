@@ -19,8 +19,6 @@ Classes
    * - :py:obj:`Device <philh_myftp_biz.pc.hardware.Device>`
      - .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device
           :summary:
-   * - :py:obj:`DiskUsage <philh_myftp_biz.pc.hardware.DiskUsage>`
-     -
    * - :py:obj:`HardDrive <philh_myftp_biz.pc.hardware.HardDrive>`
      - .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive
           :summary:
@@ -107,130 +105,6 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.Temperature
 
-.. py:class:: DiskUsage()
-   :canonical: philh_myftp_biz.pc.hardware.DiskUsage
-
-   Bases: :py:obj:`enum.IntEnum`
-
-   .. py:attribute:: __new__
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage.__new__
-      :type: typing.ClassVar[typing.Callable]
-      :value: Ellipsis
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.DiskUsage.__new__
-
-   .. py:attribute:: AutoSelect
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage.AutoSelect
-      :type: typing.ClassVar[philh_myftp_biz.pc.hardware.DiskUsage]
-      :value: Ellipsis
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.DiskUsage.AutoSelect
-
-   .. py:attribute:: HotSpare
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage.HotSpare
-      :type: typing.ClassVar[philh_myftp_biz.pc.hardware.DiskUsage]
-      :value: Ellipsis
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.DiskUsage.HotSpare
-
-   .. py:attribute:: Journal
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage.Journal
-      :type: typing.ClassVar[philh_myftp_biz.pc.hardware.DiskUsage]
-      :value: Ellipsis
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.DiskUsage.Journal
-
-   .. py:attribute:: ManualSelect
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage.ManualSelect
-      :type: typing.ClassVar[philh_myftp_biz.pc.hardware.DiskUsage]
-      :value: Ellipsis
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.DiskUsage.ManualSelect
-
-   .. py:attribute:: Retired
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage.Retired
-      :type: typing.ClassVar[philh_myftp_biz.pc.hardware.DiskUsage]
-      :value: Ellipsis
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.DiskUsage.Retired
-
-   .. py:attribute:: Unknown
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage.Unknown
-      :type: typing.ClassVar[philh_myftp_biz.pc.hardware.DiskUsage]
-      :value: Ellipsis
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.DiskUsage.Unknown
-
-   .. py:attribute:: _generate_next_value_
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage._generate_next_value_
-      :type: typing.ClassVar[typing.Callable]
-      :value: Ellipsis
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.DiskUsage._generate_next_value_
-
-   .. py:attribute:: _member_map_
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage._member_map_
-      :type: typing.ClassVar[dict]
-      :value: Ellipsis
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.DiskUsage._member_map_
-
-   .. py:attribute:: _member_names_
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage._member_names_
-      :type: typing.ClassVar[list]
-      :value: Ellipsis
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.DiskUsage._member_names_
-
-   .. py:attribute:: _member_type_
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage._member_type_
-      :type: typing.ClassVar[type[int]]
-      :value: Ellipsis
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.DiskUsage._member_type_
-
-   .. py:attribute:: _unhashable_values_
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage._unhashable_values_
-      :type: typing.ClassVar[list]
-      :value: Ellipsis
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.DiskUsage._unhashable_values_
-
-   .. py:attribute:: _use_args_
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage._use_args_
-      :type: typing.ClassVar[bool]
-      :value: Ellipsis
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.DiskUsage._use_args_
-
-   .. py:attribute:: _value2member_map_
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage._value2member_map_
-      :type: typing.ClassVar[dict]
-      :value: Ellipsis
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.DiskUsage._value2member_map_
-
-   .. py:attribute:: __pybind11_native_enum__
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage.__pybind11_native_enum__
-      :type: typing.ClassVar[PyCapsule]
-      :value: Ellipsis
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.DiskUsage.__pybind11_native_enum__
-
-   .. py:method:: _new_member_(*args, **kwargs)
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage._new_member_
-      :classmethod:
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.DiskUsage._new_member_
-
-   .. py:method:: _value_repr_(*args, **kwargs)
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage._value_repr_
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.DiskUsage._value_repr_
-
-   .. py:method:: __format__(*args, **kwargs) -> str
-      :canonical: philh_myftp_biz.pc.hardware.DiskUsage.__format__
-
 .. py:class:: HardDrive(Tower: str, Conn: str, Slot: typing.SupportsInt | typing.SupportsIndex, SN: str)
    :canonical: philh_myftp_biz.pc.hardware.HardDrive
 
@@ -255,13 +129,6 @@ API
       :value: None
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.HealthStatus
-
-   .. py:attribute:: Usage
-      :canonical: philh_myftp_biz.pc.hardware.HardDrive.Usage
-      :type: philh_myftp_biz.pc.hardware.DiskUsage
-      :value: None
-
-      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.HardDrive.Usage
 
    .. py:method:: _pybind11_conduit_v1_(*args, **kwargs)
       :canonical: philh_myftp_biz.pc.hardware.HardDrive._pybind11_conduit_v1_
