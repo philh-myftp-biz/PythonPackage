@@ -46,6 +46,11 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.__init__
 
+   .. py:method:: _powershell(*args, **kwargs)
+      :canonical: philh_myftp_biz.pc.hardware.Device._powershell
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device._powershell
+
    .. py:method:: _pybind11_conduit_v1_(*args, **kwargs)
       :canonical: philh_myftp_biz.pc.hardware.Device._pybind11_conduit_v1_
 
