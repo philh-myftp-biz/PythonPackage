@@ -65,4 +65,21 @@ class Device { public:
         return nullopt;
     }
 
+    #ifdef WINDOWS
+
+        str _ps_prepend = "";
+        str _ps_append = "";
+
+        json _powershell(str cmd="") const {
+            auto [exit_code, out_buf, err_buf] = sp::capture_run(
+                narg::$powershell,
+                (_ps_prepend + cmd + _ps_append + " | ConvertTo-Json")
+            );
+            return (exit_code == 0 && !out_buf.empty()) 
+                ? json::parse( out_buf.to_string() )
+                : json::object();
+        }
+    
+    #endif
+
 };

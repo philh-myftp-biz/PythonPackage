@@ -59,23 +59,9 @@ struct HardDrive : public Device {
         this->Conn = Conn;
         this->Slot = Slot;
         this->SN = py::bytes(SN).attr("decode")("latin1").cast<str>();
+        this->_ps_prepend = "Get-PhysicalDisk -SerialNumber '" + SN + "' | Select -First 1 ";
     }
 
-    //===============================================================================
-    // Windows Helpers
-    #ifdef WINDOWS
-
-        json _powershell(str cmd) const {
-            auto [exit_code, out_buf, err_buf] = sp::capture_run(
-                narg::$powershell,
-                "Get-PhysicalDisk -SerialNumber '" + SN + "' | Select -First 1 " + cmd + " | ConvertTo-Json"
-            );
-            return (exit_code == 0 && !out_buf.empty()) 
-                ? json::parse( out_buf.to_string() )
-                : json::object();
-        }
-
-    #endif
     //===============================================================================
     // hwDisk
 
@@ -136,8 +122,7 @@ struct HardDrive : public Device {
         str model = hwDisk().has_value() ? hwDisk()->model() : "";
 
         #ifdef WINDOWS
-            json data = _powershell("");
-            return data.value("FriendlyName", model);
+            return _powershell().value("FriendlyName", model);
         #endif
 
         return model;        

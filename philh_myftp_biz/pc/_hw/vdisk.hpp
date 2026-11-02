@@ -24,23 +24,9 @@ struct VirtualDisk : public Device {
     ) {
         this->Name = Name;
         this->Mount = Mount;
+        this->_ps_append = "-VirtualDisk -FriendlyName '" + Name + " | Select -First 1";
     }
 
-    //===============================================================================
-    // Windows Helpers
-    #ifdef WINDOWS
-
-        json _powershell(str cmd) const {
-            auto [exit_code, out_buf, err_buf] = sp::capture_run(
-                narg::$powershell,
-                cmd + "-VirtualDisk -FriendlyName '" + Name + "' | Select -First 1 | ConvertTo-Json" 
-            );
-            return (exit_code == 0 && !out_buf.empty()) 
-                ? json::parse( out_buf.to_string() )
-                : json::object();
-        }
-    
-    #endif
     //===============================================================================
     // ID
 

@@ -12,10 +12,13 @@
 
 PYBIND11_MODULE(hardware, m) {
 
+    pyobj cached_property = import("functools").attr("cached_property");
+
     // Bind the Device superclass
     py::class_<Device>(m, "Device", py::dynamic_attr())
         .def(py::init<>())
         .def_static("search", &Device::search)
+        .def("_powershell", &Device::_powershell)
         .def_property_readonly("Name", &Device::GetName)
         .def_property_readonly("HealthReport", &Device::GetHealthReport)
         .def_property_readonly("HealthStatus", &Device::GetHealthStatus)
