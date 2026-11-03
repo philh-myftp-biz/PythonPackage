@@ -1,11 +1,11 @@
-from typing import Callable
-from functools import cache
-
 from fnmatch import fnmatch as like # pyright: ignore[reportUnusedImport]
+from functools import cache
+from os import environ
 
-from . import contains, hex # pyright: ignore[reportUnusedImport]
-from .regex import Pattern # pyright: ignore[reportUnusedImport]
-from .uio import UnconsumingIO # pyright: ignore[reportUnusedImport]
+if not environ.get('STUBGEN'):
+    from . import contains, hex # pyright: ignore[reportUnusedImport]
+    from .regex import Pattern # pyright: ignore[reportUnusedImport]
+    from .uio import UnconsumingIO # pyright: ignore[reportUnusedImport]
 
 def split(
     value: str,

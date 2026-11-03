@@ -1,19 +1,20 @@
 from typing import Literal, Generator
-from .Path import Path, PathPair
 from os import environ
 
 if not environ.get('STUBGEN'):
     from ._pc import loc # pyright: ignore[reportUnusedImport]
+    from .Path import Path, PathPair
 
 #========================================================
 
-cwd = lambda: Path('.')
-"""Get the Current Working Directory"""
+def cwd() -> 'Path':
+    """Get the Current Working Directory"""
+    return Path('.')
 
 def relscan(
-    src: Path,
-    dst: Path
-) -> Generator[PathPair, None, None]:
+    src: 'Path',
+    dst: 'Path'
+) -> Generator['PathPair', None, None]:
     """
     Relatively Scan two directories
 
