@@ -46,45 +46,85 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.__init__
 
-   .. py:method:: Connected() -> bool
+   .. py:method:: Connected(*args, **kwargs)
       :canonical: philh_myftp_biz.pc.hardware.Device.Connected
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.Connected
 
-   .. py:method:: FriendlyName() -> str
+   .. py:method:: FriendlyName(*args, **kwargs)
       :canonical: philh_myftp_biz.pc.hardware.Device.FriendlyName
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.FriendlyName
 
-   .. py:method:: HealthReport() -> str
+   .. py:method:: HealthReport(*args, **kwargs)
       :canonical: philh_myftp_biz.pc.hardware.Device.HealthReport
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.HealthReport
 
-   .. py:method:: HealthStatus() -> philh_myftp_biz.pc.hardware.HealthStatus
+   .. py:method:: HealthStatus(*args, **kwargs)
       :canonical: philh_myftp_biz.pc.hardware.Device.HealthStatus
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.HealthStatus
 
-   .. py:method:: ID() -> int
+   .. py:method:: ID(*args, **kwargs)
       :canonical: philh_myftp_biz.pc.hardware.Device.ID
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.ID
 
-   .. py:method:: Link() -> str
+   .. py:method:: Link(*args, **kwargs)
       :canonical: philh_myftp_biz.pc.hardware.Device.Link
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.Link
 
-   .. py:method:: Name() -> str
+   .. py:method:: Name(*args, **kwargs)
       :canonical: philh_myftp_biz.pc.hardware.Device.Name
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.Name
 
-   .. py:method:: Temperature() -> float | None
+   .. py:method:: Temperature(*args, **kwargs)
       :canonical: philh_myftp_biz.pc.hardware.Device.Temperature
 
       .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.Temperature
+
+   .. py:method:: __cached_property_Connected() -> bool
+      :canonical: philh_myftp_biz.pc.hardware.Device.__cached_property_Connected
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.__cached_property_Connected
+
+   .. py:method:: __cached_property_FriendlyName() -> str
+      :canonical: philh_myftp_biz.pc.hardware.Device.__cached_property_FriendlyName
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.__cached_property_FriendlyName
+
+   .. py:method:: __cached_property_HealthReport() -> str
+      :canonical: philh_myftp_biz.pc.hardware.Device.__cached_property_HealthReport
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.__cached_property_HealthReport
+
+   .. py:method:: __cached_property_HealthStatus() -> philh_myftp_biz.pc.hardware.HealthStatus
+      :canonical: philh_myftp_biz.pc.hardware.Device.__cached_property_HealthStatus
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.__cached_property_HealthStatus
+
+   .. py:method:: __cached_property_ID() -> int
+      :canonical: philh_myftp_biz.pc.hardware.Device.__cached_property_ID
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.__cached_property_ID
+
+   .. py:method:: __cached_property_Link() -> str
+      :canonical: philh_myftp_biz.pc.hardware.Device.__cached_property_Link
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.__cached_property_Link
+
+   .. py:method:: __cached_property_Name() -> str
+      :canonical: philh_myftp_biz.pc.hardware.Device.__cached_property_Name
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.__cached_property_Name
+
+   .. py:method:: __cached_property_Temperature() -> float | None
+      :canonical: philh_myftp_biz.pc.hardware.Device.__cached_property_Temperature
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.hardware.Device.__cached_property_Temperature
 
    .. py:method:: _powershell(*args, **kwargs)
       :canonical: philh_myftp_biz.pc.hardware.Device._powershell
