@@ -73,7 +73,8 @@ class Tower : public Device { public:
     // ID
 
     int GetID() const override {
-        return std::hash<str>{}(tower);
+        size_t id = std::hash<str>{}(tower);
+        return static_cast<int>(id);
     }
 
     //===============================================================================

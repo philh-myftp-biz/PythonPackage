@@ -75,7 +75,7 @@ def auto_convert(string:str) -> int | float | bool | dict | str:
         return bool(string)
     
     elif hex.valid(string):
-        return hex.decode(string)
+        return hex.decode(string) # pyright: ignore[reportReturnType]
     
     elif is_json(string):
         return loads(string)
