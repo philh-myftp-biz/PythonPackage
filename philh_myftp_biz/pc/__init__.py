@@ -2,14 +2,14 @@ from typing import Literal, Generator
 from os import environ
 
 if not environ.get('STUBGEN'):
+    from typing_extensions import deprecated
     from ._pc import loc # pyright: ignore[reportUnusedImport]
     from .Path import Path, PathPair
 
-#========================================================
-
-def cwd() -> 'Path':
-    """Get the Current Working Directory"""
-    return Path('.')
+    @deprecated("Use pc.CWD instead")
+    def cwd() -> 'Path':
+        """Get the Current Working Directory"""
+        return Path('.')
 
 def relscan(
     src: 'Path',
@@ -61,6 +61,8 @@ NAME: str
 
 OS: Literal['windows', 'unix']
 
+CWD: 'Path'
+
 def __getattr__(attr:str):
     from socket import gethostname
     import os
@@ -72,6 +74,9 @@ def __getattr__(attr:str):
         
         case 'NAME':
             return gethostname()
+
+        case 'CWD':
+            return Path('.')
         
     raise AttributeError(f"module '{__name__}' has no attribute '{attr}'")
 

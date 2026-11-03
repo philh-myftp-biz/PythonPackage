@@ -34,3 +34,4 @@ tenacity
 logger2
 frozendict
 bencoding
+typing_extensions
