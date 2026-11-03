@@ -35,9 +35,6 @@ Functions
    :class: autosummary longtable
    :align: left
 
-   * - :py:obj:`cwd <philh_myftp_biz.pc.cwd>`
-     - .. autodoc2-docstring:: philh_myftp_biz.pc.cwd
-          :summary:
    * - :py:obj:`relscan <philh_myftp_biz.pc.relscan>`
      - .. autodoc2-docstring:: philh_myftp_biz.pc.relscan
           :summary:
@@ -64,11 +61,6 @@ Data
 
 API
 ~~~
-
-.. py:function:: cwd() -> philh_myftp_biz.pc.Path.Path
-   :canonical: philh_myftp_biz.pc.cwd
-
-   .. autodoc2-docstring:: philh_myftp_biz.pc.cwd
 
 .. py:function:: relscan(src: philh_myftp_biz.pc.Path.Path, dst: philh_myftp_biz.pc.Path.Path) -> typing.Generator[philh_myftp_biz.pc.Path.PathPair, None, None]
    :canonical: philh_myftp_biz.pc.relscan
