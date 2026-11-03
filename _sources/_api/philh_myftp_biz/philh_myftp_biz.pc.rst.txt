@@ -35,6 +35,9 @@ Functions
    :class: autosummary longtable
    :align: left
 
+   * - :py:obj:`cwd <philh_myftp_biz.pc.cwd>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc.cwd
+          :summary:
    * - :py:obj:`relscan <philh_myftp_biz.pc.relscan>`
      - .. autodoc2-docstring:: philh_myftp_biz.pc.relscan
           :summary:
@@ -49,22 +52,21 @@ Data
    :class: autosummary longtable
    :align: left
 
-   * - :py:obj:`cwd <philh_myftp_biz.pc.cwd>`
-     - .. autodoc2-docstring:: philh_myftp_biz.pc.cwd
-          :summary:
    * - :py:obj:`NAME <philh_myftp_biz.pc.NAME>`
      - .. autodoc2-docstring:: philh_myftp_biz.pc.NAME
           :summary:
    * - :py:obj:`OS <philh_myftp_biz.pc.OS>`
      - .. autodoc2-docstring:: philh_myftp_biz.pc.OS
           :summary:
+   * - :py:obj:`CWD <philh_myftp_biz.pc.CWD>`
+     - .. autodoc2-docstring:: philh_myftp_biz.pc.CWD
+          :summary:
 
 API
 ~~~
 
-.. py:data:: cwd
+.. py:function:: cwd() -> philh_myftp_biz.pc.Path.Path
    :canonical: philh_myftp_biz.pc.cwd
-   :value: None
 
    .. autodoc2-docstring:: philh_myftp_biz.pc.cwd
 
@@ -86,6 +88,13 @@ API
    :value: None
 
    .. autodoc2-docstring:: philh_myftp_biz.pc.OS
+
+.. py:data:: CWD
+   :canonical: philh_myftp_biz.pc.CWD
+   :type: philh_myftp_biz.pc.Path.Path
+   :value: None
+
+   .. autodoc2-docstring:: philh_myftp_biz.pc.CWD
 
 .. py:function:: __getattr__(attr: str)
    :canonical: philh_myftp_biz.pc.__getattr__
