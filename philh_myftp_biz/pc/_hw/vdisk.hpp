@@ -44,7 +44,6 @@ struct VirtualDisk : public Device {
     }
 
     void setConnected(bool connected) {
-        #ifdef WINDOWS
         if (connected) {
             // Connect-VirtualDisk
             _powershell("Connect");
@@ -52,17 +51,14 @@ struct VirtualDisk : public Device {
             // Disconnect-VirtualDisk
             _powershell("Disconnect");
         }
-        #endif
     }
 
     //===============================================================================
     // Repair
 
     void Repair() {
-        #ifdef WINDOWS
         // Repair-VirtualDisk
         _powershell("Repair");
-        #endif
     }
 
     //===============================================================================
@@ -94,16 +90,12 @@ struct VirtualDisk : public Device {
     HealthStatus GetHealthStatus() const override {
         if (!GetConnected()) return MISSING;
 
-        #ifdef WINDOWS
-            json data = _powershell("Get"); // Get-VirtualDisk
-            str status = data.value("HealthStatus", "Unknown");
-            if (status == "Healthy")   return HEALTHY;
-            if (status == "Warning")   return WARNING;
-            if (status == "Unhealthy") return NOTGOOD;
-            return UNKNOWN;
-        #else
-            return HEALTHY;
-        #endif
+        json data = _powershell("Get"); // Get-VirtualDisk
+        str status = data.value("HealthStatus", "Unknown");
+        if (status == "Healthy")   return HEALTHY;
+        if (status == "Warning")   return WARNING;
+        if (status == "Unhealthy") return NOTGOOD;
+        return UNKNOWN;
     }
     
     //===============================================================================

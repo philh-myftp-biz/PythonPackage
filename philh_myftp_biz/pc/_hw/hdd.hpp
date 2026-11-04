@@ -121,18 +121,12 @@ struct HardDrive : public Device {
 
         str model = hwDisk().has_value() ? hwDisk()->model() : "";
 
-        #ifdef WINDOWS
-            return _powershell().value("FriendlyName", model);
-        #endif
-
-        return model;        
+        return _powershell().value("FriendlyName", model);
     }
 
     void setFriendlyName(str name) {
         if (!GetConnected()) return;
-        #ifdef WINDOWS
-            _powershell("| Set-PhysicalDisk -NewFriendlyName '" + name + "'");
-        #endif
+        _powershell("| Set-PhysicalDisk -NewFriendlyName '" + name + "'");
     }
 
     //===============================================================================

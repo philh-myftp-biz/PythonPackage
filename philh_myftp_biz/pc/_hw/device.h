@@ -65,10 +65,10 @@ class Device { public:
         return nullopt;
     }
 
-    #ifdef WINDOWS
+    str _ps_prepend = "";
+    str _ps_append = "";
 
-        str _ps_prepend = "";
-        str _ps_append = "";
+    #ifdef WINDOWS
 
         json _powershell(str cmd="") const {
             auto [exit_code, out_buf, err_buf] = sp::capture_run(
@@ -78,6 +78,12 @@ class Device { public:
             return (exit_code == 0 && !out_buf.empty()) 
                 ? json::parse( out_buf.to_string() )
                 : json::object();
+        }
+    
+    #else
+
+        json _powershell(str cmd="") const {
+            return json::object();
         }
     
     #endif
