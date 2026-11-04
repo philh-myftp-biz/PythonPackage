@@ -1,0 +1,207 @@
+:py:mod:`philh_myftp_biz.file.RWFile`
+=====================================
+
+.. py:module:: philh_myftp_biz.file.RWFile
+
+.. autodoc2-docstring:: philh_myftp_biz.file.RWFile
+   :allowtitles:
+
+Module Contents
+---------------
+
+Classes
+~~~~~~~
+
+.. list-table::
+   :class: autosummary longtable
+   :align: left
+
+   * - :py:obj:`TXT <philh_myftp_biz.file.RWFile.TXT>`
+     - .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.TXT
+          :summary:
+   * - :py:obj:`XML <philh_myftp_biz.file.RWFile.XML>`
+     - .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.XML
+          :summary:
+   * - :py:obj:`PKL <philh_myftp_biz.file.RWFile.PKL>`
+     - .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.PKL
+          :summary:
+   * - :py:obj:`JSON <philh_myftp_biz.file.RWFile.JSON>`
+     - .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.JSON
+          :summary:
+   * - :py:obj:`INI <philh_myftp_biz.file.RWFile.INI>`
+     - .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.INI
+          :summary:
+   * - :py:obj:`YAML <philh_myftp_biz.file.RWFile.YAML>`
+     - .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.YAML
+          :summary:
+   * - :py:obj:`CSV <philh_myftp_biz.file.RWFile.CSV>`
+     - .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.CSV
+          :summary:
+   * - :py:obj:`TOML <philh_myftp_biz.file.RWFile.TOML>`
+     - .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.TOML
+          :summary:
+
+API
+~~~
+
+.. py:class:: TXT
+   :canonical: philh_myftp_biz.file.RWFile.TXT
+
+   .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.TXT
+
+   .. py:attribute:: path
+      :canonical: philh_myftp_biz.file.RWFile.TXT.path
+      :type: philh_myftp_biz.pc.Path
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.TXT.path
+
+   .. py:method:: read() -> str
+      :canonical: philh_myftp_biz.file.RWFile.TXT.read
+
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.TXT.read
+
+   .. py:method:: save(data: str) -> None
+      :canonical: philh_myftp_biz.file.RWFile.TXT.save
+
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.TXT.save
+
+   .. py:property:: r
+      :canonical: philh_myftp_biz.file.RWFile.TXT.r
+
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.TXT.r
+
+   .. py:property:: rb
+      :canonical: philh_myftp_biz.file.RWFile.TXT.rb
+
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.TXT.rb
+
+   .. py:property:: w
+      :canonical: philh_myftp_biz.file.RWFile.TXT.w
+
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.TXT.w
+
+   .. py:property:: wb
+      :canonical: philh_myftp_biz.file.RWFile.TXT.wb
+
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.TXT.wb
+
+   .. py:method:: Dict()
+      :canonical: philh_myftp_biz.file.RWFile.TXT.Dict
+
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.TXT.Dict
+
+   .. py:method:: List()
+      :canonical: philh_myftp_biz.file.RWFile.TXT.List
+
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.TXT.List
+
+.. py:class:: XML
+   :canonical: philh_myftp_biz.file.RWFile.XML
+
+   Bases: :py:obj:`philh_myftp_biz.file.RWFile.TXT`
+
+   .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.XML
+
+   .. py:method:: read() -> dict[K, V]
+      :canonical: philh_myftp_biz.file.RWFile.XML.read
+
+   .. py:method:: save(data: dict[K, V]) -> None
+      :canonical: philh_myftp_biz.file.RWFile.XML.save
+
+.. py:class:: PKL
+   :canonical: philh_myftp_biz.file.RWFile.PKL
+
+   Bases: :py:obj:`philh_myftp_biz.file.RWFile.TXT`
+
+   .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.PKL
+
+   .. py:method:: read() -> T
+      :canonical: philh_myftp_biz.file.RWFile.PKL.read
+
+   .. py:method:: save(value: T) -> None
+      :canonical: philh_myftp_biz.file.RWFile.PKL.save
+
+.. py:class:: JSON
+   :canonical: philh_myftp_biz.file.RWFile.JSON
+
+   Bases: :py:obj:`philh_myftp_biz.file.RWFile.TXT`
+
+   .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.JSON
+
+   .. py:attribute:: indent
+      :canonical: philh_myftp_biz.file.RWFile.JSON.indent
+      :type: int
+      :value: 3
+
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.JSON.indent
+
+   .. py:method:: read() -> T
+      :canonical: philh_myftp_biz.file.RWFile.JSON.read
+
+   .. py:method:: save(data: T) -> None
+      :canonical: philh_myftp_biz.file.RWFile.JSON.save
+
+.. py:class:: INI
+   :canonical: philh_myftp_biz.file.RWFile.INI
+
+   Bases: :py:obj:`philh_myftp_biz.file.RWFile.TXT`
+
+   .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.INI
+
+   .. py:property:: obj
+      :canonical: philh_myftp_biz.file.RWFile.INI.obj
+
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.INI.obj
+
+   .. py:method:: read() -> dict[K, V]
+      :canonical: philh_myftp_biz.file.RWFile.INI.read
+
+   .. py:method:: save(data: dict[K, V]) -> None
+      :canonical: philh_myftp_biz.file.RWFile.INI.save
+
+.. py:class:: YAML
+   :canonical: philh_myftp_biz.file.RWFile.YAML
+
+   Bases: :py:obj:`philh_myftp_biz.file.RWFile.TXT`
+
+   .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.YAML
+
+   .. py:method:: read() -> dict[K, V]
+      :canonical: philh_myftp_biz.file.RWFile.YAML.read
+
+   .. py:method:: save(data: dict[K, V]) -> None
+      :canonical: philh_myftp_biz.file.RWFile.YAML.save
+
+.. py:class:: CSV
+   :canonical: philh_myftp_biz.file.RWFile.CSV
+
+   Bases: :py:obj:`philh_myftp_biz.file.RWFile.TXT`
+
+   .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.CSV
+
+   .. py:method:: read() -> list[list[str]]
+      :canonical: philh_myftp_biz.file.RWFile.CSV.read
+
+   .. py:method:: save(data: list[list[str]]) -> None
+      :canonical: philh_myftp_biz.file.RWFile.CSV.save
+
+.. py:class:: TOML
+   :canonical: philh_myftp_biz.file.RWFile.TOML
+
+   Bases: :py:obj:`philh_myftp_biz.file.RWFile.TXT`
+
+   .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.TOML
+
+   .. py:attribute:: indent
+      :canonical: philh_myftp_biz.file.RWFile.TOML.indent
+      :type: int
+      :value: 2
+
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.TOML.indent
+
+   .. py:method:: read() -> dict[K, V]
+      :canonical: philh_myftp_biz.file.RWFile.TOML.read
+
+   .. py:method:: save(data: dict[K, V]) -> None
+      :canonical: philh_myftp_biz.file.RWFile.TOML.save

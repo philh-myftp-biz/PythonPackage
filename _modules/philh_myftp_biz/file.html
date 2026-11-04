@@ -31,13 +31,15 @@
           <div class="body" role="main">
             
   <h1>Source code for philh_myftp_biz.file</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Any</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TYPE_CHECKING</span><span class="p">,</span> <span class="n">Any</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">zipfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZipFile</span> <span class="k">as</span> <span class="n">_ZipFile</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">cached_property</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
 
 <span class="k">if</span> <span class="n">TYPE_CHECKING</span><span class="p">:</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.pc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">..pc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.RWFile</span><span class="w"> </span><span class="kn">import</span> <span class="n">TXT</span><span class="p">,</span> <span class="n">XML</span><span class="p">,</span> <span class="n">PKL</span><span class="p">,</span> <span class="n">JSON</span><span class="p">,</span> <span class="n">INI</span><span class="p">,</span> <span class="n">YAML</span><span class="p">,</span> <span class="n">CSV</span><span class="p">,</span> <span class="n">TOML</span>
 
 <span class="c1">#========================================================</span>
 
@@ -49,8 +51,8 @@
     <span class="nb">id</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="s1">'Path'</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">"""Get a random path in the temporary directory"""</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.text</span><span class="w"> </span><span class="kn">import</span> <span class="n">random</span>
-    <span class="kn">from</span><span class="w"> </span><span class="nn">.pc._pc</span><span class="w"> </span><span class="kn">import</span> <span class="n">loc</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">..text</span><span class="w"> </span><span class="kn">import</span> <span class="n">random</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">..pc._pc</span><span class="w"> </span><span class="kn">import</span> <span class="n">loc</span>
 
     <span class="k">if</span> <span class="nb">id</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">_id</span> <span class="o">=</span> <span class="n">random</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
@@ -62,121 +64,6 @@
 
 <span class="c1">#========================================================</span>
 
-<div class="viewcode-block" id="RWFile">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.RWFile">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">RWFile</span><span class="p">:</span>
-
-    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-        <span class="n">path</span><span class="p">:</span> <span class="s1">'Path'</span><span class="p">,</span>
-        <span class="n">default</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">path</span>    <span class="o">=</span> <span class="n">path</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">default</span> <span class="o">=</span> <span class="n">default</span>
-
-        <span class="c1"># Make the parent dir of the output path</span>
-        <span class="n">path</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
-
-    <span class="n">parsed</span><span class="p">:</span> <span class="n">Any</span>
-
-    <span class="n">_read</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="n">Any</span><span class="p">]</span>
-
-    <span class="n">save</span><span class="p">:</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Any</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span>
-<span class="w">    </span><span class="sd">"""Write data to the file"""</span>
-
-<div class="viewcode-block" id="RWFile.read">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.RWFile.read">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Read data from the file"""</span>
-
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">:</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read</span><span class="p">()</span>
-        
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">default</span></div>
-
-
-    <span class="nd">@property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">raw</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
-
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">()</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-        
-            <span class="n">raw</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-
-            <span class="k">return</span> <span class="n">raw</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">'utf-8'</span><span class="p">)</span>
-        
-    <span class="nd">@cached_property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">Dict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">.json</span><span class="w"> </span><span class="kn">import</span> <span class="n">Dict</span>
-        <span class="k">return</span> <span class="n">Dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-    
-    <span class="nd">@cached_property</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">List</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">.json</span><span class="w"> </span><span class="kn">import</span> <span class="n">List</span>
-        <span class="k">return</span> <span class="n">List</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div>
-
-
-<span class="c1">#========================================================</span>
-
-<span class="c1"># @dead-code-ignore</span>
-<div class="viewcode-block" id="XML">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.XML">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">XML</span><span class="p">(</span><span class="n">RWFile</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">""".XML File"""</span>
-
-<div class="viewcode-block" id="XML._read">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.XML._read">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_read</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">xmltodict</span><span class="w"> </span><span class="kn">import</span> <span class="n">parse</span>
-
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">()</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-
-            <span class="k">return</span> <span class="n">parse</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span></div>
-
-
-<div class="viewcode-block" id="XML.save">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.XML.save">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-        <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">xmltodict</span><span class="w"> </span><span class="kn">import</span> <span class="n">unparse</span>
-
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-
-            <span class="n">data</span> <span class="o">=</span> <span class="n">unparse</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">pretty</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
-</div>
-
-
-<span class="c1"># @dead-code-ignore</span>
-<div class="viewcode-block" id="PKL">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.PKL">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">PKL</span><span class="p">(</span><span class="n">RWFile</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">""".PKL File"""</span>
-
-<div class="viewcode-block" id="PKL._read">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.PKL._read">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">dill</span><span class="w"> </span><span class="kn">import</span> <span class="n">load</span>
-        
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="PKL.save">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.PKL.save">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-        <span class="n">value</span><span class="p">:</span> <span class="n">Any</span>
-    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">dill</span><span class="w"> </span><span class="kn">import</span> <span class="n">dump</span>
-        
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">dump</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="n">value</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">)</span></div>
-</div>
-
-
-<span class="c1"># @dead-code-ignore</span>
 <div class="viewcode-block" id="VHDX">
 <a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.VHDX">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">VHDX</span><span class="p">:</span>
@@ -199,7 +86,7 @@
 <div class="viewcode-block" id="VHDX.mount">
 <a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.VHDX.mount">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">mount</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">.process</span><span class="w"> </span><span class="kn">import</span> <span class="n">RunHidden</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">..process</span><span class="w"> </span><span class="kn">import</span> <span class="n">RunHidden</span>
 
         <span class="n">RunHidden</span><span class="p">(</span>
             <span class="s1">'Mount-VHD'</span><span class="p">,</span>
@@ -217,7 +104,7 @@
 <div class="viewcode-block" id="VHDX.dismount">
 <a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.VHDX.dismount">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">dismount</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">.process</span><span class="w"> </span><span class="kn">import</span> <span class="n">RunHidden</span>
+        <span class="kn">from</span><span class="w"> </span><span class="nn">..process</span><span class="w"> </span><span class="kn">import</span> <span class="n">RunHidden</span>
         
         <span class="n">RunHidden</span><span class="p">(</span>
             <span class="s1">'Dismount-DiskImage'</span><span class="p">,</span>
@@ -231,108 +118,7 @@
 </div>
 
 
-<span class="c1"># @dead-code-ignore</span>
-<div class="viewcode-block" id="JSON">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.JSON">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">JSON</span><span class="p">(</span><span class="n">RWFile</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">""".JSON File"""</span>
-
-<div class="viewcode-block" id="JSON._read">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.JSON._read">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">json</span><span class="w"> </span><span class="kn">import</span> <span class="n">load</span>
-
-        <span class="k">return</span> <span class="n">load</span><span class="p">(</span><span class="n">fp</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">())</span></div>
-
-
-<div class="viewcode-block" id="JSON.save">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.JSON.save">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">json</span><span class="w"> </span><span class="kn">import</span> <span class="n">dump</span>
-
-        <span class="n">dump</span><span class="p">(</span>
-            <span class="n">obj</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span>
-            <span class="n">fp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">'w'</span><span class="p">),</span>
-            <span class="n">indent</span> <span class="o">=</span> <span class="mi">3</span>
-        <span class="p">)</span></div>
-</div>
-
-
-<span class="c1"># @dead-code-ignore</span>
-<div class="viewcode-block" id="INI">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.INI">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">INI</span><span class="p">(</span><span class="n">RWFile</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">""".INI/.PROPERTIES File"""</span>
-    
-<div class="viewcode-block" id="INI._read">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.INI._read">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">configobj</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConfigObj</span>
-        
-        <span class="k">return</span> <span class="n">ConfigObj</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">))</span><span class="o">.</span><span class="n">dict</span><span class="p">()</span></div>
-
-         
-<div class="viewcode-block" id="INI.save">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.INI.save">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">configobj</span><span class="w"> </span><span class="kn">import</span> <span class="n">ConfigObj</span>
-
-        <span class="n">obj</span> <span class="o">=</span> <span class="n">ConfigObj</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">))</span>
-
-        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-            <span class="n">obj</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
-
-        <span class="n">obj</span><span class="o">.</span><span class="n">write</span><span class="p">()</span></div>
-</div>
-
-
-<div class="viewcode-block" id="YAML">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.YAML">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">YAML</span><span class="p">(</span><span class="n">RWFile</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">""".YML/.YAML File"""</span>
-    
-<div class="viewcode-block" id="YAML._read">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.YAML._read">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">yaml</span><span class="w"> </span><span class="kn">import</span> <span class="n">safe_load</span>
-
-        <span class="k">return</span> <span class="n">safe_load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">raw</span><span class="p">)</span></div>
-
-    
-<div class="viewcode-block" id="YAML.save">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.YAML.save">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">yaml</span><span class="w"> </span><span class="kn">import</span> <span class="n">dump</span>
-
-        <span class="n">dump</span><span class="p">(</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">,</span> 
-            <span class="n">stream</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">'w'</span><span class="p">),</span>
-            <span class="n">default_flow_style</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-            <span class="n">sort_keys</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="p">)</span></div>
-</div>
-
-
-<span class="c1"># @dead-code-ignore</span>
-<div class="viewcode-block" id="TXT">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.TXT">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">TXT</span><span class="p">(</span><span class="n">RWFile</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">""".TXT File"""</span>
-    
-<div class="viewcode-block" id="TXT._read">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.TXT._read">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">"""Read data from the txt file"""</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">'r'</span><span class="p">)</span><span class="o">.</span><span class="n">read</span><span class="p">()</span></div>
-
-    
-<div class="viewcode-block" id="TXT.save">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.TXT.save">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">        </span><span class="sd">"""Save data to the txt file"""</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">'w'</span><span class="p">)</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">data</span><span class="p">))</span></div>
-</div>
-
+<span class="c1">#========================================================</span>
 
 <div class="viewcode-block" id="ZIP">
 <a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.ZIP">[docs]</a>
@@ -403,56 +189,6 @@
         <span class="n">path</span><span class="o">.</span><span class="n">mkdir</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_zip</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">))</span></div>
-</div>
-
-
-<span class="c1"># @dead-code-ignore</span>
-<div class="viewcode-block" id="CSV">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.CSV">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">CSV</span><span class="p">(</span><span class="n">RWFile</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">""".CSV File"""</span>
-
-<div class="viewcode-block" id="CSV._read">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.CSV._read">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">csv</span><span class="w"> </span><span class="kn">import</span> <span class="n">reader</span>
-
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">()</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">reader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="CSV.save">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.CSV.save">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">csv</span><span class="w"> </span><span class="kn">import</span> <span class="n">writer</span>
-
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
-            <span class="n">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
-</div>
-
-
-<span class="c1"># @dead-code-ignore</span>
-<div class="viewcode-block" id="TOML">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.TOML">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">TOML</span><span class="p">(</span><span class="n">RWFile</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">""".TOML File"""</span>
-
-<div class="viewcode-block" id="TOML._read">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.TOML._read">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_read</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">toml</span><span class="w"> </span><span class="kn">import</span> <span class="n">load</span>
-
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">()</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span></div>
-
-        
-<div class="viewcode-block" id="TOML.save">
-<a class="viewcode-back" href="../../_api/philh_myftp_biz/philh_myftp_biz.file.html#philh_myftp_biz.file.TOML.save">[docs]</a>
-    <span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span><span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="kn">from</span><span class="w"> </span><span class="nn">tomli_w</span><span class="w"> </span><span class="kn">import</span> <span class="n">dump</span>
-
-        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-            <span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></div>
 </div>
 
 

@@ -23,7 +23,7 @@ Classes
 API
 ~~~
 
-.. py:class:: Dict(t: STRUCT | RWFile | Collection[T, STRUCT] | Any = None)
+.. py:class:: Dict(t: STRUCT | TXT | Collection[T, STRUCT] | Any = None, file: philh_myftp_biz.file.TXT | None = None)
    :canonical: philh_myftp_biz.json.Dict.Dict
 
    Bases: :py:obj:`philh_myftp_biz.json.Collection.Collection`\ [\ :py:obj:`philh_myftp_biz.json.Dict.Dict.T`\ , :py:obj:`dict`\ [\ :py:obj:`str`\ , :py:obj:`philh_myftp_biz.json.Dict.Dict.T`\ ]\ ]
@@ -33,18 +33,6 @@ API
    .. rubric:: Initialization
 
    .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.__init__
-
-   .. py:attribute:: _default
-      :canonical: philh_myftp_biz.json.Dict.Dict._default
-      :type: dict[str, philh_myftp_biz.json.Dict.Dict.T]
-      :value: None
-
-      .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict._default
-
-   .. py:method:: __getitem__(key: str) -> T | None
-      :canonical: philh_myftp_biz.json.Dict.Dict.__getitem__
-
-      .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.__getitem__
 
    .. py:method:: items() -> typing.ItemsView[str, T]
       :canonical: philh_myftp_biz.json.Dict.Dict.items
@@ -66,7 +54,12 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.get
 
-   .. py:method:: update(other: dict[str, T] | Dict[T]) -> None
+   .. py:method:: update(other: dict[str, T]) -> None
       :canonical: philh_myftp_biz.json.Dict.Dict.update
 
       .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.update
+
+   .. py:method:: __getitem__(key: str) -> T
+      :canonical: philh_myftp_biz.json.Dict.Dict.__getitem__
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.__getitem__

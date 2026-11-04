@@ -6,8 +6,17 @@
 .. autodoc2-docstring:: philh_myftp_biz.file
    :allowtitles:
 
-Module Contents
----------------
+Submodules
+----------
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   philh_myftp_biz.file.RWFile
+
+Package Contents
+----------------
 
 Classes
 ~~~~~~~
@@ -16,38 +25,11 @@ Classes
    :class: autosummary longtable
    :align: left
 
-   * - :py:obj:`RWFile <philh_myftp_biz.file.RWFile>`
-     - .. autodoc2-docstring:: philh_myftp_biz.file.RWFile
-          :summary:
-   * - :py:obj:`XML <philh_myftp_biz.file.XML>`
-     - .. autodoc2-docstring:: philh_myftp_biz.file.XML
-          :summary:
-   * - :py:obj:`PKL <philh_myftp_biz.file.PKL>`
-     - .. autodoc2-docstring:: philh_myftp_biz.file.PKL
-          :summary:
    * - :py:obj:`VHDX <philh_myftp_biz.file.VHDX>`
      - .. autodoc2-docstring:: philh_myftp_biz.file.VHDX
           :summary:
-   * - :py:obj:`JSON <philh_myftp_biz.file.JSON>`
-     - .. autodoc2-docstring:: philh_myftp_biz.file.JSON
-          :summary:
-   * - :py:obj:`INI <philh_myftp_biz.file.INI>`
-     - .. autodoc2-docstring:: philh_myftp_biz.file.INI
-          :summary:
-   * - :py:obj:`YAML <philh_myftp_biz.file.YAML>`
-     - .. autodoc2-docstring:: philh_myftp_biz.file.YAML
-          :summary:
-   * - :py:obj:`TXT <philh_myftp_biz.file.TXT>`
-     - .. autodoc2-docstring:: philh_myftp_biz.file.TXT
-          :summary:
    * - :py:obj:`ZIP <philh_myftp_biz.file.ZIP>`
      - .. autodoc2-docstring:: philh_myftp_biz.file.ZIP
-          :summary:
-   * - :py:obj:`CSV <philh_myftp_biz.file.CSV>`
-     - .. autodoc2-docstring:: philh_myftp_biz.file.CSV
-          :summary:
-   * - :py:obj:`TOML <philh_myftp_biz.file.TOML>`
-     - .. autodoc2-docstring:: philh_myftp_biz.file.TOML
           :summary:
 
 Functions
@@ -69,99 +51,6 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.file.temp
 
-.. py:class:: RWFile(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
-   :canonical: philh_myftp_biz.file.RWFile
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.RWFile
-
-   .. rubric:: Initialization
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.__init__
-
-   .. py:attribute:: parsed
-      :canonical: philh_myftp_biz.file.RWFile.parsed
-      :type: typing.Any
-      :value: None
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.parsed
-
-   .. py:attribute:: _read
-      :canonical: philh_myftp_biz.file.RWFile._read
-      :type: typing.Callable[[], typing.Any]
-      :value: None
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile._read
-
-   .. py:attribute:: save
-      :canonical: philh_myftp_biz.file.RWFile.save
-      :type: typing.Callable[[typing.Any], None]
-      :value: None
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.save
-
-   .. py:method:: read()
-      :canonical: philh_myftp_biz.file.RWFile.read
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.read
-
-   .. py:property:: raw
-      :canonical: philh_myftp_biz.file.RWFile.raw
-      :type: bytes
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.raw
-
-   .. py:method:: Dict()
-      :canonical: philh_myftp_biz.file.RWFile.Dict
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.Dict
-
-   .. py:method:: List()
-      :canonical: philh_myftp_biz.file.RWFile.List
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.List
-
-.. py:class:: XML(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
-   :canonical: philh_myftp_biz.file.XML
-
-   Bases: :py:obj:`philh_myftp_biz.file.RWFile`
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.XML
-
-   .. rubric:: Initialization
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.XML.__init__
-
-   .. py:method:: _read() -> dict
-      :canonical: philh_myftp_biz.file.XML._read
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.XML._read
-
-   .. py:method:: save(data: dict) -> None
-      :canonical: philh_myftp_biz.file.XML.save
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.XML.save
-
-.. py:class:: PKL(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
-   :canonical: philh_myftp_biz.file.PKL
-
-   Bases: :py:obj:`philh_myftp_biz.file.RWFile`
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.PKL
-
-   .. rubric:: Initialization
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.PKL.__init__
-
-   .. py:method:: _read()
-      :canonical: philh_myftp_biz.file.PKL._read
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.PKL._read
-
-   .. py:method:: save(value: typing.Any) -> None
-      :canonical: philh_myftp_biz.file.PKL.save
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.PKL.save
-
 .. py:class:: VHDX(VHD: philh_myftp_biz.pc.Path, MNT: philh_myftp_biz.pc.Path, timeout: int = 30, readonly: bool = False)
    :canonical: philh_myftp_biz.file.VHDX
 
@@ -180,90 +69,6 @@ API
       :canonical: philh_myftp_biz.file.VHDX.dismount
 
       .. autodoc2-docstring:: philh_myftp_biz.file.VHDX.dismount
-
-.. py:class:: JSON(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
-   :canonical: philh_myftp_biz.file.JSON
-
-   Bases: :py:obj:`philh_myftp_biz.file.RWFile`
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.JSON
-
-   .. rubric:: Initialization
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.JSON.__init__
-
-   .. py:method:: _read()
-      :canonical: philh_myftp_biz.file.JSON._read
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.JSON._read
-
-   .. py:method:: save(data: dict) -> None
-      :canonical: philh_myftp_biz.file.JSON.save
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.JSON.save
-
-.. py:class:: INI(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
-   :canonical: philh_myftp_biz.file.INI
-
-   Bases: :py:obj:`philh_myftp_biz.file.RWFile`
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.INI
-
-   .. rubric:: Initialization
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.INI.__init__
-
-   .. py:method:: _read()
-      :canonical: philh_myftp_biz.file.INI._read
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.INI._read
-
-   .. py:method:: save(data: dict) -> None
-      :canonical: philh_myftp_biz.file.INI.save
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.INI.save
-
-.. py:class:: YAML(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
-   :canonical: philh_myftp_biz.file.YAML
-
-   Bases: :py:obj:`philh_myftp_biz.file.RWFile`
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.YAML
-
-   .. rubric:: Initialization
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.YAML.__init__
-
-   .. py:method:: _read()
-      :canonical: philh_myftp_biz.file.YAML._read
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.YAML._read
-
-   .. py:method:: save(data: dict) -> None
-      :canonical: philh_myftp_biz.file.YAML.save
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.YAML.save
-
-.. py:class:: TXT(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
-   :canonical: philh_myftp_biz.file.TXT
-
-   Bases: :py:obj:`philh_myftp_biz.file.RWFile`
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.TXT
-
-   .. rubric:: Initialization
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.TXT.__init__
-
-   .. py:method:: _read()
-      :canonical: philh_myftp_biz.file.TXT._read
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.TXT._read
-
-   .. py:method:: save(data: str) -> None
-      :canonical: philh_myftp_biz.file.TXT.save
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.TXT.save
 
 .. py:class:: ZIP
    :canonical: philh_myftp_biz.file.ZIP
@@ -326,45 +131,3 @@ API
       :canonical: philh_myftp_biz.file.ZIP.extractAll
 
       .. autodoc2-docstring:: philh_myftp_biz.file.ZIP.extractAll
-
-.. py:class:: CSV(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
-   :canonical: philh_myftp_biz.file.CSV
-
-   Bases: :py:obj:`philh_myftp_biz.file.RWFile`
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.CSV
-
-   .. rubric:: Initialization
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.CSV.__init__
-
-   .. py:method:: _read()
-      :canonical: philh_myftp_biz.file.CSV._read
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.CSV._read
-
-   .. py:method:: save(data: list[list]) -> None
-      :canonical: philh_myftp_biz.file.CSV.save
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.CSV.save
-
-.. py:class:: TOML(path: philh_myftp_biz.pc.Path, default: typing.Any = None)
-   :canonical: philh_myftp_biz.file.TOML
-
-   Bases: :py:obj:`philh_myftp_biz.file.RWFile`
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.TOML
-
-   .. rubric:: Initialization
-
-   .. autodoc2-docstring:: philh_myftp_biz.file.TOML.__init__
-
-   .. py:method:: _read()
-      :canonical: philh_myftp_biz.file.TOML._read
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.TOML._read
-
-   .. py:method:: save(data: dict) -> None
-      :canonical: philh_myftp_biz.file.TOML.save
-
-      .. autodoc2-docstring:: philh_myftp_biz.file.TOML.save

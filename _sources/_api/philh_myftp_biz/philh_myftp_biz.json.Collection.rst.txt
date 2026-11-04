@@ -20,27 +20,10 @@ Classes
      - .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection
           :summary:
 
-Data
-~~~~
-
-.. list-table::
-   :class: autosummary longtable
-   :align: left
-
-   * - :py:obj:`_NO_VALUE <philh_myftp_biz.json.Collection._NO_VALUE>`
-     - .. autodoc2-docstring:: philh_myftp_biz.json.Collection._NO_VALUE
-          :summary:
-
 API
 ~~~
 
-.. py:data:: _NO_VALUE
-   :canonical: philh_myftp_biz.json.Collection._NO_VALUE
-   :value: 'object(...)'
-
-   .. autodoc2-docstring:: philh_myftp_biz.json.Collection._NO_VALUE
-
-.. py:class:: Collection(t: STRUCT | RWFile | Collection[T, STRUCT] | Any = None)
+.. py:class:: Collection(t: STRUCT | TXT | Collection[T, STRUCT] | Any = None, file: philh_myftp_biz.file.TXT | None = None)
    :canonical: philh_myftp_biz.json.Collection.Collection
 
    .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection
@@ -49,41 +32,10 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.__init__
 
-   .. py:attribute:: _default
-      :canonical: philh_myftp_biz.json.Collection.Collection._default
-      :type: philh_myftp_biz.json.Collection.Collection.STRUCT
-      :value: None
+   .. py:method:: flush() -> None
+      :canonical: philh_myftp_biz.json.Collection.Collection.flush
 
-      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection._default
-
-   .. py:attribute:: _cache
-      :canonical: philh_myftp_biz.json.Collection.Collection._cache
-      :type: philh_myftp_biz.json.Collection.Collection.STRUCT
-      :value: None
-
-      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection._cache
-
-   .. py:attribute:: var
-      :canonical: philh_myftp_biz.json.Collection.Collection.var
-      :type: philh_myftp_biz.file.RWFile
-      :value: None
-
-      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.var
-
-   .. py:method:: read() -> STRUCT
-      :canonical: philh_myftp_biz.json.Collection.Collection.read
-
-      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.read
-
-   .. py:method:: handle() -> typing.Generator[STRUCT, None, None]
-      :canonical: philh_myftp_biz.json.Collection.Collection.handle
-
-      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.handle
-
-   .. py:method:: save(data: STRUCT | Collection[T, STRUCT] = _NO_VALUE) -> None
-      :canonical: philh_myftp_biz.json.Collection.Collection.save
-
-      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.save
+      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.flush
 
    .. py:method:: copy() -> typing.Self
       :canonical: philh_myftp_biz.json.Collection.Collection.copy
@@ -113,18 +65,10 @@ API
    .. py:method:: __str__() -> str
       :canonical: philh_myftp_biz.json.Collection.Collection.__str__
 
-   .. py:attribute:: __repr__
+   .. py:method:: __repr__() -> str
       :canonical: philh_myftp_biz.json.Collection.Collection.__repr__
-      :value: None
-
-      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.__repr__
 
    .. py:method:: __iter__() -> typing.Iterator[T]
       :canonical: philh_myftp_biz.json.Collection.Collection.__iter__
 
       .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.__iter__
-
-   .. py:method:: reset() -> None
-      :canonical: philh_myftp_biz.json.Collection.Collection.reset
-
-      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.reset
