@@ -41,19 +41,30 @@
 <a class="viewcode-back" href="../../../_api/philh_myftp_biz/philh_myftp_biz.json.Collection.html#philh_myftp_biz.json.Collection.Collection">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Collection</span><span class="p">[</span><span class="n">T</span><span class="p">,</span> <span class="n">STRUCT</span><span class="p">]:</span>
 
+    <span class="n">data</span><span class="p">:</span> <span class="n">STRUCT</span>
+
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
         <span class="n">t</span><span class="p">:</span> <span class="s1">'STRUCT | TXT | Collection[T, STRUCT] | Any'</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">file</span><span class="p">:</span> <span class="n">TXT</span><span class="o">|</span><span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         
-        <span class="bp">cls</span> <span class="o">=</span> <span class="n">get_args</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">__orig_bases__</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">__origin__</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">cls</span> <span class="o">=</span> <span class="n">get_args</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="n">__orig_bases__</span><span class="p">[</span><span class="mi">0</span><span class="p">])[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">__origin__</span>
         
         <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="n">file</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">:</span> <span class="n">STRUCT</span> <span class="o">=</span> <span class="p">(</span><span class="bp">cls</span><span class="p">()</span> <span class="k">if</span> <span class="n">t</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">cls</span><span class="p">(</span><span class="n">t</span><span class="p">)))</span>
+        <span class="k">if</span> <span class="n">data</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
 
     <span class="c1">#=======================================</span>
     
+<div class="viewcode-block" id="Collection.clear">
+<a class="viewcode-back" href="../../../_api/philh_myftp_biz/philh_myftp_biz.json.Collection.html#philh_myftp_biz.json.Collection.Collection.clear">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cls</span><span class="p">()</span></div>
+
+
 <div class="viewcode-block" id="Collection.flush">
 <a class="viewcode-back" href="../../../_api/philh_myftp_biz/philh_myftp_biz.json.Collection.html#philh_myftp_biz.json.Collection.Collection.flush">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">flush</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

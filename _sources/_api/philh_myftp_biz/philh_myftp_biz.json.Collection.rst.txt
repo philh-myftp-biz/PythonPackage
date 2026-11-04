@@ -32,6 +32,18 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.__init__
 
+   .. py:attribute:: data
+      :canonical: philh_myftp_biz.json.Collection.Collection.data
+      :type: philh_myftp_biz.json.Collection.Collection.STRUCT
+      :value: None
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.data
+
+   .. py:method:: clear() -> None
+      :canonical: philh_myftp_biz.json.Collection.Collection.clear
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Collection.Collection.clear
+
    .. py:method:: flush() -> None
       :canonical: philh_myftp_biz.json.Collection.Collection.flush
 
