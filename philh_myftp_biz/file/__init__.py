@@ -6,7 +6,7 @@ from dataclasses import dataclass
 if TYPE_CHECKING:
     from ..pc import Path
 
-from .RWFile import RWFile, XML, PKL, JSON, INI, YAML, TXT, CSV, TOML
+from .RWFile import TXT, XML, PKL, JSON, INI, YAML, CSV, TOML
 
 #========================================================
 

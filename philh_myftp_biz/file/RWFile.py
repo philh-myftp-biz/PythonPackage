@@ -1,46 +1,41 @@
-from typing import TYPE_CHECKING, Callable, Any
 from functools import cached_property
+from dataclasses import dataclass
+from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from ..pc import Path
 
-class RWFile:
+@dataclass
+class TXT:
+    """.TXT File"""
+    
+    path: 'Path'
 
-    def __init__(self,
-        path: 'Path',
-        default: Any = None
-    ) -> None:
-
-        self.path    = path
-
-        self.default = default
-
-        # Make the parent dir of the output path
-        path.parent.mkdir()
-
-    parsed: Any
-
-    _read: Callable[[], Any]
-
-    save: Callable[[Any], None]
-    """Write data to the file"""
-
-    def read(self):
+    def read(self) -> str:
         """Read data from the file"""
-
-        if self.path.exists:
-            return self._read()
-        
-        return self.default
+        with self.r as f:
+            return f.read()
+    
+    def save(self, data:str) -> None:
+        """Save data to the file"""
+        with self.w as f:
+            f.write(str(data))
 
     @property
-    def raw(self) -> bytes:
+    def r(self):
+        return self.path.open('r')
 
-        with self.path.open() as f:
-        
-            raw: str = f.read()
+    @property
+    def rb(self):
+        return self.path.open('rb')
 
-            return raw.encode('utf-8')
+    @property
+    def w(self):
+        return self.path.open('w')
+
+    @property
+    def wb(self):
+        return self.path.open('wb')
         
     @cached_property
     def Dict(self):
@@ -52,135 +47,106 @@ class RWFile:
         from ..json import List
         return List(self)
 
-class XML(RWFile):
+class XML[K,V](TXT):
     """.XML File"""
 
-    def _read(self) -> dict:
+    def read(self) -> dict[K,V]:
         from xmltodict import parse
+        return parse( super().read() ) # pyright: ignore[reportReturnType]
 
-        with self.path.open() as f:
-
-            return parse(f.read())
-
-    def save(self,
-        data: dict
-    ) -> None:
+    def save(self, data:dict[K,V]) -> None:
         from xmltodict import unparse
-
-        with self.path.open('w') as f:
-
-            data = unparse(data, pretty=True)
-
-            f.write(data)
-
-class PKL(RWFile):
-    """.PKL File"""
-
-    def _read(self):
-        from dill import load
-        
-        with self.path.open('rb') as f:
-            return load(f)
-
-    def save(self,
-        value: Any
-    ) -> None:
-        from dill import dump
-        
-        with self.path.open(mode='wb') as f:
-            dump(obj=value, file=f)
-
-class JSON(RWFile):
-    """.JSON File"""
-
-    def _read(self):
-        from json import load
-
-        return load(fp=self.path.open())
-
-    def save(self, data: dict) -> None:
-        from json import dump
-
-        dump(
-            obj = data,
-            fp = self.path.open(mode='w'),
-            indent = 3
+        super().save(
+            unparse(data, pretty=True)
         )
 
-class INI(RWFile):
+class PKL[T](TXT):
+    """.PKL File"""
+
+    def read(self) -> T:
+        from dill import load        
+        return load(self.rb)
+
+    def save(self, value:T) -> None:
+        from dill import dump        
+        dump(file=self.wb, obj=value)
+
+@dataclass
+class JSON[T](TXT):
+    """.JSON File"""
+
+    indent: int = 3
+
+    def read(self) -> T:
+        from json import load
+        return load(self.r)
+
+    def save(self, data:T) -> None:
+        from json import dump
+        dump(
+            obj = data,
+            fp = self.w,
+            indent = self.indent,
+        )
+
+class INI[K,V](TXT):
     """.INI/.PROPERTIES File"""
+
+    @property
+    def obj(self):
+        from configobj import ConfigObj
+        return ConfigObj( str(self.path) )
     
-    def _read(self):
-        from configobj import ConfigObj
-        
-        return ConfigObj(str(self.path)).dict()
-         
-    def save(self, data:dict) -> None:
-        from configobj import ConfigObj
-
-        obj = ConfigObj(str(self.path))
-
-        for name, value in data.items():
-            obj[name] = value
-
+    def read(self) -> dict[K,V]:
+        return self.obj.dict()
+    
+    def save(self, data:dict[K,V]) -> None:
+        obj = self.obj
+        obj.merge(data)
         obj.write()
 
-class YAML(RWFile):
+class YAML[K,V](TXT):
     """.YML/.YAML File"""
     
-    def _read(self):
+    def read(self) -> dict[K,V]:
         from yaml import safe_load
-
-        return safe_load(self.raw)
+        return safe_load(self.r)
     
-    def save(self, data:dict) -> None:
+    def save(self, data:dict[K,V]) -> None:
         from yaml import dump
-
         dump(
             data = data, 
-            stream = self.path.open(mode='w'),
+            stream = self.w,
             default_flow_style = False,
             sort_keys = False
         )
 
-class TXT(RWFile):
-    """.TXT File"""
-    
-    def _read(self):
-        """Read data from the txt file"""
-        return self.path.open(mode='r').read()
-    
-    def save(self, data:str) -> None:
-        """Save data to the txt file"""
-        self.path.open(mode='w').write(str(data))
-
-class CSV(RWFile):
+class CSV(TXT):
     """.CSV File"""
 
-    def _read(self):
+    def read(self) -> list[list[str]]:
         from csv import reader
+        return list(reader(self.r))
 
-        with self.path.open() as csvfile:
-            return reader(csvfile)
-
-    def save(self, data:list[list]) -> None:
+    def save(self, data:list[list[str]]) -> None:
         from csv import writer
+        writer(self.w).writerows(data)
 
-        with self.path.open('w') as csvfile:
-            writer(csvfile).writerows(data)
-
-class TOML(RWFile):
+@dataclass
+class TOML[K,V](TXT):
     """.TOML File"""
 
-    def _read(self):
+    indent: int = 2
+
+    def read(self) -> dict[K,V]:
         from toml import load
-
-        with self.path.open() as f:
-            return load(f)
+        return load(self.r) # pyright: ignore[reportReturnType]
         
-    def save(self, data:dict) -> None:
+    def save(self, data:dict[K,V]) -> None:
         from tomli_w import dump
-
-        with self.path.open('wb') as f:
-            dump(data, f, indent=2)
+        dump(
+            obj = data,
+            fp = self.wb,
+            indent = self.indent,
+        )
 
