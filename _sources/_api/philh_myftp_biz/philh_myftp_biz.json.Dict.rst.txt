@@ -26,7 +26,7 @@ API
 .. py:class:: Dict(t: STRUCT | TXT | Collection[T, STRUCT] | Any = None, file: philh_myftp_biz.file.TXT | None = None)
    :canonical: philh_myftp_biz.json.Dict.Dict
 
-   Bases: :py:obj:`philh_myftp_biz.json.Collection.Collection`\ [\ :py:obj:`philh_myftp_biz.json.Dict.Dict.T`\ , :py:obj:`dict`\ [\ :py:obj:`str`\ , :py:obj:`philh_myftp_biz.json.Dict.Dict.T`\ ]\ ]
+   Bases: :py:obj:`philh_myftp_biz.json.Collection.Collection`\ [\ :py:obj:`philh_myftp_biz.json.Dict.Dict.V`\ , :py:obj:`dict`\ [\ :py:obj:`philh_myftp_biz.json.Dict.Dict.K`\ , :py:obj:`philh_myftp_biz.json.Dict.Dict.V`\ ]\ ]
 
    .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict
 
@@ -34,32 +34,37 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.__init__
 
-   .. py:method:: items() -> typing.ItemsView[str, T]
+   .. py:method:: items() -> typing.ItemsView[K, V]
       :canonical: philh_myftp_biz.json.Dict.Dict.items
 
       .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.items
 
-   .. py:method:: keys() -> typing.KeysView[str]
+   .. py:method:: keys() -> typing.KeysView[K]
       :canonical: philh_myftp_biz.json.Dict.Dict.keys
 
       .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.keys
 
-   .. py:method:: values() -> typing.ValuesView[T]
+   .. py:method:: values() -> typing.ValuesView[V]
       :canonical: philh_myftp_biz.json.Dict.Dict.values
 
       .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.values
 
-   .. py:method:: get(key: str, default: typing.Any = None) -> typing.Any
+   .. py:method:: get(key: K, default: V = None) -> V
       :canonical: philh_myftp_biz.json.Dict.Dict.get
 
       .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.get
 
-   .. py:method:: update(other: dict[str, T]) -> None
+   .. py:method:: update(other: dict[K, V]) -> None
       :canonical: philh_myftp_biz.json.Dict.Dict.update
 
       .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.update
 
-   .. py:method:: __getitem__(key: str) -> T
+   .. py:method:: filter(func: typing.Callable[[K, V], bool]) -> None
+      :canonical: philh_myftp_biz.json.Dict.Dict.filter
+
+      .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.filter
+
+   .. py:method:: __getitem__(key: K) -> V
       :canonical: philh_myftp_biz.json.Dict.Dict.__getitem__
 
       .. autodoc2-docstring:: philh_myftp_biz.json.Dict.Dict.__getitem__

@@ -53,12 +53,6 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.functools.cache.transitory.TransitoryCache.__init__
 
-   .. py:property:: _dict
-      :canonical: philh_myftp_biz.functools.cache.transitory.TransitoryCache._dict
-      :type: Dict[CachedItem]
-
-      .. autodoc2-docstring:: philh_myftp_biz.functools.cache.transitory.TransitoryCache._dict
-
    .. py:method:: __getitem__(key: philh_myftp_biz.functools.supports.SupportsJSON) -> T
       :canonical: philh_myftp_biz.functools.cache.transitory.TransitoryCache.__getitem__
 
