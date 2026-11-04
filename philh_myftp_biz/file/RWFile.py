@@ -1,6 +1,6 @@
 from functools import cached_property
+from typing import TYPE_CHECKING, Any
 from dataclasses import dataclass
-from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from ..pc import Path
@@ -21,6 +21,12 @@ class TXT:
         with self.w as f:
             f.write(str(data))
 
+    def read_or(self, default:Any):
+        try:
+            return self.read()
+        except FileNotFoundError:
+            return default
+
     @property
     def r(self):
         return self.path.open('r')
@@ -40,12 +46,12 @@ class TXT:
     @cached_property
     def Dict(self):
         from ..json import Dict
-        return Dict(self.read(), self)
+        return Dict(self.read_or({}), self)
     
     @cached_property
     def List(self):
         from ..json import List
-        return List(self.read(), self)
+        return List(self.read_or([]), self)
 
 class XML[K,V](TXT):
     """.XML File"""
