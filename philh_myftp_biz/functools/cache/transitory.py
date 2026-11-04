@@ -1,9 +1,8 @@
 from ..supports import SupportsStr, SupportsJSON
-from typing import TYPE_CHECKING, TypedDict
-from time import perf_counter
-
-if TYPE_CHECKING:
-    from ...json import Dict
+from time import perf_counter as now
+from typing import TypedDict
+from ...pc._pc import loc
+from ...json import Dict
 
 class CachedItem[T](TypedDict):
     created: float
@@ -15,44 +14,27 @@ class TransitoryCache[T]:
         id: SupportsStr = 0, 
         expire: int = 18_000
     ) -> None:
-        from ...pc._pc import loc
 
         self.expire = expire
 
         file = loc.cache.child(f'TransitoryCache-{id}.pkl')
         self.clear = file.delete
-        self._pkl = file.PKL
-
-    @property
-    def _dict(self) -> 'Dict[CachedItem]':
-        from ...text.hex import PickleErrors
-        from logger2 import Log
-
-        try:
-            data: dict[str, CachedItem] = self._pkl.read() or {}
-        except PickleErrors:
-            Log.WARN(exc_info=True)
-            data = {}
-
-        now = perf_counter()
-
-        for key, item in data.copy().items():
-            if (now - item['created']) >= self.expire:
-                del data[key]
-
-        self._pkl.save(data)
-
-        return self._pkl.Dict
+        self.dict: Dict[str, CachedItem[T]] = file.PKL.Dict
 
     def __getitem__(self, key:SupportsJSON) -> T:
-        return self._dict.read() [key] ['value']
+        self.dict.filter(
+            lambda k,v: (now() - v['created']) < self.expire
+        )
+        self.dict.flush()
+        return self.dict[key]['value']
     
     def __setitem__(self, key:SupportsJSON, value:T) -> None:
-        self._dict[key] = {
-            'created': perf_counter(),
+        self.dict[key] = {
+            'created': now(),
             'value': value
         }
+        self.dict.flush()
 
     def __contains__(self, key:SupportsJSON) -> bool:
-        return (key in self._dict.read())
+        return (key in self.dict)
 

@@ -1,94 +1,57 @@
-from typing import Self, Any, cast, Generator, Iterator
-from contextlib import contextmanager
+from typing import Self, Any, Iterator
+from typing import get_args
+from copy import deepcopy
 from ..file import TXT
 from json import dumps
 
-_NO_VALUE = object()
-
 class Collection[T, STRUCT]:
 
-    _default: STRUCT
-
-    _cache: STRUCT
-
-    var: TXT
-
     def __init__(self,
-        t: 'STRUCT | TXT | Collection[T, STRUCT] | Any' = None
+        t: 'STRUCT | TXT | Collection[T, STRUCT] | Any' = None,
+        file: TXT|None = None
     ) -> None:
-        from types import GeneratorType
-
-        if isinstance(t, Collection):
-            self.var = t.var
-            self._cache = t.var.read()
-
-        elif isinstance(t, TXT):
-            self.var = t
-            self._cache = t.read()
-
-        elif isinstance(t, (tuple, filter, GeneratorType)):
-            self._cache = cast(STRUCT, list(t))
         
-        elif t is None:
-            self._cache = self._default
+        cls = get_args(self.__class__.__orig_bases__[0])[1].__origin__
         
-        else:
-            self._cache = cast(STRUCT, t)
-        
-        self.__backup = self.read()
+        self.file = file
 
-    def read(self) -> STRUCT:
-        from copy import deepcopy
-        return deepcopy(self._cache)
+        self.data: STRUCT = (cls() if t is None else deepcopy(cls(t)))
+
+    #=======================================
     
-    @contextmanager
-    def handle(self) -> Generator[STRUCT, None, None]:
-        data = self.read()
-        try:
-            yield data
-        finally:
-            self.save(data)
-    
-    def save(self, data: 'STRUCT | Collection[T, STRUCT]'=_NO_VALUE) -> None:
-
-        if data is _NO_VALUE:
-            data = self.read()
-
-        if isinstance(data, Collection):
-            data = data.read()
-
-        self._cache = data
-
-        if hasattr(self, 'var'):
-            self.var.save(data)
+    def flush(self) -> None:
+        """Save data to file"""
+        if self.file:
+            self.file.save(self.data)
     
     def copy(self) -> Self:
-        return self.__class__(self.read())
+        return self.__class__( deepcopy(self.data) )
+
+    #=======================================
 
     def __len__(self) -> int:
-        return len(self.read())  # type: ignore
+        return len(self.data)
         
-    def __setitem__(self, key: Any, value: T) -> None:
-        with self.handle() as data:
-            data[key] = value  # type: ignore
+    def __setitem__(self, key:Any, value:T) -> None:
+        self.data[key] = value
 
     def __delitem__(self, key: Any) -> None:
-        with self.handle() as data:
-            del data[key]  # type: ignore
+        del self.data[key]
 
     def __contains__(self, key: Any) -> bool:
-        return (key in self.read())  # type: ignore
+        return (key in self.data)
     
     def __str__(self) -> str:
         return dumps(
-            obj = self.read(),
+            obj = self.data,
             indent = 2
         )
     
-    __repr__ = __str__
+    def __repr__(self) -> str:
+        return str(self.data)
 
     def __iter__(self) -> Iterator[T]:
-        return iter(self.read())
+        return iter(self.data)
 
-    def reset(self) -> None:
-        self.save(self.__backup)
+    #=======================================
+

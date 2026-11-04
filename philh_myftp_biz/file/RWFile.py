@@ -40,12 +40,12 @@ class TXT:
     @cached_property
     def Dict(self):
         from ..json import Dict
-        return Dict(self)
+        return Dict(self.read(), self)
     
     @cached_property
     def List(self):
         from ..json import List
-        return List(self)
+        return List(self.read(), self)
 
 class XML[K,V](TXT):
     """.XML File"""
