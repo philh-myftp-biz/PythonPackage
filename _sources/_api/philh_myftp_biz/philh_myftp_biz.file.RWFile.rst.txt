@@ -66,6 +66,11 @@ API
 
       .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.TXT.save
 
+   .. py:method:: read_or(default: typing.Any)
+      :canonical: philh_myftp_biz.file.RWFile.TXT.read_or
+
+      .. autodoc2-docstring:: philh_myftp_biz.file.RWFile.TXT.read_or
+
    .. py:property:: r
       :canonical: philh_myftp_biz.file.RWFile.TXT.r
 
