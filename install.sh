@@ -36,6 +36,3 @@ export PYTHONWARNINGS="ignore:setup.py install is deprecated"
 
 pip_install -v . --ignore-installed urllib3 || exit 1
 
-pip_install "auto-python-docs @ git+https://github.com/MineFartS/auto-python-docs"
-python3 -m auto_python_docs.build
-

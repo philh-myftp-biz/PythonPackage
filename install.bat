@@ -28,10 +28,6 @@ set "DIR=%DIR:~10%\philh_myftp_biz"
 :: Precompile package
 python -m compileall -f "%DIR%"
 
-:: Update API Reference Docs
-call :pip_install "auto-python-docs @ git+https://github.com/MineFartS/auto-python-docs"
-python.exe -m auto_python_docs.build
-
 popd
 goto :EOF
 
