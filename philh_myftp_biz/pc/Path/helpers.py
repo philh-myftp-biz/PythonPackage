@@ -5,6 +5,13 @@ if TYPE_CHECKING:
     from ...time import from_stamp
     from . import Path
 
+__all__ = [
+    "_cd",
+    "_mtime",
+    "_set_access",
+    "_visibility",
+]
+
 class _cd:
 
     __via_with = False

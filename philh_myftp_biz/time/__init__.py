@@ -2,6 +2,18 @@ from ._time import Stopwatch, Timeout, TimeStamp
 
 from_stamp = TimeStamp # TODO deprecated
 
+__all__ = [
+    "Stopwatch",
+    "Timeout",
+    "TimeStamp",
+    "from_stamp",
+    "tzinfo",
+    "now",
+    "from_string",
+    "from_ymdhms",
+    "sleep",
+]
+
 #==============================================================================
 
 def tzinfo():

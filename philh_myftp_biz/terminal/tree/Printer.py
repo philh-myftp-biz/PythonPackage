@@ -1,6 +1,12 @@
 from ...functools.force_types import force_in_types
 from ...db import Color
 
+__all__ = [
+    "RunFile",
+    "Error",
+    "xitem",
+]
+
 @force_in_types
 def RunFile(
     path: str,

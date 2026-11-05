@@ -2,6 +2,11 @@ from ..functools import force_in_types
 from .SysTask import SysTask, rscan
 from ..pc.Path import Path
 
+__all__ = [
+    "PyModule",
+    "modscan",
+]
+
 class PyModule(SysTask):
 
     @force_in_types

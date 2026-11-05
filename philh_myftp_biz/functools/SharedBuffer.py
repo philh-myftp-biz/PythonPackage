@@ -1,5 +1,9 @@
 from typing import Callable
 
+__all__ = [
+    "SharedBuffer",
+]
+
 class SharedBuffer:
 
     stop_when: Callable[[], bool] = lambda: False

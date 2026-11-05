@@ -1,5 +1,9 @@
 from frozendict import deepfreeze
 
+__all__ = [
+    "Weights",
+]
+
 class Weights:
     """```
 

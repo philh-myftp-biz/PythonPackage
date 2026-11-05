@@ -9,6 +9,11 @@ from builtins import TimeoutError as _TimeoutError
 if TYPE_CHECKING:
     from paramiko.channel import ChannelFile, ChannelStderrFile
 
+__all__ = [
+    "SSHResponse",
+    "SSH",
+]
+
 @dataclass
 # @dead-code-ignore
 class SSHResponse:

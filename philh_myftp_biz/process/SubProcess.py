@@ -7,6 +7,17 @@ from copy import deepcopy
 if TYPE_CHECKING:
     from ..pc import Path
 
+__all__ = [
+    "Terminal",
+    "_TerminalMap",
+    "TerminalMap",
+    "SubProcess",
+    "Run",
+    "RunHidden",
+    "Start",
+    "StartHidden",
+]
+
 class Terminal(TypedDict):
     args: tuple[str, ...]
     exts: tuple[str, ...]
@@ -174,3 +185,4 @@ class Start(SubProcess):
 class StartHidden(SubProcess):
     _hide = True
     _wait = False
+

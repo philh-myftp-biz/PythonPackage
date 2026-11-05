@@ -1,6 +1,10 @@
 from typing import ItemsView, KeysView, ValuesView, Callable
 from .Collection import Collection
 
+__all__ = [
+    "Dict",
+]
+
 class Dict[K,V](Collection[V, dict[K, V]]):
 
     #=======================================

@@ -3,6 +3,12 @@ from dataclasses import dataclass
 from typing import Any, Generator
 import builtins
 
+__all__ = [
+    "dunders",
+    "attr",
+    "attrs",
+]
+
 #========================================================
 
 dunders: list[str] = []

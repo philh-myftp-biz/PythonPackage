@@ -4,6 +4,10 @@ from copy import deepcopy
 from ..file import TXT
 from json import dumps
 
+__all__ = [
+    "Collection",
+]
+
 class Collection[T, STRUCT]:
 
     data: STRUCT

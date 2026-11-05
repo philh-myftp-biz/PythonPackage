@@ -1,5 +1,7 @@
 import os
 
+__all__ = []
+
 _listdir = os.listdir
 
 def listdir(path="."):

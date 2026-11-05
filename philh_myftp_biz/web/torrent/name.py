@@ -1,5 +1,10 @@
 from functools import cached_property
 
+__all__ = [
+    "qualities",
+    "NameParser"
+]
+
 qualities: tuple[str] = (
     'hdtv', 'tvrip', '2160p', 
     '1440p', '1080p', '720p',

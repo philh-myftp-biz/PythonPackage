@@ -7,6 +7,14 @@ from ..url import URL
 if TYPE_CHECKING:
     from ..driver import Driver
 
+__all__ = [
+    "url",
+    "driver",
+    "cache",
+    "search",
+    "_search",
+]
+
 # @dead-code-ignore
 url = URL("https://thepiratebay11.com/search/{}/1/99/200")
 

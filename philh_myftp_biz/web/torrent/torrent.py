@@ -10,6 +10,11 @@ if TYPE_CHECKING:
     from qbittorrentapi import TorrentDictionary
     from ...pc.Path import Path
 
+__all__ = [
+    "TorrentNotFoundError",
+    "Torrent",
+]
+
 class Torrent:
 
     def __init__(self, **kwargs) -> None:

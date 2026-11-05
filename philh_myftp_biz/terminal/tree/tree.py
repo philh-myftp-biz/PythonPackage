@@ -1,6 +1,10 @@
 from inspect import getdoc, isfunction
 from .branch import get_branches
 
+__all__ = [
+    "Tree",
+]
+
 class Tree:
     """Base Command Tree"""
 

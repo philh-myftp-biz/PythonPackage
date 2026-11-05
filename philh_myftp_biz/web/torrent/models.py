@@ -6,6 +6,13 @@ if TYPE_CHECKING:
     from ..torrent import Torrent
     from ...time import from_stamp
 
+__all__ = [
+    "MediaData",
+    "MovieData",
+    "ShowData",
+    "EpisodeData",
+]
+
 @dataclass(kw_only=True)
 class MediaData:
     

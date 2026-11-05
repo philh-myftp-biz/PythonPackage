@@ -9,6 +9,11 @@ if TYPE_CHECKING:
 
 from . import patch # Execute patches
 
+__all__ = [
+    "Path",
+    "PathPair"
+]
+
 #========================================================
 
 class Path(_Path):

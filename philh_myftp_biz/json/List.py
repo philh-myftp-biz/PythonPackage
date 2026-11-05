@@ -3,6 +3,10 @@ from .Collection import Collection
 from random import choice, shuffle
 from itertools import chain
 
+__all__ = [
+    "List",
+]
+
 class List[V](Collection[V, list[V]]):
 
     type Func = Callable[[V], Any]

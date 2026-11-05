@@ -5,6 +5,10 @@ if TYPE_CHECKING:
     from .Widget import Widget
     from .window import Window
 
+__all__ = [
+    "Page",
+]
+
 @dataclass
 class Page(list['Widget']):
 

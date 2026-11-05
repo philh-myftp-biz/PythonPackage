@@ -1,5 +1,9 @@
 from ..functools.supports import SupportsStr
 
+__all__ = [
+    "Pattern",
+]
+
 class Pattern:
 
     def __init__(self, *patterns):

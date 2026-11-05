@@ -9,6 +9,12 @@ if TYPE_CHECKING:
 from signal import SIGINT  as _INT
 from signal import SIG_DFL as _DFL
 
+__all__ = [
+    "_INT",
+    "_DFL",
+    "KIC",
+]
+
 @singleton
 class KIC:
     """KeyboardInterrupt Catcher"""

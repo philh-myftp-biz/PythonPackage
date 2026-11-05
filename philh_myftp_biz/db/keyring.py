@@ -1,5 +1,10 @@
 from dataclasses import dataclass
 
+__all__ = [
+    "Ring",
+    "Key",
+]
+
 # @dead-code-ignore
 class Ring:
     """Wrapper for keyring"""

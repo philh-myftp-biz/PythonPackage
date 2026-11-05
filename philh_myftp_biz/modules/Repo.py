@@ -1,8 +1,13 @@
-from git.exc import InvalidGitRepositoryError as InvalidRepoError # pyright: ignore[reportUnusedImport]
+from git.exc import InvalidGitRepositoryError as InvalidRepoError
 from typing import TYPE_CHECKING
 
 if TYPE_CHECKING:
     from ..pc import Path
+
+__all__ = [
+    "InvalidRepoError",
+    "Repo",
+]
 
 class Repo:
 

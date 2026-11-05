@@ -8,6 +8,11 @@ if TYPE_CHECKING:
     from .url import URL
     from ..pc import Path
 
+__all__ = [
+    "Element",
+    "Driver",
+]
+
 @dataclass
 class Element(WebElement):
 

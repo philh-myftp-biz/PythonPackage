@@ -1,6 +1,15 @@
 from enum import StrEnum
 
+__all__ = [
+    "Key",
+    "Ring",
+    "Size",
+    "MIMETYPES",
+    "Color",
+]
+
 from .keyring import Key, Ring
+from . import Size
 
 #========================================================
 

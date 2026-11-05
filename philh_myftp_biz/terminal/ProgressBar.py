@@ -3,6 +3,12 @@ from ..functools import singleton
 from ..num import nlen
 import sys
 
+__all__ = [
+    "Pipe",
+    "_modes",
+    "ProgressBar",
+]
+
 @singleton
 class Pipe:
 

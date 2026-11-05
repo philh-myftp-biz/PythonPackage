@@ -1,10 +1,20 @@
 from os import environ
 
-if not environ.get('STUBGEN'):
-    from .url import URL # pyright: ignore[reportUnusedImport]
-    from .session import Session, Adapter, RetryStrat # pyright: ignore[reportUnusedImport]
+__all__ = [
+    "URL",
+    "Session",
+    "Adapter",
+    "RetryStrat",
+    "FirewallException",
+    "IP",
+    "Port"   
+]
 
-from ._web import FirewallException, IP # pyright: ignore[reportUnusedImport]
+if not environ.get('STUBGEN'):
+    from .url import URL
+    from .session import Session, Adapter, RetryStrat
+
+from ._web import FirewallException, IP
 
 # @dead-code-ignore
 class Port:

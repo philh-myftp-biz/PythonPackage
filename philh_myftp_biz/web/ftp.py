@@ -5,6 +5,12 @@ from dataclasses import dataclass
 if TYPE_CHECKING:
     from ..pc import Path
 
+__all__ = [
+    "FTPPath",
+    "FTP",
+    "_cd",
+]
+
 @dataclass
 # @dead-code-ignore
 class FTPPath:

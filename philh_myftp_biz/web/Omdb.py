@@ -2,6 +2,17 @@ from .torrent.models import MovieData, ShowData, EpisodeData
 from typing import Literal
 from .url import URL
 
+__all__ = [
+    "_tmdb_key",
+    "_tmdb_url",
+    "_get_tmdb",
+    "_omdb_key",
+    "_omdb_url",
+    "_get_omdb",
+    "movie",
+    "show",
+]
+
 #=================================================================
 # TMDB (The Movie Database)
 

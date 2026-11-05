@@ -3,6 +3,11 @@ from typing import TYPE_CHECKING, NoReturn
 if TYPE_CHECKING:
     from .page import Page
 
+__all__ = [
+    "ClosedWindowException",
+    "Window",
+]
+
 class ClosedWindowException(BaseException):
     def throw() -> NoReturn:
         raise ClosedWindowException('Window was improperly terminated')

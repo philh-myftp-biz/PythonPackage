@@ -9,6 +9,11 @@ if TYPE_CHECKING:
     from ...pc import Path
     from . import Torrent
 
+__all__ = [
+    "TorrentFileNotFoundError",
+    "TorrentFile",
+]
+
 class TorrentFileNotFoundError(Exception): ...
 
 @dataclass

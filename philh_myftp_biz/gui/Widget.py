@@ -5,6 +5,15 @@ if TYPE_CHECKING:
     from .page import Page
     from ..db import Key
 
+__all__ = [
+    "Widget",
+    "Text",
+    "Link",
+    "Input",
+    "Header",
+    "Button",
+]
+
 class Widget(dict[str, Any]):
 
     raw: 'type[_Widget]'

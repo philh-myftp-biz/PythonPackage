@@ -16,6 +16,10 @@ from qbittorrentapi.search import SearchAPIMixIn
 if TYPE_CHECKING:
     from .torrent import Torrent
 
+__all__ = [
+    "qBitTorrent"
+]
+
 @singleton
 class qBitTorrent(
     LogAPIMixIn,

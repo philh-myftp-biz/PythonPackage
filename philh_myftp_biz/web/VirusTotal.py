@@ -6,6 +6,11 @@ if TYPE_CHECKING:
     from vt.object import Object as VTobj
     from ..pc import Path
 
+__all__ = [
+    "VirusReport",
+    "VirusTotal",
+]
+
 # @dead-code-ignore
 class VirusReport:
 

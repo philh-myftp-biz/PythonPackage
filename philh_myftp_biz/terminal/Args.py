@@ -4,6 +4,10 @@ from typing import Callable, Any
 from ..json import SupportsJSON
 from logger2 import Log
 
+__all__ = [
+    "Args",
+]
+
 @singleton
 class Args(tuple[SupportsJSON]):
 
@@ -104,3 +108,4 @@ Args.Flag(
     letter = 'v',
     desc = 'Advanced Debugging'
 )
+

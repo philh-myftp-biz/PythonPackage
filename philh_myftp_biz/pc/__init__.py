@@ -1,6 +1,16 @@
 from typing import Literal, Generator
 from os import environ
 
+__all__ = [
+    "Path",
+    "PathPair",
+    "cwd",
+    "relscan",
+    "NAME",
+    "OS",
+    "CWD",
+]
+
 if not environ.get('STUBGEN'):
     from typing_extensions import deprecated
     from ._pc import loc # pyright: ignore[reportUnusedImport]

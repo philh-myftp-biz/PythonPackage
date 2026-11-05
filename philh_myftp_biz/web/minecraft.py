@@ -4,6 +4,12 @@ from dataclasses import dataclass
 from typing import Literal, Any
 from .url import URL
 
+__all__ = [
+    "Mojang",
+    "ModrinthMod",
+    "FabricMC",
+]
+
 @singleton
 # @dead-code-ignore
 class Mojang:

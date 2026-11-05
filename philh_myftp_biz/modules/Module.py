@@ -6,6 +6,10 @@ from ..pc import Path
 if TYPE_CHECKING:
     from ..process import SubProcess
 
+__all__ = [
+    "Module",
+]
+
 class Module(Path, Device):
     """
     Allows for easy interaction with other languages in a directory

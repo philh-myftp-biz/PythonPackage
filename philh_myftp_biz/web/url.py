@@ -5,6 +5,10 @@ if TYPE_CHECKING:
     from requests import Response
     from ..pc import Path
 
+__all__ = [
+    "URL",
+]
+
 #============================================================================
 
 from requests import exceptions

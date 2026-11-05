@@ -2,6 +2,11 @@ from traceback import extract_stack
 from types import FunctionType
 from os.path import basename
 
+__all__ = [
+    "cpath",
+    "spath",
+]
+
 def cpath(obj) -> str:
     """
     Class Path

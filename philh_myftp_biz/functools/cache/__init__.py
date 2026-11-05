@@ -1,8 +1,15 @@
 from functools import cached_property as _cached_property
 from typing import Any
 
-from .transitory import TransitoryCache # pyright: ignore[reportUnusedImport]
-from .prop import cached_property # pyright: ignore[reportUnusedImport]
+from .transitory import TransitoryCache
+from .prop import cached_property
+
+__all__ = [
+    "TransitoryCache",
+    "cached_property",
+    "clear_cache",
+    "diskcache",
+]
 
 def clear_cache(instance: Any) -> None:
 

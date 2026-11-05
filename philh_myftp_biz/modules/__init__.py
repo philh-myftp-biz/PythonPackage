@@ -1,8 +1,15 @@
 
-# @dead-code-ignore
-from .Module import Module # pyright: ignore[reportUnusedImport]
+__all__ = [
+    "Module",
+    "Repo",
+    "InvalidRepoError",
+    "Service",
+    "ServiceDisabledError",
+]
 
-from .Repo import Repo # pyright: ignore[reportUnusedImport]
+from .Module import Module
 
-from .Service import Service, ServiceDisabledError # pyright: ignore[reportUnusedImport]
+from .Repo import Repo, InvalidRepoError
+
+from .Service import Service, ServiceDisabledError
 

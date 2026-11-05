@@ -2,6 +2,12 @@ from requests.adapters import HTTPAdapter as _HTTPAdapter
 from requests_cache import CachedSession as _CachedSession
 from urllib3.util import Retry as _Retry
 
+__all__ = [
+    "RetryStrat",
+    "Adapter",
+    "Session",
+]
+
 class RetryStrat(_Retry):
 
     def __init__(self,

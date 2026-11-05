@@ -4,6 +4,12 @@ from functools import partial
 if TYPE_CHECKING:
     from .pc import Path
 
+__all__ = [
+    "FFMPEG",
+    "FFPROBE",
+    "COOKIES",
+]
+
 #=================================
 
 def __FFMPEG(name:str) -> 'Path':

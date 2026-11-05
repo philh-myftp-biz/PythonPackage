@@ -1,11 +1,26 @@
-from fnmatch import fnmatch as like # pyright: ignore[reportUnusedImport]
+from fnmatch import fnmatch as like
 from functools import cache
 from os import environ
 
 if not environ.get('STUBGEN'):
-    from . import contains, hex # pyright: ignore[reportUnusedImport]
-    from .regex import Pattern # pyright: ignore[reportUnusedImport]
-    from .uio import UnconsumingIO # pyright: ignore[reportUnusedImport]
+    from . import contains, hex
+    from .regex import Pattern
+    from .uio import UnconsumingIO
+
+__all__ = [
+    "like",
+    "contains",
+    "hex",
+    "Pattern",
+    "UnconsumingIO",
+    "split",
+    "int_stripper",
+    "auto_convert",
+    "random",
+    "similarity",
+    "abbr",
+    "to_slice",
+]
 
 def split(
     value: str,

@@ -1,6 +1,10 @@
 from inspect import isclass, isfunction, ismethod, getmembers
 from requests.structures import CaseInsensitiveDict as cdict
 
+__all__ = [
+    "get_branches",
+]
+
 def get_branches[T](cls:type[T], recurse:bool):
 
     items: cdict = cdict()

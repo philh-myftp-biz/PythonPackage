@@ -1,5 +1,9 @@
 from functools import cached_property as _cached_property
 
+__all__ = [
+    "cached_property",
+]
+
 class cached_property[T](_cached_property[T]):
 
     def __init__(self, func):

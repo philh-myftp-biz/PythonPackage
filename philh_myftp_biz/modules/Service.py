@@ -6,6 +6,11 @@ from ..pc import Path
 if TYPE_CHECKING:
     from philh_myftp_biz.process import RunHidden
 
+__all__ = [
+    "ServiceDisabledError",
+    "Service",
+]
+
 class ServiceDisabledError(Exception):
 
     def __init__(self, serv:'Service') -> None:
