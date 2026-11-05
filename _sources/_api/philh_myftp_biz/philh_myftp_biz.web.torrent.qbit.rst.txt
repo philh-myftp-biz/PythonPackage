@@ -17,15 +17,18 @@ Classes
    :align: left
 
    * - :py:obj:`qBitTorrent <philh_myftp_biz.web.torrent.qbit.qBitTorrent>`
-     -
+     - .. autodoc2-docstring:: philh_myftp_biz.web.torrent.qbit.qBitTorrent
+          :summary:
 
 API
 ~~~
 
-.. py:class:: qBitTorrent(host: str | None = None, port: str | int | None = None, username: str | None = None, password: str | None = None, api_key: str | None = None, EXTRA_HEADERS: collections.abc.Mapping[str, str] | None = None, REQUESTS_ARGS: collections.abc.Mapping[str, typing.Any] | None = None, HTTPADAPTER_ARGS: collections.abc.Mapping[str, typing.Any] | None = None, VERIFY_WEBUI_CERTIFICATE: bool = True, FORCE_SCHEME_FROM_HOST: bool = False, RAISE_NOTIMPLEMENTEDERROR_FOR_UNIMPLEMENTED_API_ENDPOINTS: bool = False, RAISE_ERROR_FOR_UNSUPPORTED_QBITTORRENT_VERSIONS: bool = False, VERBOSE_RESPONSE_LOGGING: bool = False, SIMPLE_RESPONSES: bool = False, DISABLE_LOGGING_DEBUG_OUTPUT: bool = False)
+.. py:class:: qBitTorrent
    :canonical: philh_myftp_biz.web.torrent.qbit.qBitTorrent
 
    Bases: :py:obj:`qbittorrentapi.log.LogAPIMixIn`, :py:obj:`qbittorrentapi.sync.SyncAPIMixIn`, :py:obj:`qbittorrentapi.transfer.TransferAPIMixIn`, :py:obj:`qbittorrentapi.torrents.TorrentsAPIMixIn`, :py:obj:`qbittorrentapi.torrentcreator.TorrentCreatorAPIMixIn`, :py:obj:`qbittorrentapi.rss.RSSAPIMixIn`, :py:obj:`qbittorrentapi.search.SearchAPIMixIn`
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.torrent.qbit.qBitTorrent
 
    .. py:method:: connect(host: str, username: str, password: str, port: int = 8080, timeout: int = 3600) -> None
       :canonical: philh_myftp_biz.web.torrent.qbit.qBitTorrent.connect

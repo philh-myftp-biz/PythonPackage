@@ -17,7 +17,8 @@ Classes
    :align: left
 
    * - :py:obj:`Process <philh_myftp_biz.process.SysTask.Process>`
-     -
+     - .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.Process
+          :summary:
    * - :py:obj:`SysTask <philh_myftp_biz.process.SysTask.SysTask>`
      - .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.SysTask
           :summary:
@@ -69,10 +70,12 @@ API
 
    .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.cpu_limiter
 
-.. py:class:: Process(pid=None)
+.. py:class:: Process
    :canonical: philh_myftp_biz.process.SysTask.Process
 
    Bases: :py:obj:`psutil.Process`
+
+   .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.Process
 
    .. py:attribute:: _cpu_limit
       :canonical: philh_myftp_biz.process.SysTask.Process._cpu_limit
@@ -95,12 +98,18 @@ API
    .. py:method:: cwd() -> Path|None
       :canonical: philh_myftp_biz.process.SysTask.Process.cwd
 
+      .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.Process.cwd
+
    .. py:method:: cmdline() -> list[str] | None
       :canonical: philh_myftp_biz.process.SysTask.Process.cmdline
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.Process.cmdline
 
    .. py:property:: children
       :canonical: philh_myftp_biz.process.SysTask.Process.children
       :type: list[philh_myftp_biz.process.SysTask.Process]
+
+      .. autodoc2-docstring:: philh_myftp_biz.process.SysTask.Process.children
 
    .. py:property:: descendants
       :canonical: philh_myftp_biz.process.SysTask.Process.descendants

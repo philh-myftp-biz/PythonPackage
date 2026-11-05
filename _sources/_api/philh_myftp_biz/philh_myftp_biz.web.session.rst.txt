@@ -21,7 +21,8 @@ Classes
    * - :py:obj:`Adapter <philh_myftp_biz.web.session.Adapter>`
      -
    * - :py:obj:`Session <philh_myftp_biz.web.session.Session>`
-     -
+     - .. autodoc2-docstring:: philh_myftp_biz.web.session.Session
+          :summary:
 
 API
 ~~~
@@ -40,3 +41,9 @@ API
    :canonical: philh_myftp_biz.web.session.Session
 
    Bases: :py:obj:`requests_cache.CachedSession`
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.session.Session
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.session.Session.__init__

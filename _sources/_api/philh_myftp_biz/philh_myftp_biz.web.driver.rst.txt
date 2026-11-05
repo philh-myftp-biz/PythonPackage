@@ -17,7 +17,8 @@ Classes
    :align: left
 
    * - :py:obj:`Element <philh_myftp_biz.web.driver.Element>`
-     -
+     - .. autodoc2-docstring:: philh_myftp_biz.web.driver.Element
+          :summary:
    * - :py:obj:`Driver <philh_myftp_biz.web.driver.Driver>`
      - .. autodoc2-docstring:: philh_myftp_biz.web.driver.Driver
           :summary:
@@ -29,6 +30,12 @@ API
    :canonical: philh_myftp_biz.web.driver.Element
 
    Bases: :py:obj:`selenium.webdriver.remote.webelement.WebElement`
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.driver.Element
+
+   .. rubric:: Initialization
+
+   .. autodoc2-docstring:: philh_myftp_biz.web.driver.Element.__init__
 
    .. py:property:: children
       :canonical: philh_myftp_biz.web.driver.Element.children
