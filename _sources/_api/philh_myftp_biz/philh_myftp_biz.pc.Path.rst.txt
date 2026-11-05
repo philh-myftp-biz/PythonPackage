@@ -90,8 +90,12 @@ API
    .. py:method:: __format__(spec: str) -> str
       :canonical: philh_myftp_biz.pc.Path.Path.__format__
 
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path.Path.__format__
+
    .. py:method:: __eq__(other: object) -> bool
       :canonical: philh_myftp_biz.pc.Path.Path.__eq__
+
+      .. autodoc2-docstring:: philh_myftp_biz.pc.Path.Path.__eq__
 
    .. py:property:: fsize
       :canonical: philh_myftp_biz.pc.Path.Path.fsize
