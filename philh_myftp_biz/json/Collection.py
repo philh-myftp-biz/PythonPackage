@@ -6,19 +6,27 @@ from json import dumps
 
 class Collection[T, STRUCT]:
 
+    data: STRUCT
+
     def __init__(self,
         t: 'STRUCT | TXT | Collection[T, STRUCT] | Any' = None,
         file: TXT|None = None
     ) -> None:
         
-        cls = get_args(self.__class__.__orig_bases__[0])[1].__origin__
+        self.cls = get_args(self.__class__.__orig_bases__[0])[1].__origin__
         
         self.file = file
 
-        self.data: STRUCT = (cls() if t is None else deepcopy(cls(t)))
+        if data is None:
+            self.clear()
+        else:
+            self.data = deepcopy(self.cls(t))
 
     #=======================================
     
+    def clear(self) -> None:
+        self.data = self.cls()
+
     def flush(self) -> None:
         """Save data to file"""
         if self.file:
