@@ -12,26 +12,6 @@ pip_install() {
         --user
 }
 
-pip_remove() {
-    python3 -m pip uninstall -y "$@" \
-        --break-system-packages
-}
-
-if [ "$1" == "-f" ]; then
-
-    rm -rf "philh_myftp_biz.egg-info"
-    rm -rf "build"
-    rm -rf "_build" 
-    rm -rf "_api"
-    rm -rf "dist"
-
-    pip_remove philh_myftp_biz
-    pip_remove auto-python-docs
-    
-    pip cache purge
-
-fi
-
 export PYTHONWARNINGS="ignore:setup.py install is deprecated"
 
 pip_install -v . --ignore-installed urllib3 || exit 1
