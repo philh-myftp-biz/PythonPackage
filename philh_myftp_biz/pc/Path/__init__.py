@@ -267,6 +267,13 @@ class Path(_Path):
             encoding = None if ('b' in mode) else 'utf-8'
         )
 
+    def read(self, 
+        mode: Literal['r', 'rb'] = 'r',
+        n: int = -1,
+    ):
+        with self.open(mode) as f:
+            return f.read(n=n)
+
     @property
     def text(self) -> str:
         with self.open('r') as f:
