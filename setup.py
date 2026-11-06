@@ -1,4 +1,4 @@
-from pybind_setup_ext import cpp_ext, setup, update_submodule, include_dirs
+from advsetuptools import cpp_ext, setup, update_submodule, include_dirs
 
 update_submodule('headers', force=True, remote=True)
 
